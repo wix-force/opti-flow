@@ -360,7 +360,7 @@ export default function HomePage() {
               <div className="space-y-2">
                 <div className="flex justify-between items-center">
                   <Label htmlFor="hoursPerWeek" className="font-heading text-xs text-white/80 uppercase tracking-widest">
-                    Hours/Week
+                    Hours/Week on Messy Workflows
                   </Label>
                   <span className="font-heading text-xl text-primary">{hoursPerWeek[0]}h</span>
                 </div>
