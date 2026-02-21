@@ -342,7 +342,7 @@ export default function HomePage() {
             <div className="lg:col-span-1 space-y-5">
               <div className="space-y-2">
                 <Label htmlFor="hourlyRate" className="font-heading text-xs text-white/80 uppercase tracking-widest block">
-                  Hourly Rate
+                  Your Hourly Rate
                 </Label>
                 <div className="relative">
                   <span className="absolute left-3 top-1/2 -translate-y-1/2 text-white/50 text-sm">$</span>
@@ -360,7 +360,7 @@ export default function HomePage() {
               <div className="space-y-2">
                 <div className="flex justify-between items-center">
                   <Label htmlFor="hoursPerWeek" className="font-heading text-xs text-white/80 uppercase tracking-widest">
-                    Hours/Week on Messy Workflows
+                    Hours/Week Spent on Messy Workflows
                   </Label>
                   <span className="font-heading text-xl text-primary">{hoursPerWeek[0]}h</span>
                 </div>
