@@ -143,7 +143,7 @@ export default function HomePage() {
               >
                 <div className="w-12 h-[1px] bg-foreground hidden md:block"></div>
                 <p className="font-paragraph text-xl md:text-2xl text-secondary leading-relaxed">
-                  Send me a 10-minute video of a task that feels "clunky." I’ll send you the blueprint to fix it. Simple, objective, and done in 48 hours.
+                  Send me a 10 minute <a href="https://www.loom.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-semibold">Loom</a> Video of a task you want to speed up or eliminate. I'll send you the blueprint to fix it. Simple, objective, and done in 72 hours.
                 </p>
               </motion.div>
 
