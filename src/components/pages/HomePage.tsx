@@ -342,7 +342,7 @@ export default function HomePage() {
             <div className="lg:col-span-1 space-y-5">
               <div className="space-y-2">
                 <Label htmlFor="hourlyRate" className="font-heading text-xs text-white/80 uppercase tracking-widest block">
-                  Your Hourly Rate
+                  Hourly Rate
                 </Label>
                 <div className="relative">
                   <span className="absolute left-3 top-1/2 -translate-y-1/2 text-white/50 text-sm">$</span>
