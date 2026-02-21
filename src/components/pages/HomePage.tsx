@@ -321,72 +321,99 @@ export default function HomePage() {
       </section>
 
       {/* ROI CALCULATOR - INTERACTIVE */}
-      <section className="w-full bg-foreground text-background py-32 overflow-hidden relative">
+      <section className="w-full bg-foreground text-background py-20 overflow-hidden relative">
         {/* Background Texture */}
         <div className="absolute inset-0 opacity-10" 
              style={{ backgroundImage: 'radial-gradient(#fff 1px, transparent 1px)', backgroundSize: '30px 30px' }}>
         </div>
 
         <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
-            <div className="lg:col-span-5">
-              <h2 className="font-heading text-5xl md:text-6xl mb-8 text-white">
-                The Cost of <br />
-                <span className="text-secondary">Inaction.</span>
-              </h2>
-              <p className="font-paragraph text-xl text-secondary mb-12">
-                See how much time and money you could save by optimizing just one workflow. The numbers don't lie.
-              </p>
+          <div className="mb-12">
+            <h2 className="font-heading text-4xl md:text-5xl mb-3 text-white">
+              The Cost of <span className="text-secondary">Inaction</span>
+            </h2>
+            <p className="font-paragraph text-lg text-secondary max-w-2xl">
+              See how much time and money you could save by optimizing just one workflow.
+            </p>
+          </div>
 
-              <div className="space-y-12">
-                <div className="space-y-4">
-                  <Label htmlFor="hourlyRate" className="font-heading text-lg text-white block">
-                    Your Hourly Rate ($)
-                  </Label>
-                  <div className="relative">
-                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-white/50 text-xl">$</span>
-                    <Input
-                      id="hourlyRate"
-                      type="number"
-                      value={hourlyRate}
-                      onChange={(e) => setHourlyRate(e.target.value)}
-                      className="bg-white/5 border-white/20 text-white text-2xl h-16 pl-10 focus:border-primary rounded-none transition-colors"
-                      min="0"
-                    />
-                  </div>
-                </div>
-
-                <div className="space-y-6">
-                  <div className="flex justify-between items-end">
-                    <Label htmlFor="hoursPerWeek" className="font-heading text-lg text-white block">
-                      Hours Saved Per Week
-                    </Label>
-                    <span className="font-heading text-4xl text-primary">{hoursPerWeek[0]}h</span>
-                  </div>
-                  <Slider
-                    id="hoursPerWeek"
-                    value={hoursPerWeek}
-                    onValueChange={setHoursPerWeek}
-                    max={20}
-                    min={1}
-                    step={1}
-                    className="py-4"
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+            {/* Input Controls - Compact */}
+            <div className="lg:col-span-1 space-y-5">
+              <div className="space-y-2">
+                <Label htmlFor="hourlyRate" className="font-heading text-xs text-white/80 uppercase tracking-widest block">
+                  Hourly Rate
+                </Label>
+                <div className="relative">
+                  <span className="absolute left-3 top-1/2 -translate-y-1/2 text-white/50 text-sm">$</span>
+                  <Input
+                    id="hourlyRate"
+                    type="number"
+                    value={hourlyRate}
+                    onChange={(e) => setHourlyRate(e.target.value)}
+                    className="bg-white/5 border-white/20 text-white text-base h-11 pl-7 focus:border-primary rounded-none transition-colors"
+                    min="0"
                   />
-                  <div className="flex justify-between text-xs text-secondary uppercase tracking-widest">
-                    <span>1 Hour</span>
-                    <span>20 Hours</span>
-                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <div className="flex justify-between items-center">
+                  <Label htmlFor="hoursPerWeek" className="font-heading text-xs text-white/80 uppercase tracking-widest">
+                    Hours/Week
+                  </Label>
+                  <span className="font-heading text-xl text-primary">{hoursPerWeek[0]}h</span>
+                </div>
+                <Slider
+                  id="hoursPerWeek"
+                  value={hoursPerWeek}
+                  onValueChange={setHoursPerWeek}
+                  max={20}
+                  min={1}
+                  step={1}
+                  className="py-2"
+                />
+                <div className="flex justify-between text-xs text-secondary/70">
+                  <span>1h</span>
+                  <span>20h</span>
                 </div>
               </div>
             </div>
 
-            <div className="lg:col-span-7 flex flex-col justify-center">
-              <div className="grid grid-cols-1 gap-8">
-                <ROICard label="Weekly Savings" amount={savings.weekly} delay={0} />
-                <div className="w-full h-[1px] bg-white/10"></div>
-                <ROICard label="Monthly Savings" amount={savings.monthly} delay={0.1} />
-                <div className="w-full h-[1px] bg-white/10"></div>
-                <ROICard label="Yearly Savings" amount={savings.yearly} delay={0.2} highlight />
+            {/* Results Grid - 3 Cards */}
+            <div className="lg:col-span-2 grid grid-cols-3 gap-4">
+              <div className="bg-white/5 border border-white/10 p-5 text-center">
+                <p className="font-heading text-xs text-white/60 uppercase tracking-widest mb-2">Weekly</p>
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ duration: 0.5 }}
+                  className="font-heading text-2xl md:text-3xl text-white"
+                >
+                  ${savings.weekly.toLocaleString(undefined, { maximumFractionDigits: 0 })}
+                </motion.p>
+              </div>
+              <div className="bg-white/5 border border-white/10 p-5 text-center">
+                <p className="font-heading text-xs text-white/60 uppercase tracking-widest mb-2">Monthly</p>
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  className="font-heading text-2xl md:text-3xl text-white"
+                >
+                  ${savings.monthly.toLocaleString(undefined, { maximumFractionDigits: 0 })}
+                </motion.p>
+              </div>
+              <div className="bg-primary border border-primary p-5 text-center">
+                <p className="font-heading text-xs text-white/80 uppercase tracking-widest mb-2">Yearly</p>
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  className="font-heading text-2xl md:text-3xl text-white"
+                >
+                  ${savings.yearly.toLocaleString(undefined, { maximumFractionDigits: 0 })}
+                </motion.p>
               </div>
             </div>
           </div>
