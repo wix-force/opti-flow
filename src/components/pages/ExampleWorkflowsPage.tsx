@@ -41,7 +41,7 @@ export default function ExampleWorkflowsPage() {
             <h1 className="font-heading text-3xl md:text-4xl text-foreground mb-2">
               Example Workflows
             </h1>
-            <p className="font-paragraph text-2xl md:text-3xl text-foreground max-w-3xl font-bold">
+            <p className="font-paragraph text-4xl md:text-5xl text-foreground max-w-3xl font-bold leading-tight">
               Real processes we've optimized. See if any match your workflow.
             </p>
           </motion.div>
@@ -93,7 +93,7 @@ function CompactProcessCard({ process, index }: { process: ProcessExamples, inde
     >
       <div>
         <div className="flex justify-between items-start gap-2 mb-2">
-          <h3 className="font-heading text-base font-bold text-dark-grey group-hover:text-primary transition-colors leading-tight">
+          <h3 className="font-heading text-lg font-bold text-dark-grey group-hover:text-primary transition-colors leading-tight">
             {process.processName}
           </h3>
           <Plus className="w-4 h-4 text-accent-grey group-hover:text-primary group-hover:rotate-90 transition-all duration-300 flex-shrink-0 mt-0.5" />
