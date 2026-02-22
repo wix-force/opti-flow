@@ -1,7 +1,7 @@
 // HPI 1.7-G
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring, useInView } from 'framer-motion';
-import { ArrowRight, Clock, FileText, Zap, CheckCircle, ArrowDown, Plus } from 'lucide-react';
+import { ArrowRight, CheckCircle, ArrowDown, Plus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -178,35 +178,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* QUICK PROCESS - COMPACT */}
-      <section className="w-full bg-background py-16 border-b border-accent-grey">
-        <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="flex flex-col items-start">
-              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                <Clock className="w-6 h-6 text-primary" />
-              </div>
-              <h3 className="font-heading text-lg text-foreground mb-2">Record</h3>
-              <p className="font-paragraph text-sm text-secondary">Send a Loom of your workflow.</p>
-            </div>
-            <div className="flex flex-col items-start">
-              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                <FileText className="w-6 h-6 text-primary" />
-              </div>
-              <h3 className="font-heading text-lg text-foreground mb-2">Analyze</h3>
-              <p className="font-paragraph text-sm text-secondary">I identify bottlenecks within 48 hours.</p>
-            </div>
-            <div className="flex flex-col items-start">
-              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                <Zap className="w-6 h-6 text-primary" />
-              </div>
-              <h3 className="font-heading text-lg text-foreground mb-2">Implement</h3>
-              <p className="font-paragraph text-sm text-secondary">Get your playbook and start saving time.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* PRODUCT CONTAINER - THE "BUY" BOX */}
       <section className="w-full bg-accent-grey/10 py-32 border-b border-accent-grey">
         <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24">
@@ -241,7 +212,7 @@ export default function HomePage() {
                         {service.itemName}
                       </h2>
                       <p className="font-paragraph text-xl text-secondary mb-8">
-                        One Workflow. One Report. Zero Fluff.
+                        One Workflow. One Report. Zero Unnecessary Details.
                       </p>
                       <div className="space-y-4 mb-8">
                         {service.serviceInclusions?.split('\n').map((item, index) => (
@@ -258,8 +229,30 @@ export default function HomePage() {
                         The Single Process Audit
                       </h2>
                       <p className="font-paragraph text-xl text-secondary mb-8">
-                        One Workflow. One Report. Zero Fluff.
+                        One Workflow. One Report. Zero Unnecessary Details.
                       </p>
+                      <div className="space-y-4 mb-8">
+                        <div className="flex items-start group">
+                          <CheckCircle className="w-5 h-5 text-primary mr-4 mt-1 flex-shrink-0 group-hover:scale-110 transition-transform" />
+                          <span className="font-paragraph text-base text-foreground/80">Workflow Audit: Complete analysis of one core workflow (via Loom or SOP).</span>
+                        </div>
+                        <div className="flex items-start group">
+                          <CheckCircle className="w-5 h-5 text-primary mr-4 mt-1 flex-shrink-0 group-hover:scale-110 transition-transform" />
+                          <span className="font-paragraph text-base text-foreground/80">Stack Integration: Audit of your current tools to ensure the fix stays within your existing ecosystem.</span>
+                        </div>
+                        <div className="flex items-start group">
+                          <CheckCircle className="w-5 h-5 text-primary mr-4 mt-1 flex-shrink-0 group-hover:scale-110 transition-transform" />
+                          <span className="font-paragraph text-base text-foreground/80">Root Cause Analysis: Precise identification of the "Hidden Clogs" draining your capacity.</span>
+                        </div>
+                        <div className="flex items-start group">
+                          <CheckCircle className="w-5 h-5 text-primary mr-4 mt-1 flex-shrink-0 group-hover:scale-110 transition-transform" />
+                          <span className="font-paragraph text-base text-foreground/80">5 Actionable Levers: Specific, simplified steps to immediate process acceleration.</span>
+                        </div>
+                        <div className="flex items-start group">
+                          <CheckCircle className="w-5 h-5 text-primary mr-4 mt-1 flex-shrink-0 group-hover:scale-110 transition-transform" />
+                          <span className="font-paragraph text-base text-foreground/80">Tech Recommendations: Budget friendly, high-impact automation or tool suggestions.</span>
+                        </div>
+                      </div>
                     </>
                   )}
                 </div>
@@ -538,73 +531,6 @@ export default function HomePage() {
 // ---------------------------------------------------------------------------
 // SUB-COMPONENTS
 // ---------------------------------------------------------------------------
-
-function ParallaxImage({ src, alt }: { src: string, alt: string }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"]
-  });
-  
-  const y = useTransform(scrollYProgress, [0, 1], ["-20%", "20%"]);
-
-  return (
-    <div ref={ref} className="w-full h-full overflow-hidden relative">
-      <motion.div style={{ y }} className="w-full h-[140%] absolute top-[-20%] left-0">
-        <Image 
-          src={src} 
-          alt={alt} 
-          className="w-full h-full object-cover"
-        />
-      </motion.div>
-    </div>
-  );
-}
-
-function StepCard({ number, title, description, icon }: { number: string, title: string, description: string, icon: React.ReactNode }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  return (
-    <div ref={ref} className="flex flex-col md:flex-row gap-8 md:gap-16 items-start group">
-      <div className="relative">
-        <div className="w-24 h-24 border border-accent-grey flex items-center justify-center bg-background relative z-10 group-hover:border-primary transition-colors duration-500">
-          {icon}
-        </div>
-        <div className="absolute -top-4 -left-4 font-heading text-6xl text-accent-grey/50 -z-0 select-none">
-          {number}
-        </div>
-      </div>
-      <div className={`transition-all duration-700 ${isInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
-        <h3 className="font-heading text-3xl text-foreground mb-4 group-hover:text-primary transition-colors">{title}</h3>
-        <p className="font-paragraph text-lg text-secondary leading-relaxed max-w-xl">
-          {description}
-        </p>
-      </div>
-    </div>
-  );
-}
-
-function ROICard({ label, amount, delay, highlight = false }: { label: string, amount: number, delay: number, highlight?: boolean }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true });
-
-  return (
-    <div ref={ref} className="flex items-center justify-between py-4">
-      <span className={`font-heading text-lg md:text-xl ${highlight ? 'text-white' : 'text-white/60'}`}>
-        {label}
-      </span>
-      <motion.span
-        initial={{ opacity: 0, x: 20 }}
-        animate={isInView ? { opacity: 1, x: 0 } : {}}
-        transition={{ duration: 0.5, delay }}
-        className={`font-heading text-4xl md:text-6xl ${highlight ? 'text-primary' : 'text-white'}`}
-      >
-        ${amount.toLocaleString(undefined, { maximumFractionDigits: 0 })}
-      </motion.span>
-    </div>
-  );
-}
 
 function ProcessCard({ process, index }: { process: ProcessExamples, index: number }) {
   const ref = useRef<HTMLDivElement>(null);
