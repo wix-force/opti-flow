@@ -1,7 +1,7 @@
 // HPI 1.7-G
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, useScroll, useTransform, useSpring, useInView } from 'framer-motion';
-import { ArrowRight, CheckCircle, ArrowDown, Plus } from 'lucide-react';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import { ArrowRight, CheckCircle, ArrowDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -19,7 +19,6 @@ export default function HomePage() {
   // ---------------------------------------------------------------------------
   const [hourlyRate, setHourlyRate] = useState<string>('50');
   const [hoursPerWeek, setHoursPerWeek] = useState<number[]>([5]);
-  const [processExamples, setProcessExamples] = useState<ProcessExamples[]>([]);
   const [service, setService] = useState<Services | null>(null);
   const [isLoadingData, setIsLoadingData] = useState(true);
   const [formData, setFormData] = useState({
@@ -38,11 +37,7 @@ export default function HomePage() {
   const loadData = async () => {
     setIsLoadingData(true);
     try {
-      const [processResult, serviceResult] = await Promise.all([
-        BaseCrudService.getAll<ProcessExamples>('processexamples'),
-        BaseCrudService.getAll<Services>('services', [], { limit: 1 })
-      ]);
-      setProcessExamples(processResult.items);
+      const serviceResult = await BaseCrudService.getAll<Services>('services', [], { limit: 1 });
       if (serviceResult.items.length > 0) {
         setService(serviceResult.items[0]);
       }
@@ -156,9 +151,9 @@ export default function HomePage() {
                 <Button 
                   size="sm" 
                   className="bg-foreground text-background hover:bg-primary hover:text-white transition-all duration-300 font-heading px-6 py-4 h-auto rounded-none"
-                  onClick={() => document.getElementById('processes')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => window.location.href = '/example-workflows'}
                 >
-                  Show Me Examples <ArrowRight className="ml-2 h-4 w-4" />
+                  Example Workflows <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
                 
                 <Button 
@@ -393,39 +388,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* APPLY TO ANYTHING - PROCESS EXAMPLES */}
-      <section id="processes" className="w-full bg-background py-32 border-b border-accent-grey">
-        <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24">
-          <div className="mb-24 text-center max-w-4xl mx-auto">
-            <h2 className="font-heading text-5xl md:text-6xl text-foreground mb-6">
-              Apply to Anything
-            </h2>
-            <p className="font-paragraph text-2xl text-secondary">
-              "If it's a repetitive process, I can fix it."
-            </p>
-          </div>
 
-          <div className="min-h-[400px]">
-            {isLoadingData ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-accent-grey border border-accent-grey">
-                {[1, 2, 3, 4, 5, 6].map((i) => (
-                  <div key={i} className="bg-background h-64 animate-pulse"></div>
-                ))}
-              </div>
-            ) : processExamples.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-accent-grey border border-accent-grey">
-                {processExamples.map((process, index) => (
-                  <ProcessCard key={process._id} process={process} index={index} />
-                ))}
-              </div>
-            ) : (
-               <div className="text-center py-20">
-                 <p className="text-secondary">No process examples loaded.</p>
-               </div>
-            )}
-          </div>
-        </div>
-      </section>
 
       {/* CONTACT FORM */}
       <section id="contact" className="w-full bg-background py-32">
@@ -534,44 +497,6 @@ export default function HomePage() {
       </section>
 
       <Footer />
-    </div>
-  );
-}
-
-// ---------------------------------------------------------------------------
-// SUB-COMPONENTS
-// ---------------------------------------------------------------------------
-
-function ProcessCard({ process, index }: { process: ProcessExamples, index: number }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "50px" });
-
-  return (
-    <div 
-      ref={ref}
-      className={`bg-background p-12 group hover:bg-accent-grey/5 transition-colors duration-300 flex flex-col justify-between min-h-[320px] ${isInView ? 'opacity-100' : 'opacity-0'}`}
-      style={{ transitionDelay: `${index * 100}ms` }}
-    >
-      <div>
-        <div className="flex justify-between items-start mb-6">
-          <h3 className="font-heading text-2xl text-foreground group-hover:text-primary transition-colors">
-            {process.processName}
-          </h3>
-          <Plus className="w-6 h-6 text-accent-grey group-hover:text-primary group-hover:rotate-90 transition-all duration-300" />
-        </div>
-        <p className="font-paragraph text-base text-secondary mb-6 leading-relaxed">
-          {process.processDescription}
-        </p>
-      </div>
-      
-      {process.commonPainPoint && (
-        <div className="pt-6 border-t border-accent-grey/50">
-          <p className="font-paragraph text-sm text-secondary/80 italic">
-            <span className="font-bold not-italic text-foreground/80 mr-2">Pain Point:</span> 
-            {process.commonPainPoint}
-          </p>
-        </div>
-      )}
     </div>
   );
 }
