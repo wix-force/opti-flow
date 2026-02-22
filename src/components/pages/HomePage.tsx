@@ -1,7 +1,7 @@
 // HPI 1.7-G
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
-import { ArrowRight, CheckCircle, ArrowDown } from 'lucide-react';
+import { motion, useScroll, useTransform, useSpring, useInView } from 'framer-motion';
+import { ArrowRight, CheckCircle, ArrowDown, Plus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -20,6 +20,7 @@ export default function HomePage() {
   const [hourlyRate, setHourlyRate] = useState<string>('50');
   const [hoursPerWeek, setHoursPerWeek] = useState<number[]>([5]);
   const [service, setService] = useState<Services | null>(null);
+  const [processExamples, setProcessExamples] = useState<ProcessExamples[]>([]);
   const [isLoadingData, setIsLoadingData] = useState(true);
   const [formData, setFormData] = useState({
     name: '',
@@ -41,6 +42,9 @@ export default function HomePage() {
       if (serviceResult.items.length > 0) {
         setService(serviceResult.items[0]);
       }
+      
+      const processResult = await BaseCrudService.getAll<ProcessExamples>('processexamples');
+      setProcessExamples(processResult.items);
     } catch (error) {
       console.error('Error loading data:', error);
     } finally {
@@ -151,7 +155,7 @@ export default function HomePage() {
                 <Button 
                   size="sm" 
                   className="bg-foreground text-background hover:bg-primary hover:text-white transition-all duration-300 font-heading px-6 py-4 h-auto rounded-none"
-                  onClick={() => window.location.href = '/example-workflows'}
+                  onClick={() => document.getElementById('example-workflows')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   Example Workflows <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
@@ -390,6 +394,46 @@ export default function HomePage() {
 
 
 
+      {/* EXAMPLE WORKFLOWS SECTION */}
+      <section id="example-workflows" className="w-full bg-background py-20 border-b border-accent-grey">
+        <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+            className="mb-12"
+          >
+            <h2 className="font-heading text-3xl md:text-4xl text-foreground mb-2">
+              Example Workflows
+            </h2>
+            <p className="font-paragraph text-2xl md:text-3xl text-foreground max-w-3xl font-bold leading-tight">
+              Real processes we've optimized. See if any match your workflow.
+            </p>
+          </motion.div>
+
+          <div className="min-h-[200px]">
+            {isLoadingData ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+                {[1, 2, 3, 4, 5, 6].map((i) => (
+                  <div key={i} className="bg-accent-grey/30 h-32 animate-pulse rounded-lg"></div>
+                ))}
+              </div>
+            ) : processExamples.length > 0 ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+                {processExamples.map((process, index) => (
+                  <CompactProcessCard key={process._id} process={process} index={index} />
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-12">
+                <p className="text-secondary text-sm">No workflow examples available.</p>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
       {/* CONTACT FORM */}
       <section id="contact" className="w-full bg-background py-32">
         <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24">
@@ -498,5 +542,41 @@ export default function HomePage() {
 
       <Footer />
     </div>
+  );
+}
+
+// Ultra compact card component - minimal design
+function CompactProcessCard({ process, index }: { process: ProcessExamples, index: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "30px" });
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 10 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+      transition={{ duration: 0.4, delay: index * 0.05 }}
+      className="bg-white border border-accent-grey p-2.5 group hover:border-primary hover:bg-primary/2 transition-all duration-300 flex flex-col justify-between min-h-fit"
+    >
+      <div>
+        <div className="flex justify-between items-start gap-2 mb-2">
+          <h3 className="font-heading text-lg font-bold text-dark-grey group-hover:text-primary transition-colors leading-tight">
+            {process.processName}
+          </h3>
+          <Plus className="w-4 h-4 text-accent-grey group-hover:text-primary group-hover:rotate-90 transition-all duration-300 flex-shrink-0 mt-0.5" />
+        </div>
+        <p className="font-paragraph text-xs text-secondary leading-snug line-clamp-2">
+          {process.processDescription}
+        </p>
+      </div>
+
+      {process.commonPainPoint && (
+        <div className="pt-1.5 mt-1.5 border-t border-accent-grey/50 bg-primary/5 -mx-2.5 px-2.5 py-1.5">
+          <p className="font-paragraph text-xs text-foreground font-semibold">
+            <span className="text-primary font-bold">Pain:</span> {process.commonPainPoint}
+          </p>
+        </div>
+      )}
+    </motion.div>
   );
 }
