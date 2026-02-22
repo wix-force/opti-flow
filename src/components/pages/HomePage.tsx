@@ -497,7 +497,7 @@ export default function HomePage() {
                 <span className="text-primary">Started.</span>
               </h2>
               <p className="font-paragraph text-xl text-secondary mb-12 max-w-md">
-                Ready to optimize your workflow? Fill out the form and I'll get back to you within 24 hours.
+                Have a question or want to request a customized package? Fill out the form and I'll get back to you within 24 hours.
               </p>
               
               <div className="hidden lg:block relative w-full aspect-square overflow-hidden mt-12">
