@@ -178,60 +178,30 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* VISUAL BREATHER - PARALLAX IMAGE */}
-      <section className="w-full h-[80vh] relative overflow-clip">
-        <ParallaxImage 
-          src="https://static.wixstatic.com/media/2b1878_0726156ee3d44c5bb7c073bf256684f7~mv2.png?originWidth=1280&originHeight=704" 
-          alt="Abstract representation of workflow clarity"
-        />
-        <div className="absolute inset-0 bg-black/10 z-10"></div>
-        <div className="absolute bottom-12 left-6 md:left-12 lg:left-24 z-20">
-           <h2 className="text-white font-heading text-4xl md:text-5xl tracking-tight">
-             Clarity in Motion.
-           </h2>
-        </div>
-      </section>
-
-      {/* HOW IT WORKS - STICKY SCROLL */}
-      <section className="w-full bg-background py-32 border-b border-accent-grey">
+      {/* QUICK PROCESS - COMPACT */}
+      <section className="w-full bg-background py-16 border-b border-accent-grey">
         <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-            {/* Sticky Title */}
-            <div className="lg:col-span-4 relative">
-              <div className="sticky top-32">
-                <span className="block font-heading text-sm tracking-widest uppercase text-secondary mb-4">
-                  The Process
-                </span>
-                <h2 className="font-heading text-5xl md:text-6xl text-foreground leading-none mb-8">
-                  3 Steps to <br />
-                  <span className="text-primary">Zero Friction</span>
-                </h2>
-                <p className="font-paragraph text-lg text-secondary max-w-xs">
-                  Don't overthink it. Just show me how you do it, and I'll handle the rest.
-                </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="flex flex-col items-start">
+              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                <Clock className="w-6 h-6 text-primary" />
               </div>
+              <h3 className="font-heading text-lg text-foreground mb-2">Record</h3>
+              <p className="font-paragraph text-sm text-secondary">Send a Loom of your workflow.</p>
             </div>
-
-            {/* Scrolling Steps */}
-            <div className="lg:col-span-8 space-y-32 mt-16 lg:mt-0">
-              <StepCard 
-                number="01" 
-                title="Record" 
-                description="Use Loom (or any tool) to record your screen while you perform a repetitive task. Don't overthink it—just show me how you do it."
-                icon={<Clock className="w-12 h-12 text-primary" />}
-              />
-              <StepCard 
-                number="02" 
-                title="Submit" 
-                description="Upload your video and hit 'Optimize.' Share your current tech stack so I can work within your existing ecosystem."
-                icon={<FileText className="w-12 h-12 text-primary" />}
-              />
-              <StepCard 
-                number="03" 
-                title="Implement" 
-                description="Within 48 hours, you receive a Friction Report with 3 bottlenecks identified and 5 immediate steps to automate or simplify that specific task."
-                icon={<Zap className="w-12 h-12 text-primary" />}
-              />
+            <div className="flex flex-col items-start">
+              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                <FileText className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="font-heading text-lg text-foreground mb-2">Analyze</h3>
+              <p className="font-paragraph text-sm text-secondary">I identify bottlenecks within 48 hours.</p>
+            </div>
+            <div className="flex flex-col items-start">
+              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                <Zap className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="font-heading text-lg text-foreground mb-2">Implement</h3>
+              <p className="font-paragraph text-sm text-secondary">Get your playbook and start saving time.</p>
             </div>
           </div>
         </div>
