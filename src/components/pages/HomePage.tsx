@@ -341,9 +341,10 @@ export default function HomePage() {
                     type="number"
                     value={hourlyRate}
                     onChange={(e) => setHourlyRate(e.target.value)}
-                    className="bg-white/12 border border-white/20 text-white text-lg h-12 pl-10 pr-12 focus:border-primary focus:bg-white/15 rounded-lg transition-all duration-200 focus:ring-0 placeholder:text-white/50 autofill:text-white autofill:bg-white/12"
+                    className="bg-white/12 border border-white/20 text-white text-lg h-12 pl-10 pr-12 focus:border-primary focus:bg-white/15 rounded-lg transition-all duration-200 focus:ring-0 placeholder:text-white/50 autofill:text-white autofill:bg-white/12 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                     min="0"
                     placeholder="100"
+                    style={{ colorScheme: 'dark' }}
                   />
                   <motion.span 
                     className="absolute right-4 top-1/2 -translate-y-1/2 text-white/80 text-lg font-bold pointer-events-none"
