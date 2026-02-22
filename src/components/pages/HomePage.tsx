@@ -151,14 +151,30 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="mt-12"
+                className="mt-12 flex flex-col md:flex-row gap-4 items-start md:items-center"
               >
                 <Button 
+                  size="sm" 
+                  className="bg-foreground text-background hover:bg-primary hover:text-white transition-all duration-300 font-heading px-6 py-4 h-auto rounded-none"
+                  onClick={() => document.getElementById('processes')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  Show Me Examples <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+                
+                <Button 
+                  size="sm" 
+                  className="bg-background border-2 border-foreground text-foreground hover:bg-foreground hover:text-background transition-all duration-300 font-heading px-6 py-4 h-auto rounded-none"
+                  onClick={() => document.getElementById('roi-calculator')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  Show Me the ROI
+                </Button>
+
+                <Button 
                   size="lg" 
-                  className="bg-foreground text-background hover:bg-primary hover:text-white transition-all duration-300 font-heading text-lg px-10 py-8 h-auto rounded-none"
+                  className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 font-heading text-lg px-10 py-8 h-auto rounded-none md:ml-auto"
                   onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                 >
-                  Show Me Examples <ArrowRight className="ml-3 h-5 w-5" />
+                  Let's Do It <ArrowRight className="ml-3 h-5 w-5" />
                 </Button>
               </motion.div>
             </div>
@@ -278,7 +294,7 @@ export default function HomePage() {
       </section>
 
       {/* ROI CALCULATOR - INTERACTIVE */}
-      <section className="w-full bg-foreground text-background py-20 overflow-hidden relative">
+      <section id="roi-calculator" className="w-full bg-foreground text-background py-20 overflow-hidden relative">
         {/* Background Texture */}
         <div className="absolute inset-0 opacity-10" 
              style={{ backgroundImage: 'radial-gradient(#fff 1px, transparent 1px)', backgroundSize: '30px 30px' }}>
