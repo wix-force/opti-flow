@@ -173,7 +173,7 @@ export default function HomePage() {
                   className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 font-heading px-8 py-5 h-auto rounded-none md:ml-auto"
                   onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                 >
-                  Let's Do It <ArrowRight className="ml-2 h-4 w-4" />
+                  Free Up My Time <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </motion.div>
             </div>
