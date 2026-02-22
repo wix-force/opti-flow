@@ -158,7 +158,7 @@ export default function HomePage() {
                   className="bg-foreground text-background hover:bg-primary hover:text-white transition-all duration-300 font-heading text-lg px-10 py-8 h-auto rounded-none"
                   onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                 >
-                  Get Started <ArrowRight className="ml-3 h-5 w-5" />
+                  Show Me Examples <ArrowRight className="ml-3 h-5 w-5" />
                 </Button>
               </motion.div>
             </div>
