@@ -41,7 +41,7 @@ export default function ExampleWorkflowsPage() {
             <h1 className="font-heading text-3xl md:text-4xl text-foreground mb-2">
               Example Workflows
             </h1>
-            <p className="font-paragraph text-lg md:text-xl text-secondary max-w-2xl font-semibold">
+            <p className="font-paragraph text-2xl md:text-3xl text-foreground max-w-3xl font-bold">
               Real processes we've optimized. See if any match your workflow.
             </p>
           </motion.div>
@@ -89,11 +89,11 @@ function CompactProcessCard({ process, index }: { process: ProcessExamples, inde
       initial={{ opacity: 0, y: 10 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
       transition={{ duration: 0.4, delay: index * 0.05 }}
-      className="bg-white border border-accent-grey p-3 group hover:border-primary hover:bg-primary/2 transition-all duration-300 flex flex-col justify-between min-h-fit"
+      className="bg-white border border-accent-grey p-2.5 group hover:border-primary hover:bg-primary/2 transition-all duration-300 flex flex-col justify-between min-h-fit"
     >
       <div>
-        <div className="flex justify-between items-start gap-2 mb-1.5">
-          <h3 className="font-heading text-sm font-bold text-foreground group-hover:text-primary transition-colors leading-tight">
+        <div className="flex justify-between items-start gap-2 mb-2">
+          <h3 className="font-heading text-base font-bold text-dark-grey group-hover:text-primary transition-colors leading-tight">
             {process.processName}
           </h3>
           <Plus className="w-4 h-4 text-accent-grey group-hover:text-primary group-hover:rotate-90 transition-all duration-300 flex-shrink-0 mt-0.5" />
@@ -104,9 +104,9 @@ function CompactProcessCard({ process, index }: { process: ProcessExamples, inde
       </div>
 
       {process.commonPainPoint && (
-        <div className="pt-1.5 mt-1.5 border-t border-accent-grey/50">
-          <p className="font-paragraph text-xs text-secondary/70 line-clamp-1">
-            <span className="font-bold text-foreground/70">Pain:</span> {process.commonPainPoint}
+        <div className="pt-1.5 mt-1.5 border-t border-accent-grey/50 bg-primary/5 -mx-2.5 px-2.5 py-1.5">
+          <p className="font-paragraph text-xs text-foreground font-semibold">
+            <span className="text-primary font-bold">Pain:</span> {process.commonPainPoint}
           </p>
         </div>
       )}
