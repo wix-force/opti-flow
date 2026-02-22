@@ -157,7 +157,7 @@ export default function HomePage() {
                   className="bg-foreground text-background hover:bg-primary hover:text-white transition-all duration-300 font-heading px-6 py-4 h-auto rounded-none"
                   onClick={() => document.getElementById('example-workflows')?.scrollIntoView({ behavior: 'smooth' })}
                 >
-                  Example Workflows <ArrowRight className="ml-2 h-4 w-4" />
+                  Show Me Examples <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
                 
                 <Button 
@@ -193,100 +193,116 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* PRODUCT CONTAINER - THE "BUY" BOX */}
-      <section className="w-full bg-accent-grey/10 py-32 border-b border-accent-grey">
+      {/* PRODUCT CONTAINER - OFFERINGS GRID */}
+      <section className="w-full bg-accent-grey/10 py-20 border-b border-accent-grey">
         <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24">
-          <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Single Process Audit Card */}
             <motion.div
               initial={{ opacity: 0, scale: 0.98 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.7, ease: "easeOut" }}
-              className="bg-background border border-foreground/10 p-8 md:p-16 lg:p-20 shadow-2xl shadow-black/5 relative overflow-hidden"
+              className="bg-background border border-foreground/10 p-6 md:p-8 shadow-lg shadow-black/5 relative overflow-hidden flex flex-col"
             >
               {/* Decorative Corner Accents */}
-              <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-primary"></div>
-              <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-primary"></div>
-              <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-primary"></div>
-              <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-primary"></div>
+              <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-primary"></div>
+              <div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-primary"></div>
+              <div className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-primary"></div>
+              <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-primary"></div>
 
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div>
-                  <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-heading uppercase tracking-widest mb-6">
-                    The Product
+              <div className="flex-1">
+                <div className="inline-block px-2 py-0.5 bg-primary/10 text-primary text-xs font-heading uppercase tracking-widest mb-3">
+                  Offering
+                </div>
+                
+                {isLoadingData ? (
+                  <div className="animate-pulse space-y-3">
+                    <div className="h-8 bg-accent-grey w-3/4"></div>
+                    <div className="h-4 bg-accent-grey w-1/2"></div>
                   </div>
-                  
-                  {isLoadingData ? (
-                    <div className="animate-pulse space-y-4">
-                      <div className="h-10 bg-accent-grey w-3/4"></div>
-                      <div className="h-6 bg-accent-grey w-1/2"></div>
+                ) : service ? (
+                  <>
+                    <h3 className="font-heading text-2xl md:text-3xl text-foreground mb-4">
+                      {service.itemName}
+                    </h3>
+                    <div className="space-y-2 mb-6">
+                      {service.serviceInclusions?.split('\n').slice(0, 3).map((item, index) => (
+                        <div key={index} className="flex items-start group">
+                          <CheckCircle className="w-4 h-4 text-primary mr-2 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform" />
+                          <span className="font-paragraph text-sm text-foreground/80">{item}</span>
+                        </div>
+                      ))}
                     </div>
-                  ) : service ? (
-                    <>
-                      <h2 className="font-heading text-4xl md:text-5xl text-foreground mb-8">
-                        {service.itemName}
-                      </h2>
-                      <div className="space-y-4 mb-8">
-                        {service.serviceInclusions?.split('\n').map((item, index) => (
-                          <div key={index} className="flex items-start group">
-                            <CheckCircle className="w-5 h-5 text-primary mr-4 mt-1 flex-shrink-0 group-hover:scale-110 transition-transform" />
-                            <span className="font-paragraph text-base text-foreground/80">{item}</span>
-                          </div>
-                        ))}
+                  </>
+                ) : (
+                  <>
+                    <h3 className="font-heading text-2xl md:text-3xl text-foreground mb-4">
+                      Single Process Audit
+                    </h3>
+                    <div className="space-y-2 mb-6">
+                      <div className="flex items-start group">
+                        <CheckCircle className="w-4 h-4 text-primary mr-2 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform" />
+                        <span className="font-paragraph text-sm text-foreground/80">Workflow analysis & audit</span>
                       </div>
-                    </>
-                  ) : (
-                    <>
-                      <h2 className="font-heading text-4xl md:text-5xl text-foreground mb-8">
-                        The Single Process Audit
-                      </h2>
-                      <div className="space-y-4 mb-8">
-                        <div className="flex items-start group">
-                          <CheckCircle className="w-5 h-5 text-primary mr-4 mt-1 flex-shrink-0 group-hover:scale-110 transition-transform" />
-                          <span className="font-paragraph text-base text-foreground/80">Workflow Audit: Complete analysis of one core workflow (via Loom or SOP).</span>
-                        </div>
-                        <div className="flex items-start group">
-                          <CheckCircle className="w-5 h-5 text-primary mr-4 mt-1 flex-shrink-0 group-hover:scale-110 transition-transform" />
-                          <span className="font-paragraph text-base text-foreground/80">Stack Integration: Audit of your current tools to ensure the fix stays within your existing ecosystem.</span>
-                        </div>
-                        <div className="flex items-start group">
-                          <CheckCircle className="w-5 h-5 text-primary mr-4 mt-1 flex-shrink-0 group-hover:scale-110 transition-transform" />
-                          <span className="font-paragraph text-base text-foreground/80">Root Cause Analysis: Precise identification of the "Hidden Clogs" draining your capacity.</span>
-                        </div>
-                        <div className="flex items-start group">
-                          <CheckCircle className="w-5 h-5 text-primary mr-4 mt-1 flex-shrink-0 group-hover:scale-110 transition-transform" />
-                          <span className="font-paragraph text-base text-foreground/80">5 Actionable Levers: Specific, simplified steps to immediate process acceleration.</span>
-                        </div>
-                        <div className="flex items-start group">
-                          <CheckCircle className="w-5 h-5 text-primary mr-4 mt-1 flex-shrink-0 group-hover:scale-110 transition-transform" />
-                          <span className="font-paragraph text-base text-foreground/80">Tech Recommendations: Budget friendly, high-impact automation or tool suggestions.</span>
-                        </div>
+                      <div className="flex items-start group">
+                        <CheckCircle className="w-4 h-4 text-primary mr-2 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform" />
+                        <span className="font-paragraph text-sm text-foreground/80">Root cause identification</span>
                       </div>
-                    </>
-                  )}
-                </div>
-
-                <div className="flex flex-col items-center justify-center text-center border-t lg:border-t-0 lg:border-l border-accent-grey pt-12 lg:pt-0 lg:pl-12">
-                  <div className="mb-2">
-                    <span className="font-heading text-6xl md:text-7xl text-foreground tracking-tighter">
-                      ${service?.itemPrice || 199}
-                    </span>
-                  </div>
-                  <p className="font-paragraph text-sm text-secondary uppercase tracking-widest mb-8">
-                    Introductory Rate
-                  </p>
-                  <Button 
-                    size="lg" 
-                    className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-heading text-lg py-8 h-auto rounded-none transition-all hover:translate-y-[-2px]"
-                    onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                  >
-                    Optimize My Workflow
-                  </Button>
-                  <p className="mt-6 text-xs text-secondary/60 max-w-xs mx-auto">
-                    100% Money-back guarantee if no efficiency gains are found.
-                  </p>
-                </div>
+                      <div className="flex items-start group">
+                        <CheckCircle className="w-4 h-4 text-primary mr-2 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform" />
+                        <span className="font-paragraph text-sm text-foreground/80">5 actionable recommendations</span>
+                      </div>
+                    </div>
+                  </>
+                )}
               </div>
+
+              <div className="border-t border-accent-grey pt-4 mt-4">
+                <div className="mb-3">
+                  <span className="font-heading text-4xl md:text-5xl text-foreground tracking-tighter">
+                    ${service?.itemPrice || 199}
+                  </span>
+                </div>
+                <p className="font-paragraph text-xs text-secondary uppercase tracking-widest mb-4">
+                  Introductory Rate
+                </p>
+                <Button 
+                  size="sm" 
+                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-heading text-sm py-3 h-auto rounded-none transition-all hover:translate-y-[-2px]"
+                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  Get Started
+                </Button>
+              </div>
+            </motion.div>
+
+            {/* Placeholder for future offerings */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.98 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
+              className="bg-background border border-foreground/10 border-dashed p-6 md:p-8 shadow-lg shadow-black/5 relative overflow-hidden flex flex-col items-center justify-center text-center opacity-50 hover:opacity-75 transition-opacity"
+            >
+              <Plus className="w-8 h-8 text-secondary mb-3" />
+              <p className="font-heading text-sm text-secondary uppercase tracking-widest">
+                Coming Soon
+              </p>
+            </motion.div>
+
+            {/* Placeholder for future offerings */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.98 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
+              className="bg-background border border-foreground/10 border-dashed p-6 md:p-8 shadow-lg shadow-black/5 relative overflow-hidden flex flex-col items-center justify-center text-center opacity-50 hover:opacity-75 transition-opacity"
+            >
+              <Plus className="w-8 h-8 text-secondary mb-3" />
+              <p className="font-heading text-sm text-secondary uppercase tracking-widest">
+                Coming Soon
+              </p>
             </motion.div>
           </div>
         </div>
