@@ -17,7 +17,7 @@ export default function HomePage() {
   // ---------------------------------------------------------------------------
   // DATA FIDELITY PROTOCOL & STATE MANAGEMENT
   // ---------------------------------------------------------------------------
-  const [hourlyRate, setHourlyRate] = useState<string>('');
+  const [hourlyRate, setHourlyRate] = useState<string>('0');
   const [hoursPerWeek, setHoursPerWeek] = useState<number[]>([5]);
   const [service, setService] = useState<Services | null>(null);
   const [processExamples, setProcessExamples] = useState<ProcessExamples[]>([]);
@@ -319,7 +319,7 @@ export default function HomePage() {
         <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24 relative z-10">
           <div className="mb-8">
             <h2 className="font-heading text-3xl md:text-4xl mb-2 text-white">
-              The Cost of <span className="text-primary font-bold\">Inaction</span>
+              The Cost of <span className="text-primary font-bold">Inaction</span>
             </h2>
             <p className="font-paragraph text-sm text-white/70 max-w-2xl">
               Adjust your hourly rate and hours spent on messy workflows to see your potential savings.
@@ -335,16 +335,23 @@ export default function HomePage() {
                   Hourly Rate
                 </Label>
                 <div className="relative group">
-                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-white/40 text-lg font-bold group-focus-within:text-primary transition-colors">$</span>
+                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-primary text-lg font-bold transition-colors">$</span>
                   <Input
                     id="hourlyRate"
                     type="number"
                     value={hourlyRate}
                     onChange={(e) => setHourlyRate(e.target.value)}
-                    className="bg-white/12 border border-white/20 text-white text-lg h-12 pl-10 pr-4 focus:border-primary focus:bg-white/15 rounded-lg transition-all duration-200 focus:ring-0 placeholder:text-white/50 autofill:text-white autofill:bg-white/12"
+                    className="bg-white/12 border border-white/20 text-white text-lg h-12 pl-10 pr-12 focus:border-primary focus:bg-white/15 rounded-lg transition-all duration-200 focus:ring-0 placeholder:text-white/50 autofill:text-white autofill:bg-white/12"
                     min="0"
                     placeholder="100"
                   />
+                  <motion.span 
+                    className="absolute right-4 top-1/2 -translate-y-1/2 text-white/80 text-lg font-bold pointer-events-none"
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    {hourlyRate ? `$${parseFloat(hourlyRate).toLocaleString()}` : '$0'}
+                  </motion.span>
                 </div>
               </div>
 
