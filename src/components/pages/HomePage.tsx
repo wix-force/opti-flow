@@ -17,7 +17,7 @@ export default function HomePage() {
   // ---------------------------------------------------------------------------
   // DATA FIDELITY PROTOCOL & STATE MANAGEMENT
   // ---------------------------------------------------------------------------
-  const [hourlyRate, setHourlyRate] = useState<string>('100');
+  const [hourlyRate, setHourlyRate] = useState<string>('');
   const [hoursPerWeek, setHoursPerWeek] = useState<number[]>([5]);
   const [service, setService] = useState<Services | null>(null);
   const [processExamples, setProcessExamples] = useState<ProcessExamples[]>([]);
