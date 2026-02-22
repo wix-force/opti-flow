@@ -554,7 +554,7 @@ export default function HomePage() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="message" className="font-heading text-sm uppercase tracking-widest text-foreground">The Workflow Challenge *</Label>
+                  <Label htmlFor="message" className="font-heading text-sm uppercase tracking-widest text-foreground">Workflow Challenge *</Label>
                   <Textarea
                     id="message"
                     name="message"
