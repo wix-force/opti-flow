@@ -208,12 +208,9 @@ export default function HomePage() {
                     </div>
                   ) : service ? (
                     <>
-                      <h2 className="font-heading text-4xl md:text-5xl text-foreground mb-4">
+                      <h2 className="font-heading text-4xl md:text-5xl text-foreground mb-8">
                         {service.itemName}
                       </h2>
-                      <p className="font-paragraph text-xl text-secondary mb-8">
-                        One Workflow. One Report. Zero Unnecessary Details.
-                      </p>
                       <div className="space-y-4 mb-8">
                         {service.serviceInclusions?.split('\n').map((item, index) => (
                           <div key={index} className="flex items-start group">
@@ -225,12 +222,9 @@ export default function HomePage() {
                     </>
                   ) : (
                     <>
-                      <h2 className="font-heading text-4xl md:text-5xl text-foreground mb-4">
+                      <h2 className="font-heading text-4xl md:text-5xl text-foreground mb-8">
                         The Single Process Audit
                       </h2>
-                      <p className="font-paragraph text-xl text-secondary mb-8">
-                        One Workflow. One Report. Zero Unnecessary Details.
-                      </p>
                       <div className="space-y-4 mb-8">
                         <div className="flex items-start group">
                           <CheckCircle className="w-5 h-5 text-primary mr-4 mt-1 flex-shrink-0 group-hover:scale-110 transition-transform" />
