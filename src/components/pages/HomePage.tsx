@@ -341,7 +341,7 @@ export default function HomePage() {
                     type="number"
                     value={hourlyRate}
                     onChange={(e) => setHourlyRate(e.target.value)}
-                    className="bg-white/8 border border-white/15 text-white text-lg h-12 pl-10 pr-4 focus:border-primary focus:bg-white/12 rounded-lg transition-all duration-200 focus:ring-0 placeholder:text-white/30"
+                    className="bg-white/12 border border-white/20 text-white text-lg h-12 pl-10 pr-4 focus:border-primary focus:bg-white/15 rounded-lg transition-all duration-200 focus:ring-0 placeholder:text-white/50 autofill:text-white autofill:bg-white/12"
                     min="0"
                     placeholder="100"
                   />
