@@ -115,13 +115,11 @@ export default function HomePage() {
   return (
     <div ref={containerRef} className="min-h-screen bg-background text-foreground font-paragraph selection:bg-primary selection:text-white overflow-clip">
       <Header />
-
       {/* PROGRESS BAR */}
       <motion.div 
         className="fixed top-0 left-0 right-0 h-1 bg-primary z-50 origin-left"
         style={{ scaleX: smoothProgress }}
       />
-
       {/* HERO SECTION */}
       <section className="relative w-full min-h-screen flex flex-col justify-center pt-32 pb-20 border-b border-accent-grey">
         {/* Grid Background Effect */}
@@ -202,7 +200,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
       {/* PRODUCT CONTAINER - OFFERINGS GRID */}
       <section className="w-full bg-accent-grey/10 py-20 border-b border-accent-grey">
         <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24">
@@ -226,7 +223,7 @@ export default function HomePage() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.7, ease: "easeOut", delay: index * 0.1 }}
-                    className="bg-background border border-foreground/10 p-6 md:p-8 shadow-lg shadow-black/5 relative overflow-hidden flex flex-col"
+                    className="bg-background border border-foreground/10 p-6 md:p-8 shadow-lg shadow-black/5 relative overflow-hidden flex flex-col justify-start"
                   >
                     {/* Decorative Corner Accents */}
                     <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-primary"></div>
@@ -299,7 +296,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
       {/* ROI CALCULATOR - INTERACTIVE - MODERN SLEEK DESIGN */}
       <section id="roi-calculator" className="w-full bg-gradient-to-br from-foreground to-foreground/95 text-background py-16 overflow-hidden relative">
         {/* Sleek background with gradient overlay */}
@@ -444,9 +440,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-
-
       {/* EXAMPLE WORKFLOWS SECTION */}
       <section id="example-workflows" className="w-full bg-background py-20 border-b border-accent-grey">
         <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24">
@@ -486,7 +479,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
       {/* CONTACT FORM */}
       <section id="contact" className="w-full bg-background py-32">
         <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24">
@@ -592,7 +584,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
       <Footer />
     </div>
   );
