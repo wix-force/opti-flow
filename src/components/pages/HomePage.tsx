@@ -39,10 +39,12 @@ export default function HomePage() {
     setIsLoadingData(true);
     try {
       const serviceResult = await BaseCrudService.getAll<Services>('services');
-      // Sort services: "Single Process Audit" first, then others
+      // Sort services: "Single Process Audit" first (leftmost), then "SOP Buildout", then others
       const sortedServices = serviceResult.items.sort((a, b) => {
         if (a.itemName === 'Single Process Audit') return -1;
         if (b.itemName === 'Single Process Audit') return 1;
+        if (a.itemName === 'SOP Buildout') return -1;
+        if (b.itemName === 'SOP Buildout') return 1;
         return 0;
       });
       setServices(sortedServices);
