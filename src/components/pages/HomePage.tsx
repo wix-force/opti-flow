@@ -19,7 +19,7 @@ export default function HomePage() {
   // ---------------------------------------------------------------------------
   const [hourlyRate, setHourlyRate] = useState<string>('0');
   const [hoursPerWeek, setHoursPerWeek] = useState<number[]>([5]);
-  const [service, setService] = useState<Services | null>(null);
+  const [services, setServices] = useState<Services[]>([]);
   const [processExamples, setProcessExamples] = useState<ProcessExamples[]>([]);
   const [isLoadingData, setIsLoadingData] = useState(true);
   const [formData, setFormData] = useState({
@@ -38,10 +38,8 @@ export default function HomePage() {
   const loadData = async () => {
     setIsLoadingData(true);
     try {
-      const serviceResult = await BaseCrudService.getAll<Services>('services', [], { limit: 1 });
-      if (serviceResult.items.length > 0) {
-        setService(serviceResult.items[0]);
-      }
+      const serviceResult = await BaseCrudService.getAll<Services>('services');
+      setServices(serviceResult.items);
       
       const processResult = await BaseCrudService.getAll<ProcessExamples>('processexamples');
       setProcessExamples(processResult.items);
@@ -197,113 +195,95 @@ export default function HomePage() {
       <section className="w-full bg-accent-grey/10 py-20 border-b border-accent-grey">
         <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Single Process Audit Card */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.98 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.7, ease: "easeOut" }}
-              className="bg-background border border-foreground/10 p-6 md:p-8 shadow-lg shadow-black/5 relative overflow-hidden flex flex-col"
-            >
-              {/* Decorative Corner Accents */}
-              <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-primary"></div>
-              <div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-primary"></div>
-              <div className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-primary"></div>
-              <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-primary"></div>
-
-              <div className="flex-1">
-                <div className="inline-block px-2 py-0.5 bg-primary/10 text-primary text-xs font-heading uppercase tracking-widest mb-3">
-                  Offering
-                </div>
-                
-                {isLoadingData ? (
-                  <div className="animate-pulse space-y-3">
-                    <div className="h-8 bg-accent-grey w-3/4"></div>
-                    <div className="h-4 bg-accent-grey w-1/2"></div>
+            {isLoadingData ? (
+              <>
+                {[1, 2, 3].map((i) => (
+                  <div key={i} className="bg-background border border-foreground/10 p-6 md:p-8 animate-pulse">
+                    <div className="h-8 bg-accent-grey w-3/4 mb-4"></div>
+                    <div className="h-4 bg-accent-grey w-1/2 mb-6"></div>
+                    <div className="h-12 bg-accent-grey w-1/3"></div>
                   </div>
-                ) : service ? (
-                  <>
-                    <h3 className="font-heading text-2xl md:text-3xl text-foreground mb-4">
-                      {service.itemName}
-                    </h3>
-                    <div className="space-y-2 mb-6">
-                      {service.serviceInclusions?.split('\n').slice(0, 3).map((item, index) => (
-                        <div key={index} className="flex items-start group">
-                          <CheckCircle className="w-4 h-4 text-primary mr-2 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform" />
-                          <span className="font-paragraph text-sm text-foreground/80">{item}</span>
-                        </div>
-                      ))}
+                ))}
+              </>
+            ) : services.length > 0 ? (
+              <>
+                {services.map((service, index) => (
+                  <motion.div
+                    key={service._id}
+                    initial={{ opacity: 0, scale: 0.98 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.7, ease: "easeOut", delay: index * 0.1 }}
+                    className="bg-background border border-foreground/10 p-6 md:p-8 shadow-lg shadow-black/5 relative overflow-hidden flex flex-col"
+                  >
+                    {/* Decorative Corner Accents */}
+                    <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-primary"></div>
+                    <div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-primary"></div>
+                    <div className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-primary"></div>
+                    <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-primary"></div>
+
+                    <div className="flex-1">
+                      <div className="inline-block px-2 py-0.5 bg-primary/10 text-primary text-xs font-heading uppercase tracking-widest mb-3">
+                        Offering
+                      </div>
+                      
+                      <h3 className="font-heading text-2xl md:text-3xl text-foreground mb-4">
+                        {service.itemName}
+                      </h3>
+                      <div className="space-y-2 mb-6">
+                        {service.serviceInclusions?.split('\n').slice(0, 3).map((item, idx) => (
+                          <div key={idx} className="flex items-start group">
+                            <CheckCircle className="w-4 h-4 text-primary mr-2 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform" />
+                            <span className="font-paragraph text-sm text-foreground/80">{item}</span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                  </>
-                ) : (
-                  <>
-                    <h3 className="font-heading text-2xl md:text-3xl text-foreground mb-4">
-                      Single Process Audit
-                    </h3>
-                    <div className="space-y-2 mb-6">
-                      <div className="flex items-start group">
-                        <CheckCircle className="w-4 h-4 text-primary mr-2 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform" />
-                        <span className="font-paragraph text-sm text-foreground/80">Workflow analysis & audit</span>
+
+                    <div className="border-t border-accent-grey pt-4 mt-4">
+                      <div className="mb-3">
+                        <span className="font-heading text-4xl md:text-5xl text-foreground tracking-tighter">
+                          ${service.itemPrice || 199}
+                        </span>
                       </div>
-                      <div className="flex items-start group">
-                        <CheckCircle className="w-4 h-4 text-primary mr-2 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform" />
-                        <span className="font-paragraph text-sm text-foreground/80">Root cause identification</span>
-                      </div>
-                      <div className="flex items-start group">
-                        <CheckCircle className="w-4 h-4 text-primary mr-2 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform" />
-                        <span className="font-paragraph text-sm text-foreground/80">5 actionable recommendations</span>
-                      </div>
+                      <p className="font-paragraph text-xs text-secondary uppercase tracking-widest mb-4">
+                        Introductory Rate
+                      </p>
+                      <Button 
+                        size="sm" 
+                        className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-heading text-sm py-3 h-auto rounded-none transition-all hover:translate-y-[-2px]"
+                        onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                      >
+                        Get Started
+                      </Button>
                     </div>
+                  </motion.div>
+                ))}
+                {services.length < 3 && (
+                  <>
+                    {[...Array(3 - services.length)].map((_, i) => (
+                      <motion.div
+                        key={`placeholder-${i}`}
+                        initial={{ opacity: 0, scale: 0.98 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ duration: 0.7, ease: "easeOut", delay: (services.length + i) * 0.1 }}
+                        className="bg-background border border-foreground/10 border-dashed p-6 md:p-8 shadow-lg shadow-black/5 relative overflow-hidden flex flex-col items-center justify-center text-center opacity-50 hover:opacity-75 transition-opacity"
+                      >
+                        <Plus className="w-8 h-8 text-secondary mb-3" />
+                        <p className="font-heading text-sm text-secondary uppercase tracking-widest">
+                          Coming Soon
+                        </p>
+                      </motion.div>
+                    ))}
                   </>
                 )}
+              </>
+            ) : (
+              <div className="col-span-3 text-center py-12">
+                <p className="text-secondary text-sm">No services available.</p>
               </div>
-
-              <div className="border-t border-accent-grey pt-4 mt-4">
-                <div className="mb-3">
-                  <span className="font-heading text-4xl md:text-5xl text-foreground tracking-tighter">
-                    ${service?.itemPrice || 199}
-                  </span>
-                </div>
-                <p className="font-paragraph text-xs text-secondary uppercase tracking-widest mb-4">
-                  Introductory Rate
-                </p>
-                <Button 
-                  size="sm" 
-                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-heading text-sm py-3 h-auto rounded-none transition-all hover:translate-y-[-2px]"
-                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                >
-                  Get Started
-                </Button>
-              </div>
-            </motion.div>
-
-            {/* Placeholder for future offerings */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.98 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
-              className="bg-background border border-foreground/10 border-dashed p-6 md:p-8 shadow-lg shadow-black/5 relative overflow-hidden flex flex-col items-center justify-center text-center opacity-50 hover:opacity-75 transition-opacity"
-            >
-              <Plus className="w-8 h-8 text-secondary mb-3" />
-              <p className="font-heading text-sm text-secondary uppercase tracking-widest">
-                Coming Soon
-              </p>
-            </motion.div>
-
-            {/* Placeholder for future offerings */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.98 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
-              className="bg-background border border-foreground/10 border-dashed p-6 md:p-8 shadow-lg shadow-black/5 relative overflow-hidden flex flex-col items-center justify-center text-center opacity-50 hover:opacity-75 transition-opacity"
-            >
-              <Plus className="w-8 h-8 text-secondary mb-3" />
-              <p className="font-heading text-sm text-secondary uppercase tracking-widest">
-                Coming Soon
-              </p>
-            </motion.div>
+            )}
           </div>
         </div>
       </section>
