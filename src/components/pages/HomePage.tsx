@@ -230,7 +230,7 @@ export default function HomePage() {
 
                   <div className="flex-1">
                     <div className="inline-block px-3 py-1 bg-primary text-primary-foreground text-xs font-heading uppercase tracking-widest mb-4 font-bold">
-                      Main Offering
+                      Signature
                     </div>
                     
                     <h3 className="font-heading text-4xl md:text-5xl text-foreground mb-6">
