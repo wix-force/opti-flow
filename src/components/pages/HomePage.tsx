@@ -302,7 +302,7 @@ export default function HomePage() {
 
                         <div className="flex-1">
                           <div className="inline-block px-2 py-0.5 bg-primary/10 text-primary text-xs font-heading uppercase tracking-widest mb-3 group-hover:bg-primary/20 transition-colors">
-                            {service.itemName?.toLowerCase().includes('sop library') ? 'Foundational' : service.itemName?.toLowerCase().includes('business engine redesign') ? 'Architectural' : 'Option'}
+                            {service.itemName?.toLowerCase().includes('sop library') ? 'Foundations' : service.itemName?.toLowerCase().includes('business engine redesign') ? 'Expansion' : 'Option'}
                           </div>
                           
                           <h4 className="font-heading text-xl md:text-2xl text-foreground mb-3 group-hover:text-primary transition-colors">
