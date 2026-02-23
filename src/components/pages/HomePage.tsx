@@ -39,7 +39,13 @@ export default function HomePage() {
     setIsLoadingData(true);
     try {
       const serviceResult = await BaseCrudService.getAll<Services>('services');
-      setServices(serviceResult.items);
+      // Sort services: "Single Process Audit" first, then others
+      const sortedServices = serviceResult.items.sort((a, b) => {
+        if (a.itemName === 'Single Process Audit') return -1;
+        if (b.itemName === 'Single Process Audit') return 1;
+        return 0;
+      });
+      setServices(sortedServices);
       
       const processResult = await BaseCrudService.getAll<ProcessExamples>('processexamples');
       setProcessExamples(processResult.items);
