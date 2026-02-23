@@ -17,11 +17,12 @@ export default function HomePage() {
   // ---------------------------------------------------------------------------
   // DATA FIDELITY PROTOCOL & STATE MANAGEMENT
   // ---------------------------------------------------------------------------
-  const [hourlyRate, setHourlyRate] = useState<string>('0');
+  const [hourlyRate, setHourlyRate] = useState<string>('100');
   const [hoursPerWeek, setHoursPerWeek] = useState<number[]>([5]);
   const [services, setServices] = useState<Services[]>([]);
   const [processExamples, setProcessExamples] = useState<ProcessExamples[]>([]);
   const [isLoadingData, setIsLoadingData] = useState(true);
+  const [hasInteractedWithRate, setHasInteractedWithRate] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -307,16 +308,20 @@ export default function HomePage() {
             <div className="lg:col-span-4 space-y-6">
               {/* Hourly Rate Input */}
               <div className="space-y-3">
-                <Label htmlFor="hourlyRate" className="font-heading text-xs text-white/70 uppercase tracking-widest block font-semibold">
+                <Label htmlFor="hourlyRate" className={`font-heading text-xs uppercase tracking-widest block font-semibold transition-colors duration-300 ${hasInteractedWithRate ? 'text-white/70' : 'text-white/50'}`}>
                   Hourly Rate
                 </Label>
-                <div className="relative group">
+                <div className={`relative group transition-all duration-300 ${hasInteractedWithRate ? 'opacity-100' : 'opacity-60'}`}>
                   <span className="absolute left-4 top-1/2 -translate-y-1/2 text-primary text-lg font-bold transition-colors">$</span>
                   <Input
                     id="hourlyRate"
                     type="number"
                     value={hourlyRate}
-                    onChange={(e) => setHourlyRate(e.target.value)}
+                    onChange={(e) => {
+                      setHourlyRate(e.target.value);
+                      setHasInteractedWithRate(true);
+                    }}
+                    onFocus={() => setHasInteractedWithRate(true)}
                     className="bg-white/12 border border-white/20 text-white text-lg h-12 pl-10 pr-12 focus:border-primary focus:bg-white/15 rounded-lg transition-all duration-200 focus:ring-0 placeholder:text-white/30 autofill:text-white autofill:bg-white/12 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                     min="0"
                     style={{ colorScheme: 'dark' }}
@@ -326,9 +331,14 @@ export default function HomePage() {
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.2 }}
                   >
-                    {hourlyRate ? `$${parseFloat(hourlyRate).toLocaleString()}` : '$0'}
+                    {hourlyRate ? `${parseFloat(hourlyRate).toLocaleString()}` : '$0'}
                   </motion.span>
                 </div>
+                {!hasInteractedWithRate && (
+                  <p className="font-paragraph text-xs text-white/40 italic">
+                    Default example showing potential savings
+                  </p>
+                )}
               </div>
 
               {/* Hours Per Week Slider */}
