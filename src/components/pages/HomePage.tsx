@@ -543,7 +543,7 @@ export default function HomePage() {
                     required
                     rows={4}
                     className="border-0 border-b border-accent-grey rounded-none px-0 py-6 text-xl focus-visible:ring-0 focus-visible:border-primary bg-transparent resize-none transition-colors"
-                    placeholder="Tell me about the task that's slowing you down..."
+                    placeholder="tell me about what's slowing you down..."
                   />
                 </div>
 
