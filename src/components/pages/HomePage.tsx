@@ -47,7 +47,8 @@ export default function HomePage() {
         if (b.itemName === 'SOP Buildout') return 1;
         return 0;
       });
-      setServices(sortedServices);
+      // Only keep the first 2 services, third position will show "coming soon"
+      setServices(sortedServices.slice(0, 2));
       
       const processResult = await BaseCrudService.getAll<ProcessExamples>('processexamples');
       setProcessExamples(processResult.items);
