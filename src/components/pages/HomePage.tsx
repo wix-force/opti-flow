@@ -189,102 +189,166 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      {/* PRODUCT CONTAINER - OFFERINGS GRID */}
+
+      {/* PRODUCT CONTAINER - MAIN OFFERING + ADDITIONAL OFFERINGS */}
       <section className="w-full bg-accent-grey/10 py-20 border-b border-accent-grey">
         <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {isLoadingData ? (
-              <>
-                {[1, 2, 3].map((i) => (
-                  <div key={i} className="bg-background border border-foreground/10 p-6 md:p-8 animate-pulse">
-                    <div className="h-8 bg-accent-grey w-3/4 mb-4"></div>
-                    <div className="h-4 bg-accent-grey w-1/2 mb-6"></div>
-                    <div className="h-12 bg-accent-grey w-1/3"></div>
+          {isLoadingData ? (
+            <div className="space-y-12">
+              {/* Main offering skeleton */}
+              <div className="bg-background border border-foreground/10 p-8 md:p-12 animate-pulse">
+                <div className="h-8 bg-accent-grey w-3/4 mb-4"></div>
+                <div className="h-4 bg-accent-grey w-1/2 mb-6"></div>
+                <div className="h-12 bg-accent-grey w-1/3"></div>
+              </div>
+              {/* Additional offerings skeleton */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {[1, 2].map((i) => (
+                  <div key={i} className="bg-background border border-foreground/10 p-6 animate-pulse">
+                    <div className="h-6 bg-accent-grey w-2/3 mb-3"></div>
+                    <div className="h-4 bg-accent-grey w-1/2"></div>
                   </div>
                 ))}
-              </>
-            ) : services.length > 0 ? (
-              <>
-                {services.map((service, index) => (
-                  <motion.div
-                    key={service._id}
-                    initial={{ opacity: 0, scale: 0.98 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.7, ease: "easeOut", delay: index * 0.1 }}
-                    className="bg-background border border-foreground/10 p-6 md:p-8 shadow-lg shadow-black/5 relative overflow-hidden flex flex-col justify-start"
-                  >
-                    {/* Decorative Corner Accents */}
-                    <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-primary"></div>
-                    <div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-primary"></div>
-                    <div className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-primary"></div>
-                    <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-primary"></div>
+              </div>
+            </div>
+          ) : services.length > 0 ? (
+            <div className="space-y-12">
+              {/* MAIN OFFERING - Single Process Audit */}
+              {services[0] && (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.98 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.7, ease: "easeOut" }}
+                  className="bg-background border-2 border-primary p-8 md:p-12 shadow-lg shadow-black/5 relative overflow-hidden flex flex-col justify-start"
+                >
+                  {/* Decorative Corner Accents - Larger */}
+                  <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-primary"></div>
+                  <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-primary"></div>
+                  <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-primary"></div>
+                  <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-primary"></div>
 
-                    <div className="flex-1">
-                      <div className="inline-block px-2 py-0.5 bg-primary/10 text-primary text-xs font-heading uppercase tracking-widest mb-3">
-                        Offering
-                      </div>
-                      
-                      <h3 className="font-heading text-2xl md:text-3xl text-foreground mb-4">
-                        {service.itemName}
-                      </h3>
-                      <div className="space-y-2 mb-6">
-                        {service.serviceInclusions?.split('\n').slice(0, 3).map((item, idx) => (
-                          <div key={idx} className="flex items-start group">
-                            <CheckCircle className="w-4 h-4 text-primary mr-2 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform" />
-                            <span className="font-paragraph text-sm text-foreground/80">{item}</span>
-                          </div>
-                        ))}
-                      </div>
+                  <div className="flex-1">
+                    <div className="inline-block px-3 py-1 bg-primary text-primary-foreground text-xs font-heading uppercase tracking-widest mb-4 font-bold">
+                      Main Offering
                     </div>
+                    
+                    <h3 className="font-heading text-4xl md:text-5xl text-foreground mb-6">
+                      {services[0].itemName}
+                    </h3>
+                    <p className="font-paragraph text-lg text-foreground/80 mb-8 max-w-2xl leading-relaxed">
+                      {services[0].itemDescription}
+                    </p>
+                    <div className="space-y-3 mb-8">
+                      {services[0].serviceInclusions?.split('\n').map((item, idx) => (
+                        <div key={idx} className="flex items-start group">
+                          <CheckCircle className="w-5 h-5 text-primary mr-3 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform" />
+                          <span className="font-paragraph text-base text-foreground/80">{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
 
-                    <div className="border-t border-accent-grey pt-4 mt-4">
-                      <div className="mb-3">
-                        <span className="font-heading text-4xl md:text-5xl text-foreground tracking-tighter">
-                          ${service.itemPrice || 199}
+                  <div className="border-t border-accent-grey pt-8 mt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                    <div>
+                      <div className="mb-2">
+                        <span className="font-heading text-5xl md:text-6xl text-foreground tracking-tighter">
+                          ${services[0].itemPrice || 199}
                         </span>
                       </div>
-                      <p className="font-paragraph text-xs text-secondary uppercase tracking-widest mb-4">
+                      <p className="font-paragraph text-xs text-secondary uppercase tracking-widest">
                         Introductory Rate
                       </p>
-                      <Button 
-                        size="sm" 
-                        className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-heading text-sm py-3 h-auto rounded-none transition-all hover:translate-y-[-2px]"
-                        onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                      >
-                        Get Started
-                      </Button>
                     </div>
+                    <Button 
+                      size="sm" 
+                      className="bg-primary text-primary-foreground hover:bg-primary/90 font-heading text-base px-8 py-4 h-auto rounded-none transition-all hover:translate-y-[-2px] md:w-auto w-full"
+                      onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                    >
+                      Get Started <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </div>
+                </motion.div>
+              )}
+
+              {/* ADDITIONAL OFFERINGS - Other Services */}
+              {services.length > 1 && (
+                <div>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                    className="mb-6"
+                  >
+                    <h3 className="font-heading text-2xl text-foreground/60 uppercase tracking-widest">
+                      Additional Offerings
+                    </h3>
                   </motion.div>
-                ))}
-                {services.length < 3 && (
-                  <>
-                    {[...Array(3 - services.length)].map((_, i) => (
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {services.slice(1).map((service, index) => (
                       <motion.div
-                        key={`placeholder-${i}`}
+                        key={service._id}
                         initial={{ opacity: 0, scale: 0.98 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true, margin: "-100px" }}
-                        transition={{ duration: 0.7, ease: "easeOut", delay: (services.length + i) * 0.1 }}
-                        className="bg-background border border-foreground/10 border-dashed p-6 md:p-8 shadow-lg shadow-black/5 relative overflow-hidden flex flex-col items-center justify-center text-center opacity-50 hover:opacity-75 transition-opacity"
+                        transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 + index * 0.1 }}
+                        className="bg-background border border-foreground/10 p-6 md:p-8 hover:border-primary/50 hover:bg-primary/2 transition-all duration-300 relative overflow-hidden flex flex-col justify-start group"
                       >
-                        <Plus className="w-8 h-8 text-secondary mb-3" />
-                        <p className="font-heading text-sm text-secondary uppercase tracking-widest">
-                          Coming Soon
-                        </p>
+                        {/* Subtle corner accents */}
+                        <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-primary/30 group-hover:border-primary transition-colors"></div>
+                        <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-primary/30 group-hover:border-primary transition-colors"></div>
+
+                        <div className="flex-1">
+                          <div className="inline-block px-2 py-0.5 bg-primary/10 text-primary text-xs font-heading uppercase tracking-widest mb-3 group-hover:bg-primary/20 transition-colors">
+                            Option
+                          </div>
+                          
+                          <h4 className="font-heading text-xl md:text-2xl text-foreground mb-3 group-hover:text-primary transition-colors">
+                            {service.itemName}
+                          </h4>
+                          <p className="font-paragraph text-sm text-foreground/70 mb-4 line-clamp-2">
+                            {service.itemDescription}
+                          </p>
+                          <div className="space-y-2 mb-6">
+                            {service.serviceInclusions?.split('\n').slice(0, 2).map((item, idx) => (
+                              <div key={idx} className="flex items-start group/item">
+                                <CheckCircle className="w-3.5 h-3.5 text-primary/60 mr-2 mt-0.5 flex-shrink-0 group-hover/item:text-primary group-hover/item:scale-110 transition-all" />
+                                <span className="font-paragraph text-xs text-foreground/70">{item}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                        <div className="border-t border-accent-grey pt-4 mt-4">
+                          <div className="mb-3">
+                            <span className="font-heading text-3xl text-foreground tracking-tighter">
+                              ${service.itemPrice || 199}
+                            </span>
+                          </div>
+                          <Button 
+                            size="sm" 
+                            className="w-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground font-heading text-xs py-2 h-auto rounded-none transition-all group-hover:translate-y-[-1px]"
+                            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                          >
+                            Learn More
+                          </Button>
+                        </div>
                       </motion.div>
                     ))}
-                  </>
-                )}
-              </>
-            ) : (
-              <div className="col-span-3 text-center py-12">
-                <p className="text-secondary text-sm">No services available.</p>
-              </div>
-            )}
-          </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          ) : (
+            <div className="text-center py-12">
+              <p className="text-secondary text-sm">No services available.</p>
+            </div>
+          )}
         </div>
       </section>
+
       {/* ROI CALCULATOR - INTERACTIVE - MODERN SLEEK DESIGN */}
       <section id="roi-calculator" className="w-full bg-gradient-to-br from-foreground to-foreground/95 text-background py-16 overflow-hidden relative">
         {/* Sleek background with gradient overlay */}
@@ -438,6 +502,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
       {/* EXAMPLE WORKFLOWS SECTION */}
       <section id="example-workflows" className="w-full bg-background py-20 border-b border-accent-grey">
         <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24">
@@ -477,6 +542,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
       {/* CONTACT FORM */}
       <section id="contact" className="w-full bg-background py-32">
         <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24">
