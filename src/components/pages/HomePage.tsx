@@ -43,8 +43,8 @@ export default function HomePage() {
       const sortedServices = serviceResult.items.sort((a, b) => {
         if (a.itemName === 'Single Process Audit') return -1;
         if (b.itemName === 'Single Process Audit') return 1;
-        if (a.itemName === 'SOP Buildout') return -1;
-        if (b.itemName === 'SOP Buildout') return 1;
+        if (a.itemName === 'SOP Buildout' && b.itemName !== 'Single Process Audit') return -1;
+        if (b.itemName === 'SOP Buildout' && a.itemName !== 'Single Process Audit') return 1;
         return 0;
       });
       // Only keep the first 2 services, third position will show "coming soon"
