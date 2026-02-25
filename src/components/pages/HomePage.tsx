@@ -238,7 +238,7 @@ export default function HomePage() {
                         </span>
                       </div>
                       <p className="font-paragraph text-xs text-secondary/70 uppercase tracking-widest font-semibold">
-                        Introductory Rate
+                        Founder's rate for first 10 clients (Regularly $595)
                       </p>
                     </div>
                     <Button 
