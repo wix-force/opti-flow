@@ -88,7 +88,7 @@ export default function HomePage() {
     <div className="min-h-screen bg-background text-foreground font-paragraph selection:bg-primary selection:text-white">
       <Header />
       {/* HERO SECTION */}
-      <section className="relative w-full min-h-screen flex flex-col justify-center pt-32 pb-20 border-b border-accent-grey/30">
+      <section className="relative w-full min-h-screen flex flex-col justify-center pt-32 pb-20 border-b border-accent-grey/30 mt-20">
         {/* Subtle gradient overlay */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -mr-48 -mt-48 pointer-events-none"></div>
 
@@ -549,9 +549,9 @@ export default function HomePage() {
       </section>
 
       {/* CONTACT FORM */}
-      <section id="contact" className="w-full bg-gradient-to-b from-background to-accent-grey/5 py-32">
+      <section id="contact" className="w-full bg-gradient-to-b from-background to-accent-grey/5 py-32 border-b border-accent-grey/30">
         <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 min-h-[600px]">
             <motion.div 
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
