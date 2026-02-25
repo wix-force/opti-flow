@@ -282,7 +282,7 @@ export default function HomePage() {
 
                         <div className="flex-1 relative z-10">
                           <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-heading uppercase tracking-widest mb-4 group-hover:bg-primary/20 transition-colors rounded-full font-semibold">
-                            {service.itemName?.toLowerCase().includes('sop library') ? 'Foundations' : service.itemName?.toLowerCase().includes('business engine redesign') ? 'Expansion' : 'Option'}
+                            {service.itemName?.toLowerCase().includes('sop library') ? 'Asset Building' : service.itemName?.toLowerCase().includes('business engine redesign') ? 'Systemiv' : 'Option'}
                           </div>
                           
                           <h4 className="font-heading text-xl md:text-2xl text-foreground mb-3 group-hover:text-primary transition-colors font-bold">
