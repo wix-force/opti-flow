@@ -1,6 +1,6 @@
 // HPI 1.7-G
-import React, { useState, useEffect, useRef } from 'react';
-import { motion, useScroll, useSpring } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle, ArrowDown, Plus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -14,9 +14,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 export default function HomePage() {
-  // ---------------------------------------------------------------------------
-  // DATA FIDELITY PROTOCOL & STATE MANAGEMENT
-  // ---------------------------------------------------------------------------
+  // ... keep existing code (state management) ...
   const [hourlyRate, setHourlyRate] = useState<string>('100');
   const [hoursPerWeek, setHoursPerWeek] = useState<number[]>([5]);
   const [services, setServices] = useState<Services[]>([]);
@@ -84,37 +82,13 @@ export default function HomePage() {
   };
 
   // ---------------------------------------------------------------------------
-  // ANIMATION HOOKS & REFS
-  // ---------------------------------------------------------------------------
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"]
-  });
-
-  const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
-  });
-
-  // ---------------------------------------------------------------------------
   // RENDER
   // ---------------------------------------------------------------------------
   return (
-    <div ref={containerRef} className="min-h-screen bg-background text-foreground font-paragraph selection:bg-primary selection:text-white overflow-clip">
+    <div className="min-h-screen bg-background text-foreground font-paragraph selection:bg-primary selection:text-white">
       <Header />
-      {/* PROGRESS BAR */}
-      <motion.div 
-        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-primary/60 z-50 origin-left"
-        style={{ scaleX: smoothProgress }}
-      />
       {/* HERO SECTION */}
-      <section className="relative w-full min-h-screen flex flex-col justify-center pt-32 pb-20 border-b border-accent-grey/30 overflow-hidden">
-        {/* Gradient Background Effect */}
-        <div className="absolute inset-0 pointer-events-none opacity-[0.02]" 
-             style={{ backgroundImage: 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)', backgroundSize: '40px 40px' }}>
-        </div>
+      <section className="relative w-full min-h-screen flex flex-col justify-center pt-32 pb-20 border-b border-accent-grey/30">
         {/* Subtle gradient overlay */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -mr-48 -mt-48 pointer-events-none"></div>
 
