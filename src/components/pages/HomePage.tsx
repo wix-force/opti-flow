@@ -207,13 +207,13 @@ export default function HomePage() {
                       Signature Service
                     </div>
                     
-                    <h3 className="font-heading text-3xl md:text-4xl text-foreground mb-3 font-bold">
+                    <h3 className="font-heading text-2xl md:text-3xl text-foreground mb-2 font-bold">
                       {services[0].itemName}
                     </h3>
-                    <p className="font-paragraph text-base text-foreground/80 mb-4 max-w-2xl leading-relaxed">
+                    <p className="font-paragraph text-lg md:text-xl text-foreground font-semibold mb-6 max-w-2xl leading-relaxed">
                       {services[0].itemDescription}
                     </p>
-                    <div className="space-y-2.5">
+                    <div className="space-y-2">
                       {services[0].serviceInclusions?.split('\n').map((item, idx) => (
                         <motion.div 
                           key={idx} 
@@ -223,8 +223,8 @@ export default function HomePage() {
                           viewport={{ once: true }}
                           transition={{ delay: idx * 0.05 }}
                         >
-                          <CheckCircle className="w-4 h-4 text-primary mr-2.5 mt-0.5 flex-shrink-0 group-hover/item:scale-110 transition-transform" />
-                           <span className="font-paragraph text-sm text-foreground/80">{item}</span>
+                          <CheckCircle className="w-3.5 h-3.5 text-primary/60 mr-2.5 mt-0.5 flex-shrink-0 group-hover/item:text-primary group-hover/item:scale-110 transition-all" />
+                           <span className="font-paragraph text-xs text-foreground/60">{item}</span>
                         </motion.div>
                       ))}
                     </div>
@@ -288,17 +288,17 @@ export default function HomePage() {
                             {service.itemName?.toLowerCase().includes('sop library') ? 'Asset Building' : service.itemName?.toLowerCase().includes('business engine redesign') ? 'Systemize' : 'Option'}
                           </div>
                           
-                          <h4 className="font-heading text-xl md:text-2xl text-foreground mb-3 group-hover:text-primary transition-colors font-bold">
+                          <h4 className="font-heading text-xl md:text-2xl text-foreground mb-2 group-hover:text-primary transition-colors font-bold">
                             {service.itemName}
                           </h4>
                           <p className="font-paragraph text-sm font-semibold text-foreground mb-5 leading-relaxed">
                             {service.itemDescription}
                           </p>
-                          <div className="space-y-2.5 mb-4">
+                          <div className="space-y-2 mb-4">
                             {service.serviceInclusions?.split('\n').map((item, idx) => (
                               <div key={idx} className="flex items-start group/item">
-                                <CheckCircle className="w-3.5 h-3.5 text-primary/60 mr-2 mt-0.5 flex-shrink-0 group-hover/item:text-primary group-hover/item:scale-110 transition-all" />
-                                <span className="font-paragraph text-xs text-foreground/70">{item}</span>
+                                <CheckCircle className="w-3 h-3 text-primary/60 mr-2 mt-0.5 flex-shrink-0 group-hover/item:text-primary group-hover/item:scale-110 transition-all" />
+                                <span className="font-paragraph text-xs text-foreground/60">{item}</span>
                               </div>
                             ))}
                           </div>
