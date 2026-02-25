@@ -196,24 +196,24 @@ export default function HomePage() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true, margin: "-100px" }}
                   transition={{ duration: 0.7, ease: "easeOut" }}
-                  className="bg-gradient-to-br from-background to-background/95 border-2 border-primary/40 hover:border-primary/60 p-8 md:p-12 shadow-xl shadow-primary/10 rounded-2xl relative overflow-hidden flex flex-col justify-start group transition-all duration-500"
+                  className="bg-gradient-to-br from-background to-background/95 border-2 border-primary/40 hover:border-primary/60 p-8 md:p-10 shadow-xl shadow-primary/10 rounded-2xl relative overflow-hidden flex flex-col justify-between group transition-all duration-500"
                 >
                   {/* Decorative gradient accents */}
                   <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none group-hover:bg-primary/10 transition-colors duration-500"></div>
                   <div className="absolute bottom-0 left-0 w-48 h-48 bg-primary/3 rounded-full blur-3xl -ml-24 -mb-24 pointer-events-none"></div>
 
                   <div className="flex-1 relative z-10">
-                    <div className="inline-block px-4 py-1.5 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground text-xs font-heading uppercase tracking-widest mb-6 font-bold rounded-full">
+                    <div className="inline-block px-3 py-1 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground text-xs font-heading uppercase tracking-widest mb-3 font-bold rounded-full">
                       Signature Service
                     </div>
                     
-                    <h3 className="font-heading text-4xl md:text-5xl text-foreground mb-6 font-bold">
+                    <h3 className="font-heading text-3xl md:text-4xl text-foreground mb-3 font-bold">
                       {services[0].itemName}
                     </h3>
-                    <p className="font-paragraph text-lg text-foreground/80 mb-8 max-w-2xl leading-relaxed">
+                    <p className="font-paragraph text-base text-foreground/80 mb-4 max-w-2xl leading-relaxed">
                       {services[0].itemDescription}
                     </p>
-                    <div className="space-y-4 mb-8">
+                    <div className="space-y-2.5">
                       {services[0].serviceInclusions?.split('\n').map((item, idx) => (
                         <motion.div 
                           key={idx} 
@@ -223,20 +223,20 @@ export default function HomePage() {
                           viewport={{ once: true }}
                           transition={{ delay: idx * 0.05 }}
                         >
-                          <CheckCircle className="w-5 h-5 text-primary mr-3 mt-0.5 flex-shrink-0 group-hover/item:scale-110 transition-transform" />
-                          <span className="font-paragraph text-base text-foreground/80">{item}</span>
+                          <CheckCircle className="w-4 h-4 text-primary mr-2.5 mt-0.5 flex-shrink-0 group-hover/item:scale-110 transition-transform" />
+                           <span className="font-paragraph text-sm text-foreground/80">{item}</span>
                         </motion.div>
                       ))}
                     </div>
                   </div>
 
-                  <div className="border-t border-accent-grey/30 pt-8 mt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6 relative z-10">
+                  <div className="border-t border-accent-grey/30 pt-5 mt-5 flex flex-col md:flex-row md:items-center md:justify-between gap-4 relative z-10">
                     <div>
-                      <div className="mb-2 flex items-baseline gap-3">
-                        <span className="font-heading text-5xl md:text-6xl text-foreground tracking-tight font-bold">
+                      <div className="mb-1 flex items-baseline gap-2">
+                        <span className="font-heading text-4xl md:text-5xl text-foreground tracking-tight font-bold">
                           ${services[0].itemPrice || 199}
                         </span>
-                        <span className="font-heading text-2xl md:text-3xl text-secondary/70 tracking-tight font-bold line-through">
+                        <span className="font-heading text-lg md:text-xl text-secondary/70 tracking-tight font-bold line-through">
                           $595
                         </span>
                       </div>
@@ -246,7 +246,7 @@ export default function HomePage() {
                     </div>
                     <Button 
                       size="sm" 
-                      className="bg-primary text-primary-foreground hover:bg-primary/90 font-heading text-base px-8 py-4 h-auto rounded-lg transition-all hover:shadow-lg hover:shadow-primary/30 hover:translate-y-[-2px] md:w-auto w-full"
+                      className="bg-primary text-primary-foreground hover:bg-primary/90 font-heading text-sm px-6 py-3 h-auto rounded-lg transition-all hover:shadow-lg hover:shadow-primary/30 hover:translate-y-[-2px] md:w-auto w-full"
                       onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                     >
                       Get Started <ArrowRight className="ml-2 h-4 w-4" />
