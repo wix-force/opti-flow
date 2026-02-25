@@ -322,7 +322,7 @@ export default function HomePage() {
                             {service.itemName?.toLowerCase().includes('business engine redesign') && (
                               <>
                                 <span className="font-heading text-lg text-secondary/70 tracking-tight font-bold line-through">
-                                  $2,699
+                                  $2,795
                                 </span>
                                 <span className="font-paragraph text-xs text-secondary/70 uppercase tracking-widest font-semibold">
                                   (1-Business Unit Architecture)
