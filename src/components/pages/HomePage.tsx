@@ -232,16 +232,16 @@ export default function HomePage() {
 
                   <div className="border-t border-accent-grey/30 pt-8 mt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6 relative z-10">
                     <div>
-                      <div className="mb-2">
+                      <div className="mb-2 flex items-baseline gap-3">
                         <span className="font-heading text-5xl md:text-6xl text-foreground tracking-tight font-bold">
                           ${services[0].itemPrice || 199}
+                        </span>
+                        <span className="font-heading text-2xl md:text-3xl text-secondary/70 tracking-tight font-bold line-through">
+                          $595
                         </span>
                       </div>
                       <p className="font-paragraph text-xs text-secondary/70 uppercase tracking-widest font-semibold">
                         Introductory rate
-                      </p>
-                      <p className="font-paragraph text-xs text-secondary/70 uppercase tracking-widest font-semibold line-through">
-                        Regularly $595
                       </p>
                     </div>
                     <Button 
