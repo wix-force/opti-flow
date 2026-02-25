@@ -291,7 +291,7 @@ export default function HomePage() {
                           <h4 className="font-heading text-xl md:text-2xl text-foreground mb-3 group-hover:text-primary transition-colors font-bold">
                             {service.itemName}
                           </h4>
-                          <p className="font-paragraph text-sm text-foreground/70 mb-4">
+                          <p className="font-paragraph text-sm font-semibold text-foreground mb-5 leading-relaxed">
                             {service.itemDescription}
                           </p>
                           <div className="space-y-2.5 mb-4">
