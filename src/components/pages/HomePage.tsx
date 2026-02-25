@@ -305,11 +305,26 @@ export default function HomePage() {
                         </div>
 
                         <div className="border-t border-accent-grey/30 pt-4 mt-4 relative z-10">
-                          <div className="mb-3">
+                          <div className="mb-3 flex items-baseline gap-3">
                             <span className="font-heading text-3xl text-foreground tracking-tight font-bold">
                               ${service.itemPrice || 199}
                             </span>
+                            {service.itemName?.toLowerCase().includes('sop library') && (
+                              <>
+                                <span className="font-heading text-lg text-secondary/70 tracking-tight font-bold line-through">
+                                  $1,500
+                                </span>
+                                <span className="font-paragraph text-xs text-secondary/70 uppercase tracking-widest font-semibold">
+                                  (10-SOP Starter Pack)
+                                </span>
+                              </>
+                            )}
                           </div>
+                          {service.itemName?.toLowerCase().includes('sop library') && (
+                            <p className="font-paragraph text-xs text-secondary/70 uppercase tracking-widest font-semibold mb-4">
+                              Introductory rate
+                            </p>
+                          )}
                           <Button 
                             size="sm" 
                             className="w-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground font-heading text-xs py-2.5 h-auto rounded-lg transition-all group-hover:translate-y-[-1px]"
