@@ -291,11 +291,11 @@ export default function HomePage() {
                           <h4 className="font-heading text-xl md:text-2xl text-foreground mb-3 group-hover:text-primary transition-colors font-bold">
                             {service.itemName}
                           </h4>
-                          <p className="font-paragraph text-sm text-foreground/70 mb-4 line-clamp-2">
+                          <p className="font-paragraph text-sm text-foreground/70 mb-4">
                             {service.itemDescription}
                           </p>
                           <div className="space-y-2.5 mb-6">
-                            {service.serviceInclusions?.split('\n').slice(0, 2).map((item, idx) => (
+                            {service.serviceInclusions?.split('\n').map((item, idx) => (
                               <div key={idx} className="flex items-start group/item">
                                 <CheckCircle className="w-3.5 h-3.5 text-primary/60 mr-2 mt-0.5 flex-shrink-0 group-hover/item:text-primary group-hover/item:scale-110 transition-all" />
                                 <span className="font-paragraph text-xs text-foreground/70">{item}</span>
@@ -312,7 +312,7 @@ export default function HomePage() {
                             {service.itemName?.toLowerCase().includes('sop library') && (
                               <>
                                 <span className="font-heading text-lg text-secondary/70 tracking-tight font-bold line-through">
-                                  $1,500
+                                  $1,595
                                 </span>
                                 <span className="font-paragraph text-xs text-secondary/70 uppercase tracking-widest font-semibold">
                                   (10-SOP Starter Pack)
