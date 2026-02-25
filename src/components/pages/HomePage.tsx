@@ -1,6 +1,6 @@
 // HPI 1.7-G
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, useScroll, useTransform, useSpring, useInView } from 'framer-motion';
+import { motion, useScroll, useSpring } from 'framer-motion';
 import { ArrowRight, CheckCircle, ArrowDown, Plus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -697,18 +697,9 @@ export default function HomePage() {
 }
 
 // Ultra compact card component - minimal design
-function CompactProcessCard({ process, index }: { process: ProcessExamples, index: number }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "30px" });
-
+function CompactProcessCard({ process }: { process: ProcessExamples }) {
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 15 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
-      transition={{ duration: 0.5, delay: index * 0.08 }}
-      className="bg-gradient-to-br from-background to-background/95 border border-foreground/10 hover:border-primary/40 p-5 group hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 flex flex-col justify-between min-h-fit rounded-xl overflow-hidden relative"
-    >
+    <div className="bg-gradient-to-br from-background to-background/95 border border-foreground/10 hover:border-primary/40 p-5 group hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 flex flex-col justify-between min-h-fit rounded-xl overflow-hidden relative">
       {/* Subtle gradient overlay on hover */}
       <div className="absolute top-0 right-0 w-20 h-20 bg-primary/5 rounded-full blur-2xl -mr-10 -mt-10 pointer-events-none group-hover:bg-primary/10 transition-colors duration-300"></div>
 
@@ -717,13 +708,7 @@ function CompactProcessCard({ process, index }: { process: ProcessExamples, inde
           <h3 className="font-heading text-base font-bold text-foreground group-hover:text-primary transition-colors leading-snug">
             {process.processName}
           </h3>
-          <motion.div
-            animate={{ rotate: 0 }}
-            whileHover={{ rotate: 90 }}
-            transition={{ duration: 0.3 }}
-          >
-            <Plus className="w-4 h-4 text-accent-grey group-hover:text-primary transition-colors flex-shrink-0 mt-0.5" />
-          </motion.div>
+          <Plus className="w-4 h-4 text-accent-grey group-hover:text-primary transition-colors flex-shrink-0 mt-0.5" />
         </div>
         <p className="font-paragraph text-xs text-secondary/80 leading-relaxed line-clamp-2">
           {process.processDescription}
@@ -731,17 +716,12 @@ function CompactProcessCard({ process, index }: { process: ProcessExamples, inde
       </div>
 
       {process.commonPainPoint && (
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ delay: index * 0.08 + 0.2 }}
-          className="pt-3 mt-3 border-t border-accent-grey/30 bg-primary/5 -mx-5 px-5 py-3 relative z-10"
-        >
+        <div className="pt-3 mt-3 border-t border-accent-grey/30 bg-primary/5 -mx-5 px-5 py-3 relative z-10">
           <p className="font-paragraph text-xs text-foreground/80 font-medium">
             <span className="text-primary font-bold">Pain:</span> {process.commonPainPoint}
           </p>
-        </motion.div>
+        </div>
       )}
-    </motion.div>
+    </div>
   );
 }
