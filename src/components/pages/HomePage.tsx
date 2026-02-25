@@ -278,7 +278,7 @@ export default function HomePage() {
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 + index * 0.1 }}
-                        className="bg-gradient-to-br from-background to-background/95 border border-foreground/10 hover:border-primary/40 p-6 md:p-8 hover:shadow-lg hover:shadow-primary/10 rounded-xl transition-all duration-300 relative overflow-hidden flex flex-col justify-start group"
+                        className="bg-gradient-to-br from-background to-background/95 border border-foreground/10 hover:border-primary/40 p-8 md:p-12 hover:shadow-lg hover:shadow-primary/10 rounded-xl transition-all duration-300 relative overflow-hidden flex flex-col justify-start group"
                       >
                         {/* Subtle gradient overlay */}
                         <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-2xl -mr-16 -mt-16 pointer-events-none group-hover:bg-primary/10 transition-colors duration-300"></div>
