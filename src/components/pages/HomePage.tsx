@@ -305,7 +305,7 @@ export default function HomePage() {
                         </div>
 
                         <div className="border-t border-accent-grey/30 pt-4 mt-4 relative z-10">
-                          <div className="mb-3 flex items-baseline gap-3">
+                          <div className="mb-3 flex items-center gap-3">
                             <span className="font-heading text-3xl text-foreground tracking-tight font-bold">
                               ${service.itemPrice || 199}
                             </span>
