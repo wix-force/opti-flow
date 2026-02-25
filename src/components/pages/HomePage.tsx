@@ -294,7 +294,7 @@ export default function HomePage() {
                           <p className="font-paragraph text-sm text-foreground/70 mb-4">
                             {service.itemDescription}
                           </p>
-                          <div className="space-y-2.5 mb-6">
+                          <div className="space-y-2.5 mb-4">
                             {service.serviceInclusions?.split('\n').map((item, idx) => (
                               <div key={idx} className="flex items-start group/item">
                                 <CheckCircle className="w-3.5 h-3.5 text-primary/60 mr-2 mt-0.5 flex-shrink-0 group-hover/item:text-primary group-hover/item:scale-110 transition-all" />
@@ -304,9 +304,9 @@ export default function HomePage() {
                           </div>
                         </div>
 
-                        <div className="border-t border-accent-grey/30 pt-4 mt-4 relative z-10">
+                        <div className="border-t border-accent-grey/30 pt-3 mt-3 relative z-10 bg-gradient-to-br from-primary/5 to-primary/3 -mx-8 md:-mx-12 px-8 md:px-12 py-4 rounded-b-xl">
                           <div className="mb-3 flex items-center gap-3">
-                            <span className="font-heading text-3xl text-foreground tracking-tight font-bold">
+                            <span className="font-heading text-4xl text-foreground tracking-tight font-bold">
                               ${service.itemPrice || 199}
                             </span>
                             {service.itemName?.toLowerCase().includes('sop library') && (
@@ -331,13 +331,13 @@ export default function HomePage() {
                             )}
                           </div>
                           {(service.itemName?.toLowerCase().includes('sop library') || service.itemName?.toLowerCase().includes('business engine redesign')) && (
-                            <p className="font-paragraph text-xs text-secondary/70 uppercase tracking-widest font-semibold mb-4">
+                            <p className="font-paragraph text-xs text-secondary/70 uppercase tracking-widest font-semibold mb-3">
                               Introductory rate
                             </p>
                           )}
                           <Button 
                             size="sm" 
-                            className="w-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground font-heading text-xs py-2.5 h-auto rounded-lg transition-all group-hover:translate-y-[-1px]"
+                            className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-heading text-sm py-2.5 h-auto rounded-lg transition-all group-hover:translate-y-[-2px] group-hover:shadow-lg group-hover:shadow-primary/20 font-semibold"
                             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                           >
                             Learn More
