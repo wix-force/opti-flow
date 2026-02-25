@@ -353,15 +353,6 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="font-paragraph text-lg text-white/80 max-w-2xl leading-relaxed mb-3 font-semibold"
-            >
-              Businesses typically uncover several hours per week of recoverable time once their workflows are mapped.
-            </motion.p>
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
               className="font-paragraph text-base text-white/70 max-w-2xl leading-relaxed"
             >
