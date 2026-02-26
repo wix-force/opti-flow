@@ -12,8 +12,10 @@ import { ProcessExamples, Services } from '@/entities';
 import { Image } from '@/components/ui/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { useNavigate } from 'react-router-dom';
 
 export default function HomePage() {
+  const navigate = useNavigate();
   // ... keep existing code (state management) ...
   const [hourlyRate, setHourlyRate] = useState<string>('100');
   const [hoursPerWeek, setHoursPerWeek] = useState<number[]>([5]);
@@ -247,9 +249,9 @@ export default function HomePage() {
                     <Button 
                       size="sm" 
                       className="bg-primary text-primary-foreground hover:bg-primary/90 font-heading text-sm px-6 py-3 h-auto rounded-lg transition-all hover:shadow-lg hover:shadow-primary/30 hover:translate-y-[-2px] md:w-auto w-full"
-                      onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                      onClick={() => navigate('/single-process-audit')}
                     >
-                      Get Started <ArrowRight className="ml-2 h-4 w-4" />
+                      Learn More <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </div>
                 </motion.div>
