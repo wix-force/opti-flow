@@ -484,7 +484,7 @@ export default function HomePage() {
                      initial={{ scale: 0.8, opacity: 0 }}
                      animate={{ scale: 1, opacity: 1 }}
                      transition={{ duration: 0.3 }}
-                     className="font-heading text-4xl md:text-5xl lg:text-6xl text-white font-bold break-words"
+                     className="font-heading text-4xl md:text-5xl lg:text-6xl text-white font-bold whitespace-nowrap overflow-hidden text-ellipsis"
                    >
                      ${savings.weekly.toLocaleString(undefined, { maximumFractionDigits: 0 })}
                    </motion.p>
@@ -504,7 +504,7 @@ export default function HomePage() {
                      initial={{ scale: 0.8, opacity: 0 }}
                      animate={{ scale: 1, opacity: 1 }}
                      transition={{ duration: 0.3 }}
-                     className="font-heading text-4xl md:text-5xl lg:text-6xl text-white font-bold break-words"
+                     className="font-heading text-4xl md:text-5xl lg:text-6xl text-white font-bold whitespace-nowrap overflow-hidden text-ellipsis"
                    >
                      ${savings.monthly.toLocaleString(undefined, { maximumFractionDigits: 0 })}
                    </motion.p>
@@ -524,7 +524,7 @@ export default function HomePage() {
                      initial={{ scale: 0.8, opacity: 0 }}
                      animate={{ scale: 1, opacity: 1 }}
                      transition={{ duration: 0.3 }}
-                     className="font-heading text-4xl md:text-5xl lg:text-6xl text-white font-bold break-words"
+                     className="font-heading text-4xl md:text-5xl lg:text-6xl text-white font-bold whitespace-nowrap overflow-hidden text-ellipsis"
                    >
                      ${savings.yearly.toLocaleString(undefined, { maximumFractionDigits: 0 })}
                    </motion.p>
