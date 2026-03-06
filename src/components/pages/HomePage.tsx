@@ -771,7 +771,7 @@ export default function HomePage() {
   );
 }
 
-// Grid process card - 3-column grid layout with professional density
+// Grid process card - 2-column grid layout with clinical aesthetic
 function GridProcessCard({ 
   process, 
   index, 
@@ -781,10 +781,9 @@ function GridProcessCard({
   index: number;
   total: number;
 }) {
-  // Calculate which borders to show
-  const isLastRow = index >= total - (total % 3 === 0 ? 3 : total % 3);
-  const isLastInRow = (index + 1) % 3 === 0;
-  const isLastColumn = index % 3 === 2;
+  // Calculate which borders to show for 2-column layout
+  const isLastRow = index >= total - (total % 2 === 0 ? 2 : total % 2);
+  const isLastInRow = (index + 1) % 2 === 0;
   
   return (
     <motion.div
@@ -792,37 +791,35 @@ function GridProcessCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.4, delay: index * 0.05 }}
-      className={`border-dark-grey/20 p-6 lg:p-8 flex flex-col h-full ${
-        !isLastColumn ? 'border-r' : ''
-      } ${
-        !isLastRow ? 'border-b' : ''
+      className={`pb-8 flex flex-col h-full align-top ${
+        !isLastRow ? 'border-b border-accent-grey/50' : ''
       }`}
     >
       <div className="space-y-4 flex flex-col h-full">
-        {/* Workflow Title - Bold, Larger Font */}
-        <h3 className="font-heading text-lg lg:text-xl font-bold text-foreground leading-tight">
+        {/* Workflow Title - Medium-weight Bold */}
+        <h3 className="font-heading text-base lg:text-lg font-semibold text-foreground leading-tight">
           {process.processName}
         </h3>
         
-        {/* Description */}
-        <p className="font-paragraph text-sm lg:text-base text-foreground/70 leading-relaxed flex-1">
+        {/* Description - 16px, line-height 1.6 */}
+        <p className="font-paragraph text-sm lg:text-base text-foreground/70 leading-[1.6] flex-1">
           {process.processDescription}
         </p>
         
-        {/* Friction Highlight - Electric Blue Label */}
+        {/* Friction Highlight - Electric Blue Label, All-Caps, 12-14px */}
         {process.commonPainPoint && (
-          <div className="pt-2">
-            <p className="font-paragraph text-xs lg:text-sm text-foreground/80 leading-relaxed">
-              <span className="font-heading font-bold text-primary">FRICTION:</span> {process.commonPainPoint}
+          <div className="pt-3">
+            <p className="font-paragraph text-xs lg:text-sm text-foreground/80 leading-[1.6]">
+              <span className="font-heading text-xs lg:text-sm font-bold text-primary uppercase">FRICTION:</span> {process.commonPainPoint}
             </p>
           </div>
         )}
         
-        {/* Impact - Electric Blue Label */}
+        {/* Impact - Electric Blue Label, All-Caps, 12-14px */}
         {process.potentialImpact && (
-          <div className="pt-2">
-            <p className="font-paragraph text-xs lg:text-sm text-foreground/70 leading-relaxed">
-              <span className="font-heading font-bold text-primary">SOLUTION IMPACT:</span> {process.potentialImpact}
+          <div className="pt-3">
+            <p className="font-paragraph text-xs lg:text-sm text-foreground/70 leading-[1.6]">
+              <span className="font-heading text-xs lg:text-sm font-bold text-primary uppercase">SOLUTION IMPACT:</span> {process.potentialImpact}
             </p>
           </div>
         )}
