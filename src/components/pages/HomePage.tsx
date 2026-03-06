@@ -293,7 +293,7 @@ export default function HomePage() {
                           {/* Card Container */}
                           <div className="bg-gradient-to-br from-background via-background to-background/98 border-2 border-foreground/8 hover:border-primary/30 p-0 rounded-2xl transition-all duration-500 overflow-hidden flex flex-col h-full shadow-lg hover:shadow-xl hover:shadow-primary/15">
                             {/* Header Section with Icon Background */}
-                            <div className={`relative h-32 md:h-40 overflow-hidden ${
+                            <div className={`relative h-48 md:h-56 overflow-hidden ${
                               isSOP ? 'bg-gradient-to-br from-blue-50 to-blue-100/50' : 
                               isBusinessEngine ? 'bg-gradient-to-br from-purple-50 to-purple-100/50' : 
                               'bg-gradient-to-br from-slate-50 to-slate-100/50'
@@ -323,9 +323,9 @@ export default function HomePage() {
                             </div>
 
                             {/* Content Section */}
-                            <div className="flex-1 flex flex-col p-8 md:p-10">
+                            <div className="flex-1 flex flex-col p-8 md:p-12">
                               {/* Title */}
-                              <h4 className={`font-heading text-2xl md:text-3xl font-bold mb-3 transition-colors duration-300 ${
+                              <h4 className={`font-heading text-3xl md:text-4xl font-bold mb-4 transition-colors duration-300 ${
                                 isSOP ? 'text-blue-900' : 
                                 isBusinessEngine ? 'text-purple-900' : 
                                 'text-foreground'
@@ -334,7 +334,7 @@ export default function HomePage() {
                               </h4>
                               
                               {/* Description */}
-                              <p className="font-paragraph text-base md:text-lg text-foreground/75 mb-8 leading-relaxed flex-1">
+                              <p className="font-paragraph text-lg md:text-xl text-foreground/75 mb-10 leading-relaxed flex-1">
                                 {service.itemDescription}
                               </p>
                               
