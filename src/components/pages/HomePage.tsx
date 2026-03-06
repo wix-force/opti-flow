@@ -276,7 +276,7 @@ export default function HomePage() {
                     </p>
                   </motion.div>
                   
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     {services.slice(1).map((service, index) => {
                       const isSOP = service.itemName?.toLowerCase().includes('sop library');
                       const isBusinessEngine = service.itemName?.toLowerCase().includes('business engine redesign');
@@ -293,7 +293,7 @@ export default function HomePage() {
                           {/* Card Container */}
                           <div className="bg-gradient-to-br from-background via-background to-background/98 border-2 border-foreground/8 hover:border-primary/30 p-0 rounded-2xl transition-all duration-500 overflow-hidden flex flex-col h-full shadow-lg hover:shadow-xl hover:shadow-primary/15">
                             {/* Header Section with Icon Background */}
-                            <div className={`relative h-48 md:h-56 overflow-hidden ${
+                            <div className={`relative h-32 md:h-40 overflow-hidden ${
                               isSOP ? 'bg-gradient-to-br from-blue-50 to-blue-100/50' : 
                               isBusinessEngine ? 'bg-gradient-to-br from-purple-50 to-purple-100/50' : 
                               'bg-gradient-to-br from-slate-50 to-slate-100/50'
@@ -306,8 +306,8 @@ export default function HomePage() {
                               }`}></div>
                               
                               {/* Category Badge */}
-                              <div className="absolute top-6 left-6 z-10">
-                                <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full font-heading text-xs uppercase tracking-widest font-bold ${
+                              <div className="absolute top-4 left-4 z-10">
+                                <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full font-heading text-xs uppercase tracking-widest font-bold ${
                                   isSOP ? 'bg-blue-500/15 text-blue-700' : 
                                   isBusinessEngine ? 'bg-purple-500/15 text-purple-700' : 
                                   'bg-slate-500/15 text-slate-700'
@@ -323,9 +323,9 @@ export default function HomePage() {
                             </div>
 
                             {/* Content Section */}
-                            <div className="flex-1 flex flex-col p-8 md:p-12">
+                            <div className="flex-1 flex flex-col p-6 md:p-8">
                               {/* Title */}
-                              <h4 className={`font-heading text-3xl md:text-4xl font-bold mb-4 transition-colors duration-300 ${
+                              <h4 className={`font-heading text-2xl md:text-2xl font-bold mb-3 transition-colors duration-300 ${
                                 isSOP ? 'text-blue-900' : 
                                 isBusinessEngine ? 'text-purple-900' : 
                                 'text-foreground'
@@ -334,22 +334,22 @@ export default function HomePage() {
                               </h4>
                               
                               {/* Description */}
-                              <p className="font-paragraph text-lg md:text-xl text-foreground/75 mb-10 leading-relaxed flex-1">
+                              <p className="font-paragraph text-base md:text-lg text-foreground/75 mb-6 leading-relaxed flex-1">
                                 {service.itemDescription}
                               </p>
                               
                               {/* Inclusions */}
-                              <div className="space-y-3 mb-8">
+                              <div className="space-y-2 mb-6">
                                 <p className="font-heading text-xs uppercase tracking-widest text-foreground/60 font-semibold">What's Included:</p>
-                                <div className="space-y-2.5">
+                                <div className="space-y-1.5">
                                   {service.serviceInclusions?.split('\n').map((item, idx) => (
-                                    <div key={idx} className="flex items-start gap-3 group/item">
-                                      <div className={`w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 transition-all ${
+                                    <div key={idx} className="flex items-start gap-2 group/item">
+                                      <div className={`w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0 transition-all ${
                                         isSOP ? 'bg-blue-500' : 
                                         isBusinessEngine ? 'bg-purple-500' : 
                                         'bg-primary'
                                       }`}></div>
-                                      <span className="font-paragraph text-sm text-foreground/70 leading-relaxed">{item}</span>
+                                      <span className="font-paragraph text-xs text-foreground/70 leading-relaxed">{item}</span>
                                     </div>
                                   ))}
                                 </div>
@@ -357,19 +357,19 @@ export default function HomePage() {
                             </div>
 
                             {/* Footer Section - Pricing & CTA */}
-                            <div className={`border-t-2 p-8 md:p-10 ${
+                            <div className={`border-t-2 p-6 md:p-8 ${
                               isSOP ? 'border-blue-200/50 bg-blue-50/30' : 
                               isBusinessEngine ? 'border-purple-200/50 bg-purple-50/30' : 
                               'border-foreground/5 bg-foreground/2'
                             }`}>
                               {/* Pricing */}
-                              <div className="mb-6">
-                                <div className="flex items-baseline gap-3 mb-2">
-                                  <span className="font-heading text-5xl md:text-6xl font-bold text-foreground">
+                              <div className="mb-4">
+                                <div className="flex items-baseline gap-2 mb-1">
+                                  <span className="font-heading text-4xl md:text-4xl font-bold text-foreground">
                                     ${service.itemPrice || 199}
                                   </span>
                                   {(isSOP || isBusinessEngine) && (
-                                    <span className="font-heading text-lg text-secondary/70 line-through font-semibold">
+                                    <span className="font-heading text-sm text-secondary/70 line-through font-semibold">
                                       ${isSOP ? '1,595' : '2,795'}
                                     </span>
                                   )}
@@ -382,7 +382,7 @@ export default function HomePage() {
                               {/* CTA Button */}
                               <Button 
                                 size="sm" 
-                                className={`w-full font-heading text-sm py-3 h-auto rounded-lg transition-all duration-300 font-semibold ${
+                                className={`w-full font-heading text-sm py-2 h-auto rounded-lg transition-all duration-300 font-semibold ${
                                   isSOP ? 'bg-blue-600 text-white hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-500/30' : 
                                   isBusinessEngine ? 'bg-purple-600 text-white hover:bg-purple-700 hover:shadow-lg hover:shadow-purple-500/30' : 
                                   'bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/30'
