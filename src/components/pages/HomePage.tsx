@@ -791,29 +791,29 @@ function GridProcessCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.4, delay: index * 0.05 }}
-      className={`border border-dark-grey p-[30px] flex flex-col h-full pt-0 ${
+      className={`border border-dark-grey p-[25px] flex flex-col h-full pt-[25px] ${
         !isLastRow ? 'border-b border-dark-grey' : ''
       } ${
         !isLastInRow ? 'border-r border-dark-grey' : ''
       }`}
     >
       <div className="flex flex-col h-full space-y-0">
-        {/* Workflow Title - Bold 20px, top-aligned */}
-        <h3 className="font-heading text-xl font-bold text-foreground leading-[1.3] mb-[12px]">
+        {/* Workflow Title - Bold, top-aligned, zero margin below */}
+        <h3 className="font-heading text-lg font-bold text-foreground leading-[1.3] mb-0">
           {process.processName}
         </h3>
         
-        {/* Description Text - 14px sans-serif, clean secondary appearance */}
-        <p className="font-paragraph text-sm text-[#666666] leading-[1.3] mb-[12px] flex-1">
+        {/* Description Text - 14px, line-height 1.3, 12px margin below */}
+        <p className="font-paragraph text-[14px] text-[#666666] leading-[1.3] mb-[12px] flex-1">
           {process.processDescription}
         </p>
         
         {/* Friction Section - Electric Blue label, bold, all-caps, 12px */}
         {process.commonPainPoint && (
           <div className="mb-[8px]">
-            <p className="font-paragraph text-sm leading-[1.3]">
-              <span className="font-heading text-xs font-bold text-primary uppercase tracking-wide">Friction:</span>{' '}
-              <span className="text-foreground text-sm leading-[1.3]">{process.commonPainPoint}</span>
+            <p className="font-paragraph text-[14px] leading-[1.3]">
+              <span className="font-heading text-[12px] font-bold text-primary uppercase tracking-wide">Friction:</span>{' '}
+              <span className="text-foreground text-[14px] leading-[1.3]">{process.commonPainPoint}</span>
             </p>
           </div>
         )}
@@ -821,9 +821,9 @@ function GridProcessCard({
         {/* Impact Section - Electric Blue label, bold, all-caps, 12px */}
         {process.potentialImpact && (
           <div className="mb-0">
-            <p className="font-paragraph text-sm leading-[1.3]">
-              <span className="font-heading text-xs font-bold text-primary uppercase tracking-wide">Impact:</span>{' '}
-              <span className="text-foreground text-sm leading-[1.3]">{process.potentialImpact}</span>
+            <p className="font-paragraph text-[14px] leading-[1.3]">
+              <span className="font-heading text-[12px] font-bold text-primary uppercase tracking-wide">Impact:</span>{' '}
+              <span className="text-foreground text-[14px] leading-[1.3]">{process.potentialImpact}</span>
             </p>
           </div>
         )}
