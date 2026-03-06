@@ -1,9 +1,27 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
-import { Check } from 'lucide-react';
+import { Check, ChevronDown } from 'lucide-react';
+import { useState } from 'react';
 
 export default function SingleProcessAuditPage() {
+  const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
+
+  const faqItems = [
+    {
+      header: 'Submission Protocol',
+      body: 'Once you check out, you will receive a confirmation email with a secure submission link. We recommend a Loom screen recording to capture the "living" version of the friction, but written SOPs or walkthroughs are also accepted.'
+    },
+    {
+      header: 'Documentation Standard',
+      body: 'Do not worry about "cleaning up" your process before recording. Seeing the raw, manual friction points allows for a more accurate forensic audit. Perform the task exactly as you normally would.'
+    },
+    {
+      header: 'Scope Verification',
+      body: 'If your submission exceeds the 20-minute review limit or the single-sequence perimeter, I will reach out to either narrow the focus or discuss a custom build.'
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-background text-foreground font-paragraph selection:bg-primary selection:text-white">
       <Header />
@@ -157,6 +175,44 @@ export default function SingleProcessAuditPage() {
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Technical FAQ Section */}
+      <section className="w-full py-32 px-6 md:px-12 lg:px-24 bg-background">
+        <div className="w-full max-w-[100rem] mx-auto">
+          <h2 className="font-heading text-3xl font-bold text-foreground mb-16">
+            Technical FAQ
+          </h2>
+          <div className="space-y-0">
+            {faqItems.map((item, index) => (
+              <div key={index}>
+                <button
+                  onClick={() => setExpandedFaq(expandedFaq === index ? null : index)}
+                  className="w-full py-6 flex items-center justify-between hover:opacity-80 transition-opacity text-left"
+                >
+                  <h3 className="font-heading text-lg font-bold text-foreground">
+                    {item.header}
+                  </h3>
+                  <ChevronDown
+                    className={`w-5 h-5 text-foreground flex-shrink-0 transition-transform duration-300 ${
+                      expandedFaq === index ? 'rotate-180' : ''
+                    }`}
+                  />
+                </button>
+                {expandedFaq === index && (
+                  <div className="pb-6">
+                    <p className="font-paragraph text-base text-[#666666] leading-relaxed">
+                      {item.body}
+                    </p>
+                  </div>
+                )}
+                {index < faqItems.length - 1 && (
+                  <div className="border-b border-accent-grey" />
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </section>
