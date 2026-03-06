@@ -537,35 +537,29 @@ export default function HomePage() {
          </div>
       </section>
 
-      {/* EXAMPLE WORKFLOWS SECTION */}
+      {/* EXAMPLE WORKFLOWS SECTION - SIMPLIFIED & OPTIMIZED */}
       <section id="example-workflows" className="w-full bg-background py-24 border-b border-accent-grey/30">
         <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
-            className="mb-16"
-          >
+          <div className="mb-16">
             <h2 className="font-heading text-3xl md:text-5xl text-foreground mb-4 font-bold">
               Example Workflows
             </h2>
             <p className="font-paragraph text-lg md:text-xl text-foreground/70 max-w-3xl leading-relaxed">
               Real processes we've optimized. See if any match your workflow.
             </p>
-          </motion.div>
+          </div>
 
           <div className="min-h-[200px]">
             {isLoadingData ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                {[1, 2, 3, 4, 5, 6].map((i) => (
+                {[1, 2, 3, 4].map((i) => (
                   <div key={i} className="bg-accent-grey/30 h-40 animate-pulse rounded-xl"></div>
                 ))}
               </div>
             ) : processExamples.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                {processExamples.map((process, index) => (
-                  <CompactProcessCard key={process._id} process={process} index={index} />
+                {processExamples.slice(0, 8).map((process) => (
+                  <SimpleProcessCard key={process._id} process={process} />
                 ))}
               </div>
             ) : (
@@ -699,8 +693,8 @@ export default function HomePage() {
   );
 }
 
-// Ultra compact card component - minimal design
-function CompactProcessCard({ process }: { process: ProcessExamples }) {
+// Simplified process card - no animations on individual cards
+function SimpleProcessCard({ process }: { process: ProcessExamples }) {
   return (
     <div className="bg-gradient-to-br from-background to-background/95 border border-foreground/10 hover:border-primary/40 p-5 group hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 flex flex-col justify-between min-h-fit rounded-xl overflow-hidden relative">
       {/* Subtle gradient overlay on hover */}
