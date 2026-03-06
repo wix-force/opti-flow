@@ -12,7 +12,6 @@ export default function AboutLoomPage() {
   return (
     <div className="min-h-screen bg-background text-foreground font-paragraph">
       <Header />
-      
       {/* Main Content Section */}
       <section className="w-full py-24 md:py-32 px-6 md:px-12 lg:px-24">
         <div className="w-full max-w-[50rem] mx-auto">
@@ -85,13 +84,10 @@ export default function AboutLoomPage() {
             <Button
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 font-heading px-6 py-3 h-auto rounded-lg"
-            >
-              Continue to Systems
-            </Button>
+            >Packages</Button>
           </motion.div>
         </div>
       </section>
-
       <Footer />
     </div>
   );
