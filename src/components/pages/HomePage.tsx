@@ -546,15 +546,15 @@ export default function HomePage() {
                    whileInView={{ opacity: 1, y: 0 }}
                    viewport={{ once: true }}
                    transition={{ duration: 0.4 }}
-                   className="bg-white/6 border border-white/12 rounded-xl p-8 md:p-10 lg:p-12 text-center hover:bg-white/10 hover:border-white/20 transition-all duration-300 group backdrop-blur-sm min-h-[240px] md:min-h-[260px] flex flex-col justify-center"
+                   className="bg-white/6 border border-white/12 p-8 md:p-10 text-center hover:bg-white/10 hover:border-white/20 transition-all duration-300 group backdrop-blur-sm min-h-[200px] md:min-h-[220px] flex flex-col justify-center items-center"
                  >
-                   <p className="font-heading text-sm text-white/60 uppercase tracking-widest mb-6 font-semibold group-hover:text-white/80 transition-colors">Weekly</p>
+                   <p className="font-heading text-[12px] text-white/60 uppercase tracking-[0.1em] mb-3 font-semibold group-hover:text-white/80 transition-colors">Weekly</p>
                    <motion.p
                      key={savings.weekly}
                      initial={{ scale: 0.8, opacity: 0 }}
                      animate={{ scale: 1, opacity: 1 }}
                      transition={{ duration: 0.3 }}
-                     className="font-heading text-4xl md:text-5xl lg:text-6xl text-white font-bold whitespace-nowrap overflow-hidden text-ellipsis"
+                     className="font-heading text-2xl md:text-3xl lg:text-4xl text-white font-bold"
                    >
                      ${savings.weekly.toLocaleString(undefined, { maximumFractionDigits: 0 })}
                    </motion.p>
@@ -566,15 +566,15 @@ export default function HomePage() {
                    whileInView={{ opacity: 1, y: 0 }}
                    viewport={{ once: true }}
                    transition={{ duration: 0.4, delay: 0.05 }}
-                   className="bg-white/6 border border-white/12 rounded-xl p-8 md:p-10 lg:p-12 text-center hover:bg-white/10 hover:border-white/20 transition-all duration-300 group backdrop-blur-sm min-h-[240px] md:min-h-[260px] flex flex-col justify-center"
+                   className="bg-white/6 border border-white/12 p-8 md:p-10 text-center hover:bg-white/10 hover:border-white/20 transition-all duration-300 group backdrop-blur-sm min-h-[200px] md:min-h-[220px] flex flex-col justify-center items-center"
                  >
-                   <p className="font-heading text-sm text-white/60 uppercase tracking-widest mb-6 font-semibold group-hover:text-white/80 transition-colors">Monthly</p>
+                   <p className="font-heading text-[12px] text-white/60 uppercase tracking-[0.1em] mb-3 font-semibold group-hover:text-white/80 transition-colors">Monthly</p>
                    <motion.p
                      key={savings.monthly}
                      initial={{ scale: 0.8, opacity: 0 }}
                      animate={{ scale: 1, opacity: 1 }}
                      transition={{ duration: 0.3 }}
-                     className="font-heading text-4xl md:text-5xl lg:text-6xl text-white font-bold whitespace-nowrap overflow-hidden text-ellipsis"
+                     className="font-heading text-2xl md:text-3xl lg:text-4xl text-white font-bold"
                    >
                      ${savings.monthly.toLocaleString(undefined, { maximumFractionDigits: 0 })}
                    </motion.p>
@@ -586,15 +586,15 @@ export default function HomePage() {
                    whileInView={{ opacity: 1, y: 0 }}
                    viewport={{ once: true }}
                    transition={{ duration: 0.4, delay: 0.1 }}
-                   className="bg-gradient-to-br from-primary to-primary/80 border border-primary/60 rounded-xl p-8 md:p-10 lg:p-12 text-center hover:from-primary hover:to-primary/90 transition-all duration-300 group shadow-lg shadow-primary/40 min-h-[240px] md:min-h-[260px] flex flex-col justify-center"
+                   className="bg-primary border border-white/20 p-8 md:p-10 text-center hover:bg-primary/95 transition-all duration-300 group min-h-[200px] md:min-h-[220px] flex flex-col justify-center items-center"
                  >
-                   <p className="font-heading text-sm text-white/90 uppercase tracking-widest mb-6 font-semibold">Yearly</p>
+                   <p className="font-heading text-[12px] text-white/90 uppercase tracking-[0.1em] mb-3 font-semibold">Yearly</p>
                    <motion.p
                      key={savings.yearly}
                      initial={{ scale: 0.8, opacity: 0 }}
                      animate={{ scale: 1, opacity: 1 }}
                      transition={{ duration: 0.3 }}
-                     className="font-heading text-4xl md:text-5xl lg:text-6xl text-white font-bold whitespace-nowrap overflow-hidden text-ellipsis"
+                     className="font-heading text-2xl md:text-3xl lg:text-4xl text-white font-bold"
                    >
                      ${savings.yearly.toLocaleString(undefined, { maximumFractionDigits: 0 })}
                    </motion.p>
