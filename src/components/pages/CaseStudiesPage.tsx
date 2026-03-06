@@ -80,7 +80,11 @@ export default function CaseStudiesPage() {
             </h1>
             
             <p className="font-paragraph text-lg md:text-xl text-foreground/70 leading-relaxed mb-8">
-              Thanks for visiting the examples section! This site has just newly launched, so there are more examples of optimizations "in action" coming soon. In the meantime, take a look at what I've got below.
+              Welcome! This space is dedicated to demonstrating the logic and results of recent system builds. Explore the case studies below to see the architecture in action.
+            </p>
+
+            <p className="font-paragraph text-sm md:text-base text-foreground/50 leading-relaxed mb-8">
+              Note: This site has recently launched. Additional video documentation and technical walkthroughs are currently in production.
             </p>
 
             <div className="h-1 w-12 bg-gradient-to-r from-primary to-primary/60 mx-auto"></div>
