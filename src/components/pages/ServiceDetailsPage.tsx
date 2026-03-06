@@ -357,12 +357,17 @@ export default function ServiceDetailsPage() {
                           {faq.question === 'What if I need more than 10?' ? (
                             <>
                               {faq.answer.split('Contact us for a custom quote.')[0]}
-                              <Link
-                                to="/#contact"
-                                className="text-primary hover:text-primary/80 font-semibold underline"
+                              <button
+                                onClick={() => {
+                                  navigate('/');
+                                  setTimeout(() => {
+                                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                                  }, 100);
+                                }}
+                                className="text-primary hover:text-primary/80 font-semibold underline bg-none border-none p-0 cursor-pointer"
                               >
                                 Contact us
-                              </Link>
+                              </button>
                               {' for a custom quote.'}
                             </>
                           ) : (
