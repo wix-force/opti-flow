@@ -22,7 +22,7 @@ export default function AboutLoomPage() {
             transition={{ duration: 0.6 }}
             className="mb-12"
           >
-            <h1 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-4 uppercase tracking-tight">
+            <h1 className="font-heading text-4xl font-bold text-foreground mb-4 uppercase tracking-tight md:text-3xl">
               Communication Logic
             </h1>
             <p className="font-paragraph text-lg md:text-xl text-secondary/70">
@@ -84,7 +84,7 @@ export default function AboutLoomPage() {
             <Button
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 font-heading px-6 py-3 h-auto rounded-lg"
-            >Packages</Button>
+            >Solutions</Button>
           </motion.div>
         </div>
       </section>

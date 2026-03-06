@@ -65,7 +65,6 @@ export default function CaseStudiesPage() {
   return (
     <div className="min-h-screen bg-background text-foreground font-paragraph selection:bg-primary selection:text-white">
       <Header />
-
       {/* HERO/INTRO SECTION */}
       <section className="w-full pt-40 pb-8 md:pb-12 border-b border-accent-grey/30 mt-20">
         <div className="w-full max-w-[100rem] mx-auto px-6 md:px-12 lg:px-24">
@@ -79,9 +78,7 @@ export default function CaseStudiesPage() {
               Workflow <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/80">Examples</span>
             </h1>
             
-            <p className="font-paragraph text-lg md:text-xl text-foreground/70 leading-relaxed mb-8">
-              Reviewing the logic and performance of recent workflow builds.
-            </p>
+            <p className="font-paragraph text-lg md:text-xl text-foreground/70 leading-relaxed mb-8">The logic and performance of recent workflow builds.</p>
 
             <p className="font-paragraph text-sm md:text-base text-foreground/50 leading-relaxed mb-8 italic">
               Note: This site has recently launched. Additional video documentation and technical walkthroughs are currently in production.
@@ -91,7 +88,6 @@ export default function CaseStudiesPage() {
           </motion.div>
         </div>
       </section>
-
       {/* VIDEO GALLERY SECTION */}
       <section className="w-full bg-gradient-to-b from-background via-accent-grey/3 to-background py-24 md:py-32">
         <div className="w-full max-w-[100rem] mx-auto px-6 md:px-12 lg:px-24">
@@ -183,7 +179,6 @@ export default function CaseStudiesPage() {
           </motion.div>
         </div>
       </section>
-
       {/* VIDEO MODAL */}
       {selectedVideo && (
         <motion.div
@@ -238,7 +233,6 @@ export default function CaseStudiesPage() {
           </motion.div>
         </motion.div>
       )}
-
       <Footer />
     </div>
   );
