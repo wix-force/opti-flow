@@ -25,12 +25,12 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-12">
-            <button
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            <Link
+              to="/"
               className="font-paragraph text-sm text-foreground/80 hover:text-primary transition-colors duration-300 font-medium"
             >
               Home
-            </button>
+            </Link>
             <Link
               to="/case-studies"
               className="font-paragraph text-sm text-foreground/80 hover:text-primary transition-colors duration-300 font-medium"
@@ -72,15 +72,12 @@ export default function Header() {
               className="md:hidden py-6 border-t border-accent-grey/50"
             >
               <div className="flex flex-col gap-4">
-                <button
-                  onClick={() => {
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                    setMobileMenuOpen(false);
-                  }}
+                <Link
+                  to="/"
                   className="font-paragraph text-base text-foreground/80 hover:text-primary transition-colors text-left font-medium"
                 >
                   Home
-                </button>
+                </Link>
                 <Link
                   to="/case-studies"
                   className="font-paragraph text-base text-foreground/80 hover:text-primary transition-colors text-left font-medium"
