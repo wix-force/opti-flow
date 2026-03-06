@@ -96,7 +96,7 @@ export default function ServiceDetailsPage() {
       { label: 'Support Operations', description: 'Customer success, retention, and operational support.' }
     ],
     
-    perimeter: 'Technical Boundary: We focus on ONE business unit per engagement. This ensures depth and prevents scope creep.',
+    perimeter: 'One business unit per engagement. If you need a full-company build or have multiple departments, contact me for a custom quote.',
     
     faqs: [
       {
@@ -413,7 +413,7 @@ export default function ServiceDetailsPage() {
                 className="border-l-8 border-[#000080] bg-[#000080]/5 p-8"
               >
                 <p className="font-heading text-sm uppercase tracking-widest text-[#000080] font-bold mb-2">
-                  Technical Boundary
+                  Project Scope
                 </p>
                 <p className="font-paragraph text-base text-dark-grey/80 leading-relaxed">
                   {businessEngineContent.perimeter}
