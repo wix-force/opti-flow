@@ -1,10 +1,12 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
-import { Check, ChevronDown } from 'lucide-react';
+import { Check, ChevronDown, ArrowLeft } from 'lucide-react';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function SingleProcessAuditPage() {
+  const navigate = useNavigate();
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
 
   const faqItems = [
@@ -25,6 +27,19 @@ export default function SingleProcessAuditPage() {
   return (
     <div className="min-h-screen bg-background text-foreground font-paragraph selection:bg-primary selection:text-white">
       <Header />
+      
+      {/* BACK BUTTON */}
+      <section className="w-full bg-background border-b border-dark-grey/10 pt-32 pb-6">
+        <div className="w-full max-w-[100rem] mx-auto px-6 md:px-12 lg:px-16">
+          <button
+            onClick={() => navigate('/')}
+            className="flex items-center gap-2 text-dark-grey hover:text-primary transition-colors font-heading text-xs uppercase tracking-widest font-semibold"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Back to Services
+          </button>
+        </div>
+      </section>
       
       {/* Header Section */}
       <section className="w-full py-20 px-6 md:px-12 lg:px-24 border-b border-accent-grey">
