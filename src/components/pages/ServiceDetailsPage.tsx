@@ -51,7 +51,72 @@ export default function ServiceDetailsPage() {
     }
   };
 
+  const isBusinessEngine = service?.itemName?.toLowerCase().includes('business engine');
   const isSopLibrary = service?.itemName?.toLowerCase().includes('sop');
+
+  // Business Engine Redesign specific content
+  const businessEngineContent = {
+    title: 'The Business Engine Redesign',
+    subtitle: 'Architect a Business That Runs Without You.',
+    leadText: 'Stop playing "firefighter" with your operations. Let\'s rebuild your business engine from the ground up for total scalability and friction-free growth.',
+    buttonText: 'SECURE YOUR ARCHITECTURE - $1,998+',
+    
+    problemTitle: 'The Outdated Architecture',
+    problemText: 'Your business isn\'t broken—it\'s blocked. The processes that worked at the start are now capping your next level. You\'ve outgrown your operational infrastructure, and every new hire, new revenue stream, and new market exposes the cracks.',
+    
+    solutionTitle: 'The Forensic Reconstruction',
+    solutionText: 'We don\'t just audit your processes. We examine how your workflows, tech stack, and team roles interact. Then we architect for where your business is going—not where it\'s been.',
+    
+    methodology: [
+      {
+        title: 'The Deep Dive',
+        description: 'Comprehensive analysis of workflows, tech stack, and team roles to find the "ghost in the machine."'
+      },
+      {
+        title: 'The Systemic Improvement Map',
+        description: 'A visual blueprint to dismantle friction and allow the engine to run.'
+      },
+      {
+        title: 'The Scalability Roadmap',
+        description: 'An Implementation Protocol—the concrete manual for moving from "manual grind" to streamlined automation.'
+      }
+    ],
+    
+    inclusions: [
+      'Full Business Unit Architecture',
+      'Legacy Friction Audit',
+      'Tech Optimization Plan',
+      'Operational ROI Report'
+    ],
+    
+    scopeTitle: 'Defining the Business Unit',
+    scopeItems: [
+      { label: 'Revenue Operations', description: 'Sales funnels, deal flow, and revenue capture systems.' },
+      { label: 'Delivery Operations', description: 'Project execution, fulfillment, and quality assurance.' },
+      { label: 'Support Operations', description: 'Customer success, retention, and operational support.' }
+    ],
+    
+    perimeter: 'Technical Boundary: We focus on ONE business unit per engagement. This ensures depth and prevents scope creep.',
+    
+    faqs: [
+      {
+        question: 'How much time does this require from my team?',
+        answer: 'Typically 8-12 hours across key stakeholders. We handle the heavy lifting—your team provides context and workflow insights.'
+      },
+      {
+        question: 'What\'s the turnaround time?',
+        answer: 'Full delivery within 20 days. We move fast because we\'ve done this hundreds of times.'
+      },
+      {
+        question: 'Is this architecture or implementation?',
+        answer: 'This is pure architecture. We design the blueprint. Implementation is your choice—we can recommend partners or you can execute internally.'
+      },
+      {
+        question: 'Is this suitable for small companies?',
+        answer: 'Yes. If you have 5+ team members and $500K+ revenue, this pays for itself immediately through efficiency gains.'
+      }
+    ]
+  };
 
   // SOP Library specific content
   const sopContent = {
@@ -151,6 +216,303 @@ export default function ServiceDetailsPage() {
             </Button>
           </div>
         </section>
+      ) : isBusinessEngine ? (
+        <>
+          {/* HERO SECTION */}
+          <section className="w-full bg-background py-16 md:py-24 border-b border-dark-grey">
+            <div className="w-full max-w-[100rem] mx-auto px-6 md:px-12 lg:px-16">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="space-y-6"
+              >
+                <h1 className="font-heading text-6xl md:text-7xl lg:text-8xl text-[#000080] font-bold leading-tight">
+                  {businessEngineContent.title}
+                </h1>
+                <p className="font-heading text-2xl md:text-3xl text-[#2F4F4F] font-semibold max-w-3xl">
+                  {businessEngineContent.subtitle}
+                </p>
+                <p className="font-paragraph text-lg text-dark-grey/80 leading-relaxed max-w-3xl">
+                  {businessEngineContent.leadText}
+                </p>
+                <div className="pt-4">
+                  <Button
+                    onClick={handleBuyNow}
+                    disabled={isCheckingOut}
+                    className="bg-[#000080] text-white hover:bg-[#000080]/90 font-heading text-base px-8 py-4 h-auto font-semibold uppercase tracking-widest transition-all duration-300"
+                  >
+                    {isCheckingOut ? (
+                      <>
+                        <Loader className="w-5 h-5 mr-2 animate-spin inline" />
+                        Processing...
+                      </>
+                    ) : (
+                      businessEngineContent.buttonText
+                    )}
+                  </Button>
+                </div>
+              </motion.div>
+            </div>
+          </section>
+
+          {/* PROBLEM / SOLUTION SPLIT SECTION */}
+          <section className="w-full bg-background py-16 md:py-24 border-b border-dark-grey">
+            <div className="w-full max-w-[100rem] mx-auto px-6 md:px-12 lg:px-16">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+                {/* LEFT: PROBLEM */}
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6 }}
+                  viewport={{ once: true }}
+                  className="space-y-6 border-l-8 border-[#000080] pl-8"
+                >
+                  <h2 className="font-heading text-3xl md:text-4xl text-[#000080] font-bold">
+                    {businessEngineContent.problemTitle}
+                  </h2>
+                  <p className="font-paragraph text-lg text-dark-grey/80 leading-relaxed">
+                    {businessEngineContent.problemText}
+                  </p>
+                </motion.div>
+
+                {/* RIGHT: SOLUTION */}
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6 }}
+                  viewport={{ once: true }}
+                  className="space-y-6 border-l-8 border-[#2F4F4F] pl-8"
+                >
+                  <h2 className="font-heading text-3xl md:text-4xl text-[#2F4F4F] font-bold">
+                    {businessEngineContent.solutionTitle}
+                  </h2>
+                  <p className="font-paragraph text-lg text-dark-grey/80 leading-relaxed">
+                    {businessEngineContent.solutionText}
+                  </p>
+                </motion.div>
+              </div>
+            </div>
+          </section>
+
+          {/* METHODOLOGY SECTION - THE ARCHITECTURE PHASE */}
+          <section className="w-full bg-background py-16 md:py-24 border-b border-dark-grey">
+            <div className="w-full max-w-[100rem] mx-auto px-6 md:px-12 lg:px-16">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className="mb-12"
+              >
+                <h2 className="font-heading text-3xl md:text-4xl text-[#000080] font-bold">
+                  The Architecture Phase
+                </h2>
+              </motion.div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {businessEngineContent.methodology.map((step, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: idx * 0.1 }}
+                    viewport={{ once: true }}
+                    className="space-y-4 border-2 border-[#000080] p-8 bg-background"
+                  >
+                    <h3 className="font-heading text-xl text-[#000080] font-bold">
+                      {step.title}
+                    </h3>
+                    <p className="font-paragraph text-base text-dark-grey/80 leading-relaxed">
+                      {step.description}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* WHAT'S INCLUDED SECTION - 2x2 GRID */}
+          <section className="w-full bg-background py-16 md:py-24 border-b border-dark-grey">
+            <div className="w-full max-w-[100rem] mx-auto px-6 md:px-12 lg:px-16">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className="mb-12"
+              >
+                <h2 className="font-heading text-3xl md:text-4xl text-[#000080] font-bold">
+                  Technical Specs Grid
+                </h2>
+              </motion.div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {businessEngineContent.inclusions.map((item, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: idx * 0.05 }}
+                    viewport={{ once: true }}
+                    className="border-2 border-[#2F4F4F] p-8 bg-background space-y-3"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="w-3 h-3 bg-[#000080]"></div>
+                      <span className="font-heading text-lg text-[#000080] font-bold">
+                        {item}
+                      </span>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* SCOPE DEFINITION SECTION */}
+          <section className="w-full bg-background py-16 md:py-24 border-b border-dark-grey">
+            <div className="w-full max-w-[100rem] mx-auto px-6 md:px-12 lg:px-16">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className="mb-12"
+              >
+                <h2 className="font-heading text-3xl md:text-4xl text-[#000080] font-bold">
+                  {businessEngineContent.scopeTitle}
+                </h2>
+              </motion.div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                {businessEngineContent.scopeItems.map((item, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: idx * 0.05 }}
+                    viewport={{ once: true }}
+                    className="space-y-4"
+                  >
+                    <h3 className="font-heading text-lg text-[#2F4F4F] font-bold">
+                      {item.label}
+                    </h3>
+                    <p className="font-paragraph text-base text-dark-grey/80 leading-relaxed">
+                      {item.description}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Technical Boundary Note */}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+                className="border-l-8 border-[#000080] bg-[#000080]/5 p-8"
+              >
+                <p className="font-heading text-sm uppercase tracking-widest text-[#000080] font-bold mb-2">
+                  Technical Boundary
+                </p>
+                <p className="font-paragraph text-base text-dark-grey/80 leading-relaxed">
+                  {businessEngineContent.perimeter}
+                </p>
+              </motion.div>
+            </div>
+          </section>
+
+          {/* FAQS SECTION */}
+          <section className="w-full bg-background py-16 md:py-24 border-b border-dark-grey">
+            <div className="w-full max-w-[100rem] mx-auto px-6 md:px-12 lg:px-16">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className="mb-12"
+              >
+                <h2 className="font-heading text-3xl md:text-4xl text-[#000080] font-bold">
+                  Technical FAQs
+                </h2>
+              </motion.div>
+
+              <div className="space-y-4 max-w-3xl">
+                {businessEngineContent.faqs.map((faq, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: idx * 0.05 }}
+                    viewport={{ once: true }}
+                    className="border-2 border-[#2F4F4F]"
+                  >
+                    <button
+                      onClick={() => setExpandedFAQ(expandedFAQ === idx ? null : idx)}
+                      className="w-full flex items-center justify-between p-6 hover:bg-[#000080]/5 transition-colors"
+                    >
+                      <span className="font-heading text-lg text-[#000080] font-bold text-left">
+                        {faq.question}
+                      </span>
+                      {expandedFAQ === idx ? (
+                        <ChevronUp className="w-5 h-5 text-[#000080] flex-shrink-0" />
+                      ) : (
+                        <ChevronDown className="w-5 h-5 text-[#2F4F4F] flex-shrink-0" />
+                      )}
+                    </button>
+                    {expandedFAQ === idx && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="border-t-2 border-[#2F4F4F] p-6 bg-[#000080]/3"
+                      >
+                        <p className="font-paragraph text-base text-dark-grey/80 leading-relaxed">
+                          {faq.answer}
+                        </p>
+                      </motion.div>
+                    )}
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* FINAL CTA SECTION */}
+          <section className="w-full bg-[#000080] py-16 md:py-24">
+            <div className="w-full max-w-[100rem] mx-auto px-6 md:px-12 lg:px-16">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className="text-center space-y-8"
+              >
+                <h2 className="font-heading text-3xl md:text-4xl text-white font-bold">
+                  Ready to Architect Your Business?
+                </h2>
+                <p className="font-paragraph text-lg text-white/90 max-w-2xl mx-auto">
+                  Stop firefighting. Start scaling.
+                </p>
+                <Button
+                  onClick={handleBuyNow}
+                  disabled={isCheckingOut}
+                  className="bg-white text-[#000080] hover:bg-white/90 font-heading text-base px-8 py-4 h-auto font-semibold uppercase tracking-widest transition-all duration-300"
+                >
+                  {isCheckingOut ? (
+                    <>
+                      <Loader className="w-5 h-5 mr-2 animate-spin inline" />
+                      Processing...
+                    </>
+                  ) : (
+                    businessEngineContent.buttonText
+                  )}
+                </Button>
+              </motion.div>
+            </div>
+          </section>
+        </>
       ) : isSopLibrary ? (
         <>
           {/* HERO SECTION */}
