@@ -117,7 +117,7 @@ export default function HomePage() {
               >
                 <div className="w-12 h-[1px] bg-foreground/30 hidden md:block"></div>
                 <p className="font-paragraph text-lg md:text-xl text-secondary/90 leading-relaxed">
-                  Send me a 10-minute <a href="https://www.loom.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 font-semibold transition-colors">Loom</a> video of a task you want to speed up or eliminate. I'll send you the playbook to fix it.
+                  Send me a 10-minute <a href="/about-loom" className="text-primary hover:text-primary/80 font-semibold transition-colors">Loom</a> video of a task you want to speed up or eliminate. I'll send you the playbook to fix it.
                 </p>
               </motion.div>
 
