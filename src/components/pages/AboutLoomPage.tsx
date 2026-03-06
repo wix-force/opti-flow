@@ -63,7 +63,7 @@ export default function AboutLoomPage() {
               Video communication cuts through the noise of email chains and Slack threads. Instead of 10 back-and-forth messages, a 10-minute Loom video captures the full context, tone, and nuance of what you're trying to communicate.
             </p>
             <p className="font-paragraph text-base md:text-lg text-foreground/75 leading-relaxed">
-              When you send me a Loom of your workflow, I can see exactly where the friction points are, understand your specific challenges, and deliver a playbook that's tailored to your business—not a generic template.
+              With that said, this isn't a requirement. Whether you prefer a recorded walkthrough, a set of screenshots, or a technical brief, the goal is the same: identify the friction in your workflow and build the playbook to fix it.
             </p>
           </motion.div>
 
