@@ -427,51 +427,49 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ROI CALCULATOR - INTERACTIVE - SPACIOUS DESIGN */}
-      <section id="roi-calculator" className="w-full bg-gradient-to-br from-foreground via-foreground/98 to-foreground text-background py-20 md:py-32 overflow-hidden relative">
-        {/* Sleek background with gradient overlay */}
+      {/* ROI CALCULATOR - COMPACT & HIGH-DENSITY */}
+      <section id="roi-calculator" className="w-full bg-gradient-to-br from-foreground via-foreground/98 to-foreground text-background py-12 md:py-16 overflow-hidden relative">
+        {/* Sleek background with grid overlay */}
         <div className="absolute inset-0 opacity-3" 
              style={{ backgroundImage: 'linear-gradient(45deg, #fff 1px, transparent 1px)', backgroundSize: '20px 20px' }}>
         </div>
-        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/15 rounded-full blur-3xl -mr-48 -mt-48 pointer-events-none"></div>
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/10 rounded-full blur-3xl -ml-40 -mb-40 pointer-events-none"></div>
 
         <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24 relative z-10">
-           {/* Unified Container */}
+           {/* Unified Container - Compact */}
            <motion.div
              initial={{ opacity: 0, scale: 0.98 }}
              whileInView={{ opacity: 1, scale: 1 }}
              viewport={{ once: true }}
              transition={{ duration: 0.7, ease: "easeOut" }}
-             className="bg-white/5 border border-white/15 backdrop-blur-sm rounded-2xl p-10 md:p-16 lg:p-20 shadow-2xl shadow-primary/20"
+             className="bg-white/5 border border-white/15 backdrop-blur-sm p-8 md:p-10"
            >
-             {/* Header */}
-             <div className="mb-16 md:mb-20">
-               <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl mb-4 text-white font-bold">
+             {/* Header - Compact */}
+             <div className="mb-6">
+               <h2 className="font-heading text-3xl md:text-4xl mb-2 text-white font-bold">
                  The Cost of <span className="text-primary font-bold">Inaction</span>
                </h2>
-               <p className="font-paragraph text-base md:text-lg text-white/70 leading-relaxed max-w-2xl">
+               <p className="font-paragraph text-sm md:text-base text-white/70 leading-relaxed max-w-2xl">
                  Adjust your hourly rate and hours spent on messy workflows to see your potential savings.
                </p>
              </div>
 
-             {/* Main Grid - Spacious Layout */}
-             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-16 lg:gap-20 items-start">
-               {/* Input Controls - More Spacious */}
-               <div className="lg:col-span-4 space-y-10">
+             {/* Main Grid - High Density */}
+             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+               {/* Input Controls - Compact */}
+               <div className="lg:col-span-4 space-y-5">
                  {/* Hourly Rate Input */}
                  <motion.div 
                    initial={{ opacity: 0, x: -15 }}
                    whileInView={{ opacity: 1, x: 0 }}
                    viewport={{ once: true }}
                    transition={{ duration: 0.5 }}
-                   className="space-y-4"
+                   className="space-y-2"
                  >
-                   <Label htmlFor="hourlyRate" className={`font-heading text-sm uppercase tracking-widest block font-semibold transition-colors duration-300 ${hasInteractedWithRate ? 'text-white/80' : 'text-white/60'}`}>
+                   <Label htmlFor="hourlyRate" className={`font-heading text-xs uppercase tracking-widest block font-semibold transition-colors duration-300 ${hasInteractedWithRate ? 'text-white/80' : 'text-white/60'}`}>
                      Hourly Rate
                    </Label>
                    <div className={`relative group transition-all duration-300 ${hasInteractedWithRate ? 'opacity-100' : 'opacity-75'}`}>
-                     <span className="absolute left-4 top-1/2 -translate-y-1/2 text-primary text-lg font-bold transition-colors">$</span>
+                     <span className="absolute left-3 top-1/2 -translate-y-1/2 text-primary text-sm font-bold transition-colors">$</span>
                      <Input
                        id="hourlyRate"
                        type="number"
@@ -481,23 +479,18 @@ export default function HomePage() {
                          setHasInteractedWithRate(true);
                        }}
                        onFocus={() => setHasInteractedWithRate(true)}
-                       className="bg-white/10 border border-white/20 text-white text-lg h-14 pl-12 pr-4 focus:border-primary focus:bg-white/15 rounded-lg transition-all duration-200 focus:ring-0 placeholder:text-white/30 autofill:text-white autofill:bg-white/10 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                       className="bg-white/10 border border-white/20 text-white text-sm h-10 pl-10 pr-3 focus:border-primary focus:bg-white/15 transition-all duration-200 focus:ring-0 placeholder:text-white/30 autofill:text-white autofill:bg-white/10 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                        min="0"
                        style={{ colorScheme: 'dark' }}
                      />
                      <motion.span 
-                       className="absolute right-4 top-1/2 -translate-y-1/2 text-white/80 text-lg font-bold pointer-events-none"
+                       className="absolute right-3 top-1/2 -translate-y-1/2 text-white/80 text-sm font-bold pointer-events-none"
                        animate={{ opacity: 1 }}
                        transition={{ duration: 0.2 }}
                      >
                        {hourlyRate ? `${parseFloat(hourlyRate).toLocaleString()}` : '$0'}
                      </motion.span>
                    </div>
-                   {!hasInteractedWithRate && (
-                     <p className="font-paragraph text-sm text-white/40 italic">
-                       Default example showing potential savings
-                     </p>
-                   )}
                  </motion.div>
 
                  {/* Hours Per Week Slider */}
@@ -506,10 +499,10 @@ export default function HomePage() {
                    whileInView={{ opacity: 1, x: 0 }}
                    viewport={{ once: true }}
                    transition={{ duration: 0.5, delay: 0.1 }}
-                   className="space-y-5"
+                   className="space-y-2"
                  >
                    <div className="flex justify-between items-center">
-                     <Label htmlFor="hoursPerWeek" className="font-heading text-sm text-white/70 uppercase tracking-widest font-semibold">
+                     <Label htmlFor="hoursPerWeek" className="font-heading text-xs text-white/70 uppercase tracking-widest font-semibold">
                        Hours/Week
                      </Label>
                      <motion.span 
@@ -517,7 +510,7 @@ export default function HomePage() {
                        initial={{ scale: 1.2, opacity: 0 }}
                        animate={{ scale: 1, opacity: 1 }}
                        transition={{ duration: 0.2 }}
-                       className="font-heading text-3xl md:text-4xl text-primary font-bold"
+                       className="font-heading text-lg md:text-xl text-primary font-bold"
                      >
                        {hoursPerWeek[0]}h
                      </motion.span>
@@ -529,32 +522,32 @@ export default function HomePage() {
                      max={20}
                      min={1}
                      step={1}
-                     className="py-4"
+                     className="py-2"
                    />
-                   <div className="flex justify-between text-sm text-white/50 font-medium">
+                   <div className="flex justify-between text-xs text-white/50 font-medium">
                      <span>1h</span>
                      <span>20h</span>
                    </div>
                  </motion.div>
                </div>
 
-               {/* Results Grid - Spacious & Clear */}
-               <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+               {/* Results Grid - Compact & High-Density */}
+               <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-4">
                  {/* Weekly */}
                  <motion.div 
                    initial={{ opacity: 0, y: 15 }}
                    whileInView={{ opacity: 1, y: 0 }}
                    viewport={{ once: true }}
                    transition={{ duration: 0.4 }}
-                   className="bg-white/6 border border-white/12 p-8 md:p-10 text-center hover:bg-white/10 hover:border-white/20 transition-all duration-300 group backdrop-blur-sm min-h-[200px] md:min-h-[220px] flex flex-col justify-center items-center"
+                   className="bg-white/6 border border-white/12 p-5 text-center hover:bg-white/10 hover:border-white/20 transition-all duration-300 group backdrop-blur-sm flex flex-col justify-center items-center"
                  >
-                   <p className="font-heading text-[12px] text-white/60 uppercase tracking-[0.1em] mb-3 font-semibold group-hover:text-white/80 transition-colors">Weekly</p>
+                   <p className="font-heading text-[11px] text-white/60 uppercase tracking-[0.08em] mb-2 font-bold group-hover:text-white/80 transition-colors">Weekly</p>
                    <motion.p
                      key={savings.weekly}
                      initial={{ scale: 0.8, opacity: 0 }}
                      animate={{ scale: 1, opacity: 1 }}
                      transition={{ duration: 0.3 }}
-                     className="font-heading text-2xl md:text-3xl lg:text-4xl text-white font-bold"
+                     className="font-heading text-2xl md:text-[28px] text-white font-bold leading-tight"
                    >
                      ${savings.weekly.toLocaleString(undefined, { maximumFractionDigits: 0 })}
                    </motion.p>
@@ -566,15 +559,15 @@ export default function HomePage() {
                    whileInView={{ opacity: 1, y: 0 }}
                    viewport={{ once: true }}
                    transition={{ duration: 0.4, delay: 0.05 }}
-                   className="bg-white/6 border border-white/12 p-8 md:p-10 text-center hover:bg-white/10 hover:border-white/20 transition-all duration-300 group backdrop-blur-sm min-h-[200px] md:min-h-[220px] flex flex-col justify-center items-center"
+                   className="bg-white/6 border border-white/12 p-5 text-center hover:bg-white/10 hover:border-white/20 transition-all duration-300 group backdrop-blur-sm flex flex-col justify-center items-center"
                  >
-                   <p className="font-heading text-[12px] text-white/60 uppercase tracking-[0.1em] mb-3 font-semibold group-hover:text-white/80 transition-colors">Monthly</p>
+                   <p className="font-heading text-[11px] text-white/60 uppercase tracking-[0.08em] mb-2 font-bold group-hover:text-white/80 transition-colors">Monthly</p>
                    <motion.p
                      key={savings.monthly}
                      initial={{ scale: 0.8, opacity: 0 }}
                      animate={{ scale: 1, opacity: 1 }}
                      transition={{ duration: 0.3 }}
-                     className="font-heading text-2xl md:text-3xl lg:text-4xl text-white font-bold"
+                     className="font-heading text-2xl md:text-[28px] text-white font-bold leading-tight"
                    >
                      ${savings.monthly.toLocaleString(undefined, { maximumFractionDigits: 0 })}
                    </motion.p>
@@ -586,15 +579,15 @@ export default function HomePage() {
                    whileInView={{ opacity: 1, y: 0 }}
                    viewport={{ once: true }}
                    transition={{ duration: 0.4, delay: 0.1 }}
-                   className="bg-primary border border-white/20 p-8 md:p-10 text-center hover:bg-primary/95 transition-all duration-300 group min-h-[200px] md:min-h-[220px] flex flex-col justify-center items-center"
+                   className="bg-primary border border-white/20 p-5 text-center hover:bg-primary/95 transition-all duration-300 group flex flex-col justify-center items-center"
                  >
-                   <p className="font-heading text-[12px] text-white/90 uppercase tracking-[0.1em] mb-3 font-semibold">Yearly</p>
+                   <p className="font-heading text-[11px] text-white/90 uppercase tracking-[0.08em] mb-2 font-bold">Yearly</p>
                    <motion.p
                      key={savings.yearly}
                      initial={{ scale: 0.8, opacity: 0 }}
                      animate={{ scale: 1, opacity: 1 }}
                      transition={{ duration: 0.3 }}
-                     className="font-heading text-2xl md:text-3xl lg:text-4xl text-white font-bold"
+                     className="font-heading text-2xl md:text-[28px] text-white font-bold leading-tight"
                    >
                      ${savings.yearly.toLocaleString(undefined, { maximumFractionDigits: 0 })}
                    </motion.p>
