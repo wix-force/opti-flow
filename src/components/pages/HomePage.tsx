@@ -268,7 +268,7 @@ export default function HomePage() {
                     <Button 
                       size="sm" 
                       className="bg-primary text-primary-foreground hover:bg-primary/90 font-heading text-sm px-6 py-3 h-auto rounded-lg transition-all hover:shadow-lg hover:shadow-primary/30 hover:translate-y-[-2px] md:w-auto w-full"
-                      onClick={() => navigate('/single-process-audit')}
+                      onClick={() => navigate(`/service/${services[0]._id}`)}
                     >
                       Learn More <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
@@ -406,7 +406,7 @@ export default function HomePage() {
                                   isBusinessEngine ? 'bg-purple-600 text-white hover:bg-purple-700 hover:shadow-lg hover:shadow-purple-500/30' : 
                                   'bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/30'
                                 }`}
-                                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                                onClick={() => navigate(`/service/${service._id}`)}
                               >
                                 Learn More <ArrowRight className="ml-2 h-4 w-4" />
                               </Button>

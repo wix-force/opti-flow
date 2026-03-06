@@ -5,6 +5,7 @@ import ErrorPage from '@/integrations/errorHandlers/ErrorPage';
 import HomePage from '@/components/pages/HomePage';
 import SingleProcessAuditPage from '@/components/pages/SingleProcessAuditPage';
 import CaseStudiesPage from '@/components/pages/CaseStudiesPage';
+import ServiceDetailsPage from '@/components/pages/ServiceDetailsPage';
 
 // Layout component that includes ScrollToTop
 function Layout() {
@@ -41,6 +42,13 @@ const router = createBrowserRouter([
         element: <CaseStudiesPage />,
         routeMetadata: {
           pageIdentifier: 'case-studies',
+        },
+      },
+      {
+        path: "service/:id",
+        element: <ServiceDetailsPage />,
+        routeMetadata: {
+          pageIdentifier: 'service-details',
         },
       },
       {
