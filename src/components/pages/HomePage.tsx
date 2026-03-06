@@ -1,7 +1,7 @@
 // HPI 1.7-G
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, CheckCircle, ArrowDown, Plus } from 'lucide-react';
+import { ArrowRight, CheckCircle, ArrowDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -605,11 +605,11 @@ export default function HomePage() {
          </div>
       </section>
 
-      {/* EXAMPLE WORKFLOWS SECTION - SIMPLIFIED & OPTIMIZED */}
-      <section id="example-workflows" className="w-full bg-background py-24 border-b border-accent-grey/30">
+      {/* EXAMPLE WORKFLOWS SECTION - SINGLE COLUMN LIST */}
+      <section id="example-workflows" className="w-full bg-background py-32 border-b border-accent-grey/30">
         <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24">
-          <div className="mb-16">
-            <h2 className="font-heading text-3xl md:text-5xl text-foreground mb-4 font-bold">
+          <div className="mb-24">
+            <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground mb-6 font-bold leading-tight">
               Example Workflows
             </h2>
             <p className="font-paragraph text-lg md:text-xl text-foreground/70 max-w-3xl leading-relaxed">
@@ -619,15 +619,23 @@ export default function HomePage() {
 
           <div className="min-h-[200px]">
             {isLoadingData ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div className="space-y-0">
                 {[1, 2, 3, 4].map((i) => (
-                  <div key={i} className="bg-accent-grey/30 h-40 animate-pulse rounded-xl"></div>
+                  <div key={i} className="border-b border-foreground/20 py-12 space-y-4">
+                    <div className="bg-accent-grey/30 h-8 animate-pulse w-1/3"></div>
+                    <div className="bg-accent-grey/30 h-4 animate-pulse w-full"></div>
+                    <div className="bg-accent-grey/30 h-4 animate-pulse w-2/3"></div>
+                  </div>
                 ))}
               </div>
             ) : processExamples.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                {processExamples.slice(0, 8).map((process) => (
-                  <SimpleProcessCard key={process._id} process={process} />
+              <div className="space-y-0">
+                {processExamples.slice(0, 8).map((process, index) => (
+                  <SimpleProcessCard 
+                    key={process._id} 
+                    process={process} 
+                    isLast={index === processExamples.slice(0, 8).length - 1} 
+                  />
                 ))}
               </div>
             ) : (
@@ -761,32 +769,39 @@ export default function HomePage() {
   );
 }
 
-// Simplified process card - no animations on individual cards
-function SimpleProcessCard({ process }: { process: ProcessExamples }) {
+// Simplified process card - single column list format
+function SimpleProcessCard({ process, isLast }: { process: ProcessExamples; isLast: boolean }) {
   return (
-    <div className="bg-gradient-to-br from-background to-background/95 border border-foreground/10 hover:border-primary/40 p-5 group hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 flex flex-col justify-between min-h-fit rounded-xl overflow-hidden relative">
-      {/* Subtle gradient overlay on hover */}
-      <div className="absolute top-0 right-0 w-20 h-20 bg-primary/5 rounded-full blur-2xl -mr-10 -mt-10 pointer-events-none group-hover:bg-primary/10 transition-colors duration-300"></div>
-
-      <div className="relative z-10">
-        <div className="flex justify-between items-start gap-3 mb-3">
-          <h3 className="font-heading text-base font-bold text-foreground group-hover:text-primary transition-colors leading-snug">
-            {process.processName}
-          </h3>
-          <Plus className="w-4 h-4 text-accent-grey group-hover:text-primary transition-colors flex-shrink-0 mt-0.5" />
-        </div>
-        <p className="font-paragraph text-xs text-secondary/80 leading-relaxed line-clamp-2">
+    <div className={`py-12 ${!isLast ? 'border-b border-foreground/20' : ''}`}>
+      <div className="space-y-4">
+        {/* Workflow Title - Bold, Left-Aligned */}
+        <h3 className="font-heading text-2xl md:text-3xl font-bold text-foreground leading-tight">
+          {process.processName}
+        </h3>
+        
+        {/* Description */}
+        <p className="font-paragraph text-base md:text-lg text-foreground/70 leading-relaxed max-w-3xl">
           {process.processDescription}
         </p>
+        
+        {/* Friction Highlight - Minimalist Style */}
+        {process.commonPainPoint && (
+          <div className="pt-2">
+            <p className="font-paragraph text-base text-foreground/80">
+              <span className="font-heading font-bold text-primary">FRICTION:</span> <span className="text-foreground/80">{process.commonPainPoint}</span>
+            </p>
+          </div>
+        )}
+        
+        {/* Impact */}
+        {process.potentialImpact && (
+          <div className="pt-2">
+            <p className="font-paragraph text-sm text-foreground/60">
+              <span className="font-semibold">Potential Impact:</span> {process.potentialImpact}
+            </p>
+          </div>
+        )}
       </div>
-
-      {process.commonPainPoint && (
-        <div className="pt-3 mt-3 border-t border-accent-grey/30 bg-primary/5 -mx-5 px-5 py-3 relative z-10">
-          <p className="font-paragraph text-xs text-foreground/80 font-medium">
-            <span className="text-primary font-bold">Pain:</span> {process.commonPainPoint}
-          </p>
-        </div>
-      )}
     </div>
   );
 }
