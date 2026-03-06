@@ -449,7 +449,7 @@ export default function HomePage() {
                  The Cost of <span className="text-primary font-bold">Inaction</span>
                </h2>
                <p className="font-paragraph text-sm md:text-base text-white/70 leading-relaxed max-w-2xl">
-                 Adjust your hourly rate and hours spent on messy workflows to see your potential savings.
+                 Adjust your hourly $ rate and hours spent on messy workflows to see your potential savings.
                </p>
              </div>
 
