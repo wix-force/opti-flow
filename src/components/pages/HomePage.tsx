@@ -130,7 +130,7 @@ export default function HomePage() {
                 <Button 
                   size="sm" 
                   className="bg-foreground text-background hover:bg-primary hover:text-white transition-all duration-300 font-heading px-6 py-3 h-auto rounded-lg shadow-lg shadow-foreground/10 hover:shadow-lg hover:shadow-primary/20"
-                  onClick={() => document.getElementById('example-workflows')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => navigate('/case-studies')}
                 >
                   Show Me Examples <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>

@@ -31,12 +31,12 @@ export default function Header() {
             >
               Home
             </button>
-            <button
-              onClick={() => scrollToSection('example-workflows')}
+            <Link
+              to="/case-studies"
               className="font-paragraph text-sm text-foreground/80 hover:text-primary transition-colors duration-300 font-medium"
             >
               Examples
-            </button>
+            </Link>
             <button
               onClick={() => scrollToSection('roi-calculator')}
               className="font-paragraph text-sm text-foreground/80 hover:text-primary transition-colors duration-300 font-medium"
@@ -81,12 +81,12 @@ export default function Header() {
                 >
                   Home
                 </button>
-                <button
-                  onClick={() => scrollToSection('example-workflows')}
+                <Link
+                  to="/case-studies"
                   className="font-paragraph text-base text-foreground/80 hover:text-primary transition-colors text-left font-medium"
                 >
                   Examples
-                </button>
+                </Link>
                 <button
                   onClick={() => scrollToSection('roi-calculator')}
                   className="font-paragraph text-base text-foreground/80 hover:text-primary transition-colors text-left font-medium"
