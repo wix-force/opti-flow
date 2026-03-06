@@ -180,9 +180,10 @@ export default function HomePage() {
                 <div className="h-12 bg-accent-grey w-1/3"></div>
               </div>
               {/* Additional offerings skeleton */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 {[1, 2].map((i) => (
-                  <div key={i} className="bg-background border border-foreground/10 p-6 animate-pulse rounded-xl">
+                  <div key={i} className="bg-background border border-foreground/10 p-8 animate-pulse rounded-xl">
+                    <div className="h-40 bg-accent-grey w-full mb-4"></div>
                     <div className="h-6 bg-accent-grey w-2/3 mb-3"></div>
                     <div className="h-4 bg-accent-grey w-1/2"></div>
                   </div>
@@ -190,7 +191,7 @@ export default function HomePage() {
               </div>
             </div>
           ) : services.length > 0 ? (
-            <div className="space-y-12">
+            <div className="space-y-16">
               {/* MAIN OFFERING - Single Process Audit */}
               {services[0] && (
                 <motion.div
@@ -257,7 +258,7 @@ export default function HomePage() {
                 </motion.div>
               )}
 
-              {/* ADDITIONAL OFFERINGS - Other Services */}
+              {/* ADDITIONAL OFFERINGS - SOP & BUSINESS ENGINE REDESIGNED */}
               {services.length > 1 && (
                 <div>
                   <motion.div
@@ -265,88 +266,136 @@ export default function HomePage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.6, delay: 0.2 }}
-                    className="mb-8"
+                    className="mb-16"
                   >
-                    <h3 className="font-heading text-2xl text-foreground/70 uppercase tracking-widest font-semibold">
-                      Additional Offerings
+                    <h3 className="font-heading text-3xl md:text-4xl text-foreground uppercase tracking-widest font-bold">
+                      Scale Your Systems
                     </h3>
+                    <p className="font-paragraph text-lg text-foreground/60 mt-3 max-w-2xl">
+                      Move beyond single workflows. Build repeatable, documented systems that run your business.
+                    </p>
                   </motion.div>
                   
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {services.slice(1).map((service, index) => (
-                      <motion.div
-                        key={service._id}
-                        initial={{ opacity: 0, scale: 0.98 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true, margin: "-100px" }}
-                        transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 + index * 0.1 }}
-                        className="bg-gradient-to-br from-background to-background/95 border border-foreground/10 hover:border-primary/40 p-8 md:p-12 hover:shadow-lg hover:shadow-primary/10 rounded-xl transition-all duration-300 relative overflow-hidden flex flex-col justify-start group"
-                      >
-                        {/* Subtle gradient overlay */}
-                        <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-2xl -mr-16 -mt-16 pointer-events-none group-hover:bg-primary/10 transition-colors duration-300"></div>
-
-                        <div className="flex-1 relative z-10">
-                          <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-heading uppercase tracking-widest mb-4 group-hover:bg-primary/20 transition-colors rounded-full font-semibold">
-                            {service.itemName?.toLowerCase().includes('sop library') ? 'Asset Building' : service.itemName?.toLowerCase().includes('business engine redesign') ? 'Systemize' : 'Option'}
-                          </div>
-                          
-                          <h4 className="font-heading text-xl md:text-2xl text-foreground mb-2 group-hover:text-primary transition-colors font-bold">
-                            {service.itemName}
-                          </h4>
-                          <p className="font-paragraph text-sm font-semibold text-foreground mb-5 leading-relaxed">
-                            {service.itemDescription}
-                          </p>
-                          <div className="space-y-2 mb-4">
-                            {service.serviceInclusions?.split('\n').map((item, idx) => (
-                              <div key={idx} className="flex items-start group/item">
-                                <CheckCircle className="w-3 h-3 text-primary/60 mr-2 mt-0.5 flex-shrink-0 group-hover/item:text-primary group-hover/item:scale-110 transition-all" />
-                                <span className="font-paragraph text-xs text-foreground/60">{item}</span>
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
+                    {services.slice(1).map((service, index) => {
+                      const isSOP = service.itemName?.toLowerCase().includes('sop library');
+                      const isBusinessEngine = service.itemName?.toLowerCase().includes('business engine redesign');
+                      
+                      return (
+                        <motion.div
+                          key={service._id}
+                          initial={{ opacity: 0, y: 30 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true, margin: "-100px" }}
+                          transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 + index * 0.15 }}
+                          className="relative group"
+                        >
+                          {/* Card Container */}
+                          <div className="bg-gradient-to-br from-background via-background to-background/98 border-2 border-foreground/8 hover:border-primary/30 p-0 rounded-2xl transition-all duration-500 overflow-hidden flex flex-col h-full shadow-lg hover:shadow-xl hover:shadow-primary/15">
+                            {/* Header Section with Icon Background */}
+                            <div className={`relative h-32 md:h-40 overflow-hidden ${
+                              isSOP ? 'bg-gradient-to-br from-blue-50 to-blue-100/50' : 
+                              isBusinessEngine ? 'bg-gradient-to-br from-purple-50 to-purple-100/50' : 
+                              'bg-gradient-to-br from-slate-50 to-slate-100/50'
+                            }`}>
+                              {/* Decorative shape */}
+                              <div className={`absolute -top-12 -right-12 w-48 h-48 rounded-full opacity-20 ${
+                                isSOP ? 'bg-blue-400' : 
+                                isBusinessEngine ? 'bg-purple-400' : 
+                                'bg-slate-400'
+                              }`}></div>
+                              
+                              {/* Category Badge */}
+                              <div className="absolute top-6 left-6 z-10">
+                                <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full font-heading text-xs uppercase tracking-widest font-bold ${
+                                  isSOP ? 'bg-blue-500/15 text-blue-700' : 
+                                  isBusinessEngine ? 'bg-purple-500/15 text-purple-700' : 
+                                  'bg-slate-500/15 text-slate-700'
+                                }`}>
+                                  <div className={`w-2 h-2 rounded-full ${
+                                    isSOP ? 'bg-blue-500' : 
+                                    isBusinessEngine ? 'bg-purple-500' : 
+                                    'bg-slate-500'
+                                  }`}></div>
+                                  {isSOP ? 'Asset Building' : isBusinessEngine ? 'Systemization' : 'Service'}
+                                </div>
                               </div>
-                            ))}
-                          </div>
-                        </div>
+                            </div>
 
-                        <div className="border-t border-accent-grey/30 pt-3 mt-3 relative z-10 bg-gradient-to-br from-primary/5 to-primary/3 -mx-8 md:-mx-12 px-8 md:px-12 py-4 rounded-b-xl">
-                          <div className="mb-3 flex items-center gap-3">
-                            <span className="font-heading text-4xl text-foreground tracking-tight font-bold">
-                              ${service.itemPrice || 199}
-                            </span>
-                            {service.itemName?.toLowerCase().includes('sop library') && (
-                              <>
-                                <span className="font-heading text-lg text-secondary/70 tracking-tight font-bold line-through">
-                                  $1,595
-                                </span>
-                                <span className="font-paragraph text-xs text-secondary/70 uppercase tracking-widest font-semibold">
-                                  (10-SOP Starter Pack)
-                                </span>
-                              </>
-                            )}
-                            {service.itemName?.toLowerCase().includes('business engine redesign') && (
-                              <>
-                                <span className="font-heading text-lg text-secondary/70 tracking-tight font-bold line-through">
-                                  $2,795
-                                </span>
-                                <span className="font-paragraph text-xs text-secondary/70 uppercase tracking-widest font-semibold">
-                                  (1-Business Unit Architecture)
-                                </span>
-                              </>
-                            )}
+                            {/* Content Section */}
+                            <div className="flex-1 flex flex-col p-8 md:p-10">
+                              {/* Title */}
+                              <h4 className={`font-heading text-2xl md:text-3xl font-bold mb-3 transition-colors duration-300 ${
+                                isSOP ? 'text-blue-900' : 
+                                isBusinessEngine ? 'text-purple-900' : 
+                                'text-foreground'
+                              }`}>
+                                {service.itemName}
+                              </h4>
+                              
+                              {/* Description */}
+                              <p className="font-paragraph text-base md:text-lg text-foreground/75 mb-8 leading-relaxed flex-1">
+                                {service.itemDescription}
+                              </p>
+                              
+                              {/* Inclusions */}
+                              <div className="space-y-3 mb-8">
+                                <p className="font-heading text-xs uppercase tracking-widest text-foreground/60 font-semibold">What's Included:</p>
+                                <div className="space-y-2.5">
+                                  {service.serviceInclusions?.split('\n').map((item, idx) => (
+                                    <div key={idx} className="flex items-start gap-3 group/item">
+                                      <div className={`w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 transition-all ${
+                                        isSOP ? 'bg-blue-500' : 
+                                        isBusinessEngine ? 'bg-purple-500' : 
+                                        'bg-primary'
+                                      }`}></div>
+                                      <span className="font-paragraph text-sm text-foreground/70 leading-relaxed">{item}</span>
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                            </div>
+
+                            {/* Footer Section - Pricing & CTA */}
+                            <div className={`border-t-2 p-8 md:p-10 ${
+                              isSOP ? 'border-blue-200/50 bg-blue-50/30' : 
+                              isBusinessEngine ? 'border-purple-200/50 bg-purple-50/30' : 
+                              'border-foreground/5 bg-foreground/2'
+                            }`}>
+                              {/* Pricing */}
+                              <div className="mb-6">
+                                <div className="flex items-baseline gap-3 mb-2">
+                                  <span className="font-heading text-5xl md:text-6xl font-bold text-foreground">
+                                    ${service.itemPrice || 199}
+                                  </span>
+                                  {(isSOP || isBusinessEngine) && (
+                                    <span className="font-heading text-lg text-secondary/70 line-through font-semibold">
+                                      ${isSOP ? '1,595' : '2,795'}
+                                    </span>
+                                  )}
+                                </div>
+                                <p className="font-paragraph text-xs uppercase tracking-widest text-secondary/70 font-semibold">
+                                  Introductory Rate
+                                </p>
+                              </div>
+                              
+                              {/* CTA Button */}
+                              <Button 
+                                size="sm" 
+                                className={`w-full font-heading text-sm py-3 h-auto rounded-lg transition-all duration-300 font-semibold ${
+                                  isSOP ? 'bg-blue-600 text-white hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-500/30' : 
+                                  isBusinessEngine ? 'bg-purple-600 text-white hover:bg-purple-700 hover:shadow-lg hover:shadow-purple-500/30' : 
+                                  'bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/30'
+                                }`}
+                                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                              >
+                                Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                              </Button>
+                            </div>
                           </div>
-                          {(service.itemName?.toLowerCase().includes('sop library') || service.itemName?.toLowerCase().includes('business engine redesign')) && (
-                            <p className="font-paragraph text-xs text-secondary/70 uppercase tracking-widest font-semibold mb-3">
-                              Introductory rate
-                            </p>
-                          )}
-                          <Button 
-                            size="sm" 
-                            className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-heading text-sm py-2.5 h-auto rounded-lg transition-all group-hover:translate-y-[-2px] group-hover:shadow-lg group-hover:shadow-primary/20 font-semibold"
-                            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                          >
-                            Learn More
-                          </Button>
-                        </div>
-                      </motion.div>
-                    ))}
+                        </motion.div>
+                      );
+                    })}
                   </div>
                 </div>
               )}
