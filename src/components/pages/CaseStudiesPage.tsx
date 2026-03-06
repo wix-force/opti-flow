@@ -67,7 +67,7 @@ export default function CaseStudiesPage() {
       <Header />
 
       {/* HERO/INTRO SECTION */}
-      <section className="w-full pt-40 pb-20 md:pb-32 border-b border-accent-grey/30 mt-20">
+      <section className="w-full pt-40 pb-8 md:pb-12 border-b border-accent-grey/30 mt-20">
         <div className="w-full max-w-[100rem] mx-auto px-6 md:px-12 lg:px-24">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
