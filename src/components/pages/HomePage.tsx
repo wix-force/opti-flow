@@ -466,7 +466,7 @@ export default function HomePage() {
                    className="space-y-2"
                  >
                    <Label htmlFor="hourlyRate" className={`font-heading text-xs uppercase tracking-widest block font-semibold transition-colors duration-300 ${hasInteractedWithRate ? 'text-white/80' : 'text-white/60'}`}>
-                     Hourly Rate
+                     Hourly $ Rate
                    </Label>
                    <div className={`relative group transition-all duration-300 ${hasInteractedWithRate ? 'opacity-100' : 'opacity-75'}`}>
                      <span className="absolute left-3 top-1/2 -translate-y-1/2 text-primary text-sm font-bold transition-colors">$</span>
