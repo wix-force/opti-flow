@@ -161,6 +161,27 @@ export default function SingleProcessAuditPage() {
         </div>
       </section>
 
+      {/* Bottom CTA Section */}
+      <section className="w-full py-20 px-6 md:px-12 lg:px-24 bg-primary text-white border-t border-primary/20">
+        <div className="w-full max-w-[100rem] mx-auto text-center">
+          <h2 className="font-heading text-3xl md:text-4xl font-bold mb-6">
+            Ready to Reclaim Your Time?
+          </h2>
+          <p className="font-paragraph text-lg mb-8 max-w-2xl mx-auto opacity-90">
+            Get your Single Process Audit today and discover exactly where your workflow is losing efficiency.
+          </p>
+          <Button 
+            className="bg-white hover:bg-white/90 text-primary font-bold text-base px-8 py-3 h-auto"
+            onClick={() => {
+              // Placeholder for purchase action
+              console.log('Audit purchase initiated');
+            }}
+          >
+            SECURE THIS AUDIT - $198
+          </Button>
+        </div>
+      </section>
+
       <Footer />
     </div>
   );
