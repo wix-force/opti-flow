@@ -261,6 +261,23 @@ export default function HomePage() {
               {/* ADDITIONAL OFFERINGS - SOP & BUSINESS ENGINE REDESIGNED */}
               {services.length > 1 && (
                 <div>
+                  {/* TRY IT OUT SECTION */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.6 }}
+                    className="mb-20 pb-20 border-b border-accent-grey/30"
+                  >
+                    <h3 className="font-heading text-3xl md:text-4xl text-foreground uppercase tracking-widest font-bold">
+                      Try it out
+                    </h3>
+                    <p className="font-paragraph text-lg text-foreground/60 mt-3 max-w-2xl">
+                      See what happens when you automate a workflow!
+                    </p>
+                  </motion.div>
+
+                  {/* SCALE YOUR SYSTEMS SECTION */}
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
