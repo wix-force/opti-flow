@@ -605,10 +605,10 @@ export default function HomePage() {
          </div>
       </section>
 
-      {/* EXAMPLE WORKFLOWS SECTION - SINGLE COLUMN LIST */}
-      <section id="example-workflows" className="w-full bg-background py-32 border-b border-accent-grey/30">
+      {/* EXAMPLE WORKFLOWS SECTION - GRID LAYOUT */}
+      <section id="example-workflows" className="w-full bg-background py-24 border-b border-accent-grey/30">
         <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24">
-          <div className="mb-24">
+          <div className="mb-16">
             <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground mb-6 font-bold leading-tight">
               Example Workflows
             </h2>
@@ -619,22 +619,24 @@ export default function HomePage() {
 
           <div className="min-h-[200px]">
             {isLoadingData ? (
-              <div className="space-y-0">
-                {[1, 2, 3, 4].map((i) => (
-                  <div key={i} className="border-b border-foreground/20 py-12 space-y-4">
-                    <div className="bg-accent-grey/30 h-8 animate-pulse w-1/3"></div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
+                {[1, 2, 3, 4, 5, 6].map((i) => (
+                  <div key={i} className="border-r border-b border-dark-grey/20 p-6 space-y-4">
+                    <div className="bg-accent-grey/30 h-6 animate-pulse w-2/3"></div>
                     <div className="bg-accent-grey/30 h-4 animate-pulse w-full"></div>
-                    <div className="bg-accent-grey/30 h-4 animate-pulse w-2/3"></div>
+                    <div className="bg-accent-grey/30 h-4 animate-pulse w-full"></div>
+                    <div className="bg-accent-grey/30 h-4 animate-pulse w-3/4"></div>
                   </div>
                 ))}
               </div>
             ) : processExamples.length > 0 ? (
-              <div className="space-y-0">
-                {processExamples.slice(0, 8).map((process, index) => (
-                  <SimpleProcessCard 
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
+                {processExamples.slice(0, 9).map((process, index) => (
+                  <GridProcessCard 
                     key={process._id} 
-                    process={process} 
-                    isLast={index === processExamples.slice(0, 8).length - 1} 
+                    process={process}
+                    index={index}
+                    total={Math.min(processExamples.length, 9)}
                   />
                 ))}
               </div>
@@ -769,39 +771,62 @@ export default function HomePage() {
   );
 }
 
-// Simplified process card - single column list format
-function SimpleProcessCard({ process, isLast }: { process: ProcessExamples; isLast: boolean }) {
+// Grid process card - 3-column grid layout with professional density
+function GridProcessCard({ 
+  process, 
+  index, 
+  total 
+}: { 
+  process: ProcessExamples; 
+  index: number;
+  total: number;
+}) {
+  // Calculate which borders to show
+  const isLastRow = index >= total - (total % 3 === 0 ? 3 : total % 3);
+  const isLastInRow = (index + 1) % 3 === 0;
+  const isLastColumn = index % 3 === 2;
+  
   return (
-    <div className={`py-12 ${!isLast ? 'border-b border-foreground/20' : ''}`}>
-      <div className="space-y-4">
-        {/* Workflow Title - Bold, Left-Aligned */}
-        <h3 className="font-heading text-2xl md:text-3xl font-bold text-foreground leading-tight">
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.4, delay: index * 0.05 }}
+      className={`border-dark-grey/20 p-6 lg:p-8 flex flex-col h-full ${
+        !isLastColumn ? 'border-r' : ''
+      } ${
+        !isLastRow ? 'border-b' : ''
+      }`}
+    >
+      <div className="space-y-4 flex flex-col h-full">
+        {/* Workflow Title - Bold, Larger Font */}
+        <h3 className="font-heading text-lg lg:text-xl font-bold text-foreground leading-tight">
           {process.processName}
         </h3>
         
         {/* Description */}
-        <p className="font-paragraph text-base md:text-lg text-foreground/70 leading-relaxed max-w-3xl">
+        <p className="font-paragraph text-sm lg:text-base text-foreground/70 leading-relaxed flex-1">
           {process.processDescription}
         </p>
         
-        {/* Friction Highlight - Minimalist Style */}
+        {/* Friction Highlight - Electric Blue Label */}
         {process.commonPainPoint && (
           <div className="pt-2">
-            <p className="font-paragraph text-base text-foreground/80">
-              <span className="font-heading font-bold text-primary">FRICTION:</span> <span className="text-foreground/80">{process.commonPainPoint}</span>
+            <p className="font-paragraph text-xs lg:text-sm text-foreground/80 leading-relaxed">
+              <span className="font-heading font-bold text-primary">FRICTION:</span> {process.commonPainPoint}
             </p>
           </div>
         )}
         
-        {/* Impact */}
+        {/* Impact - Electric Blue Label */}
         {process.potentialImpact && (
           <div className="pt-2">
-            <p className="font-paragraph text-sm text-foreground/60">
-              <span className="font-semibold">Potential Impact:</span> {process.potentialImpact}
+            <p className="font-paragraph text-xs lg:text-sm text-foreground/70 leading-relaxed">
+              <span className="font-heading font-bold text-primary">SOLUTION IMPACT:</span> {process.potentialImpact}
             </p>
           </div>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 }
