@@ -47,7 +47,7 @@ export default function Header() {
               onClick={() => scrollToSection('contact')}
               className="bg-primary text-primary-foreground hover:bg-primary/90 font-heading text-sm px-6 py-2.5 h-auto rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-primary/20"
             >
-              Solutions
+              The Solutions
             </Button>
           </nav>
 
@@ -94,7 +94,7 @@ export default function Header() {
                   onClick={() => scrollToSection('contact')}
                   className="bg-primary text-primary-foreground hover:bg-primary/90 font-heading text-base px-6 py-3 h-auto rounded-lg w-full transition-all duration-300"
                 >
-                  Solutions
+                  The Solutions
                 </Button>
               </div>
             </motion.nav>
