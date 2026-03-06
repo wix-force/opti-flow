@@ -80,7 +80,7 @@ export default function CaseStudiesPage() {
             </h1>
             
             <p className="font-paragraph text-lg md:text-xl text-foreground/70 leading-relaxed mb-8">
-              This space is dedicated to demonstrating the logic and results of recent system builds. Explore the case studies below to see the architecture in action.
+              Reviewing the logic and performance of recent workflow builds.
             </p>
 
             <p className="font-paragraph text-sm md:text-base text-foreground/50 leading-relaxed mb-8 italic">
