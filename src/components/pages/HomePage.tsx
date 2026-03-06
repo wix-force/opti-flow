@@ -199,7 +199,7 @@ export default function HomePage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-100px" }}
                   transition={{ duration: 0.6 }}
-                  className="mb-6 pb-6 border-b border-accent-grey/30"
+                  className="mb-8 pb-0 border-b-0"
                 >
                   <h3 className="font-heading text-3xl md:text-4xl text-foreground uppercase tracking-widest font-bold">
                     Try it out
