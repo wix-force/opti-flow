@@ -358,7 +358,7 @@ export default function ServiceDetailsPage() {
                             <>
                               {faq.answer.split('Contact us for a custom quote.')[0]}
                               <Link
-                                to="/"
+                                to="/#contact"
                                 className="text-primary hover:text-primary/80 font-semibold underline"
                               >
                                 Contact us
