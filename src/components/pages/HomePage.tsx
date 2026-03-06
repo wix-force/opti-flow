@@ -791,29 +791,29 @@ function GridProcessCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.4, delay: index * 0.05 }}
-      className={`border border-dark-grey p-8 flex flex-col h-80 ${
+      className={`border border-dark-grey p-[30px] flex flex-col h-full pt-0 ${
         !isLastRow ? 'border-b border-dark-grey' : ''
       } ${
         !isLastInRow ? 'border-r border-dark-grey' : ''
       }`}
     >
       <div className="flex flex-col h-full space-y-0">
-        {/* Workflow Title - Bold, condensed, largest text with reduced bottom margin */}
-        <h3 className="font-heading text-lg font-bold text-foreground leading-[1.3] mb-1">
+        {/* Workflow Title - Bold 20px, top-aligned */}
+        <h3 className="font-heading text-xl font-bold text-foreground leading-[1.3] mb-[12px]">
           {process.processName}
         </h3>
         
-        {/* Explainer Text - 14px, medium-grey, secondary data appearance */}
-        <p className="font-paragraph text-sm text-[#666666] leading-[1.3] mb-2 flex-1">
+        {/* Description Text - 14px sans-serif, clean secondary appearance */}
+        <p className="font-paragraph text-sm text-[#666666] leading-[1.3] mb-[12px] flex-1">
           {process.processDescription}
         </p>
         
         {/* Friction Section - Electric Blue label, bold, all-caps, 12px */}
         {process.commonPainPoint && (
-          <div className="mb-2">
+          <div className="mb-[8px]">
             <p className="font-paragraph text-sm leading-[1.3]">
               <span className="font-heading text-xs font-bold text-primary uppercase tracking-wide">Friction:</span>{' '}
-              <span className="text-foreground text-sm">{process.commonPainPoint}</span>
+              <span className="text-foreground text-sm leading-[1.3]">{process.commonPainPoint}</span>
             </p>
           </div>
         )}
@@ -823,7 +823,7 @@ function GridProcessCard({
           <div className="mb-0">
             <p className="font-paragraph text-sm leading-[1.3]">
               <span className="font-heading text-xs font-bold text-primary uppercase tracking-wide">Impact:</span>{' '}
-              <span className="text-foreground text-sm">{process.potentialImpact}</span>
+              <span className="text-foreground text-sm leading-[1.3]">{process.potentialImpact}</span>
             </p>
           </div>
         )}
