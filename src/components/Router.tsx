@@ -7,6 +7,8 @@ import SingleProcessAuditPage from '@/components/pages/SingleProcessAuditPage';
 import CaseStudiesPage from '@/components/pages/CaseStudiesPage';
 import ServiceDetailsPage from '@/components/pages/ServiceDetailsPage';
 import AboutLoomPage from '@/components/pages/AboutLoomPage';
+import PrivacyPolicyPage from '@/components/pages/PrivacyPolicyPage';
+import TermsOfServicePage from '@/components/pages/TermsOfServicePage';
 
 // Layout component that includes ScrollToTop
 function Layout() {
@@ -57,6 +59,20 @@ const router = createBrowserRouter([
         element: <AboutLoomPage />,
         routeMetadata: {
           pageIdentifier: 'about-loom',
+        },
+      },
+      {
+        path: "privacy-policy",
+        element: <PrivacyPolicyPage />,
+        routeMetadata: {
+          pageIdentifier: 'privacy-policy',
+        },
+      },
+      {
+        path: "terms-of-service",
+        element: <TermsOfServicePage />,
+        routeMetadata: {
+          pageIdentifier: 'terms-of-service',
         },
       },
       {

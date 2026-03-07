@@ -189,12 +189,12 @@ export default function Footer() {
               © {currentYear} Workflowr. All rights reserved.
             </p>
             <div className="flex gap-8">
-              <a href="#" className="font-paragraph text-sm text-background/60 hover:text-background transition-colors">
+              <Link to="/privacy-policy" className="font-paragraph text-sm text-background/60 hover:text-background transition-colors">
                 Privacy Policy
-              </a>
-              <a href="#" className="font-paragraph text-sm text-background/60 hover:text-background transition-colors">
+              </Link>
+              <Link to="/terms-of-service" className="font-paragraph text-sm text-background/60 hover:text-background transition-colors">
                 Terms of Service
-              </a>
+              </Link>
             </div>
           </div>
         </div>
