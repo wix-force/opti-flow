@@ -50,7 +50,7 @@ export default function Footer() {
                 <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
               </button>
               <button
-                onClick={() => scrollToSection('contact')}
+                onClick={() => scrollToSection('offerings-section')}
                 className="font-paragraph text-base text-background/70 hover:text-background transition-colors text-left font-medium group flex items-center gap-2"
               >
                 Packages
@@ -122,7 +122,7 @@ export default function Footer() {
               Let's optimize your workflows and unlock your team's potential.
             </p>
             <button
-              onClick={() => scrollToSection('contact')}
+              onClick={() => scrollToSection('offerings-section')}
               className="font-heading text-sm text-foreground bg-primary hover:bg-primary/90 px-6 py-3 rounded-lg transition-all duration-300 font-semibold inline-flex items-center gap-2 hover:shadow-lg hover:shadow-primary/30"
             >
               Get Started
