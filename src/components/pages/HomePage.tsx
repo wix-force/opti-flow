@@ -427,10 +427,7 @@ export default function HomePage() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="font-heading text-3xl md:text-4xl text-foreground mb-4 font-bold leading-tight">
-              The <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/80">Friction</span>
-            </h2>
-            <p className="font-paragraph text-base md:text-lg text-foreground/70 max-w-3xl leading-relaxed mb-6">
+            <p className="font-heading text-2xl md:text-3xl text-foreground max-w-3xl leading-relaxed mb-6 font-semibold">
               Unoptimized processes create cascading problems that compound over time—<span className="font-bold text-foreground">hidden costs</span>, <span className="font-bold text-foreground">inevitable errors</span>, <span className="font-bold text-foreground">wasted resources</span>, and <span className="font-bold text-foreground">lost knowledge</span>.
             </p>
           </motion.div>
