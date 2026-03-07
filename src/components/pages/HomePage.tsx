@@ -169,7 +169,7 @@ export default function HomePage() {
       </section>
 
       {/* VISUAL BRIDGE - "SEE THE OFFERINGS" */}
-      <section className="w-full bg-background py-16 md:py-24 border-b border-accent-grey/30">
+      <section id="offerings-section" className="w-full bg-background py-16 md:py-24 border-b border-accent-grey/30">
         <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

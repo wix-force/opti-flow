@@ -57,8 +57,18 @@ export default function Header() {
 
   const handleSolutionsClick = () => {
     setMobileMenuOpen(false);
-    if (firstAuditServiceId) {
-      navigate(`/service/${firstAuditServiceId}`);
+    if (location.pathname === '/') {
+      // Already on home page, scroll to offerings section
+      scrollToSection('offerings-section');
+    } else {
+      // Navigate to home and scroll after navigation
+      navigate('/');
+      setTimeout(() => {
+        const element = document.getElementById('offerings-section');
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
     }
   };
 
