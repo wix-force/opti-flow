@@ -169,23 +169,23 @@ export default function HomePage() {
       </section>
 
       {/* VISUAL BRIDGE - "SEE THE OFFERINGS" */}
-      <section className="w-full bg-background py-12 md:py-16 border-b border-accent-grey/30">
+      <section className="w-full bg-background py-16 md:py-24 border-b border-accent-grey/30">
         <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
             className="flex flex-col items-center justify-center text-center"
           >
-            <div className="flex items-center gap-4 mb-6">
-              <div className="w-12 h-[1px] bg-primary/40"></div>
-              <h2 className="font-heading text-2xl md:text-3xl text-foreground font-bold tracking-tight">
+            <div className="flex items-center gap-6 md:gap-8 mb-8">
+              <div className="w-16 md:w-24 h-[2px] bg-gradient-to-r from-transparent to-primary/60"></div>
+              <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground font-bold tracking-tight leading-tight">
                 See the Offerings
               </h2>
-              <div className="w-12 h-[1px] bg-primary/40"></div>
+              <div className="w-16 md:w-24 h-[2px] bg-gradient-to-l from-transparent to-primary/60"></div>
             </div>
-            <p className="font-paragraph text-base md:text-lg text-foreground/60 max-w-2xl leading-relaxed">
+            <p className="font-paragraph text-lg md:text-xl text-foreground/70 max-w-3xl leading-relaxed">
               Choose the service that fits your needs. Each is designed to deliver measurable results.
             </p>
           </motion.div>
