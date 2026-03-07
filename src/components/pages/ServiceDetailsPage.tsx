@@ -105,7 +105,7 @@ export default function ServiceDetailsPage() {
       },
       {
         question: 'What\'s the turnaround time?',
-        answer: 'Full delivery within 20 days. We move fast because we\'ve done this hundreds of times.'
+        answer: 'Individual turnaround is determined during intake based on the logic and scope of your operational framework.'
       },
       {
         question: 'Is this architecture or implementation?',
