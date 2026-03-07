@@ -192,24 +192,6 @@ export default function HomePage() {
             </div>
           ) : services.length > 0 ? (
             <div className="space-y-16">
-              {/* TRY IT OUT SECTION - MOVED ABOVE MAIN OFFERING */}
-              {services.length > 1 && (
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.6 }}
-                  className="mb-8 pb-0 border-b-0"
-                >
-                  <h3 className="font-heading text-3xl md:text-4xl text-foreground uppercase tracking-widest font-bold">
-                    Try it out
-                  </h3>
-                  <p className="font-paragraph text-lg text-foreground/60 mt-3 max-w-2xl">
-                    See what happens when you automate a workflow!
-                  </p>
-                </motion.div>
-              )}
-
               {/* MAIN OFFERING - Single Process Audit */}
               {services[0] && (
                 <motion.div
@@ -279,22 +261,7 @@ export default function HomePage() {
               {/* ADDITIONAL OFFERINGS - SOP & BUSINESS ENGINE REDESIGNED */}
               {services.length > 1 && (
                 <div>
-                  {/* SCALE YOUR SYSTEMS SECTION */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
-                    className="mb-8 pb-0 border-b-0"
-                  >
-                    <h3 className="font-heading text-3xl md:text-4xl text-foreground uppercase tracking-widest font-bold">
-                      Scale Your Systems
-                    </h3>
-                    <p className="font-paragraph text-lg text-foreground/60 mt-3 max-w-2xl">
-                      Move beyond single workflows. Build repeatable, documented systems that run your business.
-                    </p>
-                  </motion.div>
-                  
+
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     {services.slice(1).map((service, index) => {
                       const isSOP = service.itemName?.toLowerCase().includes('sop library');
