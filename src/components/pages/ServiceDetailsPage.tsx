@@ -51,6 +51,10 @@ export default function ServiceDetailsPage() {
     }
   };
 
+  const handleBackToDetails = () => {
+    navigate(-1);
+  };
+
   const isBusinessEngine = service?.itemName?.toLowerCase().includes('business engine');
   const isSopLibrary = service?.itemName?.toLowerCase().includes('sop');
 
