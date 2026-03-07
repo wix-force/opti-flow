@@ -89,7 +89,7 @@ export default function ServiceDetailsPage() {
       'Operational ROI Report'
     ],
     
-    scopeTitle: 'Defining the Business Unit',
+    scopeTitle: 'Common Business Units',
     scopeItems: [
       { label: 'Revenue Operations', description: 'Sales funnels, deal flow, and revenue capture systems.' },
       { label: 'Delivery Operations', description: 'Project execution, fulfillment, and quality assurance.' },
