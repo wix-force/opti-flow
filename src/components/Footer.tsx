@@ -50,10 +50,10 @@ export default function Footer() {
                 <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
               </button>
               <button
-                onClick={() => scrollToSection('example-workflows')}
+                onClick={() => scrollToSection('contact')}
                 className="font-paragraph text-base text-background/70 hover:text-background transition-colors text-left font-medium group flex items-center gap-2"
               >
-                Examples
+                Packages
                 <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
               </button>
               <button
@@ -61,6 +61,13 @@ export default function Footer() {
                 className="font-paragraph text-base text-background/70 hover:text-background transition-colors text-left font-medium group flex items-center gap-2"
               >
                 ROI Calculator
+                <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+              </button>
+              <button
+                onClick={() => scrollToSection('contact')}
+                className="font-paragraph text-base text-background/70 hover:text-background transition-colors text-left font-medium group flex items-center gap-2"
+              >
+                Contact Me
                 <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
               </button>
             </nav>
@@ -81,21 +88,21 @@ export default function Footer() {
                 onClick={() => scrollToSection('contact')}
                 className="font-paragraph text-base text-background/70 hover:text-background transition-colors text-left font-medium group flex items-center gap-2"
               >
-                Process Audit
+                The Single Process Audit
                 <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
               </button>
               <button
                 onClick={() => scrollToSection('contact')}
                 className="font-paragraph text-base text-background/70 hover:text-background transition-colors text-left font-medium group flex items-center gap-2"
               >
-                Workflow Optimization
+                The SOP Library
                 <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
               </button>
               <button
                 onClick={() => scrollToSection('contact')}
                 className="font-paragraph text-base text-background/70 hover:text-background transition-colors text-left font-medium group flex items-center gap-2"
               >
-                Custom Solutions
+                The Business Engine Redesign
                 <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
               </button>
             </nav>
