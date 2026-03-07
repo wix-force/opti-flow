@@ -14,6 +14,10 @@ export default function SingleProcessAuditPage() {
     await buyNow([{ collectionId: 'services', itemId: 'single-process-audit', quantity: 1 }]);
   };
 
+  const handleBackToServices = () => {
+    navigate('/#offerings-section');
+  };
+
   const faqItems = [
     {
       header: 'Submission Protocol',
@@ -37,7 +41,7 @@ export default function SingleProcessAuditPage() {
       <section className="w-full bg-background border-b border-dark-grey/10 pt-32 pb-6">
         <div className="w-full max-w-[100rem] mx-auto px-6 md:px-12 lg:px-16">
           <button
-            onClick={() => navigate('/')}
+            onClick={handleBackToServices}
             className="flex items-center gap-2 text-dark-grey hover:text-primary transition-colors font-heading text-xs uppercase tracking-widest font-semibold"
           >
             <ArrowLeft className="w-4 h-4" />
