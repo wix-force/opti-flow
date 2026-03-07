@@ -265,7 +265,7 @@ export default function HomePage() {
                         </span>
                       </div>
                       <p className="font-paragraph text-xs text-secondary/70 uppercase tracking-widest font-semibold">
-                        Introductory rate
+                        * Introductory rate
                       </p>
                     </div>
                     <Button 
@@ -377,7 +377,7 @@ export default function HomePage() {
                                   </span>
                                 </div>
                                 <p className="font-paragraph text-xs uppercase tracking-widest text-secondary/70 font-semibold">
-                                  Introductory Rate
+                                  * Introductory Rate
                                 </p>
                               </div>
                               
