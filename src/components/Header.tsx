@@ -35,7 +35,7 @@ export default function Header() {
               to="/case-studies"
               className="font-paragraph text-sm text-foreground/80 hover:text-primary transition-colors duration-300 font-medium"
             >
-              Examples
+              Case Studies
             </Link>
             <button
               onClick={() => scrollToSection('roi-calculator')}
@@ -82,7 +82,7 @@ export default function Header() {
                   to="/case-studies"
                   className="font-paragraph text-base text-foreground/80 hover:text-primary transition-colors text-left font-medium"
                 >
-                  Examples
+                  Case Studies
                 </Link>
                 <button
                   onClick={() => scrollToSection('roi-calculator')}
