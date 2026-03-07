@@ -343,7 +343,7 @@ export default function ServiceDetailsPage() {
                 className="mb-12"
               >
                 <h2 className="font-heading text-3xl md:text-4xl text-[#000080] font-bold">
-                  Technical Specs Grid
+                  Core Redesign Components
                 </h2>
               </motion.div>
 
