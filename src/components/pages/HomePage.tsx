@@ -828,7 +828,7 @@ export default function HomePage() {
   );
 }
 
-// Grid process card - Dense, professional, technical specification sheet aesthetic
+// Grid process card - Dense, professional, core redesign components aesthetic
 function GridProcessCard({ 
   process, 
   index, 
