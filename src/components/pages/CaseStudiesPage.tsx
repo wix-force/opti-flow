@@ -78,7 +78,7 @@ export default function CaseStudiesPage() {
               Workflow <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/80">Examples</span>
             </h1>
             
-            <p className="font-paragraph text-lg md:text-xl text-foreground/70 leading-relaxed mb-8">The logic and performance of recent workflow builds.</p>
+            <p className="font-paragraph text-lg md:text-xl text-foreground/70 leading-relaxed mb-8">he logic and performance of recent workflow builds.</p>
 
             <p className="font-paragraph text-sm md:text-base text-foreground/50 leading-relaxed mb-8 italic">
               Note: This site has recently launched. Additional video documentation and technical walkthroughs are currently in production.

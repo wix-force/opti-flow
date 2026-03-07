@@ -25,7 +25,7 @@ export default function AboutLoomPage() {
             <h1 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-4 uppercase tracking-tight">
               Communication Logic
             </h1>
-            <p className="font-paragraph text-lg md:text-xl text-secondary/70">Communication Logic: Using video to capture nuance and eliminate the email chain.</p>
+            <p className="font-paragraph text-lg md:text-xl text-secondary/70">Using video to capture nuance and eliminate the email chain.</p>
           </motion.div>
 
           {/* Video Player Placeholder */}
