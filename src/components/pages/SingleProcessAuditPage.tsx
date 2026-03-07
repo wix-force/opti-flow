@@ -101,7 +101,7 @@ export default function SingleProcessAuditPage() {
                     Submission
                   </h3>
                   <p className="font-paragraph text-base text-foreground leading-relaxed">
-                    You describe the workflow. Walk me through it step-by-step. Screen recordings, screenshots, or a 20-minute call—whatever works for you.
+                    You describe the workflow. Walk me through it step-by-step. Screen recordings, screenshots, voice memos, whatever works for you.
                   </p>
                 </div>
                 <div className="border-t border-accent-grey pt-8">
