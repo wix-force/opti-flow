@@ -146,7 +146,7 @@ export default function HomePage() {
                 <Button 
                   size="sm" 
                   className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 font-heading px-8 py-3 h-auto rounded-lg md:ml-auto shadow-lg shadow-primary/20 hover:shadow-lg hover:shadow-primary/30"
-                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => document.getElementById('offerings-section')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   Select A Package <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
