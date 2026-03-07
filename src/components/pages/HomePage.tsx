@@ -427,6 +427,70 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* COST OF FRICTION SECTION */}
+      <section className="w-full bg-gradient-to-b from-background to-accent-grey/10 py-24 border-b border-accent-grey/30">
+        <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+            className="mb-16"
+          >
+            <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground mb-6 font-bold leading-tight">
+              The Cost of <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/80">Friction</span>
+            </h2>
+            <p className="font-paragraph text-lg md:text-xl text-foreground/70 max-w-3xl leading-relaxed">
+              Undocumented processes don't just slow you down—they create cascading problems that compound over time.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                title: 'Hidden Costs',
+                description: 'Time spent searching for information, recreating work, and managing inconsistencies adds up quickly.',
+                icon: '💰'
+              },
+              {
+                title: 'Inevitable Errors',
+                description: 'Without clear processes, mistakes happen. Each error requires rework, corrections, and damage control.',
+                icon: '⚠️'
+              },
+              {
+                title: 'Wasted Resources',
+                description: 'Your team spends energy on process confusion instead of high-value work that drives growth.',
+                icon: '🔄'
+              },
+              {
+                title: 'Lost Knowledge',
+                description: 'When processes live only in people\'s heads, departures create gaps and force you to start from scratch.',
+                icon: '🧠'
+              }
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="bg-gradient-to-br from-background to-background/95 border-2 border-foreground/8 hover:border-primary/30 p-8 rounded-xl transition-all duration-300 group"
+              >
+                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                  {item.icon}
+                </div>
+                <h3 className="font-heading text-xl font-bold text-foreground mb-3">
+                  {item.title}
+                </h3>
+                <p className="font-paragraph text-base text-foreground/70 leading-relaxed">
+                  {item.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ROI CALCULATOR - COMPACT & HIGH-DENSITY */}
       <section id="roi-calculator" className="w-full bg-gradient-to-br from-foreground via-foreground/98 to-foreground text-background py-12 md:py-16 overflow-hidden relative">
         {/* Sleek background with grid overlay */}
