@@ -418,22 +418,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* COST OF FRICTION SECTION - BRIEF SENTIMENT */}
-      <section className="w-full bg-gradient-to-b from-background to-accent-grey/10 py-12 md:py-16 border-b border-accent-grey/30">
-        <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
-          >
-            <p className="font-heading text-2xl md:text-3xl text-foreground max-w-3xl leading-relaxed mb-6 font-semibold">
-              Unoptimized processes create cascading problems that compound over time—<span className="font-bold text-foreground">hidden costs</span>, <span className="font-bold text-foreground">inevitable errors</span>, <span className="font-bold text-foreground">wasted resources</span>, and <span className="font-bold text-foreground">lost knowledge</span>.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
       {/* ROI CALCULATOR - COMPACT & HIGH-DENSITY */}
       <section id="roi-calculator" className="w-full bg-gradient-to-br from-foreground via-foreground/98 to-foreground text-background py-12 md:py-16 overflow-hidden relative">
         {/* Sleek background with grid overlay */}
