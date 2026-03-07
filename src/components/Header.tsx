@@ -1,17 +1,36 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
       setMobileMenuOpen(false);
+    }
+  };
+
+  const handleROIClick = () => {
+    setMobileMenuOpen(false);
+    if (location.pathname === '/') {
+      // Already on home page, just scroll
+      scrollToSection('roi-calculator');
+    } else {
+      // Navigate to home and scroll after navigation
+      navigate('/');
+      setTimeout(() => {
+        const element = document.getElementById('roi-calculator');
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
     }
   };
 
@@ -38,7 +57,7 @@ export default function Header() {
               Case Studies
             </Link>
             <button
-              onClick={() => scrollToSection('roi-calculator')}
+              onClick={handleROIClick}
               className="font-paragraph text-sm text-foreground/80 hover:text-primary transition-colors duration-300 font-medium"
             >
               ROI
@@ -85,7 +104,7 @@ export default function Header() {
                   Case Studies
                 </Link>
                 <button
-                  onClick={() => scrollToSection('roi-calculator')}
+                  onClick={handleROIClick}
                   className="font-paragraph text-base text-foreground/80 hover:text-primary transition-colors text-left font-medium"
                 >
                   ROI
