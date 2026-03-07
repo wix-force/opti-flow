@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Play, ArrowRight } from 'lucide-react';
+import { Play, ArrowRight, ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
@@ -39,6 +39,16 @@ export default function CaseStudiesPage() {
       {/* HEADER SECTION - Bold, Left-Aligned */}
       <section className="w-full pt-24 pb-16 md:pt-32 md:pb-20 bg-white">
         <div className="w-full max-w-[100rem] mx-auto px-6 md:px-12 lg:px-24">
+          <motion.button
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            onClick={() => navigate('/')}
+            className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors duration-300 mb-8 font-medium"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Back to Home
+          </motion.button>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
