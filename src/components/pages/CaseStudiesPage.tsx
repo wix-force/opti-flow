@@ -1,10 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Play } from 'lucide-react';
+import { Play, ArrowRight } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 export default function CaseStudiesPage() {
+  const navigate = useNavigate();
   // Case study data - modular structure for easy updates
   const caseStudies = [
     {
@@ -121,9 +124,15 @@ export default function CaseStudiesPage() {
             <h2 className="font-heading text-2xl md:text-3xl font-bold text-dark-grey mb-4">
               More examples coming soon!
             </h2>
-            <p className="font-paragraph text-lg text-dark-grey/70 max-w-2xl mx-auto">
+            <p className="font-paragraph text-lg text-dark-grey/70 max-w-2xl mx-auto mb-8">
               We're constantly adding new workflow optimizations. Check back regularly for the latest case studies.
             </p>
+            <Button 
+              className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 font-heading px-8 py-3 h-auto rounded-lg shadow-lg shadow-primary/20 hover:shadow-lg hover:shadow-primary/30"
+              onClick={() => navigate('/#roi-calculator')}
+            >
+              See the ROI <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
           </motion.div>
         </div>
       </section>
