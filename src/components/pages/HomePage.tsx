@@ -641,7 +641,7 @@ export default function HomePage() {
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/80">Started.</span>
               </h2>
               <p className="font-paragraph text-lg text-secondary/90 mb-12 max-w-md leading-relaxed">
-                Have a question or want to request a customized package? Fill out the form and I'll get back to you within 24 hours.
+                Have a question or want to request a customized package? Fill out the form and I'll get back to you within 48 hours.
               </p>
               
               <div className="hidden lg:block relative w-full aspect-square overflow-hidden mt-12 rounded-2xl">
@@ -734,7 +734,7 @@ export default function HomePage() {
                     animate={{ opacity: 1, y: 0 }}
                     className="p-4 bg-green-50 text-green-800 border border-green-200 rounded-lg"
                   >
-                    Thank you! I'll be in touch within 24 hours.
+                    Thank you! I'll be in touch within 48 hours.
                   </motion.div>
                 )}
               </form>
