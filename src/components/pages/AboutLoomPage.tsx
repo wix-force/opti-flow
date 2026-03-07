@@ -59,9 +59,7 @@ export default function AboutLoomPage() {
             <p className="font-paragraph text-base md:text-lg text-foreground/75 leading-relaxed mb-4">
               Video communication cuts through the noise of email chains and Slack threads. Instead of 10 back-and-forth messages, a 10-minute Loom video captures the full context, tone, and nuance of what you're trying to communicate.
             </p>
-            <p className="font-paragraph text-base md:text-lg text-foreground/75 leading-relaxed">
-              With that said, this isn't a requirement. Whether you prefer a recorded walkthrough, a set of screenshots, or a technical brief, the goal is the same: identify the friction in your workflow and build the playbook to fix it.
-            </p>
+            <p className="font-paragraph text-base md:text-lg text-foreground/75 leading-relaxed">With that said, this isn't a requirement. Whether you prefer a recorded walkthrough, a set of screenshots, or a technical brief, the goal is the same: identify the friction in your workflow and build the solution.</p>
           </motion.div>
 
           {/* Navigation Buttons */}
