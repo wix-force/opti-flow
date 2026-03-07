@@ -159,7 +159,7 @@ export default function ServiceDetailsPage() {
     faqs: [
       {
         question: 'Can I record all 10 at once?',
-        answer: 'Yes. We can schedule a single session or multiple sessions over a week. Whatever works best for your team.'
+        answer: 'Yes. These can be submitted in a single batch, or in multiple submissions. Whatever works best for your team.'
       },
       {
         question: 'How strict is the submission format?',
