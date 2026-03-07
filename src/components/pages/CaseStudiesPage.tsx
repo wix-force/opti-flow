@@ -123,7 +123,7 @@ export default function CaseStudiesPage() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="w-full bg-blue-50 rounded-lg py-16 md:py-20 px-8 md:px-12 text-center"
           >
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-dark-grey mb-4">
+            <h2 className="font-heading text-2xl md:text-3xl font-bold text-dark-grey mb-4">
               More examples coming soon!
             </h2>
             <p className="font-paragraph text-lg text-dark-grey/70 max-w-2xl mx-auto">
