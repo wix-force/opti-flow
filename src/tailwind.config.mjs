@@ -28,7 +28,7 @@ export default {
                 'accent-grey': '#EAEAEA',
                 'dark-grey': '#333333',
                 background: '#FFFFFF',
-                secondary: '#6C757D',
+                secondary: '#666666',
                 foreground: '#333333',
                 'secondary-foreground': '#FFFFFF',
                 'primary-foreground': '#FFFFFF',

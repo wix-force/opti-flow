@@ -61,8 +61,11 @@ export default function CaseStudiesPage() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="max-w-3xl mx-auto text-center"
           >
-            <p className="font-paragraph text-lg md:text-xl leading-relaxed text-dark-grey">
-              Thanks for visiting the examples section. This site recently launched, and I am currently documenting several new builds. More optimizations "in action" coming soon—in the meantime, explore the current case studies below.
+            <p className="font-paragraph text-xs md:text-xs font-bold uppercase tracking-widest text-primary mb-4">
+              SYSTEM ARCHITECTURE
+            </p>
+            <p className="font-paragraph text-xl md:text-2xl font-medium leading-relaxed text-secondary">
+              Reviewing the logic and performance of recent workflow builds.
             </p>
           </motion.div>
         </div>
