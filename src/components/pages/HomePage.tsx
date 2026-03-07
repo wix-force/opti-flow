@@ -264,7 +264,7 @@ export default function HomePage() {
                           ${services[0].itemPrice || 199}
                         </span>
                       </div>
-                      <p className="font-paragraph text-xs text-secondary/70 uppercase tracking-widest font-semibold">
+                      <p className="font-paragraph text-xs text-foreground/80 uppercase tracking-widest font-semibold italic">
                         * Introductory rate
                       </p>
                     </div>
@@ -376,7 +376,7 @@ export default function HomePage() {
                                     ${service.itemPrice || 199}
                                   </span>
                                 </div>
-                                <p className="font-paragraph text-xs uppercase tracking-widest text-secondary/70 font-semibold">
+                                <p className="font-paragraph text-xs uppercase tracking-widest text-foreground/80 font-semibold italic">
                                   * Introductory Rate
                                 </p>
                               </div>
