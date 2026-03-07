@@ -431,30 +431,8 @@ export default function HomePage() {
               The Cost of <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/80">Friction</span>
             </h2>
             <p className="font-paragraph text-base md:text-lg text-foreground/70 max-w-3xl leading-relaxed mb-6">
-              Unoptimized processes create cascading problems that compound over time—hidden costs, inevitable errors, wasted resources, and lost knowledge.
+              Unoptimized processes create cascading problems that compound over time—<span className="font-bold text-foreground">hidden costs</span>, <span className="font-bold text-foreground">inevitable errors</span>, <span className="font-bold text-foreground">wasted resources</span>, and <span className="font-bold text-foreground">lost knowledge</span>.
             </p>
-            
-            <div className="flex flex-wrap gap-3 md:gap-4">
-              {[
-                'Hidden Costs',
-                'Inevitable Errors',
-                'Wasted Resources',
-                'Lost Knowledge'
-              ].map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.4, delay: index * 0.08 }}
-                  className="inline-flex items-center px-4 py-2 bg-foreground/8 border border-foreground/20 rounded-full hover:bg-foreground/12 hover:border-primary/50 transition-all duration-300"
-                >
-                  <span className="font-heading text-sm md:text-base font-bold text-foreground/85">
-                    {item}
-                  </span>
-                </motion.div>
-              ))}
-            </div>
           </motion.div>
         </div>
       </section>
