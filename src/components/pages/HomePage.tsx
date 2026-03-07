@@ -263,9 +263,6 @@ export default function HomePage() {
                         <span className="font-heading text-4xl md:text-5xl text-foreground tracking-tight font-bold">
                           ${services[0].itemPrice || 199}
                         </span>
-                        <span className="font-heading text-lg md:text-xl text-secondary/70 tracking-tight font-bold line-through">
-                          $595
-                        </span>
                       </div>
                       <p className="font-paragraph text-xs text-secondary/70 uppercase tracking-widest font-semibold">
                         Introductory rate
@@ -378,11 +375,6 @@ export default function HomePage() {
                                   <span className="font-heading text-4xl md:text-4xl font-bold text-foreground">
                                     ${service.itemPrice || 199}
                                   </span>
-                                  {(isSOP || isBusinessEngine) && (
-                                    <span className="font-heading text-sm text-secondary/70 line-through font-semibold">
-                                      ${isSOP ? '1,595' : '2,795'}
-                                    </span>
-                                  )}
                                 </div>
                                 <p className="font-paragraph text-xs uppercase tracking-widest text-secondary/70 font-semibold">
                                   Introductory Rate
