@@ -188,7 +188,12 @@ export default function ServiceDetailsPage() {
       <section className="w-full bg-background border-b border-dark-grey/10 pt-32 pb-6">
         <div className="w-full max-w-[100rem] mx-auto px-6 md:px-12 lg:px-16">
           <button
-            onClick={() => navigate('/')}
+            onClick={() => {
+              navigate('/');
+              setTimeout(() => {
+                document.getElementById('offerings-section')?.scrollIntoView({ behavior: 'smooth' });
+              }, 100);
+            }}
             className="flex items-center gap-2 text-dark-grey hover:text-primary transition-colors font-heading text-xs uppercase tracking-widest font-semibold"
           >
             <ArrowLeft className="w-4 h-4" />
