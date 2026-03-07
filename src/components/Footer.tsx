@@ -24,7 +24,7 @@ export default function Footer() {
             transition={{ duration: 0.6 }}
           >
             <h3 className="font-heading text-2xl text-background mb-4 font-bold tracking-tight">
-              WORKFLOW AUDIT
+              Workflowr
             </h3>
             <p className="font-paragraph text-base text-background/70 leading-relaxed">
               Transforming business processes into competitive advantages, one workflow at a time.
@@ -128,7 +128,7 @@ export default function Footer() {
         <div className="border-t border-background/10 pt-8">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <p className="font-paragraph text-sm text-background/60">
-              © {currentYear} Workflow Audit. All rights reserved.
+              © {currentYear} Workflowr. All rights reserved.
             </p>
             <div className="flex gap-8">
               <a href="#" className="font-paragraph text-sm text-background/60 hover:text-background transition-colors">

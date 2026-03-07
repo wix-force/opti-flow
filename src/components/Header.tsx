@@ -20,7 +20,7 @@ export default function Header() {
       <div className="max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24">
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="font-heading text-xl md:text-2xl text-foreground font-bold tracking-tight hover:text-primary transition-colors duration-300">
-            WORKFLOW AUDIT
+            Workflowr
           </Link>
 
           {/* Desktop Navigation */}
