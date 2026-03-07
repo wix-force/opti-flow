@@ -196,7 +196,7 @@ export default function HomePage() {
       </section>
 
       {/* PRODUCT CONTAINER - MAIN OFFERING + ADDITIONAL OFFERINGS */}
-      <section className="w-full bg-gradient-to-b from-background via-accent-grey/3 to-background py-20 md:py-24 border-b border-accent-grey/30">
+      <section id="service-single-process-audit" className="w-full bg-gradient-to-b from-background via-accent-grey/3 to-background py-20 md:py-24 border-b border-accent-grey/30">
         <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24">
           {isLoadingData ? (
             <div className="space-y-12">
