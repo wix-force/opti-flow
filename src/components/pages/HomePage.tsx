@@ -13,13 +13,15 @@ import { Image } from '@/components/ui/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { useNavigate } from 'react-router-dom';
+import { useServiceStore } from '@/lib/serviceStore';
 
 export default function HomePage() {
   const navigate = useNavigate();
+  const { services: storedServices, setServices: setStoredServices } = useServiceStore();
   // ... keep existing code (state management) ...
   const [hourlyRate, setHourlyRate] = useState<string>('100');
   const [hoursPerWeek, setHoursPerWeek] = useState<number[]>([5]);
-  const [services, setServices] = useState<Services[]>([]);
+  const [services, setServices] = useState<Services[]>(storedServices);
   const [processExamples, setProcessExamples] = useState<ProcessExamples[]>([]);
   const [isLoadingData, setIsLoadingData] = useState(true);
   const [hasInteractedWithRate, setHasInteractedWithRate] = useState(false);
@@ -41,6 +43,7 @@ export default function HomePage() {
     try {
       const serviceResult = await BaseCrudService.getAll<Services>('services');
       setServices(serviceResult.items);
+      setStoredServices(serviceResult.items);
       
       const processResult = await BaseCrudService.getAll<ProcessExamples>('processexamples');
       setProcessExamples(processResult.items);

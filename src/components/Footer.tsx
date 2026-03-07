@@ -1,14 +1,24 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { useServiceStore } from '@/lib/serviceStore';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const navigate = useNavigate();
+  const { services } = useServiceStore();
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleServiceClick = (serviceName: string) => {
+    const service = services.find(s => s.itemName?.toLowerCase().includes(serviceName.toLowerCase()));
+    if (service) {
+      navigate(`/service/${service._id}`);
     }
   };
 
@@ -85,21 +95,21 @@ export default function Footer() {
             </h4>
             <nav className="flex flex-col gap-4">
               <button
-                onClick={() => scrollToSection('contact')}
+                onClick={() => handleServiceClick('single process audit')}
                 className="font-paragraph text-base text-background/70 hover:text-background transition-colors text-left font-medium group flex items-center gap-2"
               >
                 The Single Process Audit
                 <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
               </button>
               <button
-                onClick={() => scrollToSection('contact')}
+                onClick={() => handleServiceClick('sop library')}
                 className="font-paragraph text-base text-background/70 hover:text-background transition-colors text-left font-medium group flex items-center gap-2"
               >
                 The SOP Library
                 <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
               </button>
               <button
-                onClick={() => scrollToSection('contact')}
+                onClick={() => handleServiceClick('business engine redesign')}
                 className="font-paragraph text-base text-background/70 hover:text-background transition-colors text-left font-medium group flex items-center gap-2"
               >
                 The Business Engine Redesign
