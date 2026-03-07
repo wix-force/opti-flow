@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Play } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { Image } from '@/components/ui/image';
 
 export default function CaseStudiesPage() {
   // Case study data - modular structure for easy updates
@@ -11,25 +11,21 @@ export default function CaseStudiesPage() {
       id: 1,
       title: 'Customer Data Entry System',
       metric: 'Automated data entry saving 5 hours per week',
-      image: 'https://static.wixstatic.com/media/2b1878_16ec0b9a2dee4670b54a7c4e6f302359~mv2.png?originWidth=576&originHeight=320',
     },
     {
       id: 2,
       title: 'Report Generation Pipeline',
       metric: 'Reduced report creation time by 70%',
-      image: 'https://static.wixstatic.com/media/2b1878_b54ff9f0916c417d8aad53cb0176dd38~mv2.png?originWidth=576&originHeight=320',
     },
     {
       id: 3,
       title: 'Inventory Management Workflow',
       metric: 'Real-time tracking eliminating manual updates',
-      image: 'https://static.wixstatic.com/media/2b1878_6b0e5e455c8f486bb11523d20359fabb~mv2.png?originWidth=576&originHeight=320',
     },
     {
       id: 4,
       title: 'Email Automation System',
       metric: 'Personalized campaigns reaching 10k+ users daily',
-      image: 'https://static.wixstatic.com/media/2b1878_65bc726b8fc44f99a10d1c29c53a8143~mv2.png?originWidth=576&originHeight=320',
     },
   ];
 
@@ -69,20 +65,19 @@ export default function CaseStudiesPage() {
               >
                 {/* Card Container */}
                 <div className="flex flex-col h-full">
-                  {/* Featured Image/Video Thumbnail */}
+                  {/* Video Player Placeholder */}
                   <div className="mb-6 overflow-hidden rounded-lg">
                     <motion.div
                       whileHover={{ scale: 1.03 }}
                       transition={{ duration: 0.4 }}
-                      className="w-full aspect-video bg-accent-grey overflow-hidden"
+                      className="w-full aspect-video bg-dark-grey/10 overflow-hidden flex items-center justify-center cursor-pointer relative group"
                     >
-                      <Image
-                        src={study.image}
-                        alt={study.title}
-                        width={600}
-                        height={338}
-                        className="w-full h-full object-cover"
-                      />
+                      {/* Play Button Icon */}
+                      <div className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/10 transition-colors duration-300">
+                        <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                          <Play className="w-8 h-8 text-white fill-white" />
+                        </div>
+                      </div>
                     </motion.div>
                   </div>
 
