@@ -431,7 +431,7 @@ export default function HomePage() {
               The Cost of <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/80">Friction</span>
             </h2>
             <p className="font-paragraph text-base md:text-lg text-foreground/70 max-w-3xl leading-relaxed mb-6">
-              Undocumented processes create cascading problems that compound over time—hidden costs, inevitable errors, wasted resources, and lost knowledge.
+              Unoptimized processes create cascading problems that compound over time—hidden costs, inevitable errors, wasted resources, and lost knowledge.
             </p>
             
             <div className="flex flex-wrap gap-3 md:gap-4">
@@ -447,9 +447,9 @@ export default function HomePage() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.4, delay: index * 0.08 }}
-                  className="inline-flex items-center px-3 py-1.5 bg-foreground/5 border border-foreground/15 rounded-full hover:bg-foreground/8 hover:border-primary/40 transition-all duration-300"
+                  className="inline-flex items-center px-4 py-2 bg-foreground/8 border border-foreground/20 rounded-full hover:bg-foreground/12 hover:border-primary/50 transition-all duration-300"
                 >
-                  <span className="font-paragraph text-xs md:text-sm text-foreground/70">
+                  <span className="font-heading text-sm md:text-base font-bold text-foreground/85">
                     {item}
                   </span>
                 </motion.div>
