@@ -17,9 +17,11 @@ export default function CaseStudiesPage() {
     setIsLoadingData(true);
     try {
       const processResult = await BaseCrudService.getAll<ProcessExamples>('processexamples');
-      setProcessExamples(processResult.items);
+      console.log('Process examples loaded:', processResult);
+      setProcessExamples(processResult.items || []);
     } catch (error) {
       console.error('Error loading data:', error);
+      setProcessExamples([]);
     } finally {
       setIsLoadingData(false);
     }
