@@ -4,10 +4,15 @@ import { Button } from '@/components/ui/button';
 import { Check, ChevronDown, ArrowLeft } from 'lucide-react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { buyNow } from '@/integrations';
 
 export default function SingleProcessAuditPage() {
   const navigate = useNavigate();
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
+
+  const handleSecureAudit = async () => {
+    await buyNow([{ collectionId: 'services', itemId: 'single-process-audit', quantity: 1 }]);
+  };
 
   const faqItems = [
     {
@@ -55,10 +60,7 @@ export default function SingleProcessAuditPage() {
           </p>
           <Button 
             className="bg-primary hover:bg-primary/90 text-white font-bold text-base px-8 py-3 h-auto"
-            onClick={() => {
-              // Placeholder for purchase action
-              console.log('Audit purchase initiated');
-            }}
+            onClick={handleSecureAudit}
           >
             SECURE THIS AUDIT - $198
           </Button>
@@ -243,10 +245,7 @@ export default function SingleProcessAuditPage() {
           </p>
           <Button 
             className="bg-white hover:bg-white/90 text-primary font-bold text-base px-8 py-3 h-auto"
-            onClick={() => {
-              // Placeholder for purchase action
-              console.log('Audit purchase initiated');
-            }}
+            onClick={handleSecureAudit}
           >
             SECURE THIS AUDIT - $198
           </Button>
