@@ -168,8 +168,32 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* VISUAL BRIDGE - "SEE THE OFFERINGS" */}
+      <section className="w-full bg-background py-12 md:py-16 border-b border-accent-grey/30">
+        <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6 }}
+            className="flex flex-col items-center justify-center text-center"
+          >
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-12 h-[1px] bg-primary/40"></div>
+              <h2 className="font-heading text-2xl md:text-3xl text-foreground font-bold tracking-tight">
+                See the Offerings
+              </h2>
+              <div className="w-12 h-[1px] bg-primary/40"></div>
+            </div>
+            <p className="font-paragraph text-base md:text-lg text-foreground/60 max-w-2xl leading-relaxed">
+              Choose the service that fits your needs. Each is designed to deliver measurable results.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
       {/* PRODUCT CONTAINER - MAIN OFFERING + ADDITIONAL OFFERINGS */}
-      <section className="w-full bg-gradient-to-b from-background via-accent-grey/5 to-background py-24 border-b border-accent-grey/30">
+      <section className="w-full bg-gradient-to-b from-background via-accent-grey/3 to-background py-20 md:py-24 border-b border-accent-grey/30">
         <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24">
           {isLoadingData ? (
             <div className="space-y-12">
@@ -394,25 +418,25 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* COST OF FRICTION SECTION */}
-      <section className="w-full bg-gradient-to-b from-background to-accent-grey/10 py-24 border-b border-accent-grey/30">
+      {/* COST OF FRICTION SECTION - COMPACT */}
+      <section className="w-full bg-gradient-to-b from-background to-accent-grey/10 py-16 md:py-20 border-b border-accent-grey/30">
         <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
-            className="mb-16"
+            className="mb-10"
           >
-            <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground mb-6 font-bold leading-tight">
+            <h2 className="font-heading text-3xl md:text-4xl text-foreground mb-3 font-bold leading-tight">
               The Cost of <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/80">Friction</span>
             </h2>
-            <p className="font-paragraph text-lg md:text-xl text-foreground/70 max-w-3xl leading-relaxed">
-              Undocumented processes don't just slow you down—they create cascading problems that compound over time.
+            <p className="font-paragraph text-base md:text-lg text-foreground/70 max-w-2xl leading-relaxed">
+              Undocumented processes create cascading problems that compound over time.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
               {
                 title: 'Hidden Costs',
@@ -441,15 +465,15 @@ export default function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-gradient-to-br from-background to-background/95 border-2 border-foreground/8 hover:border-primary/30 p-8 rounded-xl transition-all duration-300 group"
+                className="bg-gradient-to-br from-background to-background/95 border-2 border-foreground/8 hover:border-primary/30 p-6 rounded-xl transition-all duration-300 group"
               >
-                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                <div className="text-3xl mb-3 group-hover:scale-110 transition-transform duration-300">
                   {item.icon}
                 </div>
-                <h3 className="font-heading text-xl font-bold text-foreground mb-3">
+                <h3 className="font-heading text-lg font-bold text-foreground mb-2">
                   {item.title}
                 </h3>
-                <p className="font-paragraph text-base text-foreground/70 leading-relaxed">
+                <p className="font-paragraph text-sm text-foreground/70 leading-relaxed">
                   {item.description}
                 </p>
               </motion.div>
