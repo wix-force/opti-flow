@@ -313,9 +313,12 @@ export default function HomePage() {
                           ${services[0].itemPrice || 199}
                         </span>
                       </div>
-                      <p className="font-paragraph text-xs text-foreground/80 uppercase tracking-widest font-semibold italic">
+                      <button
+                        onClick={() => setShowIntroRateModal(true)}
+                        className="font-paragraph text-xs text-foreground/80 uppercase tracking-widest font-semibold italic transition-colors hover:text-primary underline"
+                      >
                         * Introductory rate
-                      </p>
+                      </button>
                     </div>
                     <Button 
                       size="sm" 
