@@ -393,12 +393,7 @@ export default function HomePage() {
                                   isBusinessEngine ? 'bg-purple-600 text-white hover:bg-purple-700 hover:shadow-lg hover:shadow-purple-500/30' : 
                                   'bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/30'
                                 }`}
-                                onClick={() => {
-                                  const element = document.querySelector(`[data-service="${isSOP ? 'sop-library' : isBusinessEngine ? 'business-engine-redesign' : 'service'}"]`);
-                                  if (element) {
-                                    element.scrollIntoView({ behavior: 'smooth' });
-                                  }
-                                }}
+                                 onClick={() => navigate(`/service/${service._id}`)}
                               >
                                 Learn More <ArrowRight className="ml-2 h-4 w-4" />
                               </Button>
