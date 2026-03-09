@@ -814,20 +814,36 @@ export default function ServiceDetailsPage() {
                 <p className="font-paragraph text-lg text-dark-grey/70 max-w-2xl mx-auto">
                   Stop losing knowledge. Start scaling operations.
                 </p>
-                <Button
-                  onClick={handleBuyNow}
-                  disabled={isCheckingOut}
-                  className="bg-primary text-white hover:bg-primary/90 font-heading text-base px-8 py-4 h-auto font-semibold uppercase tracking-widest transition-all duration-300"
-                >
-                  {isCheckingOut ? (
-                    <>
-                      <Loader className="w-5 h-5 mr-2 animate-spin inline" />
-                      Processing...
-                    </>
-                  ) : (
-                    sopContent.buttonText
-                  )}
-                </Button>
+                <div className="inline-block">
+                  <Button
+                    onClick={handleBuyNow}
+                    disabled={isCheckingOut}
+                    className="bg-primary text-white hover:bg-primary/90 font-heading text-base px-8 py-4 h-auto font-semibold uppercase tracking-widest transition-all duration-300"
+                  >
+                    {isCheckingOut ? (
+                      <>
+                        <Loader className="w-5 h-5 mr-2 animate-spin inline" />
+                        Processing...
+                      </>
+                    ) : (
+                      `Secure this ${service?.itemName || 'Service'} — ${service?.itemPrice || 0}*`
+                    )}
+                  </Button>
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.6, delay: 0.1 }}
+                    className="font-paragraph text-sm text-dark-grey/70 mt-2 text-center font-medium"
+                  >
+                    *Introductory rate.{' '}
+                    <button
+                      onClick={() => setIsIntroRateModalOpen(true)}
+                      className="text-primary hover:text-primary/80 font-semibold underline bg-none border-none p-0 cursor-pointer"
+                    >
+                      Learn why
+                    </button>
+                  </motion.p>
+                </div>
               </motion.div>
             </div>
           </section>
