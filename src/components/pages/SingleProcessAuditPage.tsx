@@ -84,7 +84,7 @@ export default function SingleProcessAuditPage() {
                 onClick={() => setIsIntroRateModalOpen(true)}
                 className="text-primary hover:text-primary/80 font-semibold underline bg-none border-none p-0 cursor-pointer"
               >
-                Learn why
+                Learn more
               </button>
             </motion.p>
           </div>
@@ -285,7 +285,7 @@ export default function SingleProcessAuditPage() {
                 onClick={() => setIsIntroRateModalOpen(true)}
                 className="text-white hover:text-white/80 font-semibold underline bg-none border-none p-0 cursor-pointer"
               >
-                Learn why
+                Learn more
               </button>
             </motion.p>
           </div>
