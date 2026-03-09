@@ -8,6 +8,7 @@ import { Services } from '@/entities';
 import { Image } from '@/components/ui/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import IntroductoryRateModal from '@/components/IntroductoryRateModal';
 
 export default function ServiceDetailsPage() {
   const { id } = useParams<{ id: string }>();
@@ -16,6 +17,7 @@ export default function ServiceDetailsPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [isCheckingOut, setIsCheckingOut] = useState(false);
   const [expandedFAQ, setExpandedFAQ] = useState<number | null>(null);
+  const [isIntroRateModalOpen, setIsIntroRateModalOpen] = useState(false);
 
   useEffect(() => {
     loadService();
@@ -183,6 +185,7 @@ export default function ServiceDetailsPage() {
   return (
     <div className="min-h-screen bg-background text-foreground font-paragraph selection:bg-primary selection:text-white">
       <Header />
+      <IntroductoryRateModal isOpen={isIntroRateModalOpen} onClose={() => setIsIntroRateModalOpen(false)} />
 
       {/* BACK BUTTON */}
       <section className="w-full bg-background border-b border-dark-grey/10 pt-32 pb-6">
@@ -257,9 +260,23 @@ export default function ServiceDetailsPage() {
                         Processing...
                       </>
                     ) : (
-                      businessEngineContent.buttonText
+                      `Secure this ${service?.itemName || 'Service'} — ${service?.itemPrice || 1998}*`
                     )}
                   </Button>
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.6, delay: 0.1 }}
+                    className="font-paragraph text-xs text-dark-grey/60 mt-3 text-center"
+                  >
+                    *Introductory rate.{' '}
+                    <button
+                      onClick={() => setIsIntroRateModalOpen(true)}
+                      className="text-primary hover:text-primary/80 font-semibold underline bg-none border-none p-0 cursor-pointer"
+                    >
+                      Learn why
+                    </button>
+                  </motion.p>
                 </div>
               </motion.div>
             </div>
@@ -515,9 +532,23 @@ export default function ServiceDetailsPage() {
                       Processing...
                     </>
                   ) : (
-                    businessEngineContent.buttonText
+                    `Secure this ${service?.itemName || 'Service'} — ${service?.itemPrice || 1998}*`
                   )}
                 </Button>
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.6, delay: 0.1 }}
+                  className="font-paragraph text-xs text-white/70 mt-3 text-center"
+                >
+                  *Introductory rate.{' '}
+                  <button
+                    onClick={() => setIsIntroRateModalOpen(true)}
+                    className="text-white hover:text-white/80 font-semibold underline bg-none border-none p-0 cursor-pointer"
+                  >
+                    Learn why
+                  </button>
+                </motion.p>
               </motion.div>
             </div>
           </section>
@@ -554,9 +585,23 @@ export default function ServiceDetailsPage() {
                         Processing...
                       </>
                     ) : (
-                      sopContent.buttonText
+                      `Secure this ${service?.itemName || 'Service'} — ${service?.itemPrice || 0}*`
                     )}
                   </Button>
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.6, delay: 0.1 }}
+                    className="font-paragraph text-xs text-dark-grey/60 mt-3 text-center"
+                  >
+                    *Introductory rate.{' '}
+                    <button
+                      onClick={() => setIsIntroRateModalOpen(true)}
+                      className="text-primary hover:text-primary/80 font-semibold underline bg-none border-none p-0 cursor-pointer"
+                    >
+                      Learn why
+                    </button>
+                  </motion.p>
                 </div>
               </motion.div>
             </div>
