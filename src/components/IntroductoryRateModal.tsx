@@ -45,7 +45,7 @@ export default function IntroductoryRateModal({ isOpen, onClose }: IntroductoryR
                   Introductory Rate
                 </h2>
                 <p className="font-paragraph text-base text-dark-grey/80 leading-relaxed">
-                  During our Initial Rollout Phase, we are offering a Foundational Rate on all new packages. In exchange for this pricing, we ask for your permission to document the 'Before and After' of your operational architecture as a featured case study.
+                  During our Initial Rollout Phase, we are offering a Foundational Rate on all new packages. In exchange for this pricing, we ask for your permission to document the evolution of your operational architecture as a featured case study. All proprietary data and identifying information will be strictly anonymized to protect your firm's privacy.
                 </p>
               </div>
 
