@@ -124,7 +124,7 @@ export default function HomePage() {
             </div>
             
             <p className="font-paragraph text-lg md:text-xl text-foreground/80 leading-relaxed mb-8">
-              As we refine the Workflowr portfolio, we are offering an Introductory Rate to select partners. We simply ask for your permission to document the 'Before and After' of your workflows as a featured case study.
+              During our Initial Rollout Phase, we are offering a Foundational Rate on all new packages. In exchange for this pricing, we ask for your permission to document the 'Before and After' of your operational architecture as a featured case study.
             </p>
             
             <div className="flex gap-4">
