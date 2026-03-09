@@ -267,7 +267,7 @@ export default function ServiceDetailsPage() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.6, delay: 0.1 }}
-                    className="font-paragraph text-xs text-dark-grey/60 mt-3 text-center"
+                    className="font-paragraph text-sm text-dark-grey/60 mt-3 text-center"
                   >
                     *Introductory rate.{' '}
                     <button
