@@ -17,7 +17,9 @@ export default function IntroductoryRateModal({ isOpen, onClose }: IntroductoryR
     
     // If we're on the home page, scroll to contact
     if (location.pathname === '/') {
-      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+      setTimeout(() => {
+        document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+      }, 300);
     } else {
       // If we're on a detail page, navigate to home and then scroll
       navigate('/');
