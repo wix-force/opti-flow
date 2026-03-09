@@ -583,7 +583,7 @@ export default function ServiceDetailsPage() {
                         Processing...
                       </>
                     ) : (
-                      `Secure this ${service?.itemName || 'Service'} — ${service?.itemPrice || 0}*`
+                      `Secure ${service?.itemName || 'Service'} — ${service?.itemPrice || 0}*`
                     )}
                   </Button>
                   <motion.p
