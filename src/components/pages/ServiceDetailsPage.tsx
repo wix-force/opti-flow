@@ -258,7 +258,7 @@ export default function ServiceDetailsPage() {
                         Processing...
                       </>
                     ) : (
-                      `Secure the ${service?.itemName || 'Service'} — ${service?.itemPrice || 1998}*`
+                      `Secure ${service?.itemName || 'Service'} — ${service?.itemPrice || 1998}*`
                     )}
                   </Button>
                   <motion.p
@@ -530,7 +530,7 @@ export default function ServiceDetailsPage() {
                       Processing...
                     </>
                   ) : (
-                    `Secure the ${service?.itemName || 'Service'} — ${service?.itemPrice || 1998}*`
+                    `Secure ${service?.itemName || 'Service'} — ${service?.itemPrice || 1998}*`
                   )}
                 </Button>
                 <motion.p
