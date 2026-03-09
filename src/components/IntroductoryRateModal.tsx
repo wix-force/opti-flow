@@ -27,9 +27,9 @@ export default function IntroductoryRateModal({ isOpen, onClose }: IntroductoryR
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ duration: 0.3 }}
-            className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 w-full max-w-md mx-auto px-6"
+            className="fixed inset-0 z-50 flex items-center justify-center px-6 py-8 overflow-y-auto"
           >
-            <div className="bg-background border-2 border-dark-grey/20 p-8 md:p-10 space-y-6">
+            <div className="bg-background border-2 border-dark-grey/20 p-8 md:p-10 space-y-6 w-full max-w-md my-auto">
               {/* Close Button */}
               <button
                 onClick={onClose}
