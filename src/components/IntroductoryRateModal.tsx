@@ -45,10 +45,7 @@ export default function IntroductoryRateModal({ isOpen, onClose }: IntroductoryR
                   Introductory Rate
                 </h2>
                 <p className="font-paragraph text-base text-dark-grey/80 leading-relaxed">
-                  This is our introductory pricing for early adopters. As we expand our service offerings and build our track record, pricing will adjust to reflect the full value delivered.
-                </p>
-                <p className="font-paragraph text-base text-dark-grey/80 leading-relaxed">
-                  By securing your service now, you lock in this rate for future engagements and updates—a benefit reserved for our founding clients.
+                  During our Initial Rollout Phase, we are offering a Foundational Rate on all new packages. In exchange for this pricing, we ask for your permission to document the 'Before and After' of your operational architecture as a featured case study.
                 </p>
               </div>
 
