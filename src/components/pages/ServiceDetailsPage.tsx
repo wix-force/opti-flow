@@ -573,7 +573,7 @@ export default function ServiceDetailsPage() {
                 <p className="font-paragraph text-lg text-dark-grey/70 leading-relaxed max-w-3xl">
                   {sopContent.leadText}
                 </p>
-                <div className="pt-4">
+                <div className="pt-4 inline-block">
                   <Button
                     onClick={handleBuyNow}
                     disabled={isCheckingOut}
@@ -592,7 +592,7 @@ export default function ServiceDetailsPage() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.6, delay: 0.1 }}
-                    className="font-paragraph text-sm text-dark-grey/70 mt-4 text-center font-medium"
+                    className="font-paragraph text-sm text-dark-grey/70 mt-2 text-right font-medium"
                   >
                     *Introductory rate.{' '}
                     <button
