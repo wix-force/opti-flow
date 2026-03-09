@@ -1,7 +1,7 @@
 // HPI 1.7-G
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, CheckCircle, ArrowDown } from 'lucide-react';
+import { ArrowRight, CheckCircle, ArrowDown, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -25,6 +25,7 @@ export default function HomePage() {
   const [processExamples, setProcessExamples] = useState<ProcessExamples[]>([]);
   const [isLoadingData, setIsLoadingData] = useState(true);
   const [hasInteractedWithRate, setHasInteractedWithRate] = useState(false);
+  const [showIntroRateModal, setShowIntroRateModal] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -92,6 +93,51 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-background text-foreground font-paragraph selection:bg-primary selection:text-white">
       <Header />
+      
+      {/* INTRO RATE MODAL */}
+      {showIntroRateModal && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4"
+          onClick={() => setShowIntroRateModal(false)}
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: 20 }}
+            transition={{ duration: 0.3 }}
+            className="bg-background border-2 border-primary/30 rounded-2xl p-8 md:p-12 max-w-2xl w-full shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex justify-between items-start mb-6">
+              <h2 className="font-heading text-3xl md:text-4xl text-foreground font-bold">
+                Introductory Rate
+              </h2>
+              <button
+                onClick={() => setShowIntroRateModal(false)}
+                className="text-foreground/60 hover:text-foreground transition-colors"
+              >
+                <X className="w-6 h-6" />
+              </button>
+            </div>
+            
+            <p className="font-paragraph text-lg md:text-xl text-foreground/80 leading-relaxed mb-8">
+              As we refine the Workflowr portfolio, we are offering an Introductory Rate to select partners. We simply ask for your permission to document the 'Before and After' of your workflows as a featured case study.
+            </p>
+            
+            <div className="flex gap-4">
+              <Button
+                onClick={() => setShowIntroRateModal(false)}
+                className="bg-primary text-primary-foreground hover:bg-primary/90 font-heading px-6 py-3 h-auto rounded-lg transition-all"
+              >
+                Got It
+              </Button>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
       {/* HERO SECTION */}
       <section className="relative w-full min-h-screen flex flex-col justify-center pt-32 pb-20 border-b border-accent-grey/30 mt-20">
         {/* Subtle gradient overlay */}
@@ -380,9 +426,12 @@ export default function HomePage() {
                                     ${service.itemPrice || 199}
                                   </span>
                                 </div>
-                                <p className="font-paragraph text-xs uppercase tracking-widest text-foreground/80 font-semibold italic">
+                                <button
+                                  onClick={() => setShowIntroRateModal(true)}
+                                  className="font-paragraph text-xs uppercase tracking-widest text-foreground/80 font-semibold italic transition-colors hover:text-primary underline"
+                                >
                                   * Introductory Rate
-                                </p>
+                                </button>
                               </div>
                               
                               {/* CTA Button */}
