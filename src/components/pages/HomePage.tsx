@@ -127,7 +127,7 @@ export default function HomePage() {
               During our Initial Rollout Phase, we are offering a Foundational Rate on all new packages. In exchange for this pricing, we ask for your permission to document the evolution of your operational architecture as a featured case study. All proprietary data and identifying information will be strictly anonymized to protect your firm's privacy.
             </p>
             <p className="font-paragraph text-lg md:text-xl text-foreground/80 leading-relaxed mb-8">
-              To opt out, send us a message <button onClick={() => { setShowIntroRateModal(false); setTimeout(() => { document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }, 50); }} className="text-primary hover:text-primary/80 font-semibold underline transition-colors">here</button>.
+              To opt out, send us a message <button onClick={() => { setShowIntroRateModal(false); setTimeout(() => { const contactSection = document.getElementById('contact'); if (contactSection) { window.scrollTo({ top: contactSection.offsetTop, behavior: 'smooth' }); } }, 100); }} className="text-primary hover:text-primary/80 font-semibold underline transition-colors">here</button>.
             </p>
             
             <div className="flex gap-4">
