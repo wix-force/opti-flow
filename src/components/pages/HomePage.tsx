@@ -126,6 +126,9 @@ export default function HomePage() {
             <p className="font-paragraph text-lg md:text-xl text-foreground/80 leading-relaxed mb-8">
               During our Initial Rollout Phase, we are offering a Foundational Rate on all new packages. In exchange for this pricing, we ask for your permission to document the evolution of your operational architecture as a featured case study. All proprietary data and identifying information will be strictly anonymized to protect your firm's privacy.
             </p>
+            <p className="font-paragraph text-lg md:text-xl text-foreground/80 leading-relaxed mb-8">
+              To opt out, send us a message <button onClick={() => { setShowIntroRateModal(false); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-primary hover:text-primary/80 font-semibold underline transition-colors">here</button>.
+            </p>
             
             <div className="flex gap-4">
               <Button
