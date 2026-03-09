@@ -186,7 +186,6 @@ export default function ServiceDetailsPage() {
     <div className="min-h-screen bg-background text-foreground font-paragraph selection:bg-primary selection:text-white">
       <Header />
       <IntroductoryRateModal isOpen={isIntroRateModalOpen} onClose={() => setIsIntroRateModalOpen(false)} />
-
       {/* BACK BUTTON */}
       <section className="w-full bg-background border-b border-dark-grey/10 pt-32 pb-6">
         <div className="w-full max-w-[100rem] mx-auto px-6 md:px-12 lg:px-16">
@@ -204,7 +203,6 @@ export default function ServiceDetailsPage() {
           </button>
         </div>
       </section>
-
       {isLoading ? (
         <section className="w-full bg-background py-32">
           <div className="flex items-center justify-center min-h-[600px]">
@@ -819,16 +817,7 @@ export default function ServiceDetailsPage() {
                     onClick={handleBuyNow}
                     disabled={isCheckingOut}
                     className="bg-primary text-white hover:bg-primary/90 font-heading text-base px-8 py-4 h-auto font-semibold uppercase tracking-widest transition-all duration-300"
-                  >
-                    {isCheckingOut ? (
-                      <>
-                        <Loader className="w-5 h-5 mr-2 animate-spin inline" />
-                        Processing...
-                      </>
-                    ) : (
-                      `Secure this ${service?.itemName || 'Service'} — ${service?.itemPrice || 0}*`
-                    )}
-                  </Button>
+                  >Secure The SOP Library — 998*</Button>
                   <motion.p
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -850,7 +839,7 @@ export default function ServiceDetailsPage() {
         </>
       ) : (
         // FALLBACK FOR OTHER SERVICES
-        <section className="w-full bg-background py-20 md:py-32 border-b border-accent-grey/30">
+        (<section className="w-full bg-background py-20 md:py-32 border-b border-accent-grey/30">
           <div className="w-full max-w-[100rem] mx-auto px-6 md:px-12 lg:px-16">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -972,9 +961,8 @@ export default function ServiceDetailsPage() {
               </div>
             </motion.div>
           </div>
-        </section>
+        </section>)
       )}
-
       <Footer />
     </div>
   );
