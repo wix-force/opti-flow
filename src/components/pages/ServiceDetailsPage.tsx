@@ -55,8 +55,8 @@ export default function ServiceDetailsPage() {
     navigate(-1);
   };
 
-  const isBusinessEngine = service?.itemName?.toLowerCase().includes('business engine');
-  const isSopLibrary = service?.itemName?.toLowerCase().includes('sop');
+  const isBusinessEngine = service?.itemName?.toLowerCase().includes('business engine redesign') || service?.itemName?.toLowerCase().includes('business engine');
+  const isSopLibrary = service?.itemName?.toLowerCase().includes('sop library') || service?.itemName?.toLowerCase().includes('sop');
 
   // Business Engine Redesign specific content
   const businessEngineContent = {
