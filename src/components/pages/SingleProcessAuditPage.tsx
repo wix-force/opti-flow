@@ -5,10 +5,13 @@ import { Check, ChevronDown, ArrowLeft } from 'lucide-react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { buyNow } from '@/integrations';
+import IntroductoryRateModal from '@/components/IntroductoryRateModal';
+import { motion } from 'framer-motion';
 
 export default function SingleProcessAuditPage() {
   const navigate = useNavigate();
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
+  const [isIntroRateModalOpen, setIsIntroRateModalOpen] = useState(false);
 
   const handleSecureAudit = async () => {
     await buyNow([{ collectionId: 'services', itemId: 'single-process-audit', quantity: 1 }]);
@@ -36,6 +39,7 @@ export default function SingleProcessAuditPage() {
   return (
     <div className="min-h-screen bg-background text-foreground font-paragraph selection:bg-primary selection:text-white">
       <Header />
+      <IntroductoryRateModal isOpen={isIntroRateModalOpen} onClose={() => setIsIntroRateModalOpen(false)} />
       
       {/* BACK BUTTON */}
       <section className="w-full bg-background border-b border-dark-grey/10 pt-32 pb-6">
@@ -62,12 +66,28 @@ export default function SingleProcessAuditPage() {
           <p className="font-paragraph text-lg text-foreground mb-12 max-w-2xl leading-relaxed">
             Stop losing hours to manual tasks. Send me your process; I'll send you the exit strategy.
           </p>
-          <Button 
-            className="bg-primary hover:bg-primary/90 text-white font-bold text-base px-8 py-3 h-auto"
-            onClick={handleSecureAudit}
-          >
-            SECURE THIS AUDIT - $198
-          </Button>
+          <div>
+            <Button 
+              className="bg-primary hover:bg-primary/90 text-white font-bold text-base px-8 py-3 h-auto"
+              onClick={handleSecureAudit}
+            >
+              SECURE THIS AUDIT — $198*
+            </Button>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="font-paragraph text-xs text-dark-grey/60 mt-3"
+            >
+              *Introductory rate.{' '}
+              <button
+                onClick={() => setIsIntroRateModalOpen(true)}
+                className="text-primary hover:text-primary/80 font-semibold underline bg-none border-none p-0 cursor-pointer"
+              >
+                Learn why
+              </button>
+            </motion.p>
+          </div>
         </div>
       </section>
 
@@ -247,12 +267,28 @@ export default function SingleProcessAuditPage() {
           <p className="font-paragraph text-lg mb-8 max-w-2xl mx-auto opacity-90">
             Get your Single Process Audit today and discover exactly where your workflow is losing efficiency.
           </p>
-          <Button 
-            className="bg-white hover:bg-white/90 text-primary font-bold text-base px-8 py-3 h-auto"
-            onClick={handleSecureAudit}
-          >
-            SECURE THIS AUDIT - $198
-          </Button>
+          <div>
+            <Button 
+              className="bg-white hover:bg-white/90 text-primary font-bold text-base px-8 py-3 h-auto"
+              onClick={handleSecureAudit}
+            >
+              SECURE THIS AUDIT — $198*
+            </Button>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="font-paragraph text-xs text-white/70 mt-3 text-center"
+            >
+              *Introductory rate.{' '}
+              <button
+                onClick={() => setIsIntroRateModalOpen(true)}
+                className="text-white hover:text-white/80 font-semibold underline bg-none border-none p-0 cursor-pointer"
+              >
+                Learn why
+              </button>
+            </motion.p>
+          </div>
         </div>
       </section>
 
