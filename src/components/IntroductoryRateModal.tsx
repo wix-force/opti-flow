@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 interface IntroductoryRateModalProps {
   isOpen: boolean;
@@ -8,6 +9,24 @@ interface IntroductoryRateModalProps {
 }
 
 export default function IntroductoryRateModal({ isOpen, onClose }: IntroductoryRateModalProps) {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleContactClick = () => {
+    onClose();
+    
+    // If we're on the home page, scroll to contact
+    if (location.pathname === '/') {
+      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      // If we're on a detail page, navigate to home and then scroll
+      navigate('/');
+      setTimeout(() => {
+        document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
+  };
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -48,7 +67,7 @@ export default function IntroductoryRateModal({ isOpen, onClose }: IntroductoryR
                   During our Initial Rollout Phase, we are offering a Foundational Rate on all new packages. In exchange for this pricing, we ask for your permission to document the evolution of your operational architecture as a featured case study. All proprietary data and identifying information will be strictly anonymized to protect your firm's privacy.
                 </p>
                 <p className="font-paragraph text-base text-dark-grey/80 leading-relaxed">
-                  To opt out, send us a message <button onClick={() => { onClose(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-primary hover:text-primary/80 font-semibold underline transition-colors">here</button>.
+                  To opt out, send us a message <button onClick={handleContactClick} className="text-primary hover:text-primary/80 font-semibold underline transition-colors">here</button>.
                 </p>
               </div>
 
