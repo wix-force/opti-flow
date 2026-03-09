@@ -45,7 +45,7 @@ export default function Header() {
       scrollToSection('roi-calculator');
     } else {
       // Navigate to home and scroll after navigation
-      navigate('/');
+      navigate('/', { replace: false });
       setTimeout(() => {
         const element = document.getElementById('roi-calculator');
         if (element) {
@@ -62,7 +62,7 @@ export default function Header() {
       scrollToSection('offerings-section');
     } else {
       // Navigate to home and scroll after navigation
-      navigate('/');
+      navigate('/', { replace: false });
       setTimeout(() => {
         const element = document.getElementById('offerings-section');
         if (element) {

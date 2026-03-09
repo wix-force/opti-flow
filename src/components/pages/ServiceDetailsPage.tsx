@@ -191,7 +191,7 @@ export default function ServiceDetailsPage() {
         <div className="w-full max-w-[100rem] mx-auto px-6 md:px-12 lg:px-16">
           <button
             onClick={() => {
-              navigate('/');
+              navigate('/', { replace: false });
               setTimeout(() => {
                 document.getElementById('offerings-section')?.scrollIntoView({ behavior: 'smooth' });
               }, 100);
@@ -773,7 +773,7 @@ export default function ServiceDetailsPage() {
                               {faq.answer.split('Contact us for a custom quote.')[0]}
                               <button
                                 onClick={() => {
-                                  navigate('/');
+                                  navigate('/', { replace: false });
                                   setTimeout(() => {
                                     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
                                   }, 100);
