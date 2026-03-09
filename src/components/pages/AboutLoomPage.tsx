@@ -4,10 +4,30 @@ import { ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 export default function AboutLoomPage() {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleSolutionsClick = () => {
+    if (location.pathname === '/') {
+      // Already on home page, scroll to offerings section
+      const element = document.getElementById('offerings-section');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // Navigate to home and scroll after navigation
+      navigate('/');
+      setTimeout(() => {
+        const element = document.getElementById('offerings-section');
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-background text-foreground font-paragraph">
@@ -78,7 +98,7 @@ export default function AboutLoomPage() {
             </Button>
             
             <Button
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={handleSolutionsClick}
               className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 font-heading px-6 py-3 h-auto rounded-lg"
             >Solutions</Button>
           </motion.div>
