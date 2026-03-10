@@ -187,7 +187,7 @@ export default function ServiceDetailsPage() {
       <Header />
       <IntroductoryRateModal isOpen={isIntroRateModalOpen} onClose={() => setIsIntroRateModalOpen(false)} />
       {/* BACK BUTTON */}
-      <section className="w-full bg-background pt-32 pb-6">
+      <section className="w-full bg-background pt-32 pb-12">
         <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24">
           <button
             onClick={() => {

@@ -37,8 +37,8 @@ export default function CaseStudiesPage() {
       <Header />
 
       {/* HEADER SECTION - Bold, Left-Aligned */}
-      <section className="w-full pt-24 pb-16 md:pt-32 md:pb-20 bg-white">
-        <div className="w-full max-w-[100rem] mx-auto px-6 md:px-12 lg:px-24">
+      <section className="w-full pt-32 pb-24 md:pt-40 md:pb-32 bg-white">
+        <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24">
           <motion.button
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -54,10 +54,10 @@ export default function CaseStudiesPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            <h1 className="font-heading text-5xl md:text-6xl font-bold text-dark-grey mb-4">
+            <h1 className="font-heading text-6xl md:text-7xl lg:text-8xl font-bold text-text-header mb-8">
               Workflow Examples
             </h1>
-            <p className="font-paragraph text-lg md:text-xl text-dark-grey/70 max-w-2xl">
+            <p className="font-paragraph text-lg md:text-xl text-text-body max-w-3xl leading-relaxed">
               The logic and performance of recent workflow builds.
             </p>
           </motion.div>
@@ -65,9 +65,9 @@ export default function CaseStudiesPage() {
       </section>
 
       {/* CARD GRID SECTION - 2-Column Layout */}
-      <section className="w-full bg-white py-12 md:py-16">
-        <div className="w-full max-w-[100rem] mx-auto px-6 md:px-12 lg:px-24">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+      <section className="w-full bg-white py-24 md:py-32 lg:py-40">
+        <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
             {caseStudies.map((study, index) => (
               <motion.div
                 key={study.id}
@@ -97,12 +97,12 @@ export default function CaseStudiesPage() {
                   {/* Card Content */}
                   <div className="flex flex-col flex-grow">
                     {/* Subhead */}
-                    <h3 className="font-heading text-2xl md:text-2xl font-bold text-dark-grey mb-3">
+                    <h3 className="font-heading text-2xl md:text-3xl font-bold text-text-header mb-4">
                       {study.title}
                     </h3>
 
                     {/* Metric Description */}
-                    <p className="font-paragraph text-base text-dark-grey/75 mb-6 flex-grow">
+                    <p className="font-paragraph text-base md:text-lg text-text-body mb-8 flex-grow leading-relaxed">
                       {study.metric}
                     </p>
 
@@ -110,7 +110,7 @@ export default function CaseStudiesPage() {
                     <motion.a
                       href="#"
                       whileHover={{ x: 4 }}
-                      className="inline-flex items-center gap-2 text-primary font-medium text-base hover:text-primary/80 transition-colors duration-300"
+                      className="inline-flex items-center gap-2 text-primary font-semibold text-base hover:text-primary/80 transition-colors duration-300"
                     >
                       Watch Video →
                     </motion.a>
@@ -123,22 +123,22 @@ export default function CaseStudiesPage() {
       </section>
 
       {/* COMING SOON SECTION - Full-Width Light Blue Box */}
-      <section className="w-full py-16 md:py-20 bg-white">
-        <div className="w-full max-w-[100rem] mx-auto px-6 md:px-12 lg:px-24">
+      <section className="w-full py-24 md:py-32 lg:py-40 bg-white">
+        <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="w-full bg-blue-50 rounded-lg py-16 md:py-20 px-8 md:px-12 text-center"
+            className="w-full bg-blue-50 rounded-2xl py-24 md:py-32 px-8 md:px-16 text-center"
           >
-            <h2 className="font-heading text-2xl md:text-3xl font-bold text-dark-grey mb-4">
+            <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-text-header mb-8">
               More examples coming soon!
             </h2>
-            <p className="font-paragraph text-lg text-dark-grey/70 max-w-2xl mx-auto mb-8">
+            <p className="font-paragraph text-lg md:text-xl text-text-body max-w-3xl mx-auto mb-12 leading-relaxed">
               We're constantly adding new workflow optimizations. Check back regularly for the latest case studies.
             </p>
             <Button 
-              className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 font-heading px-8 py-3 h-auto rounded-lg shadow-lg shadow-primary/20 hover:shadow-lg hover:shadow-primary/30"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 font-heading px-8 py-4 h-auto rounded-lg shadow-lg shadow-primary/20 hover:shadow-lg hover:shadow-primary/30 text-base font-semibold"
               onClick={() => navigate('/#roi-calculator')}
             >
               See the ROI <ArrowRight className="ml-2 h-4 w-4" />

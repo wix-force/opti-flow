@@ -246,7 +246,7 @@ export default function HomePage() {
       </section>
 
       {/* VISUAL BRIDGE - "SEE THE OFFERINGS" */}
-      <section id="offerings-section" className="w-full bg-background py-20 md:py-28">
+      <section id="offerings-section" className="w-full bg-background py-24 md:py-32">
         <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -255,13 +255,9 @@ export default function HomePage() {
             transition={{ duration: 0.7, ease: "easeOut" }}
             className="flex flex-col items-center justify-center text-center"
           >
-            <div className="flex items-center gap-6 md:gap-8 mb-8">
-              <div className="w-16 md:w-24 h-[1px] bg-text-body/20"></div>
-              <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl text-text-header font-bold tracking-tight leading-tight">
-                See the Offerings
-              </h2>
-              <div className="w-16 md:w-24 h-[1px] bg-text-body/20"></div>
-            </div>
+            <h2 className="font-heading text-5xl md:text-6xl lg:text-7xl text-text-header font-bold tracking-tight leading-tight mb-8">
+              See the Offerings
+            </h2>
             <p className="font-paragraph text-lg md:text-xl text-text-body max-w-3xl leading-relaxed">
               Choose the service that fits your needs. Each is designed to deliver measurable results.
             </p>
@@ -270,7 +266,7 @@ export default function HomePage() {
       </section>
 
       {/* PRODUCT CONTAINER - MAIN OFFERING + ADDITIONAL OFFERINGS */}
-      <section id="service-single-process-audit" className="w-full bg-background py-20 md:py-28">
+      <section id="service-single-process-audit" className="w-full bg-background py-24 md:py-32 lg:py-40">
         <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24">
           {isLoadingData ? (
             <div className="space-y-12">
@@ -494,7 +490,7 @@ export default function HomePage() {
       </section>
 
       {/* ROI CALCULATOR - COMPACT & HIGH-DENSITY */}
-      <section id="roi-calculator" className="w-full bg-text-header text-background py-20 md:py-28 overflow-hidden relative">
+      <section id="roi-calculator" className="w-full bg-text-header text-background py-24 md:py-32 lg:py-40 overflow-hidden relative">
         {/* Sleek background with grid overlay */}
         <div className="absolute inset-0 opacity-3" 
              style={{ backgroundImage: 'linear-gradient(45deg, #fff 1px, transparent 1px)', backgroundSize: '20px 20px' }}>
@@ -665,10 +661,10 @@ export default function HomePage() {
       </section>
 
       {/* EXAMPLE WORKFLOWS SECTION - GRID LAYOUT */}
-      <section id="example-workflows" className="w-full bg-background py-24 border-b border-accent-grey/30">
+      <section id="example-workflows" className="w-full bg-background py-24 md:py-32 lg:py-40 border-b border-accent-grey/30">
         <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24">
           <div className="mb-16">
-            <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground mb-6 font-bold leading-tight">
+            <h2 className="font-heading text-5xl md:text-6xl lg:text-7xl text-foreground mb-8 font-bold leading-tight">
               Example Workflows
             </h2>
             <p className="font-paragraph text-lg md:text-xl text-foreground/70 max-w-3xl leading-relaxed">
@@ -709,7 +705,7 @@ export default function HomePage() {
       </section>
 
       {/* CONTACT FORM */}
-      <section id="contact" className="w-full bg-gradient-to-b from-background to-accent-grey/5 py-32 border-b border-accent-grey/30">
+      <section id="contact" className="w-full bg-gradient-to-b from-background to-accent-grey/5 py-32 md:py-40 lg:py-48 border-b border-accent-grey/30">
         <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 min-h-[600px]">
             <motion.div 
@@ -719,11 +715,11 @@ export default function HomePage() {
               transition={{ duration: 0.7 }}
               className="lg:col-span-5"
             >
-              <h2 className="font-heading text-5xl md:text-6xl text-foreground mb-8 font-bold leading-tight">
+              <h2 className="font-heading text-6xl md:text-7xl lg:text-8xl text-foreground mb-8 font-bold leading-tight">
                 Let's Get <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/80">Started.</span>
               </h2>
-              <p className="font-paragraph text-lg text-secondary/90 mb-12 max-w-md leading-relaxed">
+              <p className="font-paragraph text-lg md:text-xl text-secondary/90 mb-12 max-w-md leading-relaxed">
                 Have a question or want to request a customized package? Fill out the form and I'll get back to you within 48 hours.
               </p>
               

@@ -84,25 +84,25 @@ export default function Header() {
           <nav className="hidden md:flex items-center gap-12">
             <Link
               to="/"
-              className="font-paragraph text-sm text-text-body hover:text-primary transition-colors duration-300 font-medium"
+              className="font-paragraph text-base text-text-header hover:text-primary transition-colors duration-300 font-medium"
             >
               Home
             </Link>
             <Link
               to="/case-studies"
-              className="font-paragraph text-sm text-text-body hover:text-primary transition-colors duration-300 font-medium"
+              className="font-paragraph text-base text-text-header hover:text-primary transition-colors duration-300 font-medium"
             >
               Case Studies
             </Link>
             <button
               onClick={handleROIClick}
-              className="font-paragraph text-sm text-text-body hover:text-primary transition-colors duration-300 font-medium"
+              className="font-paragraph text-base text-text-header hover:text-primary transition-colors duration-300 font-medium"
             >
               ROI
             </button>
             <Button
               onClick={handleSolutionsClick}
-              className="bg-primary text-primary-foreground hover:bg-primary/90 font-heading text-sm px-6 py-2.5 h-auto rounded-lg transition-all duration-300"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 font-heading text-base px-8 py-3 h-auto rounded-lg transition-all duration-300 font-semibold"
             >
               The Solutions
             </Button>
@@ -149,7 +149,7 @@ export default function Header() {
                 </button>
                 <Button
                   onClick={handleSolutionsClick}
-                  className="bg-primary text-primary-foreground hover:bg-primary/90 font-heading text-base px-6 py-3 h-auto rounded-lg w-full transition-all duration-300"
+                  className="bg-primary text-primary-foreground hover:bg-primary/90 font-heading text-base px-8 py-3 h-auto rounded-lg w-full transition-all duration-300 font-semibold"
                 >
                   The Solutions
                 </Button>
