@@ -78,28 +78,23 @@ export default function HomePage() {
     setIsSubmitting(true);
     
     try {
-      // Send email via Wix API
-      const response = await fetch('/_api/mail/send', {
+      // Send email via API endpoint
+      const response = await fetch('/api/send-contact-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          to: 'studio@workflowrpro.com',
-          subject: `New Contact Form Submission from ${formData.name}`,
-          html: `
-            <h2>New Contact Form Submission</h2>
-            <p><strong>Name:</strong> ${formData.name}</p>
-            <p><strong>Email:</strong> ${formData.email}</p>
-            <p><strong>Company:</strong> ${formData.company || 'Not provided'}</p>
-            <p><strong>Workflow Challenge:</strong></p>
-            <p>${formData.message.replace(/\n/g, '<br>')}</p>
-          `,
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          message: formData.message,
         }),
       });
 
       if (!response.ok) {
-        throw new Error('Failed to send email');
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Failed to send email');
       }
 
       setIsSubmitting(false);
