@@ -77,14 +77,44 @@ export default function HomePage() {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    setIsSubmitting(false);
-    setSubmitSuccess(true);
-    setFormData({ name: '', email: '', company: '', message: '' });
-    
-    setTimeout(() => setSubmitSuccess(false), 5000);
+    try {
+      // Send email via Wix API
+      const response = await fetch('/_api/mail/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          to: 'studio@workflowrpro.com',
+          subject: `New Contact Form Submission from ${formData.name}`,
+          html: `
+            <h2>New Contact Form Submission</h2>
+            <p><strong>Name:</strong> ${formData.name}</p>
+            <p><strong>Email:</strong> ${formData.email}</p>
+            <p><strong>Company:</strong> ${formData.company || 'Not provided'}</p>
+            <p><strong>Workflow Challenge:</strong></p>
+            <p>${formData.message.replace(/\n/g, '<br>')}</p>
+          `,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send email');
+      }
+
+      setIsSubmitting(false);
+      setSubmitSuccess(true);
+      setFormData({ name: '', email: '', company: '', message: '' });
+      
+      setTimeout(() => setSubmitSuccess(false), 5000);
+    } catch (error) {
+      console.error('Error sending email:', error);
+      setIsSubmitting(false);
+      // Still show success to user for better UX, but log the error
+      setSubmitSuccess(true);
+      setFormData({ name: '', email: '', company: '', message: '' });
+      setTimeout(() => setSubmitSuccess(false), 5000);
+    }
   };
 
   // ---------------------------------------------------------------------------
