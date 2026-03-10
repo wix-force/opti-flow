@@ -25,14 +25,17 @@ export default {
             colors: {
                 destructive: '#dc3545',
                 'destructive-foreground': '#FFFFFF',
-                'accent-grey': '#EAEAEA',
+                'accent-grey': '#F5F5F5',
                 'dark-grey': '#333333',
                 background: '#FFFFFF',
                 secondary: '#666666',
-                foreground: '#333333',
+                foreground: '#000000',
                 'secondary-foreground': '#FFFFFF',
                 'primary-foreground': '#FFFFFF',
-                primary: '#007AFF'
+                primary: '#007AFF',
+                'text-body': '#333333',
+                'text-header': '#000000',
+                'border-light': '#E5E5E5'
             },
         },
     },

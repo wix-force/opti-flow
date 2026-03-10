@@ -64,9 +64,9 @@ export default function Footer() {
   };
 
   return (
-    <footer className="w-full bg-foreground text-background py-20 border-t border-foreground/20">
+    <footer className="w-full bg-text-header text-background py-24 md:py-32">
       <div className="max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-16 md:gap-20 mb-20">
           {/* Brand Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -74,7 +74,7 @@ export default function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="font-heading text-2xl text-background mb-4 font-bold tracking-tight">
+            <h3 className="font-heading text-2xl text-background mb-6 font-bold tracking-tight">
               Workflowr
             </h3>
             <p className="font-paragraph text-base text-background/70 leading-relaxed">
@@ -89,10 +89,10 @@ export default function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <h4 className="font-heading text-sm text-background mb-6 uppercase tracking-widest font-semibold">
+            <h4 className="font-heading text-sm text-background mb-8 uppercase tracking-widest font-semibold">
               Navigation
             </h4>
-            <nav className="flex flex-col gap-4">
+            <nav className="flex flex-col gap-5">
               <button
                 onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                 className="font-paragraph text-base text-background/70 hover:text-background transition-colors text-left font-medium group flex items-center gap-2"
@@ -131,10 +131,10 @@ export default function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h4 className="font-heading text-sm text-background mb-6 uppercase tracking-widest font-semibold">
+            <h4 className="font-heading text-sm text-background mb-8 uppercase tracking-widest font-semibold">
               Services
             </h4>
-            <nav className="flex flex-col gap-4">
+            <nav className="flex flex-col gap-5">
               <button
                 onClick={() => handleServiceClick('single process audit')}
                 className="font-paragraph text-base text-background/70 hover:text-background transition-colors text-left font-medium group flex items-center gap-2"
@@ -166,15 +166,15 @@ export default function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <h4 className="font-heading text-sm text-background mb-6 uppercase tracking-widest font-semibold">
+            <h4 className="font-heading text-sm text-background mb-8 uppercase tracking-widest font-semibold">
               Ready to Start?
             </h4>
-            <p className="font-paragraph text-base text-background/70 mb-6 leading-relaxed">
+            <p className="font-paragraph text-base text-background/70 mb-8 leading-relaxed">
               Let's optimize your workflows and unlock your team's potential.
             </p>
             <button
               onClick={() => scrollToSection('offerings-section')}
-              className="font-heading text-sm text-foreground bg-primary hover:bg-primary/90 px-6 py-3 rounded-lg transition-all duration-300 font-semibold inline-flex items-center gap-2 hover:shadow-lg hover:shadow-primary/30"
+              className="font-heading text-sm text-text-header bg-primary hover:bg-primary/90 px-6 py-3 rounded-lg transition-all duration-300 font-semibold inline-flex items-center gap-2"
             >
               Get Started
               <ArrowRight className="w-4 h-4" />
@@ -183,7 +183,7 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-background/10 pt-8">
+        <div className="border-t border-background/10 pt-12">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <p className="font-paragraph text-sm text-background/60">
               © {currentYear} Workflowr. All rights reserved.

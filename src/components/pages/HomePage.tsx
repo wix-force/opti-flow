@@ -167,7 +167,7 @@ export default function HomePage() {
         </motion.div>
       )}
       {/* HERO SECTION */}
-      <section className="relative w-full min-h-screen flex flex-col justify-center pt-32 pb-20 border-b border-accent-grey/30 mt-20">
+      <section className="relative w-full min-h-screen flex flex-col justify-center pt-32 pb-20 mt-20">
         {/* Subtle gradient overlay */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -mr-48 -mt-48 pointer-events-none"></div>
 
@@ -179,7 +179,7 @@ export default function HomePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
               >
-                <h1 className="font-heading text-6xl md:text-7xl lg:text-[6.5rem] leading-[0.95] tracking-tight text-foreground mb-12 font-bold">
+                <h1 className="font-heading text-6xl md:text-7xl lg:text-[6.5rem] leading-[0.95] tracking-tight text-text-header mb-12 font-bold">
                   Stop Losing <br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/80">5 Hours a Week</span> <br />
                   to Messy Workflows.
@@ -192,8 +192,8 @@ export default function HomePage() {
                 transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                 className="flex flex-col md:flex-row gap-8 items-start md:items-center max-w-3xl"
               >
-                <div className="w-12 h-[1px] bg-foreground/30 hidden md:block"></div>
-                <p className="font-paragraph text-lg md:text-xl text-secondary/90 leading-relaxed">
+                <div className="w-12 h-[1px] bg-text-body/20 hidden md:block"></div>
+                <p className="font-paragraph text-lg md:text-xl text-text-body leading-relaxed">
                   Send me a 10-minute <a href="/about-loom" className="text-primary hover:text-primary/80 font-semibold transition-colors">Loom</a> video of a task you want to speed up or eliminate. I'll send you the playbook to fix it.
                 </p>
               </motion.div>
@@ -206,7 +206,7 @@ export default function HomePage() {
               >
                 <Button 
                   size="sm" 
-                  className="bg-foreground text-background hover:bg-primary hover:text-white transition-all duration-300 font-heading px-6 py-3 h-auto rounded-lg shadow-lg shadow-foreground/10 hover:shadow-lg hover:shadow-primary/20"
+                  className="bg-text-header text-background hover:bg-primary hover:text-white transition-all duration-300 font-heading px-6 py-3 h-auto rounded-lg"
                   onClick={() => navigate('/case-studies')}
                 >
                   Show Me Examples <ArrowRight className="ml-2 h-4 w-4" />
@@ -214,7 +214,7 @@ export default function HomePage() {
                 
                 <Button 
                   size="sm" 
-                  className="bg-background border-2 border-foreground/30 text-foreground hover:border-primary hover:bg-primary/5 transition-all duration-300 font-heading px-6 py-3 h-auto rounded-lg"
+                  className="bg-background border-2 border-text-body/20 text-text-header hover:border-primary hover:bg-primary/5 transition-all duration-300 font-heading px-6 py-3 h-auto rounded-lg"
                   onClick={() => document.getElementById('roi-calculator')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   Show Me the ROI
@@ -222,7 +222,7 @@ export default function HomePage() {
 
                 <Button 
                   size="sm" 
-                  className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 font-heading px-8 py-3 h-auto rounded-lg md:ml-auto shadow-lg shadow-primary/20 hover:shadow-lg hover:shadow-primary/30"
+                  className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 font-heading px-8 py-3 h-auto rounded-lg md:ml-auto"
                   onClick={() => document.getElementById('offerings-section')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   Select A Package <ArrowRight className="ml-2 h-4 w-4" />
@@ -235,9 +235,9 @@ export default function HomePage() {
                  animate={{ y: [0, 12, 0] }}
                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                >
-                 <ArrowDown className="w-8 h-8 text-foreground" />
+                 <ArrowDown className="w-8 h-8 text-text-header" />
                </motion.div>
-               <span className="font-heading text-xs tracking-widest uppercase mt-4 writing-mode-vertical lg:writing-mode-horizontal font-semibold">
+               <span className="font-heading text-xs tracking-widest uppercase mt-4 writing-mode-vertical lg:writing-mode-horizontal font-semibold text-text-header">
                  Scroll to Explore
                </span>
             </div>
@@ -246,7 +246,7 @@ export default function HomePage() {
       </section>
 
       {/* VISUAL BRIDGE - "SEE THE OFFERINGS" */}
-      <section id="offerings-section" className="w-full bg-background py-16 md:py-24 border-b border-accent-grey/30">
+      <section id="offerings-section" className="w-full bg-background py-20 md:py-28">
         <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -256,13 +256,13 @@ export default function HomePage() {
             className="flex flex-col items-center justify-center text-center"
           >
             <div className="flex items-center gap-6 md:gap-8 mb-8">
-              <div className="w-16 md:w-24 h-[2px] bg-gradient-to-r from-transparent to-primary/60"></div>
-              <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground font-bold tracking-tight leading-tight">
+              <div className="w-16 md:w-24 h-[1px] bg-text-body/20"></div>
+              <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl text-text-header font-bold tracking-tight leading-tight">
                 See the Offerings
               </h2>
-              <div className="w-16 md:w-24 h-[2px] bg-gradient-to-l from-transparent to-primary/60"></div>
+              <div className="w-16 md:w-24 h-[1px] bg-text-body/20"></div>
             </div>
-            <p className="font-paragraph text-lg md:text-xl text-foreground/70 max-w-3xl leading-relaxed">
+            <p className="font-paragraph text-lg md:text-xl text-text-body max-w-3xl leading-relaxed">
               Choose the service that fits your needs. Each is designed to deliver measurable results.
             </p>
           </motion.div>
@@ -270,12 +270,12 @@ export default function HomePage() {
       </section>
 
       {/* PRODUCT CONTAINER - MAIN OFFERING + ADDITIONAL OFFERINGS */}
-      <section id="service-single-process-audit" className="w-full bg-gradient-to-b from-background via-accent-grey/3 to-background py-20 md:py-24 border-b border-accent-grey/30">
+      <section id="service-single-process-audit" className="w-full bg-background py-20 md:py-28">
         <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24">
           {isLoadingData ? (
             <div className="space-y-12">
               {/* Main offering skeleton */}
-              <div className="bg-background border border-foreground/10 p-8 md:p-12 animate-pulse rounded-xl">
+              <div className="bg-background border border-text-body/10 p-8 md:p-12 animate-pulse rounded-xl">
                 <div className="h-8 bg-accent-grey w-3/4 mb-4"></div>
                 <div className="h-4 bg-accent-grey w-1/2 mb-6"></div>
                 <div className="h-12 bg-accent-grey w-1/3"></div>
@@ -283,7 +283,7 @@ export default function HomePage() {
               {/* Additional offerings skeleton */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 {[1, 2].map((i) => (
-                  <div key={i} className="bg-background border border-foreground/10 p-8 animate-pulse rounded-xl">
+                  <div key={i} className="bg-background border border-text-body/10 p-8 animate-pulse rounded-xl">
                     <div className="h-40 bg-accent-grey w-full mb-4"></div>
                     <div className="h-6 bg-accent-grey w-2/3 mb-3"></div>
                     <div className="h-4 bg-accent-grey w-1/2"></div>
@@ -300,24 +300,23 @@ export default function HomePage() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true, margin: "-100px" }}
                   transition={{ duration: 0.7, ease: "easeOut" }}
-                  className="bg-gradient-to-br from-background to-background/95 border-2 border-primary/40 hover:border-primary/60 p-8 md:p-10 shadow-xl shadow-primary/10 rounded-2xl relative overflow-hidden flex flex-col justify-between group transition-all duration-500"
+                  className="bg-background border border-text-body/10 hover:border-text-body/20 p-8 md:p-12 rounded-2xl relative overflow-hidden flex flex-col justify-between group transition-all duration-500"
                 >
-                  {/* Decorative gradient accents */}
-                  <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none group-hover:bg-primary/10 transition-colors duration-500"></div>
-                  <div className="absolute bottom-0 left-0 w-48 h-48 bg-primary/3 rounded-full blur-3xl -ml-24 -mb-24 pointer-events-none"></div>
+                  {/* Subtle gradient accents */}
+                  <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none group-hover:bg-primary/8 transition-colors duration-500"></div>
 
                   <div className="flex-1 relative z-10">
-                    <div className="inline-block px-3 py-1 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground text-xs font-heading uppercase tracking-widest mb-3 font-bold rounded-full">
+                    <div className="inline-block px-3 py-1 bg-primary text-primary-foreground text-xs font-heading uppercase tracking-widest mb-4 font-bold rounded-lg">
                       Signature Service
                     </div>
                     
-                    <h3 className="font-heading text-2xl md:text-3xl text-foreground mb-2 font-bold">
+                    <h3 className="font-heading text-2xl md:text-3xl text-text-header mb-3 font-bold">
                       {services[0].itemName}
                     </h3>
-                    <p className="font-paragraph text-lg md:text-xl text-foreground font-semibold mb-6 max-w-2xl leading-relaxed">
+                    <p className="font-paragraph text-lg md:text-xl text-text-body font-semibold mb-8 max-w-2xl leading-relaxed">
                       {services[0].itemDescription}
                     </p>
-                    <div className="space-y-2">
+                    <div className="space-y-3">
                       {services[0].serviceInclusions?.split('\n').map((item, idx) => (
                         <motion.div 
                           key={idx} 
@@ -327,30 +326,30 @@ export default function HomePage() {
                           viewport={{ once: true }}
                           transition={{ delay: idx * 0.05 }}
                         >
-                          <CheckCircle className="w-3.5 h-3.5 text-primary/60 mr-2.5 mt-0.5 flex-shrink-0 group-hover/item:text-primary group-hover/item:scale-110 transition-all" />
-                           <span className="font-paragraph text-xs text-foreground/60">{item}</span>
+                          <CheckCircle className="w-4 h-4 text-primary mr-3 mt-0.5 flex-shrink-0 group-hover/item:scale-110 transition-all" />
+                           <span className="font-paragraph text-sm text-text-body">{item}</span>
                         </motion.div>
                       ))}
                     </div>
                   </div>
 
-                  <div className="border-t border-accent-grey/30 pt-5 mt-5 flex flex-col md:flex-row md:items-center md:justify-between gap-4 relative z-10">
+                  <div className="border-t border-text-body/10 pt-8 mt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4 relative z-10">
                     <div>
-                      <div className="mb-1 flex items-baseline gap-2">
-                        <span className="font-heading text-4xl md:text-5xl text-foreground tracking-tight font-bold">
+                      <div className="mb-2 flex items-baseline gap-2">
+                        <span className="font-heading text-4xl md:text-5xl text-text-header tracking-tight font-bold">
                           ${services[0].itemPrice || 199}
                         </span>
                       </div>
                       <button
                         onClick={() => setShowIntroRateModal(true)}
-                        className="font-paragraph text-xs text-foreground/80 uppercase tracking-widest font-semibold italic transition-colors hover:text-primary underline"
+                        className="font-paragraph text-xs text-text-body/70 uppercase tracking-widest font-semibold italic transition-colors hover:text-primary underline"
                       >
                         * Introductory rate
                       </button>
                     </div>
                     <Button 
                       size="sm" 
-                      className="bg-primary text-primary-foreground hover:bg-primary/90 font-heading text-sm px-6 py-3 h-auto rounded-lg transition-all hover:shadow-lg hover:shadow-primary/30 hover:translate-y-[-2px] md:w-auto w-full"
+                      className="bg-primary text-primary-foreground hover:bg-primary/90 font-heading text-sm px-6 py-3 h-auto rounded-lg transition-all md:w-auto w-full"
                       onClick={() => navigate('/single-process-audit')}
                     >
                       Learn More <ArrowRight className="ml-2 h-4 w-4" />
@@ -379,15 +378,15 @@ export default function HomePage() {
                           className="relative group"
                         >
                           {/* Card Container */}
-                          <div className="bg-gradient-to-br from-background via-background to-background/98 border-2 border-foreground/8 hover:border-primary/30 p-0 rounded-2xl transition-all duration-500 overflow-hidden flex flex-col h-full shadow-lg hover:shadow-xl hover:shadow-primary/15">
+                          <div className="bg-background border border-text-body/10 hover:border-text-body/20 p-0 rounded-2xl transition-all duration-500 overflow-hidden flex flex-col h-full">
                             {/* Header Section with Icon Background */}
                             <div className={`relative h-20 md:h-24 overflow-hidden ${
-                              isSOP ? 'bg-gradient-to-br from-blue-50 to-blue-100/50' : 
-                              isBusinessEngine ? 'bg-gradient-to-br from-purple-50 to-purple-100/50' : 
-                              'bg-gradient-to-br from-slate-50 to-slate-100/50'
+                              isSOP ? 'bg-blue-50' : 
+                              isBusinessEngine ? 'bg-purple-50' : 
+                              'bg-slate-50'
                             }`}>
                               {/* Decorative shape */}
-                              <div className={`absolute -top-12 -right-12 w-48 h-48 rounded-full opacity-20 ${
+                              <div className={`absolute -top-12 -right-12 w-48 h-48 rounded-full opacity-10 ${
                                 isSOP ? 'bg-blue-400' : 
                                 isBusinessEngine ? 'bg-purple-400' : 
                                 'bg-slate-400'
@@ -395,10 +394,10 @@ export default function HomePage() {
                               
                               {/* Category Badge */}
                               <div className="absolute top-4 left-4 z-10">
-                                <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full font-heading text-xs uppercase tracking-widest font-bold ${
-                                  isSOP ? 'bg-blue-500/15 text-blue-700' : 
-                                  isBusinessEngine ? 'bg-purple-500/15 text-purple-700' : 
-                                  'bg-slate-500/15 text-slate-700'
+                                <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-lg font-heading text-xs uppercase tracking-widest font-bold ${
+                                  isSOP ? 'bg-blue-100 text-blue-700' : 
+                                  isBusinessEngine ? 'bg-purple-100 text-purple-700' : 
+                                  'bg-slate-100 text-slate-700'
                                 }`}>
                                   <div className={`w-2 h-2 rounded-full ${
                                     isSOP ? 'bg-blue-500' : 
@@ -416,19 +415,19 @@ export default function HomePage() {
                               <h4 className={`font-heading text-2xl md:text-2xl font-bold mb-3 transition-colors duration-300 ${
                                 isSOP ? 'text-blue-900' : 
                                 isBusinessEngine ? 'text-purple-900' : 
-                                'text-foreground'
+                                'text-text-header'
                               }`}>
                                 {service.itemName}
                               </h4>
                               
                               {/* Description */}
-                              <p className="font-paragraph text-base md:text-lg text-foreground/75 mb-6 leading-relaxed flex-1">
+                              <p className="font-paragraph text-base md:text-lg text-text-body mb-6 leading-relaxed flex-1">
                                 {service.itemDescription}
                               </p>
                               
                               {/* Inclusions */}
                               <div className="space-y-2 mb-6">
-                                <p className="font-heading text-xs uppercase tracking-widest text-foreground/60 font-semibold">What's Included:</p>
+                                <p className="font-heading text-xs uppercase tracking-widest text-text-body/60 font-semibold">What's Included:</p>
                                 <div className="space-y-1.5">
                                   {service.serviceInclusions?.split('\n').map((item, idx) => (
                                     <div key={idx} className="flex items-start gap-2 group/item">
@@ -437,7 +436,7 @@ export default function HomePage() {
                                         isBusinessEngine ? 'bg-purple-500' : 
                                         'bg-primary'
                                       }`}></div>
-                                      <span className="font-paragraph text-xs text-foreground/70 leading-relaxed">{item}</span>
+                                      <span className="font-paragraph text-xs text-text-body/70 leading-relaxed">{item}</span>
                                     </div>
                                   ))}
                                 </div>
@@ -445,21 +444,21 @@ export default function HomePage() {
                             </div>
 
                             {/* Footer Section - Pricing & CTA */}
-                            <div className={`border-t-2 p-6 md:p-8 ${
-                              isSOP ? 'border-blue-200/50 bg-blue-50/30' : 
-                              isBusinessEngine ? 'border-purple-200/50 bg-purple-50/30' : 
-                              'border-foreground/5 bg-foreground/2'
+                            <div className={`border-t p-6 md:p-8 ${
+                              isSOP ? 'border-blue-100 bg-blue-50/30' : 
+                              isBusinessEngine ? 'border-purple-100 bg-purple-50/30' : 
+                              'border-text-body/10 bg-text-body/2'
                             }`}>
                               {/* Pricing */}
                               <div className="mb-4">
                                 <div className="flex items-baseline gap-2 mb-1">
-                                  <span className="font-heading text-4xl md:text-4xl font-bold text-foreground">
+                                  <span className="font-heading text-4xl md:text-4xl font-bold text-text-header">
                                     ${service.itemPrice || 199}
                                   </span>
                                 </div>
                                 <button
                                   onClick={() => setShowIntroRateModal(true)}
-                                  className="font-paragraph text-xs uppercase tracking-widest text-foreground/80 font-semibold italic transition-colors hover:text-primary underline"
+                                  className="font-paragraph text-xs uppercase tracking-widest text-text-body/80 font-semibold italic transition-colors hover:text-primary underline"
                                 >
                                   * Introductory Rate
                                 </button>
@@ -469,9 +468,9 @@ export default function HomePage() {
                               <Button 
                                 size="sm" 
                                 className={`w-full font-heading text-sm py-2 h-auto rounded-lg transition-all duration-300 font-semibold ${
-                                  isSOP ? 'bg-blue-600 text-white hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-500/30' : 
-                                  isBusinessEngine ? 'bg-purple-600 text-white hover:bg-purple-700 hover:shadow-lg hover:shadow-purple-500/30' : 
-                                  'bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/30'
+                                  isSOP ? 'bg-blue-600 text-white hover:bg-blue-700' : 
+                                  isBusinessEngine ? 'bg-purple-600 text-white hover:bg-purple-700' : 
+                                  'bg-primary text-primary-foreground hover:bg-primary/90'
                                 }`}
                                  onClick={() => navigate(`/service/${service._id}`)}
                               >
@@ -495,7 +494,7 @@ export default function HomePage() {
       </section>
 
       {/* ROI CALCULATOR - COMPACT & HIGH-DENSITY */}
-      <section id="roi-calculator" className="w-full bg-gradient-to-br from-foreground via-foreground/98 to-foreground text-background py-12 md:py-16 overflow-hidden relative">
+      <section id="roi-calculator" className="w-full bg-text-header text-background py-20 md:py-28 overflow-hidden relative">
         {/* Sleek background with grid overlay */}
         <div className="absolute inset-0 opacity-3" 
              style={{ backgroundImage: 'linear-gradient(45deg, #fff 1px, transparent 1px)', backgroundSize: '20px 20px' }}>
@@ -508,11 +507,11 @@ export default function HomePage() {
              whileInView={{ opacity: 1, scale: 1 }}
              viewport={{ once: true }}
              transition={{ duration: 0.7, ease: "easeOut" }}
-             className="bg-white/5 border border-white/15 backdrop-blur-sm p-8 md:p-10"
+             className="bg-white/5 border border-white/15 backdrop-blur-sm p-8 md:p-12"
            >
              {/* Header - Compact */}
-             <div className="mb-6">
-               <h2 className="font-heading text-3xl md:text-4xl mb-2 text-white font-bold">
+             <div className="mb-8">
+               <h2 className="font-heading text-3xl md:text-4xl mb-3 text-white font-bold">
                  The Cost of <span className="text-primary font-bold">Inaction</span>
                </h2>
                <p className="font-paragraph text-sm md:text-base text-white/70 leading-relaxed max-w-2xl">
@@ -521,9 +520,9 @@ export default function HomePage() {
              </div>
 
              {/* Main Grid - High Density */}
-             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                {/* Input Controls - Compact */}
-               <div className="lg:col-span-4 space-y-5">
+               <div className="lg:col-span-4 space-y-6">
                  {/* Hourly Rate Input */}
                  <motion.div 
                    initial={{ opacity: 0, x: -15 }}

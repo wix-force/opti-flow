@@ -73,10 +73,10 @@ export default function Header() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-background/95 backdrop-blur-md border-b border-accent-grey/50 z-50">
+    <header className="fixed top-0 left-0 right-0 bg-background/98 backdrop-blur-sm z-50">
       <div className="max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24">
         <div className="flex items-center justify-between h-20">
-          <Link to="/" className="font-heading text-xl md:text-2xl text-foreground font-bold tracking-tight hover:text-primary transition-colors duration-300">
+          <Link to="/" className="font-heading text-xl md:text-2xl text-text-header font-bold tracking-tight hover:text-primary transition-colors duration-300">
             Workflowr
           </Link>
 
@@ -84,25 +84,25 @@ export default function Header() {
           <nav className="hidden md:flex items-center gap-12">
             <Link
               to="/"
-              className="font-paragraph text-sm text-foreground/80 hover:text-primary transition-colors duration-300 font-medium"
+              className="font-paragraph text-sm text-text-body hover:text-primary transition-colors duration-300 font-medium"
             >
               Home
             </Link>
             <Link
               to="/case-studies"
-              className="font-paragraph text-sm text-foreground/80 hover:text-primary transition-colors duration-300 font-medium"
+              className="font-paragraph text-sm text-text-body hover:text-primary transition-colors duration-300 font-medium"
             >
               Case Studies
             </Link>
             <button
               onClick={handleROIClick}
-              className="font-paragraph text-sm text-foreground/80 hover:text-primary transition-colors duration-300 font-medium"
+              className="font-paragraph text-sm text-text-body hover:text-primary transition-colors duration-300 font-medium"
             >
               ROI
             </button>
             <Button
               onClick={handleSolutionsClick}
-              className="bg-primary text-primary-foreground hover:bg-primary/90 font-heading text-sm px-6 py-2.5 h-auto rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-primary/20"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 font-heading text-sm px-6 py-2.5 h-auto rounded-lg transition-all duration-300"
             >
               The Solutions
             </Button>
@@ -110,7 +110,7 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-foreground hover:text-primary transition-colors"
+            className="md:hidden text-text-header hover:text-primary transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -126,24 +126,24 @@ export default function Header() {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="md:hidden py-6 border-t border-accent-grey/50"
+              className="md:hidden py-6"
             >
               <div className="flex flex-col gap-4">
                 <Link
                   to="/"
-                  className="font-paragraph text-base text-foreground/80 hover:text-primary transition-colors text-left font-medium"
+                  className="font-paragraph text-base text-text-body hover:text-primary transition-colors text-left font-medium"
                 >
                   Home
                 </Link>
                 <Link
                   to="/case-studies"
-                  className="font-paragraph text-base text-foreground/80 hover:text-primary transition-colors text-left font-medium"
+                  className="font-paragraph text-base text-text-body hover:text-primary transition-colors text-left font-medium"
                 >
                   Case Studies
                 </Link>
                 <button
                   onClick={handleROIClick}
-                  className="font-paragraph text-base text-foreground/80 hover:text-primary transition-colors text-left font-medium"
+                  className="font-paragraph text-base text-text-body hover:text-primary transition-colors text-left font-medium"
                 >
                   ROI
                 </button>

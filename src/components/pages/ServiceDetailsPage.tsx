@@ -187,8 +187,8 @@ export default function ServiceDetailsPage() {
       <Header />
       <IntroductoryRateModal isOpen={isIntroRateModalOpen} onClose={() => setIsIntroRateModalOpen(false)} />
       {/* BACK BUTTON */}
-      <section className="w-full bg-background border-b border-dark-grey/10 pt-32 pb-6">
-        <div className="w-full max-w-[100rem] mx-auto px-6 md:px-12 lg:px-16">
+      <section className="w-full bg-background pt-32 pb-6">
+        <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24">
           <button
             onClick={() => {
               navigate('/', { replace: false });
@@ -196,7 +196,7 @@ export default function ServiceDetailsPage() {
                 document.getElementById('offerings-section')?.scrollIntoView({ behavior: 'smooth' });
               }, 100);
             }}
-            className="flex items-center gap-2 text-dark-grey hover:text-primary transition-colors font-heading text-xs uppercase tracking-widest font-semibold"
+            className="flex items-center gap-2 text-text-body hover:text-primary transition-colors font-heading text-xs uppercase tracking-widest font-semibold"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Services
@@ -211,11 +211,11 @@ export default function ServiceDetailsPage() {
         </section>
       ) : !service ? (
         <section className="w-full bg-background py-20 md:py-32">
-          <div className="w-full max-w-[100rem] mx-auto px-6 md:px-12 lg:px-16 text-center">
-            <h2 className="font-heading text-3xl md:text-4xl text-dark-grey mb-4 font-bold">
+          <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24 text-center">
+            <h2 className="font-heading text-3xl md:text-4xl text-text-header mb-4 font-bold">
               Service Not Found
             </h2>
-            <p className="font-paragraph text-lg text-dark-grey/60 mb-8">
+            <p className="font-paragraph text-lg text-text-body/60 mb-8">
               The service you're looking for doesn't exist.
             </p>
             <Button
@@ -229,28 +229,28 @@ export default function ServiceDetailsPage() {
       ) : isBusinessEngine ? (
         <>
           {/* HERO SECTION */}
-          <section className="w-full bg-background py-16 md:py-24 border-b border-dark-grey">
-            <div className="w-full max-w-[100rem] mx-auto px-6 md:px-12 lg:px-16">
+          <section className="w-full bg-background py-16 md:py-24">
+            <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
                 className="space-y-6"
               >
-                <h1 className="font-heading text-6xl md:text-7xl lg:text-8xl text-[#000080] font-bold leading-tight">
+                <h1 className="font-heading text-6xl md:text-7xl lg:text-8xl text-text-header font-bold leading-tight">
                   {businessEngineContent.title}
                 </h1>
-                <p className="font-heading text-2xl md:text-3xl text-[#2F4F4F] font-semibold max-w-3xl">
+                <p className="font-heading text-2xl md:text-3xl text-text-body font-semibold max-w-3xl">
                   {businessEngineContent.subtitle}
                 </p>
-                <p className="font-paragraph text-lg text-dark-grey/80 leading-relaxed max-w-3xl">
+                <p className="font-paragraph text-lg text-text-body leading-relaxed max-w-3xl">
                   {businessEngineContent.leadText}
                 </p>
                 <div className="pt-4">
                   <Button
                     onClick={handleBuyNow}
                     disabled={isCheckingOut}
-                    className="bg-[#000080] text-white hover:bg-[#000080]/90 font-heading text-base px-8 py-4 h-auto font-semibold uppercase tracking-widest transition-all duration-300"
+                    className="bg-text-header text-white hover:bg-primary font-heading text-base px-8 py-4 h-auto font-semibold uppercase tracking-widest transition-all duration-300"
                   >
                     {isCheckingOut ? (
                       <>
@@ -265,7 +265,7 @@ export default function ServiceDetailsPage() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.6, delay: 0.1 }}
-                    className="font-paragraph text-sm text-dark-grey/60 mt-3 text-center"
+                    className="font-paragraph text-sm text-text-body/60 mt-3 text-center"
                   >
                     *Introductory rate.{' '}
                     <button
@@ -281,8 +281,8 @@ export default function ServiceDetailsPage() {
           </section>
 
           {/* PROBLEM / SOLUTION SPLIT SECTION */}
-          <section className="w-full bg-background py-16 md:py-24 border-b border-dark-grey">
-            <div className="w-full max-w-[100rem] mx-auto px-6 md:px-12 lg:px-16">
+          <section className="w-full bg-background py-16 md:py-24">
+            <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
                 {/* LEFT: PROBLEM */}
                 <motion.div
@@ -290,12 +290,12 @@ export default function ServiceDetailsPage() {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6 }}
                   viewport={{ once: true }}
-                  className="space-y-6 border-l-8 border-[#000080] pl-8"
+                  className="space-y-6 border-l-4 border-text-header pl-8"
                 >
-                  <h2 className="font-heading text-3xl md:text-4xl text-[#000080] font-bold">
+                  <h2 className="font-heading text-3xl md:text-4xl text-text-header font-bold">
                     {businessEngineContent.problemTitle}
                   </h2>
-                  <p className="font-paragraph text-lg text-dark-grey/80 leading-relaxed">
+                  <p className="font-paragraph text-lg text-text-body leading-relaxed">
                     {businessEngineContent.problemText}
                   </p>
                 </motion.div>
@@ -306,12 +306,12 @@ export default function ServiceDetailsPage() {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6 }}
                   viewport={{ once: true }}
-                  className="space-y-6 border-l-8 border-[#2F4F4F] pl-8"
+                  className="space-y-6 border-l-4 border-text-body pl-8"
                 >
-                  <h2 className="font-heading text-3xl md:text-4xl text-[#2F4F4F] font-bold">
+                  <h2 className="font-heading text-3xl md:text-4xl text-text-header font-bold">
                     {businessEngineContent.solutionTitle}
                   </h2>
-                  <p className="font-paragraph text-lg text-dark-grey/80 leading-relaxed">
+                  <p className="font-paragraph text-lg text-text-body leading-relaxed">
                     {businessEngineContent.solutionText}
                   </p>
                 </motion.div>
@@ -320,8 +320,8 @@ export default function ServiceDetailsPage() {
           </section>
 
           {/* METHODOLOGY SECTION - THE ARCHITECTURE PHASE */}
-          <section className="w-full bg-background py-16 md:py-24 border-b border-dark-grey">
-            <div className="w-full max-w-[100rem] mx-auto px-6 md:px-12 lg:px-16">
+          <section className="w-full bg-background py-16 md:py-24">
+            <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -329,7 +329,7 @@ export default function ServiceDetailsPage() {
                 viewport={{ once: true }}
                 className="mb-12"
               >
-                <h2 className="font-heading text-3xl md:text-4xl text-[#000080] font-bold">
+                <h2 className="font-heading text-3xl md:text-4xl text-text-header font-bold">
                   The Architecture Phase
                 </h2>
               </motion.div>
@@ -342,12 +342,12 @@ export default function ServiceDetailsPage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: idx * 0.1 }}
                     viewport={{ once: true }}
-                    className="space-y-4 border-2 border-[#000080] p-8 bg-background"
+                    className="space-y-4 border border-text-body/10 p-8 bg-background"
                   >
-                    <h3 className="font-heading text-xl text-[#000080] font-bold">
+                    <h3 className="font-heading text-xl text-text-header font-bold">
                       {step.title}
                     </h3>
-                    <p className="font-paragraph text-base text-dark-grey/80 leading-relaxed">
+                    <p className="font-paragraph text-base text-text-body leading-relaxed">
                       {step.description}
                     </p>
                   </motion.div>
@@ -357,8 +357,8 @@ export default function ServiceDetailsPage() {
           </section>
 
           {/* WHAT'S INCLUDED SECTION - 2x2 GRID */}
-          <section className="w-full bg-background py-16 md:py-24 border-b border-dark-grey">
-            <div className="w-full max-w-[100rem] mx-auto px-6 md:px-12 lg:px-16">
+          <section className="w-full bg-background py-16 md:py-24">
+            <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -366,7 +366,7 @@ export default function ServiceDetailsPage() {
                 viewport={{ once: true }}
                 className="mb-12"
               >
-                <h2 className="font-heading text-3xl md:text-4xl text-[#000080] font-bold">
+                <h2 className="font-heading text-3xl md:text-4xl text-text-header font-bold">
                   Core Redesign Components
                 </h2>
               </motion.div>
@@ -379,11 +379,11 @@ export default function ServiceDetailsPage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: idx * 0.05 }}
                     viewport={{ once: true }}
-                    className="border-2 border-[#2F4F4F] p-8 bg-background space-y-3"
+                    className="border border-text-body/10 p-8 bg-background space-y-3"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="w-3 h-3 bg-[#000080]"></div>
-                      <span className="font-heading text-lg text-[#000080] font-bold">
+                      <div className="w-3 h-3 bg-text-header"></div>
+                      <span className="font-heading text-lg text-text-header font-bold">
                         {item}
                       </span>
                     </div>
@@ -394,8 +394,8 @@ export default function ServiceDetailsPage() {
           </section>
 
           {/* SCOPE DEFINITION SECTION */}
-          <section className="w-full bg-background py-16 md:py-24 border-b border-dark-grey">
-            <div className="w-full max-w-[100rem] mx-auto px-6 md:px-12 lg:px-16">
+          <section className="w-full bg-background py-16 md:py-24">
+            <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -403,7 +403,7 @@ export default function ServiceDetailsPage() {
                 viewport={{ once: true }}
                 className="mb-12"
               >
-                <h2 className="font-heading text-3xl md:text-4xl text-[#000080] font-bold">
+                <h2 className="font-heading text-3xl md:text-4xl text-text-header font-bold">
                   {businessEngineContent.scopeTitle}
                 </h2>
               </motion.div>
@@ -418,10 +418,10 @@ export default function ServiceDetailsPage() {
                     viewport={{ once: true }}
                     className="space-y-4"
                   >
-                    <h3 className="font-heading text-lg text-[#2F4F4F] font-bold">
+                    <h3 className="font-heading text-lg text-text-body font-bold">
                       {item.label}
                     </h3>
-                    <p className="font-paragraph text-base text-dark-grey/80 leading-relaxed">
+                    <p className="font-paragraph text-base text-text-body leading-relaxed">
                       {item.description}
                     </p>
                   </motion.div>
@@ -434,12 +434,12 @@ export default function ServiceDetailsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
                 viewport={{ once: true }}
-                className="border-l-8 border-[#000080] bg-[#000080]/5 p-8"
+                className="border-l-4 border-text-header bg-text-header/5 p-8"
               >
-                <p className="font-heading text-sm uppercase tracking-widest text-[#000080] font-bold mb-2">
+                <p className="font-heading text-sm uppercase tracking-widest text-text-header font-bold mb-2">
                   Project Scope
                 </p>
-                <p className="font-paragraph text-base text-dark-grey/80 leading-relaxed">
+                <p className="font-paragraph text-base text-text-body leading-relaxed">
                   {businessEngineContent.perimeter}
                 </p>
               </motion.div>
@@ -447,7 +447,7 @@ export default function ServiceDetailsPage() {
           </section>
 
           {/* FAQS SECTION */}
-          <section className="w-full bg-background py-16 md:py-24 border-b border-dark-grey">
+          <section className="w-full bg-background py-16 md:py-24">
             <div className="w-full max-w-[100rem] mx-auto px-6 md:px-12 lg:px-16">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
