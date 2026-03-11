@@ -35,7 +35,12 @@ export default function SingleProcessAuditPage() {
   const handleSecureAudit = async () => {
     if (!service) return;
     setIsCheckingOut(true);
-    await buyNow([{ collectionId: 'services', itemId: service._id, quantity: 1 }]);
+    try {
+      await buyNow([{ collectionId: 'services', itemId: service._id, quantity: 1 }]);
+    } catch (error) {
+      console.error('Checkout error:', error);
+      setIsCheckingOut(false);
+    }
   };
 
   const handleBackToServices = () => {
