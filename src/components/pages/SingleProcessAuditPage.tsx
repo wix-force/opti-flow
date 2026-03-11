@@ -2,19 +2,45 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Check, ChevronDown, ArrowLeft } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { buyNow } from '@/integrations';
+import { buyNow, BaseCrudService } from '@/integrations';
 import IntroductoryRateModal from '@/components/IntroductoryRateModal';
 import { motion } from 'framer-motion';
+import { Services } from '@/entities';
 
 export default function SingleProcessAuditPage() {
   const navigate = useNavigate();
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
   const [isIntroRateModalOpen, setIsIntroRateModalOpen] = useState(false);
+  const [service, setService] = useState<Services | null>(null);
+  const [isCheckingOut, setIsCheckingOut] = useState(false);
+
+  useEffect(() => {
+    loadService();
+  }, []);
+
+  const loadService = async () => {
+    try {
+      const services = await BaseCrudService.getAll<Services>('services');
+      const singleAudit = services.items.find(s => s.itemName?.toLowerCase().includes('single process audit'));
+      if (singleAudit) {
+        setService(singleAudit);
+      }
+    } catch (error) {
+      console.error('Error loading service:', error);
+    }
+  };
 
   const handleSecureAudit = async () => {
-    await buyNow([{ collectionId: 'services', itemId: 'single-process-audit', quantity: 1 }]);
+    if (!service) return;
+    setIsCheckingOut(true);
+    try {
+      await buyNow([{ collectionId: 'services', itemId: service._id, quantity: 1 }]);
+    } catch (error) {
+      console.error('Checkout error:', error);
+      setIsCheckingOut(false);
+    }
   };
 
   const handleBackToServices = () => {
@@ -98,10 +124,11 @@ export default function SingleProcessAuditPage() {
             className="flex flex-col gap-3 items-start flex-wrap"
           >
             <Button 
-              className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 font-heading px-6 py-2 h-auto rounded-lg text-sm"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 font-heading px-6 py-2 h-auto rounded-lg text-sm disabled:opacity-70 disabled:cursor-not-allowed"
               onClick={handleSecureAudit}
+              disabled={isCheckingOut}
             >
-              SECURE THIS AUDIT — $198*
+              {isCheckingOut ? 'Processing...' : `SECURE THIS AUDIT — ${service?.itemPrice || 198}*`}
             </Button>
             <motion.p
               initial={{ opacity: 0 }}
@@ -323,10 +350,11 @@ export default function SingleProcessAuditPage() {
         <div className="w-full max-w-6xl">
           <div className="flex flex-col gap-2">
             <Button 
-              className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 font-heading px-6 py-2 h-auto rounded-lg text-sm w-fit"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 font-heading px-6 py-2 h-auto rounded-lg text-sm w-fit disabled:opacity-70 disabled:cursor-not-allowed"
               onClick={handleSecureAudit}
+              disabled={isCheckingOut}
             >
-              SECURE THIS AUDIT — $198*
+              {isCheckingOut ? 'Processing...' : `SECURE THIS AUDIT — ${service?.itemPrice || 198}*`}
             </Button>
             <p className="font-paragraph text-xs text-dark-grey/60">
               *Introductory rate.{' '}
@@ -353,10 +381,11 @@ export default function SingleProcessAuditPage() {
           </p>
           <div>
             <Button 
-              className="bg-white hover:bg-white/90 text-primary font-bold text-sm md:text-base px-6 py-2 h-auto rounded-lg"
+              className="bg-white hover:bg-white/90 text-primary font-bold text-sm md:text-base px-6 py-2 h-auto rounded-lg disabled:opacity-70 disabled:cursor-not-allowed"
               onClick={handleSecureAudit}
+              disabled={isCheckingOut}
             >
-              SECURE THIS AUDIT — $198*
+              {isCheckingOut ? 'Processing...' : `SECURE THIS AUDIT — ${service?.itemPrice || 198}*`}
             </Button>
             <motion.p
               initial={{ opacity: 0 }}
