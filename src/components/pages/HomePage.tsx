@@ -170,7 +170,17 @@ export default function HomePage() {
         {/* Subtle gradient overlay */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -mr-48 -mt-48 pointer-events-none"></div>
 
-        <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24 relative z-10">
+        <div 
+          className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24 relative z-10 rounded-2xl overflow-hidden"
+          style={{
+            backgroundImage: 'url(https://static.wixstatic.com/media/5602cb_160662070d24401bb1bcd26dce9d3bcc~mv2.png?originWidth=1600&originHeight=896)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundAttachment: 'fixed'
+          }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/90 to-background/85 pointer-events-none rounded-2xl"></div>
+          <div className="relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
             <div className="lg:col-span-9">
               <motion.div
@@ -241,8 +251,9 @@ export default function HomePage() {
                </span>
             </div>
           </div>
+          </div>
         </div>
-      </section>
+       </section>
       {/* VISUAL BRIDGE - "SEE THE OFFERINGS" */}
       <section id="offerings-section" className="w-full bg-background py-24 md:py-32">
         <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24">
