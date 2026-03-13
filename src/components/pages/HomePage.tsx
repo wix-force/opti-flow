@@ -275,227 +275,156 @@ export default function HomePage() {
       <section id="service-single-process-audit" className="w-full bg-background py-24 md:py-32 lg:py-40">
         <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24">
           {isLoadingData ? (
-            <div className="space-y-12">
-              {/* Main offering skeleton */}
-              <div className="bg-background border border-text-body/10 p-8 md:p-12 animate-pulse rounded-xl">
-                <div className="h-8 bg-accent-grey w-3/4 mb-4"></div>
-                <div className="h-4 bg-accent-grey w-1/2 mb-6"></div>
-                <div className="h-12 bg-accent-grey w-1/3"></div>
-              </div>
-              {/* Additional offerings skeleton */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                {[1, 2].map((i) => (
-                  <div key={i} className="bg-background border border-text-body/10 p-8 animate-pulse rounded-xl">
-                    <div className="h-40 bg-accent-grey w-full mb-4"></div>
-                    <div className="h-6 bg-accent-grey w-2/3 mb-3"></div>
-                    <div className="h-4 bg-accent-grey w-1/2"></div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+              {[1, 2, 3].map((i) => (
+                <div key={i} className="bg-background border border-text-body/10 p-0 rounded-2xl animate-pulse overflow-hidden">
+                  <div className="h-20 md:h-24 bg-accent-grey/30 w-full"></div>
+                  <div className="p-6 md:p-8 space-y-4">
+                    <div className="h-6 bg-accent-grey/30 w-2/3"></div>
+                    <div className="h-4 bg-accent-grey/30 w-full"></div>
+                    <div className="h-4 bg-accent-grey/30 w-full"></div>
+                    <div className="h-4 bg-accent-grey/30 w-3/4"></div>
                   </div>
-                ))}
-              </div>
-            </div>
-          ) : services.length > 0 ? (
-            <div className="space-y-16">
-              {/* MAIN OFFERING - Single Process Audit */}
-              {services[0] && (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.98 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.7, ease: "easeOut" }}
-                  className="bg-background border border-text-body/10 hover:border-text-body/20 p-8 md:p-12 rounded-2xl relative overflow-hidden flex flex-col justify-between group transition-all duration-500"
-                >
-                  {/* Subtle gradient accents */}
-                  <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none group-hover:bg-primary/8 transition-colors duration-500"></div>
-
-                  <div className="flex-1 relative z-10">
-                    <div className="inline-block px-3 py-1 bg-primary text-primary-foreground text-xs font-heading uppercase tracking-widest mb-4 font-bold rounded-lg">
-                      Signature Service
-                    </div>
-                    
-                    <h3 className="font-heading text-2xl md:text-3xl text-text-header mb-3 font-bold">
-                      {services[0].itemName}
-                    </h3>
-                    <p className="font-paragraph text-lg md:text-xl text-text-body font-semibold mb-8 max-w-2xl leading-relaxed">
-                      {services[0].itemDescription}
-                    </p>
-                    <div className="space-y-3">
-                      {services[0].serviceInclusions?.split('\n').map((item, idx) => (
-                        <motion.div 
-                          key={idx} 
-                          className="flex items-start group/item"
-                          initial={{ opacity: 0, x: -10 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ delay: idx * 0.05 }}
-                        >
-                          <CheckCircle className="w-4 h-4 text-primary mr-3 mt-0.5 flex-shrink-0 group-hover/item:scale-110 transition-all" />
-                           <span className="font-paragraph text-sm text-text-body">{item}</span>
-                        </motion.div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="border-t border-text-body/10 pt-8 mt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4 relative z-10">
-                    <div>
-                      <div className="mb-2 flex items-baseline gap-2">
-                        <span className="font-heading text-4xl md:text-5xl text-text-header tracking-tight font-bold">
-                          ${services[0].itemPrice || 199}
-                        </span>
-                      </div>
-                      <button
-                        onClick={() => setShowIntroRateModal(true)}
-                        className="font-paragraph text-xs text-text-body/70 uppercase tracking-widest font-semibold italic transition-colors hover:text-primary underline"
-                      >
-                        * Introductory rate
-                      </button>
-                    </div>
-                    <Button 
-                      size="sm" 
-                      className="bg-primary text-primary-foreground hover:bg-primary/90 font-heading text-sm px-6 py-3 h-auto rounded-lg transition-all md:w-auto w-full"
-                      onClick={() => navigate('/single-process-audit')}
-                    >
-                      Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                  </div>
-                </motion.div>
-              )}
-
-              {/* ADDITIONAL OFFERINGS - 3 CARD GRID REDESIGNED */}
-              {services.length > 1 && (
-                <div className="mt-20">
-                  {/* Section Header */}
-                  <div className="mb-12 text-center">
-                    <h3 className="font-heading text-3xl md:text-4xl font-bold text-text-header mb-4">
-                      Our Additional Services
-                    </h3>
-                    <p className="font-paragraph text-lg text-text-body/80 max-w-2xl mx-auto">
-                      Comprehensive solutions to optimize your business operations
-                    </p>
-                  </div>
-
-                  {/* 3-Card Grid */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                    {services.slice(1).map((service, index) => {
-                      const isSOP = service.itemName?.toLowerCase().includes('sop library');
-                      const isBusinessEngine = service.itemName?.toLowerCase().includes('business engine redesign');
-                      
-                      return (
-                        <motion.div
-                          key={service._id}
-                          data-service={isSOP ? 'sop-library' : isBusinessEngine ? 'business-engine-redesign' : 'service'}
-                          initial={{ opacity: 0, y: 30 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          viewport={{ once: true, margin: "-100px" }}
-                          transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 + index * 0.15 }}
-                          className="relative group"
-                        >
-                          {/* Card Container */}
-                          <div className="bg-background border border-text-body/10 hover:border-text-body/20 p-0 rounded-2xl transition-all duration-500 overflow-hidden flex flex-col h-full">
-                            {/* Header Section with Icon Background */}
-                            <div className={`relative h-20 md:h-24 overflow-hidden ${
-                              isSOP ? 'bg-blue-50' : 
-                              isBusinessEngine ? 'bg-purple-50' : 
-                              'bg-slate-50'
-                            }`}>
-                              {/* Decorative shape */}
-                              <div className={`absolute -top-12 -right-12 w-48 h-48 rounded-full opacity-10 ${
-                                isSOP ? 'bg-blue-400' : 
-                                isBusinessEngine ? 'bg-purple-400' : 
-                                'bg-slate-400'
-                              }`}></div>
-                              
-                              {/* Category Badge */}
-                              <div className="absolute top-4 left-4 z-10">
-                                <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-lg font-heading text-xs uppercase tracking-widest font-bold ${
-                                  isSOP ? 'bg-blue-100 text-blue-700' : 
-                                  isBusinessEngine ? 'bg-purple-100 text-purple-700' : 
-                                  'bg-slate-100 text-slate-700'
-                                }`}>
-                                  <div className={`w-2 h-2 rounded-full ${
-                                    isSOP ? 'bg-blue-500' : 
-                                    isBusinessEngine ? 'bg-purple-500' : 
-                                    'bg-slate-500'
-                                  }`}></div>
-                                  {isSOP ? 'Asset Building' : isBusinessEngine ? 'Systemization' : 'Service'}
-                                </div>
-                              </div>
-                            </div>
-
-                            {/* Content Section */}
-                            <div className="flex-1 flex flex-col p-6 md:p-8">
-                              {/* Title */}
-                              <h4 className={`font-heading text-2xl md:text-2xl font-bold mb-3 transition-colors duration-300 ${
-                                isSOP ? 'text-blue-900' : 
-                                isBusinessEngine ? 'text-purple-900' : 
-                                'text-text-header'
-                              }`}>
-                                {service.itemName}
-                              </h4>
-                              
-                              {/* Description */}
-                              <p className="font-paragraph text-base md:text-lg text-text-body mb-6 leading-relaxed flex-1">
-                                {service.itemDescription}
-                              </p>
-                              
-                              {/* Inclusions */}
-                              <div className="space-y-2 mb-6">
-                                <p className="font-heading text-xs uppercase tracking-widest text-text-body/60 font-semibold">What's Included:</p>
-                                <div className="space-y-1.5">
-                                  {service.serviceInclusions?.split('\n').map((item, idx) => (
-                                    <div key={idx} className="flex items-start gap-2 group/item">
-                                      <div className={`w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0 transition-all ${
-                                        isSOP ? 'bg-blue-500' : 
-                                        isBusinessEngine ? 'bg-purple-500' : 
-                                        'bg-primary'
-                                      }`}></div>
-                                      <span className="font-paragraph text-xs text-text-body/70 leading-relaxed">{item}</span>
-                                    </div>
-                                  ))}
-                                </div>
-                              </div>
-                            </div>
-
-                            {/* Footer Section - Pricing & CTA */}
-                            <div className={`border-t p-6 md:p-8 ${
-                              isSOP ? 'border-blue-100 bg-blue-50/30' : 
-                              isBusinessEngine ? 'border-purple-100 bg-purple-50/30' : 
-                              'border-text-body/10 bg-text-body/2'
-                            }`}>
-                              {/* Pricing */}
-                              <div className="mb-4">
-                                <div className="flex items-baseline gap-2 mb-1">
-                                  <span className="font-heading text-4xl md:text-4xl font-bold text-text-header">
-                                    ${service.itemPrice || 199}
-                                  </span>
-                                </div>
-                                <button
-                                  onClick={() => setShowIntroRateModal(true)}
-                                  className="font-paragraph text-xs uppercase tracking-widest text-text-body/80 font-semibold italic transition-colors hover:text-primary underline"
-                                >
-                                  * Introductory Rate
-                                </button>
-                              </div>
-                              
-                              {/* CTA Button */}
-                              <Button 
-                                size="sm" 
-                                className={`w-full font-heading text-sm py-2 h-auto rounded-lg transition-all duration-300 font-semibold ${
-                                  isSOP ? 'bg-blue-600 text-white hover:bg-blue-700' : 
-                                  isBusinessEngine ? 'bg-purple-600 text-white hover:bg-purple-700' : 
-                                  'bg-primary text-primary-foreground hover:bg-primary/90'
-                                }`}
-                                 onClick={() => navigate(`/service/${service._id}`)}
-                              >
-                                Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                              </Button>
-                            </div>
-                          </div>
-                        </motion.div>
-                      );
-                    })}
+                  <div className="border-t border-text-body/10 p-6 md:p-8 space-y-3">
+                    <div className="h-8 bg-accent-grey/30 w-1/3"></div>
+                    <div className="h-10 bg-accent-grey/30 w-full"></div>
                   </div>
                 </div>
-              )}
+              ))}
+            </div>
+          ) : services.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+              {services.map((service, index) => {
+                const isMainOffering = index === 0;
+                const isSOP = service.itemName?.toLowerCase().includes('sop library');
+                const isBusinessEngine = service.itemName?.toLowerCase().includes('business engine redesign');
+                
+                return (
+                  <motion.div
+                    key={service._id}
+                    data-service={isMainOffering ? 'main-offering' : isSOP ? 'sop-library' : isBusinessEngine ? 'business-engine-redesign' : 'service'}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.7, ease: "easeOut", delay: index * 0.15 }}
+                    className="relative group"
+                  >
+                    {/* Card Container */}
+                    <div className={`bg-background border p-0 rounded-2xl transition-all duration-500 overflow-hidden flex flex-col h-full ${
+                      isMainOffering 
+                        ? 'border-primary/30 hover:border-primary/50' 
+                        : 'border-text-body/10 hover:border-text-body/20'
+                    }`}>
+                      {/* Header Section with Icon Background */}
+                      <div className={`relative h-20 md:h-24 overflow-hidden ${
+                        isMainOffering ? 'bg-primary/5' :
+                        isSOP ? 'bg-blue-50' : 
+                        isBusinessEngine ? 'bg-purple-50' : 
+                        'bg-slate-50'
+                      }`}>
+                        {/* Decorative shape */}
+                        <div className={`absolute -top-12 -right-12 w-48 h-48 rounded-full opacity-10 ${
+                          isMainOffering ? 'bg-primary' :
+                          isSOP ? 'bg-blue-400' : 
+                          isBusinessEngine ? 'bg-purple-400' : 
+                          'bg-slate-400'
+                        }`}></div>
+                        
+                        {/* Category Badge */}
+                        <div className="absolute top-4 left-4 z-10">
+                          <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-lg font-heading text-xs uppercase tracking-widest font-bold ${
+                            isMainOffering ? 'bg-primary text-primary-foreground' :
+                            isSOP ? 'bg-blue-100 text-blue-700' : 
+                            isBusinessEngine ? 'bg-purple-100 text-purple-700' : 
+                            'bg-slate-100 text-slate-700'
+                          }`}>
+                            <div className={`w-2 h-2 rounded-full ${
+                              isMainOffering ? 'bg-primary-foreground' :
+                              isSOP ? 'bg-blue-500' : 
+                              isBusinessEngine ? 'bg-purple-500' : 
+                              'bg-slate-500'
+                            }`}></div>
+                            {isMainOffering ? 'Signature Service' : isSOP ? 'Asset Building' : isBusinessEngine ? 'Systemization' : 'Service'}
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Content Section */}
+                      <div className="flex-1 flex flex-col p-6 md:p-8">
+                        {/* Title */}
+                        <h4 className={`font-heading text-2xl md:text-2xl font-bold mb-3 transition-colors duration-300 ${
+                          isMainOffering ? 'text-primary' :
+                          isSOP ? 'text-blue-900' : 
+                          isBusinessEngine ? 'text-purple-900' : 
+                          'text-text-header'
+                        }`}>
+                          {service.itemName}
+                        </h4>
+                        
+                        {/* Description */}
+                        <p className="font-paragraph text-base md:text-lg text-text-body mb-6 leading-relaxed flex-1">
+                          {service.itemDescription}
+                        </p>
+                        
+                        {/* Inclusions */}
+                        <div className="space-y-2 mb-6">
+                          <p className="font-heading text-xs uppercase tracking-widest text-text-body/60 font-semibold">What's Included:</p>
+                          <div className="space-y-1.5">
+                            {service.serviceInclusions?.split('\n').map((item, idx) => (
+                              <div key={idx} className="flex items-start gap-2 group/item">
+                                <div className={`w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0 transition-all ${
+                                  isMainOffering ? 'bg-primary' :
+                                  isSOP ? 'bg-blue-500' : 
+                                  isBusinessEngine ? 'bg-purple-500' : 
+                                  'bg-primary'
+                                }`}></div>
+                                <span className="font-paragraph text-xs text-text-body/70 leading-relaxed">{item}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Footer Section - Pricing & CTA */}
+                      <div className={`border-t p-6 md:p-8 ${
+                        isMainOffering ? 'border-primary/20 bg-primary/3' :
+                        isSOP ? 'border-blue-100 bg-blue-50/30' : 
+                        isBusinessEngine ? 'border-purple-100 bg-purple-50/30' : 
+                        'border-text-body/10 bg-text-body/2'
+                      }`}>
+                        {/* Pricing */}
+                        <div className="mb-4">
+                          <div className="flex items-baseline gap-2 mb-1">
+                            <span className="font-heading text-4xl md:text-4xl font-bold text-text-header">
+                              ${service.itemPrice || 199}
+                            </span>
+                          </div>
+                          <button
+                            onClick={() => setShowIntroRateModal(true)}
+                            className="font-paragraph text-xs uppercase tracking-widest text-text-body/80 font-semibold italic transition-colors hover:text-primary underline"
+                          >
+                            * Introductory Rate
+                          </button>
+                        </div>
+                        
+                        {/* CTA Button */}
+                        <Button 
+                          size="sm" 
+                          className={`w-full font-heading text-sm py-2 h-auto rounded-lg transition-all duration-300 font-semibold ${
+                            isMainOffering ? 'bg-primary text-primary-foreground hover:bg-primary/90' :
+                            isSOP ? 'bg-blue-600 text-white hover:bg-blue-700' : 
+                            isBusinessEngine ? 'bg-purple-600 text-white hover:bg-purple-700' : 
+                            'bg-primary text-primary-foreground hover:bg-primary/90'
+                          }`}
+                           onClick={() => navigate(isMainOffering ? '/single-process-audit' : `/service/${service._id}`)}
+                        >
+                          Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                        </Button>
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })}
             </div>
           ) : (
             <div className="text-center py-12">
