@@ -360,11 +360,21 @@ export default function HomePage() {
                 </motion.div>
               )}
 
-              {/* ADDITIONAL OFFERINGS - SOP & BUSINESS ENGINE REDESIGNED */}
+              {/* ADDITIONAL OFFERINGS - 3 CARD GRID REDESIGNED */}
               {services.length > 1 && (
-                <div>
+                <div className="mt-20">
+                  {/* Section Header */}
+                  <div className="mb-12 text-center">
+                    <h3 className="font-heading text-3xl md:text-4xl font-bold text-text-header mb-4">
+                      Our Additional Services
+                    </h3>
+                    <p className="font-paragraph text-lg text-text-body/80 max-w-2xl mx-auto">
+                      Comprehensive solutions to optimize your business operations
+                    </p>
+                  </div>
 
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                  {/* 3-Card Grid */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                     {services.slice(1).map((service, index) => {
                       const isSOP = service.itemName?.toLowerCase().includes('sop library');
                       const isBusinessEngine = service.itemName?.toLowerCase().includes('business engine redesign');
