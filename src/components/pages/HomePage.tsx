@@ -649,118 +649,118 @@ export default function HomePage() {
         <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24 py-[60px]">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 min-h-[600px]">
             <motion.div 
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              className="lg:col-span-5"
-            >
-              <div className="inline-block px-8 py-2 border border-[#1876f2] rounded-full mb-6">
-                <span className="text-[#1876f2] font-heading text-sm font-semibold">Get In Touch</span>
-              </div>
-              <h2 className="font-heading text-6xl md:text-7xl lg:text-8xl text-foreground mb-8 font-bold leading-tight">
-                Let's Get <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/80">Started.</span>
-              </h2>
-              <p className="font-paragraph text-lg md:text-xl text-secondary/90 mb-12 max-w-md leading-relaxed">
-                Have a question or want to request a customized package? Fill out the form and I'll get back to you within 48 hours.
-              </p>
-              
-              <div className="hidden lg:block relative w-full aspect-video overflow-hidden mt-12 rounded-2xl">
-                 <Image 
-                   src="https://static.wixstatic.com/media/2b1878_aec3db263b214735bf34a51a3804f816~mv2.png?originWidth=576&originHeight=576"
-                   alt="Minimalist desk setup"
-                   className="object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-700"
-                 />
-              </div>
-            </motion.div>
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7 }}
+                className="lg:col-span-5"
+              >
+                <div className="inline-block px-8 py-2 border border-[#1876f2] rounded-full mb-6">
+                  <span className="text-[#1876f2] font-heading text-sm font-semibold">Get In Touch</span>
+                </div>
+                <h2 className="font-heading text-6xl md:text-7xl lg:text-8xl text-foreground mb-8 font-bold leading-tight">
+                  Let's Get <br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/80">Started.</span>
+                </h2>
+                <p className="font-paragraph text-lg md:text-xl text-secondary/90 mb-12 max-w-md leading-relaxed">
+                  Have a question or want to request a customized package? Fill out the form and I'll get back to you within 48 hours.
+                </p>
+                
+                <div className="hidden lg:block relative w-full aspect-video overflow-hidden mt-12 rounded-2xl">
+                   <Image 
+                     src="https://static.wixstatic.com/media/2b1878_aec3db263b214735bf34a51a3804f816~mv2.png?originWidth=576&originHeight=576"
+                     alt="Minimalist desk setup"
+                     className="object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-700"
+                   />
+                </div>
+              </motion.div>
 
             <motion.div 
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              className="lg:col-span-7"
-            >
-              <form onSubmit={handleSubmit} className="space-y-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <div className="space-y-3">
-                    <Label htmlFor="name" className="font-heading text-sm uppercase tracking-widest text-foreground font-semibold">Name *</Label>
-                    <Input
-                      id="name"
-                      name="name"
-                      type="text"
-                      value={formData.name}
-                      onChange={handleFormChange}
-                      required
-                      className="border-0 border-b-2 border-accent-grey/50 rounded-none px-0 py-3 text-lg focus-visible:ring-0 focus-visible:border-primary bg-transparent transition-colors placeholder:text-foreground/30"
-                      placeholder="Jane Doe"
-                    />
-                  </div>
-                  <div className="space-y-3">
-                    <Label htmlFor="email" className="font-heading text-sm uppercase tracking-widest text-foreground font-semibold">Email *</Label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleFormChange}
-                      required
-                      className="border-0 border-b-2 border-accent-grey/50 rounded-none px-0 py-3 text-lg focus-visible:ring-0 focus-visible:border-primary bg-transparent transition-colors placeholder:text-foreground/30"
-                      placeholder="jane@company.com"
-                    />
-                  </div>
-                </div>
-
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="lg:col-span-7"
+          >
+            <form onSubmit={handleSubmit} className="space-y-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-3">
-                  <Label htmlFor="company" className="font-heading text-sm uppercase tracking-widest text-foreground font-semibold">Company</Label>
+                  <Label htmlFor="name" className="font-heading text-sm uppercase tracking-widest text-foreground font-semibold">Name *</Label>
                   <Input
-                    id="company"
-                    name="company"
+                    id="name"
+                    name="name"
                     type="text"
-                    value={formData.company}
-                    onChange={handleFormChange}
-                    className="border-0 border-b-2 border-accent-grey/50 rounded-none px-0 py-3 text-lg focus-visible:ring-0 focus-visible:border-primary bg-transparent transition-colors placeholder:text-foreground/30"
-                    placeholder="Acme Inc."
-                  />
-                </div>
-
-                <div className="space-y-3">
-                  <Label htmlFor="message" className="font-heading text-sm uppercase tracking-widest text-foreground font-semibold">Workflow Challenge *</Label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
+                    value={formData.name}
                     onChange={handleFormChange}
                     required
-                    rows={4}
-                    className="border-0 border-b-2 border-accent-grey/50 rounded-none px-0 py-3 text-lg focus-visible:ring-0 focus-visible:border-primary bg-transparent resize-none transition-colors placeholder:text-foreground/30"
-                    placeholder="Tell me about what's slowing you down..."
+                    className="border-0 border-b-2 border-accent-grey/50 rounded-none px-0 py-3 text-lg focus-visible:ring-0 focus-visible:border-primary bg-transparent transition-colors placeholder:text-foreground/30"
+                    placeholder="Jane Doe"
                   />
                 </div>
-
-                <div className="pt-8">
-                  <Button
-                    type="submit"
-                    size="lg"
-                    disabled={isSubmitting}
-                    className="w-full md:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-heading text-lg px-12 py-4 h-auto rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-primary/30 disabled:opacity-70"
-                  >
-                    {isSubmitting ? 'Sending...' : 'Submit Inquiry'} <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
+                <div className="space-y-3">
+                  <Label htmlFor="email" className="font-heading text-sm uppercase tracking-widest text-foreground font-semibold">Email *</Label>
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleFormChange}
+                    required
+                    className="border-0 border-b-2 border-accent-grey/50 rounded-none px-0 py-3 text-lg focus-visible:ring-0 focus-visible:border-primary bg-transparent transition-colors placeholder:text-foreground/30"
+                    placeholder="jane@company.com"
+                  />
                 </div>
+              </div>
 
-                {submitSuccess && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="p-4 bg-green-50 text-green-800 border border-green-200 rounded-lg"
-                  >
-                    Thank you! I'll be in touch within 48 hours.
-                  </motion.div>
-                )}
-              </form>
-            </motion.div>
+              <div className="space-y-3">
+                <Label htmlFor="company" className="font-heading text-sm uppercase tracking-widest text-foreground font-semibold">Company</Label>
+                <Input
+                  id="company"
+                  name="company"
+                  type="text"
+                  value={formData.company}
+                  onChange={handleFormChange}
+                  className="border-0 border-b-2 border-accent-grey/50 rounded-none px-0 py-3 text-lg focus-visible:ring-0 focus-visible:border-primary bg-transparent transition-colors placeholder:text-foreground/30"
+                  placeholder="Acme Inc."
+                />
+              </div>
+
+              <div className="space-y-3">
+                <Label htmlFor="message" className="font-heading text-sm uppercase tracking-widest text-foreground font-semibold">Workflow Challenge *</Label>
+                <Textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleFormChange}
+                  required
+                  rows={4}
+                  className="border-0 border-b-2 border-accent-grey/50 rounded-none px-0 py-3 text-lg focus-visible:ring-0 focus-visible:border-primary bg-transparent resize-none transition-colors placeholder:text-foreground/30"
+                  placeholder="Tell me about what's slowing you down..."
+                />
+              </div>
+
+              <div className="pt-8">
+                <Button
+                  type="submit"
+                  size="lg"
+                  disabled={isSubmitting}
+                  className="w-full md:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-heading text-lg px-12 py-4 h-auto rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-primary/30 disabled:opacity-70"
+                >
+                  {isSubmitting ? 'Sending...' : 'Submit Inquiry'} <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </div>
+
+              {submitSuccess && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="p-4 bg-green-50 text-green-800 border border-green-200 rounded-lg"
+                >
+                  Thank you! I'll be in touch within 48 hours.
+                </motion.div>
+              )}
+            </form>
+          </motion.div>
           </div>
         </div>
       </section>
