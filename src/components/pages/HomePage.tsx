@@ -604,8 +604,8 @@ export default function HomePage() {
          </div>
       </section>
       {/* EXAMPLE WORKFLOWS SECTION - GRID LAYOUT */}
-      <section id="example-workflows" className="w-full bg-background py-24 md:py-32 lg:py-40 border-b border-accent-grey/30">
-        <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24">
+      <section id="example-workflows" className="w-full bg-background border-b border-accent-grey/30">
+        <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24 py-[60px]">
           <div className="mb-16">
             <h2 className="font-heading text-5xl md:text-6xl lg:text-7xl text-foreground mb-8 font-bold leading-tight">Example Workflows</h2>
             <p className="font-paragraph text-lg md:text-xl text-foreground/70 max-w-3xl leading-relaxed">
