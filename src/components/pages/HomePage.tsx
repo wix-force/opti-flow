@@ -767,7 +767,26 @@ export default function HomePage() {
 }
 
 // Map process names to appropriate icons
-function getIconForProcess(processName?: string) {
+// Array of unique icons to cycle through
+const UNIQUE_ICONS = [
+  Workflow,
+  Users,
+  TrendingUp,
+  Settings,
+  Clock,
+  Target,
+  Lightbulb,
+  BarChart3,
+  Zap,
+];
+
+function getIconForProcess(processName?: string, index?: number) {
+  // Use index to cycle through unique icons for each card
+  if (index !== undefined) {
+    const IconComponent = UNIQUE_ICONS[index % UNIQUE_ICONS.length];
+    return <IconComponent className="w-8 h-8 sm:w-10 sm:h-10" />;
+  }
+  
   if (!processName) return <Workflow className="w-8 h-8 sm:w-10 sm:h-10" />;
   
   const name = processName.toLowerCase();
@@ -803,10 +822,10 @@ function GridProcessCard({
       transition={{ duration: 0.6, delay: index * 0.08 }}
       className="h-full"
     >
-      <div className="h-full rounded-[10px] border border-dark-grey/20 hover:border-[#1876f2] transition-colors duration-300 p-6 sm:p-8 flex flex-col items-center text-center group bg-background">
+      <div className="h-full rounded-[10px] border border-dark-grey/20 hover:border-[#1876f2] transition-all duration-300 p-6 sm:p-8 flex flex-col items-center text-center group bg-background hover:scale-105 hover:shadow-lg">
         {/* Square Box with Icon */}
         <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-[5px] bg-primary/10 flex items-center justify-center mb-6 flex-shrink-0 text-primary">
-          {getIconForProcess(process.processName)}
+          {getIconForProcess(process.processName, index)}
         </div>
 
         {/* Process Name */}
