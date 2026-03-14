@@ -682,7 +682,7 @@ export default function HomePage() {
             transition={{ duration: 0.7 }}
             className="lg:col-span-7 flex items-center justify-center"
           >
-            <form onSubmit={handleSubmit} className="space-y-8 p-8 border border-border-light rounded-[12px] shadow-lg shadow-dark-grey/10 bg-white">
+            <form onSubmit={handleSubmit} className="space-y-8 p-8 border border-border-light rounded-[12px] shadow-lg shadow-dark-grey/10 bg-white w-full max-w-2xl">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-3">
                   <Label htmlFor="name" className="font-heading text-sm uppercase tracking-widest text-foreground font-semibold">Name *</Label>
