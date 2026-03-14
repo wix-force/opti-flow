@@ -682,7 +682,7 @@ export default function HomePage() {
             transition={{ duration: 0.7 }}
             className="lg:col-span-7"
           >
-            <form onSubmit={handleSubmit} className="space-y-8">
+            <form onSubmit={handleSubmit} className="space-y-8 p-8 rounded-lg shadow-sm shadow-dark-grey/10 bg-white">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-3">
                   <Label htmlFor="name" className="font-heading text-sm uppercase tracking-widest text-foreground font-semibold">Name *</Label>
@@ -693,7 +693,7 @@ export default function HomePage() {
                     value={formData.name}
                     onChange={handleFormChange}
                     required
-                    className="border-0 border-b-2 border-accent-grey/50 rounded-none px-0 py-3 text-lg focus-visible:ring-0 focus-visible:border-primary bg-transparent transition-colors placeholder:text-foreground/30"
+                    className="border border-border-light rounded-md px-4 py-3 text-lg focus-visible:ring-0 focus-visible:border-primary bg-white transition-colors placeholder:text-foreground/30"
                     placeholder="Jane Doe"
                   />
                 </div>
@@ -706,7 +706,7 @@ export default function HomePage() {
                     value={formData.email}
                     onChange={handleFormChange}
                     required
-                    className="border-0 border-b-2 border-accent-grey/50 rounded-none px-0 py-3 text-lg focus-visible:ring-0 focus-visible:border-primary bg-transparent transition-colors placeholder:text-foreground/30"
+                    className="border border-border-light rounded-md px-4 py-3 text-lg focus-visible:ring-0 focus-visible:border-primary bg-white transition-colors placeholder:text-foreground/30"
                     placeholder="jane@company.com"
                   />
                 </div>
@@ -720,7 +720,7 @@ export default function HomePage() {
                   type="text"
                   value={formData.company}
                   onChange={handleFormChange}
-                  className="border-0 border-b-2 border-accent-grey/50 rounded-none px-0 py-3 text-lg focus-visible:ring-0 focus-visible:border-primary bg-transparent transition-colors placeholder:text-foreground/30"
+                  className="border border-border-light rounded-md px-4 py-3 text-lg focus-visible:ring-0 focus-visible:border-primary bg-white transition-colors placeholder:text-foreground/30"
                   placeholder="Acme Inc."
                 />
               </div>
@@ -734,7 +734,7 @@ export default function HomePage() {
                   onChange={handleFormChange}
                   required
                   rows={4}
-                  className="border-0 border-b-2 border-accent-grey/50 rounded-none px-0 py-3 text-lg focus-visible:ring-0 focus-visible:border-primary bg-transparent resize-none transition-colors placeholder:text-foreground/30"
+                  className="border border-border-light rounded-md px-4 py-3 text-lg focus-visible:ring-0 focus-visible:border-primary bg-white resize-none transition-colors placeholder:text-foreground/30"
                   placeholder="Tell me about what's slowing you down..."
                 />
               </div>
@@ -744,7 +744,7 @@ export default function HomePage() {
                   type="submit"
                   size="lg"
                   disabled={isSubmitting}
-                  className="w-full md:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-heading text-lg px-12 py-4 h-auto rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-primary/30 disabled:opacity-70"
+                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-heading text-lg px-12 py-4 h-auto rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-primary/30 disabled:opacity-70"
                 >
                   {isSubmitting ? 'Sending...' : 'Submit Inquiry'} <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
