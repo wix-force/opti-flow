@@ -166,12 +166,12 @@ export default function HomePage() {
         </motion.div>
       )}
       {/* HERO SECTION */}
-      <section className="relative w-full min-h-screen flex flex-col justify-center pt-32 pb-20 mt-section-sm">
+      <section className="relative w-full min-h-screen flex flex-col justify-center py-10 mt-section-sm">
         {/* Subtle gradient overlay */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -mr-48 -mt-48 pointer-events-none"></div>
 
         <div 
-          className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24 relative z-10 rounded-2xl overflow-hidden"
+          className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24 relative z-10 rounded-2xl overflow-hidden py-10"
           style={{
             backgroundImage: 'url(https://static.wixstatic.com/media/5602cb_160662070d24401bb1bcd26dce9d3bcc~mv2.png?originWidth=1600&originHeight=896)',
             backgroundSize: 'cover',
