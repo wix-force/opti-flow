@@ -776,9 +776,60 @@ function GridProcessCard({
   index: number;
   total: number;
 }) {
-  // Calculate which borders to show for 3-column grid
-  const isLastRow = index >= total - (total % 3 === 0 ? 3 : total % 3);
-  const isLastInRow = (index + 1) % 3 === 0;
-  
-  return <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.6, delay: index * 0.08 }} className={`relative p-0 overflow-hidden group ${!isLastRow ? 'border-b border-dark-grey/20' : ''} ${!isLastInRow ? 'border-r border-dark-grey/20' : ''}`}> <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div> <div className="relative z-10 p-8 flex flex-col h-full"> <div className="flex items-center mb-4"> <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary text-xl font-bold mr-4 flex-shrink-0"> {index + 1} </span> <h3 className="font-heading text-xl font-bold text-foreground leading-tight"> {process.processName} </h3> </div> <p className="font-paragraph text-sm text-secondary leading-relaxed mb-6 flex-1"> {process.processDescription} </p> {process.commonPainPoint && ( <div className="mb-4"> <p className="font-paragraph text-xs leading-normal"> <span className="font-heading text-xs font-bold text-primary uppercase tracking-wider block mb-1">Friction Point:</span> <span className="text-foreground text-sm leading-normal"> {process.commonPainPoint} </span> </p> </div> )} {process.potentialImpact && ( <div className="mb-0"> <p className="font-paragraph text-xs leading-normal"> <span className="font-heading text-xs font-bold text-primary uppercase tracking-wider block mb-1">Potential Impact:</span> <span className="text-foreground text-sm leading-normal"> {process.potentialImpact} </span> </p> </div> )} </div> </motion.div>;
+  return (
+    <motion.div 
+      initial={{ opacity: 0, scale: 0.95 }} 
+      whileInView={{ opacity: 1, scale: 1 }} 
+      viewport={{ once: true, margin: "-50px" }} 
+      transition={{ duration: 0.6, delay: index * 0.08 }}
+      className="h-full"
+    >
+      <div className="h-full rounded-[10px] border border-dark-grey/20 hover:border-[#1876f2] transition-colors duration-300 p-6 sm:p-8 flex flex-col items-center text-center group bg-background">
+        {/* Square Box with Icon */}
+        <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-[5px] bg-primary/10 flex items-center justify-center mb-6 flex-shrink-0">
+          <span className="text-primary text-3xl sm:text-4xl font-bold">
+            {index + 1}
+          </span>
+        </div>
+
+        {/* Process Name */}
+        <h3 className="font-heading text-lg sm:text-xl font-bold text-foreground leading-tight mb-4">
+          {process.processName}
+        </h3>
+
+        {/* Process Description */}
+        <p className="font-paragraph text-sm text-secondary leading-relaxed mb-6 flex-1">
+          {process.processDescription}
+        </p>
+
+        {/* Common Pain Point */}
+        {process.commonPainPoint && (
+          <div className="mb-4 w-full">
+            <p className="font-paragraph text-xs leading-normal">
+              <span className="font-heading text-xs font-bold text-primary uppercase tracking-wider block mb-1">
+                Friction Point:
+              </span>
+              <span className="text-foreground text-sm leading-normal">
+                {process.commonPainPoint}
+              </span>
+            </p>
+          </div>
+        )}
+
+        {/* Potential Impact */}
+        {process.potentialImpact && (
+          <div className="w-full">
+            <p className="font-paragraph text-xs leading-normal">
+              <span className="font-heading text-xs font-bold text-primary uppercase tracking-wider block mb-1">
+                Potential Impact:
+              </span>
+              <span className="text-foreground text-sm leading-normal">
+                {process.potentialImpact}
+              </span>
+            </p>
+          </div>
+        )}
+      </div>
+    </motion.div>
+  );
 }
