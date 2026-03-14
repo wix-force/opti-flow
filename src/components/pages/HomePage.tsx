@@ -615,9 +615,9 @@ export default function HomePage() {
 
           <div className="min-h-[200px]">
             {isLoadingData ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
                 {[1, 2, 3, 4, 5, 6].map((i) => (
-                  <div key={i} className="border-r border-b border-dark-grey/20 p-6 space-y-4">
+                  <div key={i} className="border border-dark-grey/20 p-6 space-y-4 rounded-lg">
                     <div className="bg-accent-grey/30 h-6 animate-pulse w-2/3"></div>
                     <div className="bg-accent-grey/30 h-4 animate-pulse w-full"></div>
                     <div className="bg-accent-grey/30 h-4 animate-pulse w-full"></div>
@@ -626,7 +626,7 @@ export default function HomePage() {
                 ))}
               </div>
             ) : processExamples.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
                 {processExamples.slice(0, 9).map((process, index) => (
                   <GridProcessCard 
                     key={process._id} 
