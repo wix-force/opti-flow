@@ -682,7 +682,7 @@ export default function HomePage() {
             transition={{ duration: 0.7 }}
             className="lg:col-span-7"
           >
-            <form onSubmit={handleSubmit} className="space-y-8 p-8 rounded-lg shadow-sm shadow-dark-grey/10 bg-white">
+            <form onSubmit={handleSubmit} className="space-y-8 p-8 rounded-lg border border-border-light shadow-lg shadow-dark-grey/20 bg-white">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-3">
                   <Label htmlFor="name" className="font-heading text-sm uppercase tracking-widest text-foreground font-semibold">Name *</Label>
