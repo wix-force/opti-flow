@@ -655,7 +655,7 @@ export default function HomePage() {
               transition={{ duration: 0.7 }}
               className="lg:col-span-5"
             >
-              <div className="inline-block px-4 py-2 border border-[#1876f2] rounded-full mb-6">
+              <div className="inline-block px-8 py-2 border border-[#1876f2] rounded-full mb-6">
                 <span className="text-[#1876f2] font-heading text-sm font-semibold">Get In Touch</span>
               </div>
               <h2 className="font-heading text-6xl md:text-7xl lg:text-8xl text-foreground mb-8 font-bold leading-tight">
