@@ -440,7 +440,7 @@ export default function HomePage() {
              style={{ backgroundColor: '#EEF5FF', backgroundImage: 'linear-gradient(45deg, #fff 1px, transparent 1px)', backgroundSize: '20px 20px' }}>
         </div>
 
-        <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24 relative z-10 py-[70px] m-[10px]">
+        <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24 relative z-10 py-[70px]">
           {/* Two-Column Layout - Text Left, Calculator Right */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left Column - Header & Description */}
