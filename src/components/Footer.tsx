@@ -1,65 +1,15 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import { useServiceStore } from '@/lib/serviceStore';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   const navigate = useNavigate();
-  const { services } = useServiceStore();
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const handleServiceClick = (serviceName: string) => {
-    // Navigate to home page first if not already there
-    if (window.location.pathname !== '/') {
-      navigate('/');
-      // Scroll after navigation completes
-      setTimeout(() => {
-        scrollToServiceSection(serviceName);
-      }, 100);
-    } else {
-      scrollToServiceSection(serviceName);
-    }
-  };
-
-  const scrollToServiceSection = (serviceName: string) => {
-    if (serviceName.toLowerCase().includes('single process audit')) {
-      const element = document.getElementById('service-single-process-audit');
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    } else if (serviceName.toLowerCase().includes('sop library')) {
-      // Scroll to the offerings section where SOP Library is displayed
-      const element = document.getElementById('offerings-section');
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-        // Then scroll down to show the SOP card
-        setTimeout(() => {
-          const sopCard = document.querySelector('[data-service="sop-library"]');
-          if (sopCard) {
-            sopCard.scrollIntoView({ behavior: 'smooth' });
-          }
-        }, 300);
-      }
-    } else if (serviceName.toLowerCase().includes('business engine redesign')) {
-      // Scroll to the offerings section where Business Engine Redesign is displayed
-      const element = document.getElementById('offerings-section');
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-        // Then scroll down to show the Business Engine card
-        setTimeout(() => {
-          const beCard = document.querySelector('[data-service="business-engine-redesign"]');
-          if (beCard) {
-            beCard.scrollIntoView({ behavior: 'smooth' });
-          }
-        }, 300);
-      }
     }
   };
 
@@ -136,21 +86,21 @@ export default function Footer() {
             </h4>
             <nav className="flex flex-col gap-5">
               <button
-                onClick={() => handleServiceClick('single process audit')}
+                onClick={() => scrollToSection('service-single-process-audit')}
                 className="font-paragraph text-base text-background/70 hover:text-background transition-colors text-left font-medium group flex items-center gap-2"
               >
                 The Single Process Audit
                 <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
               </button>
               <button
-                onClick={() => handleServiceClick('sop library')}
+                onClick={() => scrollToSection('offerings-section')}
                 className="font-paragraph text-base text-background/70 hover:text-background transition-colors text-left font-medium group flex items-center gap-2"
               >
                 The SOP Library
                 <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
               </button>
               <button
-                onClick={() => handleServiceClick('business engine redesign')}
+                onClick={() => scrollToSection('offerings-section')}
                 className="font-paragraph text-base text-background/70 hover:text-background transition-colors text-left font-medium group flex items-center gap-2"
               >
                 The Business Engine Redesign

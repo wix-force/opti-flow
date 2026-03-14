@@ -1,34 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion, AnimatePresence } from 'framer-motion';
-import { BaseCrudService } from '@/integrations';
-import { Services } from '@/entities';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [firstAuditServiceId, setFirstAuditServiceId] = useState<string | null>(null);
   const location = useLocation();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const fetchFirstAuditService = async () => {
-      try {
-        const result = await BaseCrudService.getAll<Services>('services', {}, { limit: 100 });
-        const auditService = result.items.find(service => 
-          service.itemName?.toLowerCase().includes('single process audit')
-        );
-        if (auditService) {
-          setFirstAuditServiceId(auditService._id);
-        }
-      } catch (error) {
-        console.error('Error fetching services:', error);
-      }
-    };
-    
-    fetchFirstAuditService();
-  }, []);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
