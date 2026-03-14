@@ -436,8 +436,8 @@ export default function HomePage() {
       {/* ROI CALCULATOR - COMPACT & HIGH-DENSITY */}
       <section id="roi-calculator" className="w-full bg-text-header text-background py-24 md:py-32 lg:py-40 overflow-hidden relative">
         {/* Sleek background with grid overlay */}
-        <div className="absolute inset-0 opacity-3 bg-blue-100" 
-             style={{ backgroundImage: 'linear-gradient(45deg, #fff 1px, transparent 1px)', backgroundSize: '20px 20px' }}>
+        <div className="absolute inset-0 opacity-3" 
+             style={{ backgroundColor: '#EEF5FF', backgroundImage: 'linear-gradient(45deg, #fff 1px, transparent 1px)', backgroundSize: '20px 20px' }}>
         </div>
 
         <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24 relative z-10">
