@@ -645,8 +645,8 @@ export default function HomePage() {
         </div>
       </section>
       {/* CONTACT FORM */}
-      <section id="contact" className="w-full bg-gradient-to-b from-background to-accent-grey/5 py-32 md:py-40 lg:py-48 border-b border-accent-grey/30">
-        <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24">
+      <section id="contact" className="w-full bg-gradient-to-b from-background to-accent-grey/5 border-b border-accent-grey/30">
+        <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24 py-[60px]">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 min-h-[600px]">
             <motion.div 
               initial={{ opacity: 0, x: -30 }}
