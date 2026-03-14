@@ -45,7 +45,7 @@ export default function HomePage() {
       const serviceResult = await BaseCrudService.getAll<Services>('services');
       setServices(serviceResult.items);
       setStoredServices(serviceResult.items);
-      
+
       const processResult = await BaseCrudService.getAll<ProcessExamples>('processexamples');
       setProcessExamples(processResult.items);
     } catch (error) {
@@ -76,7 +76,7 @@ export default function HomePage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     try {
       // Send email via API endpoint
       const response = await fetch('/api/send-contact-email', {
@@ -100,7 +100,7 @@ export default function HomePage() {
       setIsSubmitting(false);
       setSubmitSuccess(true);
       setFormData({ name: '', email: '', company: '', message: '' });
-      
+
       setTimeout(() => setSubmitSuccess(false), 5000);
     } catch (error) {
       console.error('Error sending email:', error);
@@ -146,14 +146,14 @@ export default function HomePage() {
                 <X className="w-6 h-6" />
               </button>
             </div>
-            
+
             <p className="font-paragraph text-lg md:text-xl text-foreground/80 leading-relaxed mb-8">
               During our Initial Rollout Phase, we are offering a Foundational Rate on all new packages. In exchange for this pricing, we ask for your permission to document the evolution of your operational architecture as a featured case study. All proprietary data and identifying information will be strictly anonymized to protect your firm's privacy.
             </p>
             <p className="font-paragraph text-lg md:text-xl text-foreground/80 leading-relaxed mb-8">
               To opt out, send us a message <button onClick={() => { setShowIntroRateModal(false); setTimeout(() => { const contactSection = document.getElementById('contact'); if (contactSection) { window.scrollTo({ top: contactSection.offsetTop, behavior: 'smooth' }); } }, 100); }} className="text-primary hover:text-primary/80 font-semibold underline transition-colors">here</button>.
             </p>
-            
+
             <div className="flex gap-4">
               <Button
                 onClick={() => setShowIntroRateModal(false)}
@@ -170,7 +170,7 @@ export default function HomePage() {
         {/* Subtle gradient overlay */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -mr-48 -mt-48 pointer-events-none"></div>
 
-        <div 
+        <div
           className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24 relative z-10 rounded-2xl overflow-hidden py-10"
           style={{
             backgroundImage: 'url(https://static.wixstatic.com/media/5602cb_160662070d24401bb1bcd26dce9d3bcc~mv2.png?originWidth=1600&originHeight=896)',
@@ -194,7 +194,7 @@ export default function HomePage() {
                   to Messy Workflows.
                 </h1>
               </motion.div>
-              
+
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -213,24 +213,24 @@ export default function HomePage() {
                 transition={{ duration: 0.6, delay: 0.4 }}
                 className="mt-12 flex flex-col md:flex-row gap-4 items-start md:items-center flex-wrap"
               >
-                <Button 
-                  size="sm" 
+                <Button
+                  size="sm"
                   className="bg-text-header text-background hover:bg-primary hover:text-white transition-all duration-300 font-heading px-6 py-3 h-auto rounded-lg"
                   onClick={() => navigate('/case-studies')}
                 >
                   Show Me Examples <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
-                
-                <Button 
-                  size="sm" 
+
+                <Button
+                  size="sm"
                   className="bg-background border-2 border-text-body/20 text-text-header hover:border-primary hover:bg-primary/5 transition-all duration-300 font-heading px-6 py-3 h-auto rounded-lg"
                   onClick={() => document.getElementById('roi-calculator')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   Show Me the ROI
                 </Button>
 
-                <Button 
-                  size="sm" 
+                <Button
+                  size="sm"
                   className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 font-heading px-8 py-3 h-auto rounded-lg md:ml-auto"
                   onClick={() => document.getElementById('offerings-section')?.scrollIntoView({ behavior: 'smooth' })}
                 >
@@ -298,7 +298,7 @@ export default function HomePage() {
                 const isMainOffering = index === 0;
                 const isSOP = service.itemName?.toLowerCase().includes('sop library');
                 const isBusinessEngine = service.itemName?.toLowerCase().includes('business engine redesign');
-                
+
                 return (
                   <motion.div
                     key={service._id}
@@ -311,37 +311,37 @@ export default function HomePage() {
                   >
                     {/* Card Container */}
                     <div className={`bg-background border p-0 rounded-2xl transition-all duration-500 overflow-hidden flex flex-col h-full ${
-                      isMainOffering 
-                        ? 'border-primary/30 hover:border-primary/50' 
+                      isMainOffering
+                        ? 'border-primary/30 hover:border-primary/50'
                         : 'border-text-body/10 hover:border-text-body/20'
                     }`}>
                       {/* Header Section with Icon Background */}
                       <div className={`relative h-20 md:h-24 overflow-hidden ${
                         isMainOffering ? 'bg-primary/5' :
-                        isSOP ? 'bg-blue-50' : 
-                        isBusinessEngine ? 'bg-purple-50' : 
+                        isSOP ? 'bg-blue-50' :
+                        isBusinessEngine ? 'bg-purple-50' :
                         'bg-slate-50'
                       }`}>
                         {/* Decorative shape */}
                         <div className={`absolute -top-12 -right-12 w-48 h-48 rounded-full opacity-10 ${
                           isMainOffering ? 'bg-primary' :
-                          isSOP ? 'bg-blue-400' : 
-                          isBusinessEngine ? 'bg-purple-400' : 
+                          isSOP ? 'bg-blue-400' :
+                          isBusinessEngine ? 'bg-purple-400' :
                           'bg-slate-400'
                         }`}></div>
-                        
+
                         {/* Category Badge */}
                         <div className="absolute top-4 left-4 z-10">
                           <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-lg font-heading text-xs uppercase tracking-widest font-bold ${
                             isMainOffering ? 'bg-primary text-primary-foreground' :
-                            isSOP ? 'bg-blue-100 text-blue-700' : 
-                            isBusinessEngine ? 'bg-purple-100 text-purple-700' : 
+                            isSOP ? 'bg-blue-100 text-blue-700' :
+                            isBusinessEngine ? 'bg-purple-100 text-purple-700' :
                             'bg-slate-100 text-slate-700'
                           }`}>
                             <div className={`w-2 h-2 rounded-full ${
                               isMainOffering ? 'bg-primary-foreground' :
-                              isSOP ? 'bg-blue-500' : 
-                              isBusinessEngine ? 'bg-purple-500' : 
+                              isSOP ? 'bg-blue-500' :
+                              isBusinessEngine ? 'bg-purple-500' :
                               'bg-slate-500'
                             }`}></div>
                             {isMainOffering ? 'Signature Service' : isSOP ? 'Asset Building' : isBusinessEngine ? 'Systemization' : 'Service'}
@@ -354,18 +354,18 @@ export default function HomePage() {
                         {/* Title */}
                         <h4 className={`font-heading text-2xl md:text-2xl font-bold mb-3 transition-colors duration-300 ${
                           isMainOffering ? 'text-primary' :
-                          isSOP ? 'text-blue-900' : 
-                          isBusinessEngine ? 'text-purple-900' : 
+                          isSOP ? 'text-blue-900' :
+                          isBusinessEngine ? 'text-purple-900' :
                           'text-text-header'
                         }`}>
                           {service.itemName}
                         </h4>
-                        
+
                         {/* Description */}
                         <p className="font-paragraph text-base md:text-lg text-text-body mb-6 leading-relaxed flex-1">
                           {service.itemDescription}
                         </p>
-                        
+
                         {/* Inclusions */}
                         <div className="space-y-2 mb-6">
                           <p className="font-heading text-xs uppercase tracking-widest text-text-body/60 font-semibold">What's Included:</p>
@@ -374,8 +374,8 @@ export default function HomePage() {
                               <div key={idx} className="flex items-start gap-2 group/item">
                                 <div className={`w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0 transition-all ${
                                   isMainOffering ? 'bg-primary' :
-                                  isSOP ? 'bg-blue-500' : 
-                                  isBusinessEngine ? 'bg-purple-500' : 
+                                  isSOP ? 'bg-blue-500' :
+                                  isBusinessEngine ? 'bg-purple-500' :
                                   'bg-primary'
                                 }`}></div>
                                 <span className="font-paragraph text-xs text-text-body/70 leading-relaxed">{item}</span>
@@ -388,8 +388,8 @@ export default function HomePage() {
                       {/* Footer Section - Pricing & CTA */}
                       <div className={`border-t p-6 md:p-8 ${
                         isMainOffering ? 'border-primary/20 bg-primary/3' :
-                        isSOP ? 'border-blue-100 bg-blue-50/30' : 
-                        isBusinessEngine ? 'border-purple-100 bg-purple-50/30' : 
+                        isSOP ? 'border-blue-100 bg-blue-50/30' :
+                        isBusinessEngine ? 'border-purple-100 bg-purple-50/30' :
                         'border-text-body/10 bg-text-body/2'
                       }`}>
                         {/* Pricing */}
@@ -406,14 +406,14 @@ export default function HomePage() {
                             * Introductory Rate
                           </button>
                         </div>
-                        
+
                         {/* CTA Button */}
-                        <Button 
-                          size="sm" 
+                        <Button
+                          size="sm"
                           className={`w-full font-heading text-sm py-2 h-auto rounded-lg transition-all duration-300 font-semibold ${
                             isMainOffering ? 'bg-primary text-primary-foreground hover:bg-primary/90' :
-                            isSOP ? 'bg-blue-600 text-white hover:bg-blue-700' : 
-                            isBusinessEngine ? 'bg-purple-600 text-white hover:bg-purple-700' : 
+                            isSOP ? 'bg-blue-600 text-white hover:bg-blue-700' :
+                            isBusinessEngine ? 'bg-purple-600 text-white hover:bg-purple-700' :
                             'bg-primary text-primary-foreground hover:bg-primary/90'
                           }`}
                            onClick={() => navigate(isMainOffering ? '/single-process-audit' : `/service/${service._id}`)}
@@ -436,7 +436,7 @@ export default function HomePage() {
       {/* ROI CALCULATOR - COMPACT & HIGH-DENSITY */}
       <section id="roi-calculator" className="w-full bg-text-header text-background py-24 md:py-32 lg:py-40 overflow-hidden relative">
         {/* Sleek background with grid overlay */}
-        <div className="absolute inset-0 opacity-3" 
+        <div className="absolute inset-0 opacity-3"
              style={{ backgroundColor: '#EEF5FF', backgroundImage: 'linear-gradient(45deg, #fff 1px, transparent 1px)', backgroundSize: '20px 20px' }}>
         </div>
 
@@ -452,10 +452,10 @@ export default function HomePage() {
             >
               <div className="mb-8">
                 <p className="font-heading text-xs uppercase tracking-widest text-primary font-bold mb-4">THE COST OF INACTION</p>
-                <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl mb-6 text-white font-bold leading-tight">
+                <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl mb-6 text-black font-bold leading-tight">
                   Every Week You Wait, You're Paying for It.
                 </h2>
-                <p className="font-paragraph text-base md:text-lg text-white/70 leading-relaxed max-w-xl">
+                <p className="font-paragraph text-base md:text-lg text-black/70 leading-relaxed max-w-xl">
                   Adjust your hourly rate and hours lost to messy workflows to see the real cost of staying stuck.
                 </p>
               </div>
@@ -472,7 +472,7 @@ export default function HomePage() {
               {/* Calculator Content */}
               <div className="space-y-8">
                 {/* Hourly Rate Input */}
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -483,7 +483,7 @@ export default function HomePage() {
                     <Label htmlFor="hourlyRate" className="font-heading text-sm font-semibold text-foreground">
                       Hourly Rate
                     </Label>
-                    <motion.span 
+                    <motion.span
                       key={hourlyRate}
                       initial={{ scale: 1.1, opacity: 0 }}
                       animate={{ scale: 1, opacity: 1 }}
@@ -512,7 +512,7 @@ export default function HomePage() {
                 </motion.div>
 
                 {/* Hours Per Week Slider */}
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -523,7 +523,7 @@ export default function HomePage() {
                     <Label htmlFor="hoursPerWeek" className="font-heading text-sm font-semibold text-foreground">
                       Hours Lost / Week
                     </Label>
-                    <motion.span 
+                    <motion.span
                       key={hoursPerWeek[0]}
                       initial={{ scale: 1.1, opacity: 0 }}
                       animate={{ scale: 1, opacity: 1 }}
@@ -554,7 +554,7 @@ export default function HomePage() {
                 {/* Results Grid */}
                 <div className="grid grid-cols-3 gap-3">
                   {/* Weekly */}
-                  <motion.div 
+                  <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -574,7 +574,7 @@ export default function HomePage() {
                   </motion.div>
 
                   {/* Monthly */}
-                  <motion.div 
+                  <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -594,7 +594,7 @@ export default function HomePage() {
                   </motion.div>
 
                   {/* Yearly - Highlighted */}
-                  <motion.div 
+                  <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -648,8 +648,8 @@ export default function HomePage() {
             ) : processExamples.length > 0 ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                 {processExamples.slice(0, 9).map((process, index) => (
-                  <GridProcessCard 
-                    key={process._id} 
+                  <GridProcessCard
+                    key={process._id}
                     process={process}
                     index={index}
                     total={Math.min(processExamples.length, 9)}
@@ -668,7 +668,7 @@ export default function HomePage() {
       <section id="contact" className="w-full bg-gradient-to-b from-background to-accent-grey/5 border-b border-accent-grey/30">
         <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24 py-[60px]">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 min-h-[600px]">
-            <motion.div 
+            <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -685,9 +685,9 @@ export default function HomePage() {
                 <p className="font-paragraph text-lg md:text-xl text-secondary/90 mb-12 max-w-md leading-relaxed">
                   Have a question or want to request a customized package? Fill out the form and I'll get back to you within 48 hours.
                 </p>
-                
+
                 <div className="hidden lg:block relative w-full aspect-video overflow-hidden mt-12 rounded-2xl">
-                   <Image 
+                   <Image
                      src="https://static.wixstatic.com/media/2b1878_aec3db263b214735bf34a51a3804f816~mv2.png?originWidth=576&originHeight=576"
                      alt="Minimalist desk setup"
                      className="object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-700"
@@ -695,7 +695,7 @@ export default function HomePage() {
                 </div>
               </motion.div>
 
-            <motion.div 
+            <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -809,11 +809,11 @@ function getIconForProcess(processName?: string, index?: number) {
     const IconComponent = UNIQUE_ICONS[index % UNIQUE_ICONS.length];
     return <IconComponent className="w-8 h-8 sm:w-10 sm:h-10" />;
   }
-  
+
   if (!processName) return <Workflow className="w-8 h-8 sm:w-10 sm:h-10" />;
-  
+
   const name = processName.toLowerCase();
-  
+
   if (name.includes('automat') || name.includes('workflow')) return <Workflow className="w-8 h-8 sm:w-10 sm:h-10" />;
   if (name.includes('team') || name.includes('collaborat')) return <Users className="w-8 h-8 sm:w-10 sm:h-10" />;
   if (name.includes('growth') || name.includes('scale') || name.includes('expand')) return <TrendingUp className="w-8 h-8 sm:w-10 sm:h-10" />;
@@ -823,25 +823,25 @@ function getIconForProcess(processName?: string, index?: number) {
   if (name.includes('idea') || name.includes('innovat') || name.includes('creat')) return <Lightbulb className="w-8 h-8 sm:w-10 sm:h-10" />;
   if (name.includes('analyt') || name.includes('data') || name.includes('metric')) return <BarChart3 className="w-8 h-8 sm:w-10 sm:h-10" />;
   if (name.includes('power') || name.includes('energy') || name.includes('boost')) return <Zap className="w-8 h-8 sm:w-10 sm:h-10" />;
-  
+
   return <Workflow className="w-8 h-8 sm:w-10 sm:h-10" />;
 }
 
 // Grid process card - Dense, professional, core redesign components aesthetic
-function GridProcessCard({ 
-  process, 
-  index, 
-  total 
-}: { 
-  process: ProcessExamples; 
+function GridProcessCard({
+  process,
+  index,
+  total
+}: {
+  process: ProcessExamples;
   index: number;
   total: number;
 }) {
   return (
-    <motion.div 
-      initial={{ opacity: 0, scale: 0.95 }} 
-      whileInView={{ opacity: 1, scale: 1 }} 
-      viewport={{ once: true, margin: "-50px" }} 
+    <motion.div
+      initial={{ opacity: 0, scale: 0.95 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.6, delay: index * 0.08 }}
       className="h-full"
     >
