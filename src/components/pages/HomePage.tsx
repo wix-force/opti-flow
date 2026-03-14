@@ -236,13 +236,13 @@ export default function HomePage() {
               transition={{ duration: 0.9, delay: 0.3 }}
               className="hidden lg:flex items-center justify-center"
             >
-              <div className="relative w-[270px] h-[270px] rounded-2xl overflow-hidden shadow-lg">
+              <div className="relative w-[320px] h-[320px] rounded-2xl overflow-hidden shadow-lg">
                 <Image
                   src="https://static.wixstatic.com/media/5602cb_8a09de0e84624cb3a1a827823eb13e07~mv2.png?originWidth=960&originHeight=960"
                   alt="Workflow automation and business efficiency"
                   className="w-full h-full object-cover"
-                  width={270}
-                  height={270}
+                  width={320}
+                  height={320}
                 />
               </div>
             </motion.div>
