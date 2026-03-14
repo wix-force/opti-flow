@@ -201,7 +201,7 @@ export default function HomePage() {
                 transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                 className="flex flex-col md:flex-row gap-8 items-start md:items-center max-w-3xl"
               >
-                <div className="w-12 h-[1px] bg-text-body/20 hidden md:block"></div>
+
                 <p className="font-paragraph text-lg md:text-xl text-text-body leading-relaxed">
                   Send me a 10-minute <a href="/about-loom" className="text-primary hover:text-primary/80 font-semibold transition-colors">Loom</a> video of a task you want to speed up or eliminate. I'll send you the playbook to fix it.
                 </p>
@@ -780,49 +780,5 @@ function GridProcessCard({
   const isLastRow = index >= total - (total % 3 === 0 ? 3 : total % 3);
   const isLastInRow = (index + 1) % 3 === 0;
   
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 10 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.4, delay: index * 0.05 }}
-      className={`border border-dark-grey p-[25px] flex flex-col h-full pt-[25px] ${
-        !isLastRow ? 'border-b border-dark-grey' : ''
-      } ${
-        !isLastInRow ? 'border-r border-dark-grey' : ''
-      }`}
-    >
-      <div className="flex flex-col h-full space-y-0">
-        {/* Workflow Title - Bold, top-aligned, zero margin below */}
-        <h3 className="font-heading text-lg font-bold text-foreground leading-[1.3] mb-0">
-          {process.processName}
-        </h3>
-        
-        {/* Description Text - 14px, line-height 1.3, 12px margin below */}
-        <p className="font-paragraph text-[14px] text-[#666666] leading-[1.3] mb-[12px] flex-1">
-          {process.processDescription}
-        </p>
-        
-        {/* Friction Section - Electric Blue label, bold, all-caps, 12px */}
-        {process.commonPainPoint && (
-          <div className="mb-[8px]">
-            <p className="font-paragraph text-[14px] leading-[1.3]">
-              <span className="font-heading text-[12px] font-bold text-primary uppercase tracking-wide">Friction:</span>{' '}
-              <span className="text-foreground text-[14px] leading-[1.3]">{process.commonPainPoint}</span>
-            </p>
-          </div>
-        )}
-        
-        {/* Impact Section - Electric Blue label, bold, all-caps, 12px */}
-        {process.potentialImpact && (
-          <div className="mb-0">
-            <p className="font-paragraph text-[14px] leading-[1.3]">
-              <span className="font-heading text-[12px] font-bold text-primary uppercase tracking-wide">Impact:</span>{' '}
-              <span className="text-foreground text-[14px] leading-[1.3]">{process.potentialImpact}</span>
-            </p>
-          </div>
-        )}
-      </div>
-    </motion.div>
-  );
+  return <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.6, delay: index * 0.08 }} className={`relative p-0 overflow-hidden group ${!isLastRow ? 'border-b border-dark-grey/20' : ''} ${!isLastInRow ? 'border-r border-dark-grey/20' : ''}`}> <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div> <div className="relative z-10 p-8 flex flex-col h-full"> <div className="flex items-center mb-4"> <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary text-xl font-bold mr-4 flex-shrink-0"> {index + 1} </span> <h3 className="font-heading text-xl font-bold text-foreground leading-tight"> {process.processName} </h3> </div> <p className="font-paragraph text-sm text-secondary leading-relaxed mb-6 flex-1"> {process.processDescription} </p> {process.commonPainPoint && ( <div className="mb-4"> <p className="font-paragraph text-xs leading-normal"> <span className="font-heading text-xs font-bold text-primary uppercase tracking-wider block mb-1">Friction Point:</span> <span className="text-foreground text-sm leading-normal"> {process.commonPainPoint} </span> </p> </div> )} {process.potentialImpact && ( <div className="mb-0"> <p className="font-paragraph text-xs leading-normal"> <span className="font-heading text-xs font-bold text-primary uppercase tracking-wider block mb-1">Potential Impact:</span> <span className="text-foreground text-sm leading-normal"> {process.potentialImpact} </span> </p> </div> )} </div> </motion.div>;
 }
