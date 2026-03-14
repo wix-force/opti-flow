@@ -442,7 +442,7 @@ export default function HomePage() {
 
         <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24 relative z-10">
           {/* Two-Column Layout - Text Left, Calculator Right */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-[70px] items-center my-[70px]">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-[70px] items-center">
             {/* Left Column - Header & Description */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
