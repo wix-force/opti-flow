@@ -666,7 +666,7 @@ export default function HomePage() {
                   Have a question or want to request a customized package? Fill out the form and I'll get back to you within 48 hours.
                 </p>
                 
-                <div className="hidden lg:block relative w-full aspect-video overflow-hidden mt-12 rounded-2xl">
+                <div className="hidden lg:block relative w-full aspect-video overflow-hidden rounded-2xl">
                    <Image 
                      src="https://static.wixstatic.com/media/2b1878_aec3db263b214735bf34a51a3804f816~mv2.png?originWidth=576&originHeight=576"
                      alt="Minimalist desk setup"
