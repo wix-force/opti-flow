@@ -822,25 +822,25 @@ function GridProcessCard({
       transition={{ duration: 0.6, delay: index * 0.08 }}
       className="h-full"
     >
-      <div className="h-full rounded-[10px] border border-dark-grey/20 hover:border-[#1876f2] transition-all duration-300 p-6 sm:p-8 flex flex-col items-center text-center group bg-background hover:scale-105 hover:shadow-lg">
+      <div className="h-full rounded-[10px] border border-dark-grey/20 hover:border-[#1876f2] transition-all duration-300 p-6 sm:p-8 flex flex-col items-center text-center group bg-background hover:scale-[1.025] hover:shadow-lg gap-5">
         {/* Square Box with Icon */}
-        <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-[5px] bg-primary/10 flex items-center justify-center mb-6 flex-shrink-0 text-primary">
+        <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-[5px] bg-primary/10 flex items-center justify-center flex-shrink-0 text-primary">
           {getIconForProcess(process.processName, index)}
         </div>
 
         {/* Process Name */}
-        <h3 className="font-heading text-lg sm:text-xl font-bold text-foreground leading-tight mb-4">
+        <h3 className="font-heading text-lg sm:text-xl font-bold text-foreground leading-tight">
           {process.processName}
         </h3>
 
         {/* Process Description */}
-        <p className="font-paragraph text-sm text-secondary leading-relaxed mb-6 flex-1">
+        <p className="font-paragraph text-sm text-secondary leading-relaxed flex-1">
           {process.processDescription}
         </p>
 
         {/* Common Pain Point */}
         {process.commonPainPoint && (
-          <div className="mb-4 w-full">
+          <div className="w-full">
             <p className="font-paragraph text-xs leading-normal">
               <span className="font-heading text-xs font-bold text-primary uppercase tracking-wider block mb-1">
                 Friction Point:
