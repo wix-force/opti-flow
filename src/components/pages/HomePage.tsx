@@ -166,7 +166,7 @@ export default function HomePage() {
         </motion.div>
       )}
       {/* HERO SECTION */}
-      <section className="relative w-full min-h-screen flex flex-col justify-center pt-32 pb-20 mt-[30px]">
+      <section className="relative w-full min-h-screen flex flex-col justify-center pt-32 pb-20 mt-section-sm">
         {/* Subtle gradient overlay */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -mr-48 -mt-48 pointer-events-none"></div>
 
