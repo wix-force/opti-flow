@@ -170,19 +170,10 @@ export default function HomePage() {
         {/* Subtle gradient overlay */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -mr-48 -mt-48 pointer-events-none"></div>
 
-        <div
-          className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24 relative z-10 rounded-2xl overflow-hidden py-10"
-          style={{
-            backgroundImage: 'url(https://static.wixstatic.com/media/5602cb_160662070d24401bb1bcd26dce9d3bcc~mv2.png?originWidth=1600&originHeight=896)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundAttachment: 'fixed'
-          }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/90 to-background/85 pointer-events-none rounded-2xl"></div>
-          <div className="relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
-            <div className="lg:col-span-9">
+        <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Left Column - Content */}
+            <div>
               <motion.div
                 initial={{ opacity: 0, y: 60 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -199,9 +190,8 @@ export default function HomePage() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                className="flex flex-col md:flex-row gap-8 items-start md:items-center max-w-3xl"
+                className="flex flex-col md:flex-row gap-8 items-start md:items-center max-w-3xl mb-12"
               >
-
                 <p className="font-paragraph text-lg md:text-xl text-text-body leading-relaxed">
                   Send me a 10-minute <a href="/about-loom" className="text-primary hover:text-primary/80 font-semibold transition-colors">Loom</a> video of a task you want to speed up or eliminate. I'll send you the playbook to fix it.
                 </p>
@@ -211,7 +201,7 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="mt-12 flex flex-col md:flex-row gap-4 items-start md:items-center flex-wrap"
+                className="flex flex-col sm:flex-row gap-4 items-start sm:items-center flex-wrap"
               >
                 <Button
                   size="sm"
@@ -231,7 +221,7 @@ export default function HomePage() {
 
                 <Button
                   size="sm"
-                  className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 font-heading px-8 py-3 h-auto rounded-lg md:ml-auto"
+                  className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 font-heading px-8 py-3 h-auto rounded-lg"
                   onClick={() => document.getElementById('offerings-section')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   Select A Package <ArrowRight className="ml-2 h-4 w-4" />
@@ -239,19 +229,40 @@ export default function HomePage() {
               </motion.div>
             </div>
 
-            <div className="lg:col-span-3 flex flex-col justify-end items-start lg:items-end opacity-50">
-               <motion.div
-                 animate={{ y: [0, 12, 0] }}
-                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-               >
-                 <ArrowDown className="w-8 h-8 text-text-header" />
-               </motion.div>
-               <span className="font-heading text-xs tracking-widest uppercase mt-4 writing-mode-vertical lg:writing-mode-horizontal font-semibold text-text-header">
-                 Scroll to Explore
-               </span>
-            </div>
+            {/* Right Column - Image */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.9, delay: 0.3 }}
+              className="hidden lg:flex items-center justify-center"
+            >
+              <div className="relative w-full aspect-square rounded-2xl overflow-hidden shadow-lg">
+                <Image
+                  src="https://static.wixstatic.com/media/5602cb_8a09de0e84624cb3a1a827823eb13e07~mv2.png?originWidth=960&originHeight=960"
+                  alt="Workflow automation and business efficiency"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </motion.div>
           </div>
-          </div>
+
+          {/* Scroll Indicator - Below Grid */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="flex flex-col justify-center items-center opacity-50 mt-16 lg:mt-20"
+          >
+            <motion.div
+              animate={{ y: [0, 12, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <ArrowDown className="w-8 h-8 text-text-header" />
+            </motion.div>
+            <span className="font-heading text-xs tracking-widest uppercase mt-4 font-semibold text-text-header">
+              Scroll to Explore
+            </span>
+          </motion.div>
         </div>
        </section>
       {/* VISUAL BRIDGE - "SEE THE OFFERINGS" */}
