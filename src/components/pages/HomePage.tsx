@@ -272,7 +272,7 @@ export default function HomePage() {
         </div>
       </section>
       {/* PRODUCT CONTAINER - MAIN OFFERING + ADDITIONAL OFFERINGS */}
-      <section id="service-single-process-audit" className="w-full bg-background py-24 md:py-32 lg:py-40">
+      <section id="service-single-process-audit" className="w-full bg-background py-[60px]">
         <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24">
           {isLoadingData ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
