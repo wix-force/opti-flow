@@ -1,7 +1,7 @@
 // HPI 1.7-G
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, CheckCircle, ArrowDown, X } from 'lucide-react';
+import { ArrowRight, CheckCircle, ArrowDown, X, Zap, Users, TrendingUp, Settings, Clock, Target, Lightbulb, BarChart3, Workflow } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -766,6 +766,25 @@ export default function HomePage() {
   );
 }
 
+// Map process names to appropriate icons
+function getIconForProcess(processName?: string) {
+  if (!processName) return <Workflow className="w-8 h-8 sm:w-10 sm:h-10" />;
+  
+  const name = processName.toLowerCase();
+  
+  if (name.includes('automat') || name.includes('workflow')) return <Workflow className="w-8 h-8 sm:w-10 sm:h-10" />;
+  if (name.includes('team') || name.includes('collaborat')) return <Users className="w-8 h-8 sm:w-10 sm:h-10" />;
+  if (name.includes('growth') || name.includes('scale') || name.includes('expand')) return <TrendingUp className="w-8 h-8 sm:w-10 sm:h-10" />;
+  if (name.includes('config') || name.includes('setup') || name.includes('optim')) return <Settings className="w-8 h-8 sm:w-10 sm:h-10" />;
+  if (name.includes('time') || name.includes('speed') || name.includes('fast')) return <Clock className="w-8 h-8 sm:w-10 sm:h-10" />;
+  if (name.includes('goal') || name.includes('target') || name.includes('object')) return <Target className="w-8 h-8 sm:w-10 sm:h-10" />;
+  if (name.includes('idea') || name.includes('innovat') || name.includes('creat')) return <Lightbulb className="w-8 h-8 sm:w-10 sm:h-10" />;
+  if (name.includes('analyt') || name.includes('data') || name.includes('metric')) return <BarChart3 className="w-8 h-8 sm:w-10 sm:h-10" />;
+  if (name.includes('power') || name.includes('energy') || name.includes('boost')) return <Zap className="w-8 h-8 sm:w-10 sm:h-10" />;
+  
+  return <Workflow className="w-8 h-8 sm:w-10 sm:h-10" />;
+}
+
 // Grid process card - Dense, professional, core redesign components aesthetic
 function GridProcessCard({ 
   process, 
@@ -786,10 +805,8 @@ function GridProcessCard({
     >
       <div className="h-full rounded-[10px] border border-dark-grey/20 hover:border-[#1876f2] transition-colors duration-300 p-6 sm:p-8 flex flex-col items-center text-center group bg-background">
         {/* Square Box with Icon */}
-        <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-[5px] bg-primary/10 flex items-center justify-center mb-6 flex-shrink-0">
-          <span className="text-primary text-3xl sm:text-4xl font-bold">
-            {index + 1}
-          </span>
+        <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-[5px] bg-primary/10 flex items-center justify-center mb-6 flex-shrink-0 text-primary">
+          {getIconForProcess(process.processName)}
         </div>
 
         {/* Process Name */}
