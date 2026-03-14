@@ -647,13 +647,13 @@ export default function HomePage() {
       {/* CONTACT FORM */}
       <section id="contact" className="w-full bg-gradient-to-b from-background to-accent-grey/5 border-b border-accent-grey/30">
         <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24 py-[60px]">
-          <div className="flex flex-col lg:grid lg:grid-cols-12 gap-16 lg:gap-20 min-h-[600px] items-center lg:items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 min-h-[600px]">
             <motion.div 
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7 }}
-                className="hidden lg:block lg:col-span-5"
+                className="lg:col-span-5"
               >
                 <div className="inline-block px-8 py-2 border border-[#1876f2] rounded-full mb-6">
                   <span className="text-[#1876f2] font-heading text-sm font-semibold">Get In Touch</span>
@@ -666,7 +666,7 @@ export default function HomePage() {
                   Have a question or want to request a customized package? Fill out the form and I'll get back to you within 48 hours.
                 </p>
                 
-                <div className="relative w-full aspect-video overflow-hidden rounded-2xl">
+                <div className="hidden lg:block relative w-full aspect-video overflow-hidden mt-12 rounded-2xl">
                    <Image 
                      src="https://static.wixstatic.com/media/2b1878_aec3db263b214735bf34a51a3804f816~mv2.png?originWidth=576&originHeight=576"
                      alt="Minimalist desk setup"
@@ -680,9 +680,9 @@ export default function HomePage() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="w-full lg:col-span-7 flex justify-center"
+            className="lg:col-span-7"
           >
-            <form onSubmit={handleSubmit} className="space-y-8 p-8 rounded-lg border border-border-light shadow-lg shadow-dark-grey/20 bg-white">
+            <form onSubmit={handleSubmit} className="space-y-8 p-8 border border-border-light rounded-[12px] shadow-lg shadow-dark-grey/10 bg-white">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-3">
                   <Label htmlFor="name" className="font-heading text-sm uppercase tracking-widest text-foreground font-semibold">Name *</Label>
@@ -693,7 +693,7 @@ export default function HomePage() {
                     value={formData.name}
                     onChange={handleFormChange}
                     required
-                    className="border border-border-light rounded-md px-4 py-3 text-lg focus-visible:ring-0 focus-visible:border-primary bg-white transition-colors placeholder:text-foreground/30"
+                    className="border border-border-light rounded-[6px] px-4 py-3 text-lg focus-visible:ring-0 focus-visible:border-primary bg-white transition-colors placeholder:text-foreground/30"
                     placeholder="Jane Doe"
                   />
                 </div>
@@ -706,7 +706,7 @@ export default function HomePage() {
                     value={formData.email}
                     onChange={handleFormChange}
                     required
-                    className="border border-border-light rounded-md px-4 py-3 text-lg focus-visible:ring-0 focus-visible:border-primary bg-white transition-colors placeholder:text-foreground/30"
+                    className="border border-border-light rounded-[6px] px-4 py-3 text-lg focus-visible:ring-0 focus-visible:border-primary bg-white transition-colors placeholder:text-foreground/30"
                     placeholder="jane@company.com"
                   />
                 </div>
@@ -720,7 +720,7 @@ export default function HomePage() {
                   type="text"
                   value={formData.company}
                   onChange={handleFormChange}
-                  className="border border-border-light rounded-md px-4 py-3 text-lg focus-visible:ring-0 focus-visible:border-primary bg-white transition-colors placeholder:text-foreground/30"
+                  className="border border-border-light rounded-[6px] px-4 py-3 text-lg focus-visible:ring-0 focus-visible:border-primary bg-white transition-colors placeholder:text-foreground/30"
                   placeholder="Acme Inc."
                 />
               </div>
@@ -734,7 +734,7 @@ export default function HomePage() {
                   onChange={handleFormChange}
                   required
                   rows={4}
-                  className="border border-border-light rounded-md px-4 py-3 text-lg focus-visible:ring-0 focus-visible:border-primary bg-white resize-none transition-colors placeholder:text-foreground/30"
+                  className="border border-border-light rounded-[6px] px-4 py-3 text-lg focus-visible:ring-0 focus-visible:border-primary bg-white resize-none transition-colors placeholder:text-foreground/30"
                   placeholder="Tell me about what's slowing you down..."
                 />
               </div>
