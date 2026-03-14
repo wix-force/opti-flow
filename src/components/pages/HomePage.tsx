@@ -834,7 +834,7 @@ function GridProcessCard({
         </h3>
 
         {/* Process Description */}
-        <p className="font-paragraph text-sm text-secondary leading-relaxed flex-1">
+        <p className="font-paragraph text-sm text-secondary leading-relaxed">
           {process.processDescription}
         </p>
 
