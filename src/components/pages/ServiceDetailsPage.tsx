@@ -647,21 +647,21 @@ export default function ServiceDetailsPage() {
 
 
           {/* METHODOLOGY SECTION */}
-          <section className="w-full bg-background py-16 md:py-24 border-b border-dark-grey/10">
-            <div className="w-full max-w-[100rem] mx-auto px-6 md:px-12 lg:px-16">
+          <section className="w-full py-16 md:py-24" style={{ backgroundColor: '#EEF6FF' }}>
+            <div className="w-full max-w-[100rem] mx-auto px-6 md:px-12 lg:px-16 flex flex-col items-center">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
-                className="mb-12"
+                className="mb-12 text-center"
               >
                 <h2 className="font-heading text-3xl md:text-4xl text-dark-grey font-bold">
                   The Capture & Translate Method
                 </h2>
               </motion.div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
                 {sopContent.methodology.map((step, idx) => (
                   <motion.div
                     key={idx}
@@ -669,9 +669,9 @@ export default function ServiceDetailsPage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: idx * 0.1 }}
                     viewport={{ once: true }}
-                    className="space-y-4 border border-dark-grey/10 p-8"
+                    className="border-2 border-primary rounded-3xl p-8 flex flex-col items-center text-center transition-transform duration-300 hover:scale-105"
                   >
-                    <div className="flex items-center gap-4">
+                    <div className="flex flex-col items-center gap-4 mb-4">
                       <span className="font-heading text-4xl text-primary font-bold">
                         {step.number}
                       </span>
