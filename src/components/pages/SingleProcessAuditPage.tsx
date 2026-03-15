@@ -77,7 +77,7 @@ export default function SingleProcessAuditPage() {
       <Header />
       <IntroductoryRateModal isOpen={isIntroRateModalOpen} onClose={() => setIsIntroRateModalOpen(false)} />
       
-      {/* HERO SECTION - Visually Optimized */}
+      {/* HERO SECTION */}
       <section className="w-full py-16 md:py-24 lg:py-32 px-6 md:px-12 lg:px-16 bg-background border-b border-border-light">
         <div className="w-full max-w-7xl mx-auto">
           <motion.div
@@ -154,42 +154,43 @@ export default function SingleProcessAuditPage() {
           </div>
         </div>
       </section>
-      {/* What is a Single Process Audit */}
-      <section className="w-full py-10 md:py-12 px-6 md:px-12 lg:px-16 bg-background border-b border-border-light">
+
+      {/* WHAT IS A SINGLE PROCESS AUDIT */}
+      <section className="w-full py-8 md:py-10 px-6 md:px-12 lg:px-16 bg-background border-b border-border-light">
         <div className="w-full max-w-7xl mx-auto">
-          <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground leading-tight mb-6">
+          <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground leading-tight mb-5">
             What is a Single Process Audit?
           </h2>
 
           <div className="max-w-3xl">
-            <p className="font-paragraph text-base md:text-lg text-text-body mb-4 leading-[1.6]">
+            <p className="font-paragraph text-base md:text-lg text-text-body mb-5 leading-[1.6]">
               A forensic examination of one specific workflow in your business. We're laser-focused on one process that's costing you time, money, or both.
             </p>
             
-            <div className="space-y-4">
+            <div className="space-y-3">
               <div>
-                <h3 className="font-heading text-sm font-bold text-foreground mb-2 uppercase tracking-wide">
+                <h3 className="font-heading text-sm font-bold text-foreground mb-1 uppercase tracking-wide">
                   Identifying Inefficiencies
                 </h3>
-                <p className="font-paragraph text-base text-text-body leading-[1.6]">
+                <p className="font-paragraph text-sm text-text-body leading-[1.5]">
                   We identify where your process leaks efficiency. Every manual step, every approval bottleneck, every tool that doesn't talk to another tool—we find it.
                 </p>
               </div>
               
               <div>
-                <h3 className="font-heading text-sm font-bold text-foreground mb-2 uppercase tracking-wide">
+                <h3 className="font-heading text-sm font-bold text-foreground mb-1 uppercase tracking-wide">
                   Quantifying Time Loss
                 </h3>
-                <p className="font-paragraph text-base text-text-body leading-[1.6]">
+                <p className="font-paragraph text-sm text-text-body leading-[1.5]">
                   Most businesses don't realize how many hours disappear into a single workflow. We quantify it. Then we fix it.
                 </p>
               </div>
 
               <div>
-                <h3 className="font-heading text-sm font-bold text-foreground mb-2 uppercase tracking-wide">
+                <h3 className="font-heading text-sm font-bold text-foreground mb-1 uppercase tracking-wide">
                   Your Roadmap Forward
                 </h3>
-                <p className="font-paragraph text-base text-text-body leading-[1.6]">
+                <p className="font-paragraph text-sm text-text-body leading-[1.5]">
                   A clear, actionable roadmap to reclaim those hours and redirect them toward revenue-generating work.
                 </p>
               </div>
@@ -197,56 +198,60 @@ export default function SingleProcessAuditPage() {
           </div>
         </div>
       </section>
-      {/* How it Works - Simple Three Step */}
-      <section className="w-full py-10 md:py-12 px-6 md:px-12 lg:px-16 bg-background border-b border-border-light">
+
+      {/* HOW IT WORKS - COMPACT LINEAR */}
+      <section className="w-full py-8 md:py-10 px-6 md:px-12 lg:px-16 bg-background border-b border-border-light">
         <div className="w-full max-w-7xl mx-auto">
-          <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-8 leading-tight">
+          <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-6 leading-tight">
             How it Works: The 20-Minute Rule
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="space-y-4 max-w-3xl">
             {[
               {
                 number: '01',
                 title: 'Submission',
-                description: 'You describe the workflow. Walk me through it step-by-step. Screen recordings, screenshots, voice memos, whatever works for you.'
+                description: 'You describe the workflow. Screen recordings, screenshots, or voice memos—whatever works.'
               },
               {
                 number: '02',
                 title: 'Scope',
-                description: 'I map the entire process. Every tool. Every step. Every decision point. Nothing is assumed; everything is documented.'
+                description: 'I map the entire process: every tool, step, and decision point. Nothing assumed.'
               },
               {
                 number: '03',
                 title: 'Result',
-                description: 'Within 4 business days, you receive a detailed audit report with specific, implementable recommendations.'
+                description: 'Within 4 business days, receive a detailed audit report with specific, implementable recommendations.'
               }
             ].map((item, index) => (
-              <div key={index} className="flex flex-col">
-                <div className="mb-3">
-                  <span className="font-heading text-3xl font-bold text-primary">
+              <div key={index} className="flex gap-4 items-start">
+                <div className="flex-shrink-0">
+                  <span className="font-heading text-2xl font-bold text-primary">
                     {item.number}
                   </span>
                 </div>
-                <h3 className="font-heading text-lg font-bold text-foreground mb-3">
-                  {item.title}
-                </h3>
-                <p className="font-paragraph text-base text-text-body leading-[1.6]">
-                  {item.description}
-                </p>
+                <div className="flex-1">
+                  <h3 className="font-heading text-base font-bold text-foreground mb-1">
+                    {item.title}
+                  </h3>
+                  <p className="font-paragraph text-sm text-text-body leading-[1.5]">
+                    {item.description}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
-      {/* What's Included */}
-      <section className="w-full py-10 md:py-12 px-6 md:px-12 lg:px-16 bg-background border-b border-border-light">
+
+      {/* WHAT'S INCLUDED - COMPACT */}
+      <section className="w-full py-8 md:py-10 px-6 md:px-12 lg:px-16 bg-background border-b border-border-light">
         <div className="w-full max-w-7xl mx-auto">
-          <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-8 leading-tight">
+          <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-5 leading-tight">
             What's Included in Your Audit
           </h2>
 
-          <div className="space-y-6 max-w-3xl">
+          <div className="space-y-4 max-w-3xl">
             {[
               {
                 title: 'Forensic Workflow Analysis',
@@ -261,15 +266,15 @@ export default function SingleProcessAuditPage() {
                 description: 'Specific, prioritized recommendations you can implement immediately to reclaim time and reduce costs.'
               }
             ].map((item, index) => (
-              <div key={index} className="flex gap-4 pb-6 border-b border-border-light last:border-b-0 last:pb-0">
-                <div className="flex-shrink-0 mt-1">
-                  <Check className="w-5 h-5 text-primary" />
+              <div key={index} className="flex gap-3 pb-4 border-b border-border-light last:border-b-0 last:pb-0">
+                <div className="flex-shrink-0 mt-0.5">
+                  <Check className="w-4 h-4 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-heading text-base font-bold text-foreground mb-2">
+                  <h3 className="font-heading text-sm font-bold text-foreground mb-1">
                     {item.title}
                   </h3>
-                  <p className="font-paragraph text-base text-text-body leading-[1.6]">
+                  <p className="font-paragraph text-sm text-text-body leading-[1.5]">
                     {item.description}
                   </p>
                 </div>
@@ -278,37 +283,39 @@ export default function SingleProcessAuditPage() {
           </div>
         </div>
       </section>
-      {/* Scope Definition */}
-      <section className="w-full py-10 md:py-12 px-6 md:px-12 lg:px-16 bg-background border-b border-border-light">
+
+      {/* SCOPE DEFINITION - REORDERED */}
+      <section className="w-full py-8 md:py-10 px-6 md:px-12 lg:px-16 bg-background border-b border-border-light">
         <div className="w-full max-w-7xl mx-auto">
-          <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-8 leading-tight">
+          <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-6 leading-tight">
             Scope Definition
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-3xl">
+          <div className="space-y-6 max-w-3xl">
             <div>
-              <h3 className="font-heading text-base font-bold text-foreground mb-3 uppercase tracking-wide">
+              <h3 className="font-heading text-base font-bold text-foreground mb-2 uppercase tracking-wide">
                 What Counts as a Workflow?
               </h3>
-              <p className="font-paragraph text-base text-text-body leading-[1.6]">
+              <p className="font-paragraph text-sm text-text-body leading-[1.5]">
                 A workflow is any repeatable sequence of steps that produces a business outcome. Examples: customer onboarding, invoice processing, content approval, lead qualification, order fulfillment, report generation, or data entry. If it happens more than once and involves multiple steps or tools, it's a workflow.
               </p>
             </div>
             <div>
-              <h3 className="font-heading text-base font-bold text-foreground mb-3 uppercase tracking-wide">
+              <h3 className="font-heading text-base font-bold text-foreground mb-2 uppercase tracking-wide">
                 The Boundaries
               </h3>
-              <p className="font-paragraph text-base text-text-body leading-[1.6]">
+              <p className="font-paragraph text-sm text-text-body leading-[1.5]">
                 A Single Process Audit focuses on ONE workflow. We don't audit your entire operation, your organizational structure, or your strategic direction. We audit the mechanics of one process and provide recommendations to optimize it.
               </p>
             </div>
           </div>
         </div>
       </section>
-      {/* Technical FAQ Section */}
-      <section className="w-full py-10 md:py-12 px-6 md:px-12 lg:px-16 bg-background border-b border-border-light">
+
+      {/* FAQ SECTION */}
+      <section className="w-full py-8 md:py-10 px-6 md:px-12 lg:px-16 bg-background border-b border-border-light">
         <div className="w-full max-w-7xl mx-auto max-w-3xl">
-          <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-8 leading-tight">
+          <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-6 leading-tight">
             Frequently Asked Questions
           </h2>
 
@@ -317,9 +324,9 @@ export default function SingleProcessAuditPage() {
               <div key={index} className="w-full">
                 <button
                   onClick={() => setExpandedFaq(expandedFaq === index ? null : index)}
-                  className="w-full py-4 flex items-center justify-between hover:opacity-70 transition-opacity text-left border-b border-border-light"
+                  className="w-full py-3 flex items-center justify-between hover:opacity-70 transition-opacity text-left border-b border-border-light"
                 >
-                  <h3 className="font-heading text-base font-bold text-foreground flex-1">
+                  <h3 className="font-heading text-sm font-bold text-foreground flex-1">
                     {item.header}
                   </h3>
                   <ChevronDown
@@ -334,9 +341,9 @@ export default function SingleProcessAuditPage() {
                     animate={{ opacity: 1, height: 'auto' }}
                     exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.3 }}
-                    className="py-4 overflow-hidden"
+                    className="py-3 overflow-hidden"
                   >
-                    <p className="font-paragraph text-base text-text-body leading-[1.6]">
+                    <p className="font-paragraph text-sm text-text-body leading-[1.5]">
                       {item.body}
                     </p>
                   </motion.div>
@@ -346,7 +353,8 @@ export default function SingleProcessAuditPage() {
           </div>
         </div>
       </section>
-      {/* Final CTA Section */}
+
+      {/* FINAL CTA SECTION */}
       <section className="w-full py-12 md:py-16 px-6 md:px-12 lg:px-16 bg-primary text-white">
         <div className="w-full max-w-7xl mx-auto max-w-3xl">
           <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4 leading-tight">
@@ -375,6 +383,7 @@ export default function SingleProcessAuditPage() {
           </div>
         </div>
       </section>
+
       <Footer />
     </div>
   );
