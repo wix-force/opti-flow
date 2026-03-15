@@ -255,19 +255,22 @@ export default function SingleProcessAuditPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="text-left"
+                whileHover={{ scale: 1.05 }}
+                className="h-full"
               >
-                <div className="mb-4">
-                  <span className="font-heading text-2xl md:text-3xl font-bold text-primary">
-                    {item.number}
-                  </span>
+                <div className="h-full aspect-square border-2 border-transparent hover:border-primary rounded-3xl p-6 md:p-8 flex flex-col items-center justify-center text-center bg-accent-grey transition-all duration-300 hover:shadow-lg">
+                  <div className="mb-4">
+                    <span className="font-heading text-4xl md:text-5xl font-bold text-primary">
+                      {item.number}
+                    </span>
+                  </div>
+                  <h3 className="font-heading text-base md:text-lg font-bold text-foreground mb-3">
+                    {item.title}
+                  </h3>
+                  <p className="font-paragraph text-sm md:text-base text-foreground leading-[1.6]">
+                    {item.description}
+                  </p>
                 </div>
-                <h3 className="font-heading text-base md:text-lg font-bold text-foreground mb-3">
-                  {item.title}
-                </h3>
-                <p className="font-paragraph text-sm md:text-base text-foreground leading-[1.6]">
-                  {item.description}
-                </p>
               </motion.div>
             ))}
           </div>
