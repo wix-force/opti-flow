@@ -278,12 +278,12 @@ export default function SingleProcessAuditPage() {
       </section>
       {/* What's Included */}
       <section className="w-full py-12 md:py-16 px-6 md:px-12 lg:px-16 bg-background border-b border-[#E5E5E5]">
-        <div className="w-full max-w-6xl">
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-8 leading-tight text-left">
+        <div className="w-full max-w-6xl mx-auto flex flex-col items-center">
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-8 leading-tight text-center">
             What's Included in Your Audit
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
             {[
               {
                 title: 'Forensic Workflow Analysis',
@@ -306,9 +306,9 @@ export default function SingleProcessAuditPage() {
                 viewport={{ once: true }}
                 className="h-full"
               >
-                <div className="h-full border-2 border-primary rounded-lg p-6 md:p-8 flex flex-col items-start justify-start bg-background">
-                  <div className="flex gap-3 mb-4">
-                    <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                <div className="h-full border-2 border-primary rounded-lg p-6 md:p-8 flex flex-col items-center justify-start bg-background text-center">
+                  <div className="flex flex-col gap-3 mb-4 items-center">
+                    <Check className="w-5 h-5 text-primary flex-shrink-0" />
                     <h3 className="font-heading text-base md:text-lg font-bold text-foreground">
                       {item.title}
                     </h3>
