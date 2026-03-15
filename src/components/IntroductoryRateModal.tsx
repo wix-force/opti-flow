@@ -76,7 +76,7 @@ export default function IntroductoryRateModal({ isOpen, onClose }: IntroductoryR
               <div className="pt-4">
                 <button
                   onClick={onClose}
-                  className="w-full bg-primary text-white rounded-2xl hover:bg-primary/90 font-heading text-base px-8 py-3 h-auto font-semibold uppercase tracking-widest transition-all duration-300"
+                  className="w-full bg-primary text-white rounded-xl hover:bg-primary/90 font-heading text-base px-8 py-3 h-auto font-semibold uppercase tracking-widest transition-all duration-300"
                 >
                   Got It
                 </button>
