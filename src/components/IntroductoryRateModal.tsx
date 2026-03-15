@@ -68,7 +68,7 @@ export default function IntroductoryRateModal({ isOpen, onClose }: IntroductoryR
                   During our Initial Rollout Phase, we are offering a Foundational Rate on all new packages. In exchange for this pricing, we ask for your permission to document the evolution of your operational architecture as a featured case study. All proprietary data and identifying information will be strictly anonymized to protect your firm's privacy.
                 </p>
                 <p className="font-paragraph text-base text-dark-grey/80 leading-relaxed">
-                  To opt out, send us a message <button onClick={handleContactClick} className="text-primary hover:text-primary/80 font-semibold underline transition-colors">here</button>.
+                  To opt out, send us a message <button onClick={handleContactClick} className="text-primary hover:text-primary/80 font-semibold underline transition-colors cursor-pointer\">here</button>.
                 </p>
               </div>
 
