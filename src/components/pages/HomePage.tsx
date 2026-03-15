@@ -451,7 +451,7 @@ export default function HomePage() {
             >
               <div className="mb-8">
                 <h2 className="font-heading text-3xl md:text-5xl lg:text-6xl mb-6 text-primary font-bold leading-tight">The Cost of Inaction</h2>
-                <p className="font-heading text-2xl  tracking-widest text-black font-bold mb-4">Adjust your hourly $ rate and hours spent on messy workflows to see your potential savings.</p>
+                <p className="font-paragraph text-base md:text-lg text-text-body leading-relaxed">Adjust your hourly $ rate and hours spent on messy workflows to see your potential savings.</p>
 
               </div>
             </motion.div>
