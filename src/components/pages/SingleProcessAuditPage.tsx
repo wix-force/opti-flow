@@ -258,7 +258,7 @@ export default function SingleProcessAuditPage() {
                 whileHover={{ scale: 1.05 }}
                 className="h-full"
               >
-                <div className="h-full aspect-square border-2 border-transparent hover:border-primary rounded-3xl p-6 md:p-8 flex flex-col items-center justify-center text-center bg-accent-grey transition-all duration-300 hover:shadow-lg">
+                <div className="h-full aspect-square border-2 border-primary hover:border-primary rounded-3xl p-6 md:p-8 flex flex-col items-center justify-center text-center bg-accent-grey transition-all duration-300 hover:shadow-lg">
                   <div className="mb-4">
                     <span className="font-heading text-4xl md:text-5xl font-bold text-primary">
                       {item.number}
