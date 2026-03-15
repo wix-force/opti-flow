@@ -881,7 +881,12 @@ function GridProcessCard({
 
             </p>
 
-
+<p class="font-paragraph text-[14px] leading-[1.3]">
+<span class="font-heading text-[12px] font-bold text-primary uppercase tracking-wide">Friction :< /span>
+<span class="text-foreground text-[14px] leading-[1.3]"> == $0
+"Manual copying and pasting from multiple sources, high risk data errors, and excessive time spent on administrative drafting."
+</span>
+</p>
 
           </div>
         )}
