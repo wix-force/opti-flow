@@ -873,7 +873,7 @@ function GridProcessCard({
         {process.potentialImpact && (
           <div className="w-full">
             <p className="font-paragraph text-xs leading-normal">
-              <span className="font-heading text-xs font-bold text-primary uppercase tracking-wider block mb-1">
+              <span className="font-heading text-xs font-bold text-primary uppercase tracking-wider mb-1">
                 Impact:
               </span>
 
@@ -881,12 +881,7 @@ function GridProcessCard({
 
             </p>
 
-<p class="font-paragraph text-[14px] leading-[1.3]">
-<span class="font-heading text-[12px] font-bold text-primary uppercase tracking-wide">Friction :< /span>
-<span class="text-foreground text-[14px] leading-[1.3]"> == $0
-"Manual copying and pasting from multiple sources, high risk data errors, and excessive time spent on administrative drafting."
-</span>
-</p>
+
 
           </div>
         )}
