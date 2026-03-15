@@ -326,7 +326,7 @@ export default function HomePage() {
                     <div className={`bg-container-bg border p-0 rounded-2xl transition-all duration-500 overflow-hidden flex flex-col h-full ${
                       isMainOffering
                         ? 'border-primary/30 hover:border-primary/50'
-                        : 'border-text-body/10 hover:border-text-body/20'
+                        : 'border-text-primary/30 hover:border-text-body/20'
                     }`}>
                       {/* Header Section with Icon Background */}
                       <div className={`relative h-20 md:h-24 overflow-hidden ${
