@@ -1,14 +1,14 @@
-import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { Button } from '@/components/ui/button';
-import { Check, ChevronDown, ArrowLeft } from 'lucide-react';
-import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { buyNow, BaseCrudService } from '@/integrations';
+import Header from '@/components/Header';
 import IntroductoryRateModal from '@/components/IntroductoryRateModal';
-import { motion } from 'framer-motion';
-import { Services } from '@/entities';
+import { Button } from '@/components/ui/button';
 import { Image } from '@/components/ui/image';
+import { Services } from '@/entities';
+import { BaseCrudService, buyNow } from '@/integrations';
+import { motion } from 'framer-motion';
+import { ArrowLeft, Check, ChevronDown } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function SingleProcessAuditPage() {
   const navigate = useNavigate();
@@ -231,7 +231,7 @@ export default function SingleProcessAuditPage() {
             How it Works: The 20-Minute Rule
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 center">
             {[
               {
                 number: '01',
