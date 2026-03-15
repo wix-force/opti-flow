@@ -373,7 +373,7 @@ export default function HomePage() {
                                 <div className={`w-2 h-2 rounded-full mt-2 flex-shrink-0 transition-all ${
                                   isMainOffering ? 'bg-primary' :
                                   isSOP ? 'bg-blue-500' :
-                                  isBusinessEngine ? 'bg-purple-500' :
+                                  isBusinessEngine ? 'bg-blue-500' :
                                   'bg-primary'
                                 }`}></div>
                                 <span className="font-paragraph text-sm text-text-body/75 leading-relaxed">{item}</span>
