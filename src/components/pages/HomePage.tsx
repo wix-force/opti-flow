@@ -158,7 +158,7 @@ export default function HomePage() {
             <div className=" gap-4" style={{ backgroundColor: '#EEF5FE' }}>
               <Button
                 onClick={() => setShowIntroRateModal(false)}
-                className="bg-primary text-primary-foreground hover:bg-primary/90 font-heading px-6 py-3 h-auto rounded-lg transition-all"
+                className="bg-primary text-primary-foreground hover:bg-primary/90 font-heading px-12 py-3 h-auto rounded-lg transition-all w-full"
               >
                 Got It
               </Button>
