@@ -136,7 +136,7 @@ export default function HomePage() {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex justify-between items-start mb-6">
-              <h2 className="font-heading text-3xl md:text-4xl text-foreground font-bold">
+              <h2 className="font-heading text-3xl md:text-4xl text-primary-foreground font-bold">
                 Introductory Rate
               </h2>
               <button
