@@ -192,7 +192,7 @@ export default function HomePage() {
                 transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                 className="flex flex-col md:flex-row gap-8 items-start md:items-center max-w-3xl mb-12"
               >
-                <p className="font-paragraph text-lg md:text-xl text-text-body leading-relaxed">
+                <p className="font-paragraph text-lg md:text-xl lg:text-2xl text-text-body leading-relaxed">
                   Send me a 10-minute <a href="/about-loom" className="text-primary hover:text-primary/80 font-semibold transition-colors">Loom</a> video of a task you want to speed up or eliminate. I'll send you the playbook to fix it.
                 </p>
               </motion.div>
