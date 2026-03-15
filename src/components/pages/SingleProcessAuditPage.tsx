@@ -209,14 +209,14 @@ export default function SingleProcessAuditPage() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               viewport={{ once: true }}
-              className="hidden lg:flex justify-center items-center"
+              className="hidden lg:flex justify-end items-center pr-8"
             >
-              <div className="relative w-full max-w-sm">
+              <div className="relative w-full max-w-lg">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl blur-2xl"></div>
                 <Image
                   src="https://static.wixstatic.com/media/5602cb_f0ef43247cce45dc9f5c2234b98fe9dc~mv2.png?originWidth=384&originHeight=256"
                   alt="Single Process Audit - Workflow analysis and process optimization illustration"
-                  width={400}
+                  width={500}
                   className="relative z-10 w-full h-auto rounded-2xl"
                 />
               </div>
