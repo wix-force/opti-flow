@@ -307,18 +307,15 @@ export default function HomePage() {
             </div>
           ) : services.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-              {services.slice(0, 3).map((service, index) => {
-                // Define colors for each card - all using purple/violet scheme like Signature Service
-                const cardColors = [
-                  { bg: '#EEF2FF', badge: '#4F46E5', badgeText: '#FFFFFF', button: '#4F46E5', buttonHover: '#4338CA' }, // Indigo
-                  { bg: '#F3E8FF', badge: '#A855F7', badgeText: '#FFFFFF', button: '#A855F7', buttonHover: '#9333EA' }, // Purple
-                  { bg: '#EDE9FE', badge: '#7C3AED', badgeText: '#FFFFFF', button: '#7C3AED', buttonHover: '#6D28D9' }, // Violet
-                ];
-                const colors = cardColors[index];
+              {services.map((service, index) => {
+                const isMainOffering = index === 0;
+                const isSOP = service.itemName?.toLowerCase().includes('sop library');
+                const isBusinessEngine = service.itemName?.toLowerCase().includes('business engine redesign');
 
                 return (
                   <motion.div
                     key={service._id}
+                    data-service={isMainOffering ? 'main-offering' : isSOP ? 'sop-library' : isBusinessEngine ? 'business-engine-redesign' : 'service'}
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
@@ -326,26 +323,41 @@ export default function HomePage() {
                     className="relative group"
                   >
                     {/* Card Container */}
-                    <div 
-                      className="p-0 rounded-2xl transition-all duration-500 overflow-hidden flex flex-col h-full border border-text-body/5 hover:border-text-body/10"
-                      style={{ backgroundColor: colors.bg }}
-                    >
-                      {/* Header Section */}
-                      <div className="relative h-20 md:h-24 overflow-hidden" style={{ backgroundColor: colors.bg }}>
+                    <div className={`bg-background border p-0 rounded-2xl transition-all duration-500 overflow-hidden flex flex-col h-full ${
+                      isMainOffering
+                        ? 'border-primary/30 hover:border-primary/50'
+                        : 'border-text-body/10 hover:border-text-body/20'
+                    }`}>
+                      {/* Header Section with Icon Background */}
+                      <div className={`relative h-20 md:h-24 overflow-hidden ${
+                        isMainOffering ? 'bg-primary/5' :
+                        isSOP ? 'bg-blue-50' :
+                        isBusinessEngine ? 'bg-purple-50' :
+                        'bg-slate-50'
+                      }`}>
                         {/* Decorative shape */}
-                        <div 
-                          className="absolute -top-12 -right-12 w-48 h-48 rounded-full opacity-15"
-                          style={{ backgroundColor: colors.badge }}
-                        ></div>
+                        <div className={`absolute -top-12 -right-12 w-48 h-48 rounded-full opacity-10 ${
+                          isMainOffering ? 'bg-primary' :
+                          isSOP ? 'bg-blue-400' :
+                          isBusinessEngine ? 'bg-purple-400' :
+                          'bg-slate-400'
+                        }`}></div>
 
                         {/* Category Badge */}
                         <div className="absolute top-4 left-4 z-10">
-                          <div 
-                            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg font-heading text-xs uppercase tracking-widest font-bold"
-                            style={{ backgroundColor: colors.badge, color: colors.badgeText }}
-                          >
-                            <div className="w-2 h-2 rounded-full" style={{ backgroundColor: colors.badgeText }}></div>
-                            Service
+                          <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-lg font-heading text-xs uppercase tracking-widest font-bold ${
+                            isMainOffering ? 'bg-primary text-primary-foreground' :
+                            isSOP ? 'bg-blue-100 text-blue-700' :
+                            isBusinessEngine ? 'bg-purple-100 text-purple-700' :
+                            'bg-slate-100 text-slate-700'
+                          }`}>
+                            <div className={`w-2 h-2 rounded-full ${
+                              isMainOffering ? 'bg-primary-foreground' :
+                              isSOP ? 'bg-blue-500' :
+                              isBusinessEngine ? 'bg-purple-500' :
+                              'bg-slate-500'
+                            }`}></div>
+                            {isMainOffering ? 'Signature Service' : isSOP ? 'Asset Building' : isBusinessEngine ? 'Systemization' : 'Service'}
                           </div>
                         </div>
                       </div>
@@ -353,7 +365,12 @@ export default function HomePage() {
                       {/* Content Section */}
                       <div className="flex-1 flex flex-col p-6 md:p-8">
                         {/* Title */}
-                        <h4 className="font-heading text-2xl md:text-2xl font-bold mb-3 text-text-header">
+                        <h4 className={`font-heading text-2xl md:text-2xl font-bold mb-3 transition-colors duration-300 ${
+                          isMainOffering ? 'text-primary' :
+                          isSOP ? 'text-blue-900' :
+                          isBusinessEngine ? 'text-purple-900' :
+                          'text-text-header'
+                        }`}>
                           {service.itemName}
                         </h4>
 
@@ -367,11 +384,13 @@ export default function HomePage() {
                           <p className="font-heading text-xs uppercase tracking-widest text-text-body/60 font-semibold">What's Included:</p>
                           <div className="space-y-2.5">
                             {service.serviceInclusions?.split('\n').map((item, idx) => (
-                              <div key={idx} className="flex items-start gap-3">
-                                <div 
-                                  className="w-2 h-2 rounded-full mt-2 flex-shrink-0"
-                                  style={{ backgroundColor: colors.badge }}
-                                ></div>
+                              <div key={idx} className="flex items-start gap-3 group/item">
+                                <div className={`w-2 h-2 rounded-full mt-2 flex-shrink-0 transition-all ${
+                                  isMainOffering ? 'bg-primary' :
+                                  isSOP ? 'bg-blue-500' :
+                                  isBusinessEngine ? 'bg-purple-500' :
+                                  'bg-primary'
+                                }`}></div>
                                 <span className="font-paragraph text-sm text-text-body/75 leading-relaxed">{item}</span>
                               </div>
                             ))}
@@ -380,7 +399,12 @@ export default function HomePage() {
                       </div>
 
                       {/* Footer Section - Pricing & CTA */}
-                      <div className="border-t border-text-body/10 p-6 md:p-8">
+                      <div className={`border-t p-6 md:p-8 ${
+                        isMainOffering ? 'border-primary/20 bg-primary/3' :
+                        isSOP ? 'border-blue-100 bg-blue-50/30' :
+                        isBusinessEngine ? 'border-purple-100 bg-purple-50/30' :
+                        'border-text-body/10 bg-text-body/2'
+                      }`}>
                         {/* Pricing */}
                         <div className="mb-4">
                           <div className="flex items-baseline gap-2 mb-1">
@@ -390,7 +414,7 @@ export default function HomePage() {
                           </div>
                           <button
                             onClick={() => setShowIntroRateModal(true)}
-                            className="font-paragraph text-xs uppercase tracking-widest text-text-body/80 font-semibold italic transition-colors hover:text-text-body underline"
+                            className="font-paragraph text-xs uppercase tracking-widest text-text-body/80 font-semibold italic transition-colors hover:text-primary underline"
                           >
                             * Introductory Rate
                           </button>
@@ -399,13 +423,13 @@ export default function HomePage() {
                         {/* CTA Button */}
                         <Button
                           size="sm"
-                          className="w-full font-heading text-sm py-2 h-auto rounded-lg transition-all duration-300 font-semibold text-white"
-                          style={{ 
-                            backgroundColor: colors.button,
-                          }}
-                          onMouseEnter={(e) => e.currentTarget.style.backgroundColor = colors.buttonHover}
-                          onMouseLeave={(e) => e.currentTarget.style.backgroundColor = colors.button}
-                          onClick={() => navigate(`/service/${service._id}`)}
+                          className={`w-full font-heading text-sm py-2 h-auto rounded-lg transition-all duration-300 font-semibold ${
+                            isMainOffering ? 'bg-primary text-primary-foreground hover:bg-primary/90' :
+                            isSOP ? 'bg-blue-600 text-white hover:bg-blue-700' :
+                            isBusinessEngine ? 'bg-purple-600 text-white hover:bg-purple-700' :
+                            'bg-primary text-primary-foreground hover:bg-primary/90'
+                          }`}
+                           onClick={() => navigate(isMainOffering ? '/single-process-audit' : `/service/${service._id}`)}
                         >
                           Learn More <ArrowRight className="ml-2 h-4 w-4" />
                         </Button>
