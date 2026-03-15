@@ -61,7 +61,7 @@ export default function IntroductoryRateModal({ isOpen, onClose }: IntroductoryR
 
               {/* Content */}
               <div className="space-y-4">
-                <h2 className="font-heading text-2xl md:text-3xl text-dark-grey font-bold">
+                <h2 className="font-heading text-2xl md:text-3xl text-primary font-bold">
                   Introductory Rate
                 </h2>
                 <p className="font-paragraph text-base text-dark-grey/80 leading-relaxed">
