@@ -1,19 +1,19 @@
 // HPI 1.7-G
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { ArrowRight, CheckCircle, ArrowDown, X, Zap, Users, TrendingUp, Settings, Clock, Target, Lightbulb, BarChart3, Workflow } from 'lucide-react';
+import Footer from '@/components/Footer';
+import Header from '@/components/Header';
 import { Button } from '@/components/ui/button';
+import { Image } from '@/components/ui/image';
 import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
-import { BaseCrudService } from '@/integrations';
+import { Textarea } from '@/components/ui/textarea';
 import { ProcessExamples, Services } from '@/entities';
-import { Image } from '@/components/ui/image';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import { useNavigate } from 'react-router-dom';
+import { BaseCrudService } from '@/integrations';
 import { useServiceStore } from '@/lib/serviceStore';
+import { motion } from 'framer-motion';
+import { ArrowDown, ArrowRight, BarChart3, Clock, Lightbulb, Settings, Target, TrendingUp, Users, Workflow, X, Zap } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function HomePage() {
   const navigate = useNavigate();
@@ -179,7 +179,7 @@ export default function HomePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
               >
-                <h1 className="font-heading text-[50px] md:text-[50px] lg:text-[px] leading-[0.95] tracking-tight text-text-header mb-12 font-bold">
+                <h1 className="font-heading text-6xl md:text-7xl lg:text-[6.5rem] leading-[0.95] tracking-tight text-text-header mb-12 font-bold">
                   Stop Losing <br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/80">5 Hours a Week</span> <br />
                   to Messy Workflows.
