@@ -346,12 +346,7 @@ export default function HomePage() {
                         {/* Category Badge */}
                         <div className="absolute top-4 left-4 z-10">
                           <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-lg font-heading text-xs uppercase tracking-widest font-bold bg-primary text-white`}>
-                            <div className={`w-2 h-2 rounded-full ${
-                              isMainOffering ? 'bg-primary-foreground' :
-                              isSOP ? 'bg-blue-500' :
-                              isBusinessEngine ? 'bg-purple-500' :
-                              'bg-slate-500'
-                            }`}></div>
+                            <div className="w-2 h-2 rounded-full bg-white"></div>
                             {isMainOffering ? 'Signature Service' : isSOP ? 'Asset Building' : isBusinessEngine ? 'Systemization' : 'Service'}
                           </div>
                         </div>
