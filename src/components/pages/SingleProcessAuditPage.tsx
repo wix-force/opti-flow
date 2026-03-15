@@ -154,7 +154,7 @@ export default function SingleProcessAuditPage() {
               initial={{ opacity: 0, x: 40 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="hidden lg:flex justify-center items-center"
+              className="hidden lg:flex justify-end items-center"
             >
               <div className="relative w-full max-w-md">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl blur-2xl"></div>
