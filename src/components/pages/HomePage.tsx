@@ -339,7 +339,7 @@ export default function HomePage() {
                         <div className={`absolute -top-12 -right-12 w-48 h-48 rounded-full opacity-10 ${
                           isMainOffering ? 'bg-primary' :
                           isSOP ? 'bg-blue-400' :
-                          isBusinessEngine ? 'bg-purple-400' :
+                          isBusinessEngine ? 'bg-blue-400' :
                           'bg-slate-400'
                         }`}></div>
 
