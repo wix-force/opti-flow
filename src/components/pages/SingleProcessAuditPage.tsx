@@ -112,7 +112,7 @@ export default function SingleProcessAuditPage() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mb-8"
             >
-              <p className="font-heading text-2xl md:text-3xl text-primary font-bold leading-[1.3]">
+              <p className="font-heading text-xl md:text-2xl text-primary font-bold leading-[1.3]">
                 One Workflow. One Audit. Immediate ROI.
               </p>
             </motion.div>
