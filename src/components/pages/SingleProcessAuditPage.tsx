@@ -66,7 +66,6 @@ export default function SingleProcessAuditPage() {
     <div className="min-h-screen bg-background text-foreground font-paragraph selection:bg-primary selection:text-white">
       <Header />
       <IntroductoryRateModal isOpen={isIntroRateModalOpen} onClose={() => setIsIntroRateModalOpen(false)} />
-      
       {/* BACK BUTTON */}
       <section className="w-full bg-background border-b border-[#E5E5E5] pt-10 pb-2">
         <div className="w-full px-6 md:px-12 lg:px-16">
@@ -79,7 +78,6 @@ export default function SingleProcessAuditPage() {
           </button>
         </div>
       </section>
-      
       {/* HERO SECTION */}
       <section className="relative w-full min-h-[60vh] flex flex-col justify-center pt-16 pb-12 md:pb-16 bg-background">
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -mr-48 -mt-48 pointer-events-none"></div>
@@ -102,7 +100,7 @@ export default function SingleProcessAuditPage() {
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             className="flex flex-col md:flex-row gap-6 items-start md:items-center max-w-3xl mb-8"
           >
-            <div className="w-12 h-[1px] bg-text-body/20 hidden md:block"></div>
+
             <p className="font-paragraph text-base md:text-lg text-text-body leading-relaxed">
               One Workflow. One Audit. Immediate ROI.
             </p>
@@ -147,7 +145,6 @@ export default function SingleProcessAuditPage() {
           </motion.div>
         </div>
       </section>
-
       {/* What is a Single Process Audit */}
       <section className="w-full py-12 md:py-16 px-6 md:px-12 lg:px-16 bg-background border-b border-[#E5E5E5]">
         <div className="w-full max-w-6xl">
@@ -179,7 +176,6 @@ export default function SingleProcessAuditPage() {
           </div>
         </div>
       </section>
-
       {/* How it Works - Three Column Layout with Numbers */}
       <section className="w-full py-12 md:py-16 px-6 md:px-12 lg:px-16 bg-background border-b border-[#E5E5E5]">
         <div className="w-full max-w-6xl">
@@ -229,7 +225,6 @@ export default function SingleProcessAuditPage() {
           </div>
         </div>
       </section>
-
       {/* What's Included */}
       <section className="w-full py-12 md:py-16 px-6 md:px-12 lg:px-16 bg-background border-b border-[#E5E5E5]">
         <div className="w-full max-w-6xl">
@@ -267,7 +262,6 @@ export default function SingleProcessAuditPage() {
           </div>
         </div>
       </section>
-
       {/* Scope Definition */}
       <section className="w-full py-12 md:py-16 px-6 md:px-12 lg:px-16 bg-background border-b border-[#E5E5E5]">
         <div className="w-full max-w-6xl">
@@ -299,7 +293,6 @@ export default function SingleProcessAuditPage() {
           </div>
         </div>
       </section>
-
       {/* Technical FAQ Section */}
       <section className="w-full py-12 md:py-16 px-6 md:px-12 lg:px-16 bg-background border-b border-[#E5E5E5]">
         <div className="w-full max-w-6xl">
@@ -344,7 +337,6 @@ export default function SingleProcessAuditPage() {
           </div>
         </div>
       </section>
-
       {/* Top CTA Button - Left Aligned */}
       <section className="w-full py-8 px-6 md:px-12 lg:px-16 bg-background border-b border-[#E5E5E5]">
         <div className="w-full max-w-6xl">
@@ -368,7 +360,6 @@ export default function SingleProcessAuditPage() {
           </div>
         </div>
       </section>
-
       {/* Bottom CTA Section */}
       <section className="w-full py-12 md:py-16 px-6 md:px-12 lg:px-16 bg-primary text-white">
         <div className="w-full max-w-6xl">
@@ -404,7 +395,6 @@ export default function SingleProcessAuditPage() {
           </div>
         </div>
       </section>
-
       <Footer />
     </div>
   );
