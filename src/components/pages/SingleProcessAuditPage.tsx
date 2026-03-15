@@ -171,10 +171,10 @@ export default function SingleProcessAuditPage() {
       </section>
       {/* What is a Single Process Audit */}
       <section className="w-full py-12 md:py-16 px-6 md:px-12 lg:px-16 bg-background border-b border-[#E5E5E5]">
-        <div className="w-full max-w-6xl">
+        <div className="w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
             {/* Left Content */}
-            <div>
+            <div className="max-w-2xl">
               <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground leading-tight text-left mb-8">
                 What is a Single Process Audit?
               </h2>
@@ -209,7 +209,7 @@ export default function SingleProcessAuditPage() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               viewport={{ once: true }}
-              className="hidden lg:flex justify-end items-center pr-8"
+              className="hidden lg:flex justify-end items-center"
             >
               <div className="relative w-full max-w-lg">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl blur-2xl"></div>
