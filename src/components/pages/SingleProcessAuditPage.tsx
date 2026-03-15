@@ -226,12 +226,12 @@ export default function SingleProcessAuditPage() {
       </section>
       {/* How it Works - Three Column Layout with Numbers */}
       <section className="w-full py-12 md:py-16 px-6 md:px-12 lg:px-16 bg-background border-b border-[#E5E5E5]">
-        <div className="w-full max-w-6xl">
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-8 leading-tight text-left">
+        <div className="w-full max-w-6xl mx-auto flex flex-col items-center">
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-8 leading-tight text-center">
             How it Works: The 20-Minute Rule
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
             {[
               {
                 number: '01',
