@@ -449,8 +449,8 @@ export default function HomePage() {
               transition={{ duration: 0.7, ease: "easeOut" }}
             >
               <div className="mb-8">
-                <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl mb-6 text-primary font-bold leading-tight">THE COST OF INACTION</h2>
-                <p className="font-heading text-xl  tracking-widest text-black font-bold mb-4">Adjust your hourly $ rate and hours spent on messy workflows to see your potential savings.</p>
+                <h2 className="font-heading text-3xl md:text-5xl lg:text-6xl mb-6 text-primary font-bold leading-tight">THE COST OF INACTION</h2>
+                <p className="font-heading text-2xl  tracking-widest text-black font-bold mb-4">Adjust your hourly $ rate and hours spent on messy workflows to see your potential savings.</p>
 
               </div>
             </motion.div>
