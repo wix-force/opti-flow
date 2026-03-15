@@ -284,14 +284,14 @@ export default function SingleProcessAuditPage() {
         </div>
       </section>
 
-      {/* SCOPE DEFINITION - REORDERED */}
+      {/* SCOPE DEFINITION - STACKED LAYOUT */}
       <section className="w-full py-16 md:py-20 px-6 md:px-12 lg:px-16 bg-background border-b border-border-light">
         <div className="w-full max-w-7xl mx-auto">
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-10 leading-tight">
             Scope Definition
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl">
+          <div className="space-y-6 max-w-4xl">
             <div className="bg-accent-grey rounded-lg p-6 border border-border-light">
               <h3 className="font-heading text-lg font-bold text-foreground mb-3 uppercase tracking-wide">
                 What Counts as a Workflow?
