@@ -77,38 +77,71 @@ export default function SingleProcessAuditPage() {
       <Header />
       <IntroductoryRateModal isOpen={isIntroRateModalOpen} onClose={() => setIsIntroRateModalOpen(false)} />
       
-      {/* HERO SECTION - Clean and Simple */}
-      <section className="w-full py-12 md:py-16 px-6 md:px-12 lg:px-16 bg-background border-b border-border-light">
+      {/* HERO SECTION - Visually Optimized */}
+      <section className="w-full py-16 md:py-24 lg:py-32 px-6 md:px-12 lg:px-16 bg-background border-b border-border-light">
         <div className="w-full max-w-7xl mx-auto">
-          <div className="mb-8">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="mb-12"
+          >
             <button
               onClick={handleBackToServices}
-              className="flex items-center gap-2 text-dark-grey hover:text-primary transition-colors font-heading text-xs uppercase tracking-widest font-semibold mb-6"
+              className="flex items-center gap-2 text-dark-grey hover:text-primary transition-colors font-heading text-xs uppercase tracking-widest font-semibold"
             >
               <ArrowLeft className="w-4 h-4" />
               Back to Services
             </button>
-          </div>
+          </motion.div>
 
-          <div className="max-w-3xl">
-            <h1 className="font-heading text-4xl md:text-5xl leading-tight text-text-header mb-4 font-bold">
-              The Single Process Audit
-            </h1>
-            <p className="font-paragraph text-lg text-text-body mb-6 leading-relaxed">
-              One Workflow. One Audit. Immediate ROI.
-            </p>
-            <p className="font-paragraph text-base text-text-body mb-8 leading-[1.6] max-w-2xl">
-              Stop losing hours to manual tasks. Send me your process; I'll send you the exit strategy.
-            </p>
-            <div className="flex flex-col gap-2">
+          <div className="max-w-4xl">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl leading-[1.1] text-text-header mb-6 font-bold tracking-tight">
+                The Single Process Audit
+              </h1>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="mb-8"
+            >
+              <p className="font-heading text-2xl md:text-3xl text-primary font-bold leading-[1.3]">
+                One Workflow. One Audit. Immediate ROI.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="mb-12"
+            >
+              <p className="font-paragraph text-lg md:text-xl text-text-body leading-[1.7] max-w-2xl">
+                Stop losing hours to manual tasks. Send me your process; I'll send you the exit strategy.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="flex flex-col gap-3"
+            >
               <Button
-                className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 font-heading px-6 py-2 h-auto rounded-lg text-sm disabled:opacity-70 disabled:cursor-not-allowed w-fit"
+                className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 font-heading px-8 py-3 h-auto rounded-lg text-base font-bold disabled:opacity-70 disabled:cursor-not-allowed w-fit shadow-sm hover:shadow-md"
                 onClick={handleSecureAudit}
                 disabled={isCheckingOut}
               >
                 {isCheckingOut ? 'Processing...' : `SECURE THIS AUDIT — ${service?.itemPrice || 198}*`}
               </Button>
-              <p className="font-paragraph text-xs text-dark-grey/60">
+              <p className="font-paragraph text-sm text-dark-grey/70">
                 *Introductory rate.{' '}
                 <button
                   onClick={() => setIsIntroRateModalOpen(true)}
@@ -117,7 +150,7 @@ export default function SingleProcessAuditPage() {
                   Learn more
                 </button>
               </p>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
