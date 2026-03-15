@@ -876,13 +876,8 @@ function GridProcessCard({
               <span className="font-heading text-xs font-bold text-primary uppercase tracking-wider mb-1">
                 Impact:
               </span>
-
                 {process.potentialImpact}
-
             </p>
-
-
-
           </div>
         )}
       </div>
