@@ -326,7 +326,7 @@ export default function HomePage() {
                     <div className={`bg-container-bg border p-0 rounded-2xl transition-all duration-500 overflow-hidden flex flex-col h-full ${
                       isMainOffering
                         ? 'border-primary/30 hover:border-primary/50'
-                        : 'border-text-primary/30 hover:border-text-body/20'
+                        : 'border-text-body/10 hover:border-text-body/20'
                     }`}>
                       {/* Header Section with Icon Background */}
                       <div className={`relative h-20 md:h-24 overflow-hidden ${
@@ -449,7 +449,7 @@ export default function HomePage() {
               transition={{ duration: 0.7, ease: "easeOut" }}
             >
               <div className="mb-8">
-                <h2 className="font-heading text-3xl md:text-5xl lg:text-6xl mb-6 text-primary font-bold leading-tight">THE COST OF INACTION</h2>
+                <h2 className="font-heading text-3xl md:text-5xl lg:text-6xl mb-6 text-primary font-bold leading-tight">The Cost of Inaction</h2>
                 <p className="font-heading text-2xl  tracking-widest text-black font-bold mb-4">Adjust your hourly $ rate and hours spent on messy workflows to see your potential savings.</p>
 
               </div>
