@@ -324,7 +324,7 @@ export default function SingleProcessAuditPage() {
       </section>
       {/* Scope Definition */}
       <section className="w-full py-12 md:py-16 px-6 md:px-12 lg:px-16 bg-background border-b border-[#E5E5E5]">
-        <div className="w-full max-w-6xl">
+        <div className="w-full max-w-6xl mx-auto">
           <h2 className="font-heading text-xs font-bold text-foreground mb-8 uppercase tracking-[0.15em] text-left">
             THE PERIMETER
           </h2>
@@ -333,8 +333,8 @@ export default function SingleProcessAuditPage() {
             Scope Definition
           </h3>
 
-          <div className="space-y-6 text-left">
-            <div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+            <div className="text-left">
               <h4 className="font-heading text-sm md:text-base font-bold text-foreground mb-2 uppercase tracking-[0.15em]">
                 What Counts as a Workflow?
               </h4>
@@ -342,7 +342,7 @@ export default function SingleProcessAuditPage() {
                 A workflow is any repeatable sequence of steps that produces a business outcome. Examples: customer onboarding, invoice processing, content approval, lead qualification, order fulfillment, report generation, or data entry. If it happens more than once and involves multiple steps or tools, it's a workflow.
               </p>
             </div>
-            <div className="border-t border-[#E5E5E5] pt-6">
+            <div className="text-left">
               <h4 className="font-heading text-sm md:text-base font-bold text-foreground mb-2 uppercase tracking-[0.15em]">
                 The Boundaries
               </h4>
