@@ -159,8 +159,8 @@ export default function SingleProcessAuditPage() {
               <div className="relative w-full max-w-md mr-0">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl blur-2xl"></div>
                 <Image
-                  src="https://static.wixstatic.com/media/5602cb_b91061f626ee48df8415fe1316b1589e~mv2.png?originWidth=576&originHeight=576"
-                  alt="Process Audit Workflow Illustration"
+                  src="https://static.wixstatic.com/media/5602cb_32b56ffac7284995a82e233ab592aa1e~mv2.png?originWidth=448&originHeight=448"
+                  alt="Process Audit Workflow Illustration - Workflow optimization and process analysis"
                   width={500}
                   className="relative z-10 w-full h-auto rounded-2xl"
                 />
