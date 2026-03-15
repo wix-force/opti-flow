@@ -353,7 +353,7 @@ export default function HomePage() {
                       </div>
 
                       {/* Content Section */}
-                      <div className="flex-1 flex flex-col p-6 md:p-8">
+                      <div className="flex-1 flex flex-col p-6 md:p-8 bg-white">
                         {/* Title */}
                         <h4 className="font-heading text-2xl md:text-2xl font-bold mb-3 text-primary">
                           {service.itemName}
