@@ -1,7 +1,6 @@
-import React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { X } from 'lucide-react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 interface IntroductoryRateModalProps {
   isOpen: boolean;
@@ -54,7 +53,7 @@ export default function IntroductoryRateModal({ isOpen, onClose }: IntroductoryR
               {/* Close Button */}
               <button
                 onClick={onClose}
-                className="absolute top-6 right-6 text-dark-grey/60 hover:text-dark-grey transition-colors"
+                className="absolute top-6 right-6 text-dark-grey/60 rounded-2xl hover:text-dark-grey transition-colors"
                 aria-label="Close modal"
               >
                 <X className="w-5 h-5" />
