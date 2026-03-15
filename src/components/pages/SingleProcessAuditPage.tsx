@@ -37,10 +37,19 @@ export default function SingleProcessAuditPage() {
     if (!service) return;
     setIsCheckingOut(true);
     try {
-      await buyNow([{ collectionId: 'services', itemId: service._id, quantity: 1 }]);
+      // Use buyNow with proper error handling
+      const result = await buyNow([{ 
+        collectionId: 'services', 
+        itemId: service._id, 
+        quantity: 1 
+      }]);
+      // If successful, the user will be redirected to checkout
+      // No need to reset isCheckingOut as the page will navigate away
     } catch (error) {
       console.error('Checkout error:', error);
       setIsCheckingOut(false);
+      // Optionally show error to user
+      alert('There was an issue processing your checkout. Please try again.');
     }
   };
 
