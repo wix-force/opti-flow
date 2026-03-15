@@ -283,7 +283,7 @@ export default function SingleProcessAuditPage() {
             What's Included in Your Audit
           </h2>
 
-          <div className="space-y-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
                 title: 'Forensic Workflow Analysis',
@@ -298,17 +298,26 @@ export default function SingleProcessAuditPage() {
                 description: 'Specific, prioritized recommendations you can implement immediately to reclaim time and reduce costs.'
               }
             ].map((item, index) => (
-              <div key={index} className="flex gap-3 text-left">
-                <Check className="w-4 h-4 text-primary flex-shrink-0 mt-1" />
-                <div>
-                  <h3 className="font-heading text-base md:text-lg font-bold text-foreground mb-1">
-                    {item.title}
-                  </h3>
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="h-full"
+              >
+                <div className="h-full border-2 border-primary rounded-lg p-6 md:p-8 flex flex-col items-start justify-start bg-background">
+                  <div className="flex gap-3 mb-4">
+                    <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <h3 className="font-heading text-base md:text-lg font-bold text-foreground">
+                      {item.title}
+                    </h3>
+                  </div>
                   <p className="font-paragraph text-sm md:text-base text-foreground leading-[1.6]">
                     {item.description}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
