@@ -609,13 +609,13 @@ export default function ServiceDetailsPage() {
           <section className="w-full bg-background py-16 md:py-24 border-b border-dark-grey/10">
             <div className="w-full max-w-[100rem] mx-auto px-6 md:px-12 lg:px-16">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
-                {/* LEFT: PROBLEM */}
+                {/* LEFT: PROBLEM CARD */}
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6 }}
                   viewport={{ once: true }}
-                  className="space-y-6 border-l-4 border-primary pl-8"
+                  className="space-y-6 border-2 border-primary rounded-3xl p-8 md:p-10"
                 >
                   <h2 className="font-heading text-3xl md:text-4xl text-dark-grey font-bold">
                     {sopContent.problemTitle}
@@ -625,13 +625,13 @@ export default function ServiceDetailsPage() {
                   </p>
                 </motion.div>
 
-                {/* RIGHT: SOLUTION */}
+                {/* RIGHT: SOLUTION CARD */}
                 <motion.div
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6 }}
                   viewport={{ once: true }}
-                  className="space-y-6 border-l-4 border-dark-grey pl-8"
+                  className="space-y-6 border-2 border-primary rounded-3xl p-8 md:p-10"
                 >
                   <h2 className="font-heading text-3xl md:text-4xl text-dark-grey font-bold">
                     {sopContent.solutionTitle}
