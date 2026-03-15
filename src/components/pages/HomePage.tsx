@@ -278,7 +278,7 @@ export default function HomePage() {
             transition={{ duration: 0.7, ease: "easeOut" }}
             className="flex flex-col items-center justify-center text-center"
           >
-            <h2 className="font-heading text-5xl md:text-6xl lg:text-7xl text-text-header font-bold tracking-tight leading-tight mb-8">See the Offering</h2>
+            <h2 className="font-heading text-5xl md:text-6xl lg:text-7xl text-text-header font-bold tracking-tight leading-tight mb-8">See the Offerings</h2>
             <p className="font-paragraph text-lg md:text-xl text-text-body max-w-3xl leading-relaxed">
               Choose the service that fits your needs. Each is designed to deliver measurable results.
             </p>
