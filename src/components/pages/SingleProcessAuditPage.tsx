@@ -168,29 +168,29 @@ export default function SingleProcessAuditPage() {
             </p>
             
             <div className="space-y-6">
-              <div className="bg-white rounded-lg p-5 border border-border-light">
-                <h3 className="font-heading text-base font-bold text-primary mb-2 uppercase tracking-wide">
+              <div className="bg-white rounded-lg p-6 border border-border-light">
+                <h3 className="font-heading text-base font-bold text-primary mb-3 uppercase tracking-wide">
                   Identifying Inefficiencies
                 </h3>
-                <p className="font-paragraph text-sm text-text-body leading-[1.6]">
+                <p className="font-paragraph text-base md:text-lg text-text-body leading-[1.7] font-medium">
                   We identify where your process leaks efficiency. Every manual step, every approval bottleneck, every tool that doesn't talk to another tool—we find it.
                 </p>
               </div>
               
-              <div className="bg-white rounded-lg p-5 border border-border-light">
-                <h3 className="font-heading text-base font-bold text-primary mb-2 uppercase tracking-wide">
+              <div className="bg-white rounded-lg p-6 border border-border-light">
+                <h3 className="font-heading text-base font-bold text-primary mb-3 uppercase tracking-wide">
                   Quantifying Time Loss
                 </h3>
-                <p className="font-paragraph text-sm text-text-body leading-[1.6]">
+                <p className="font-paragraph text-base md:text-lg text-text-body leading-[1.7] font-medium">
                   Most businesses don't realize how many hours disappear into a single workflow. We quantify it. Then we fix it.
                 </p>
               </div>
 
-              <div className="bg-white rounded-lg p-5 border border-border-light">
-                <h3 className="font-heading text-base font-bold text-primary mb-2 uppercase tracking-wide">
+              <div className="bg-white rounded-lg p-6 border border-border-light">
+                <h3 className="font-heading text-base font-bold text-primary mb-3 uppercase tracking-wide">
                   Your Roadmap Forward
                 </h3>
-                <p className="font-paragraph text-sm text-text-body leading-[1.6]">
+                <p className="font-paragraph text-base md:text-lg text-text-body leading-[1.7] font-medium">
                   A clear, actionable roadmap to reclaim those hours and redirect them toward revenue-generating work.
                 </p>
               </div>
@@ -266,7 +266,7 @@ export default function SingleProcessAuditPage() {
                 description: 'Specific, prioritized recommendations you can implement immediately to reclaim time and reduce costs.'
               }
             ].map((item, index) => (
-              <div key={index} className="flex gap-4 bg-white rounded-lg p-5 border border-border-light">
+              <div key={index} className="flex gap-4 bg-white rounded-lg p-6 border border-border-light">
                 <div className="flex-shrink-0 mt-1">
                   <Check className="w-5 h-5 text-primary" />
                 </div>
@@ -274,7 +274,7 @@ export default function SingleProcessAuditPage() {
                   <h3 className="font-heading text-base font-bold text-foreground mb-2">
                     {item.title}
                   </h3>
-                  <p className="font-paragraph text-sm text-text-body leading-[1.6]">
+                  <p className="font-paragraph text-base md:text-lg text-text-body leading-[1.7] font-medium">
                     {item.description}
                   </p>
                 </div>
@@ -296,7 +296,7 @@ export default function SingleProcessAuditPage() {
               <h3 className="font-heading text-lg font-bold text-foreground mb-3 uppercase tracking-wide">
                 What Counts as a Workflow?
               </h3>
-              <p className="font-paragraph text-sm text-text-body leading-[1.6]">
+              <p className="font-paragraph text-base md:text-lg text-text-body leading-[1.7] font-medium">
                 A workflow is any repeatable sequence of steps that produces a business outcome. Examples: customer onboarding, invoice processing, content approval, lead qualification, order fulfillment, report generation, or data entry. If it happens more than once and involves multiple steps or tools, it's a workflow.
               </p>
             </div>
@@ -304,7 +304,7 @@ export default function SingleProcessAuditPage() {
               <h3 className="font-heading text-lg font-bold text-foreground mb-3 uppercase tracking-wide">
                 The Boundaries
               </h3>
-              <p className="font-paragraph text-sm text-text-body leading-[1.6]">
+              <p className="font-paragraph text-base md:text-lg text-text-body leading-[1.7] font-medium">
                 A Single Process Audit focuses on ONE workflow. We don't audit your entire operation, your organizational structure, or your strategic direction. We audit the mechanics of one process and provide recommendations to optimize it.
               </p>
             </div>
