@@ -355,12 +355,7 @@ export default function HomePage() {
                       {/* Content Section */}
                       <div className="flex-1 flex flex-col p-6 md:p-8">
                         {/* Title */}
-                        <h4 className={`font-heading text-2xl md:text-2xl font-bold mb-3 transition-colors duration-300 ${
-                          isMainOffering ? 'text-primary' :
-                          isSOP ? 'text-blue-900' :
-                          isBusinessEngine ? 'text-purple-900' :
-                          'text-text-header'
-                        }`}>
+                        <h4 className="font-heading text-2xl md:text-2xl font-bold mb-3 text-primary">
                           {service.itemName}
                         </h4>
 
