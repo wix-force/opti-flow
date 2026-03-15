@@ -872,7 +872,7 @@ function GridProcessCard({
         {/* Potential Impact */}
         {process.potentialImpact && (
           <div className="w-full">
-            <p className="font-paragraph text-xs leading-normal">
+            <p className="font-paragraph text-sm leading-normal">
               <span className="font-heading text-xs font-bold text-primary uppercase tracking-wider mb-1">
                 Impact:
               </span>
