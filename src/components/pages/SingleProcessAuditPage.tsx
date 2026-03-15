@@ -8,6 +8,7 @@ import { buyNow, BaseCrudService } from '@/integrations';
 import IntroductoryRateModal from '@/components/IntroductoryRateModal';
 import { motion } from 'framer-motion';
 import { Services } from '@/entities';
+import { Image } from '@/components/ui/image';
 
 export default function SingleProcessAuditPage() {
   const navigate = useNavigate();
@@ -82,67 +83,90 @@ export default function SingleProcessAuditPage() {
       <section className="relative w-full min-h-[60vh] flex flex-col justify-center pt-16 pb-12 md:pb-16 bg-background">
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -mr-48 -mt-48 pointer-events-none"></div>
 
-        <div className="w-full px-6 md:px-12 lg:px-16 relative z-10 max-w-6xl">
-          <motion.div
-            initial={{ opacity: 0, y: 60 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl leading-[0.95] tracking-tight text-text-header mb-4 font-bold">
-              The Single <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/80">Process Audit</span>
-            </h1>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="flex flex-col md:flex-row gap-6 items-start md:items-center max-w-3xl mb-8"
-          >
-
-            <p className="font-paragraph text-base md:text-lg text-text-body leading-relaxed">
-              One Workflow. One Audit. Immediate ROI.
-            </p>
-          </motion.div>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="font-paragraph text-sm md:text-base text-text-body mb-8 max-w-2xl leading-[1.6]"
-          >
-            Stop losing hours to manual tasks. Send me your process; I'll send you the exit strategy.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-col gap-3 items-start flex-wrap"
-          >
-            <Button 
-              className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 font-heading px-6 py-2 h-auto rounded-lg text-sm disabled:opacity-70 disabled:cursor-not-allowed"
-              onClick={handleSecureAudit}
-              disabled={isCheckingOut}
-            >
-              {isCheckingOut ? 'Processing...' : `SECURE THIS AUDIT — ${service?.itemPrice || 198}*`}
-            </Button>
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="font-paragraph text-xs text-dark-grey/60"
-            >
-              *Introductory rate.{' '}
-              <button
-                onClick={() => setIsIntroRateModalOpen(true)}
-                className="text-primary hover:text-primary/80 font-semibold underline bg-none border-none p-0 cursor-pointer"
+        <div className="w-full px-6 md:px-12 lg:px-16 relative z-10">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            {/* Left Content */}
+            <div>
+              <motion.div
+                initial={{ opacity: 0, y: 60 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
               >
-                Learn more
-              </button>
-            </motion.p>
-          </motion.div>
+                <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl leading-[0.95] tracking-tight text-text-header mb-4 font-bold">
+                  The Single <br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/80">Process Audit</span>
+                </h1>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                className="flex flex-col md:flex-row gap-6 items-start md:items-center max-w-3xl mb-8"
+              >
+
+                <p className="font-paragraph text-base md:text-lg text-text-body leading-relaxed">
+                  One Workflow. One Audit. Immediate ROI.
+                </p>
+              </motion.div>
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="font-paragraph text-sm md:text-base text-text-body mb-8 max-w-2xl leading-[1.6]"
+              >
+                Stop losing hours to manual tasks. Send me your process; I'll send you the exit strategy.
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="flex flex-col gap-3 items-start flex-wrap"
+              >
+                <Button 
+                  className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 font-heading px-6 py-2 h-auto rounded-lg text-sm disabled:opacity-70 disabled:cursor-not-allowed"
+                  onClick={handleSecureAudit}
+                  disabled={isCheckingOut}
+                >
+                  {isCheckingOut ? 'Processing...' : `SECURE THIS AUDIT — ${service?.itemPrice || 198}*`}
+                </Button>
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.6, delay: 0.5 }}
+                  className="font-paragraph text-xs text-dark-grey/60"
+                >
+                  *Introductory rate.{' '}
+                  <button
+                    onClick={() => setIsIntroRateModalOpen(true)}
+                    className="text-primary hover:text-primary/80 font-semibold underline bg-none border-none p-0 cursor-pointer"
+                  >
+                    Learn more
+                  </button>
+                </motion.p>
+              </motion.div>
+            </div>
+
+            {/* Right Image */}
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="hidden lg:flex justify-center items-center"
+            >
+              <div className="relative w-full max-w-md">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl blur-2xl"></div>
+                <Image
+                  src="https://static.wixstatic.com/media/5602cb_1a0eabcf30194769812a66fd5c8b32f2~mv2.png?originWidth=576&originHeight=576"
+                  alt="Process Audit Workflow Illustration"
+                  width={500}
+                  className="relative z-10 w-full h-auto rounded-2xl"
+                />
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
       {/* What is a Single Process Audit */}
