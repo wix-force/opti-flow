@@ -387,7 +387,7 @@ export default function HomePage() {
                       <div className={`border-t p-6 md:p-8 ${
                         isMainOffering ? 'border-primary/20 bg-primary/3' :
                         isSOP ? 'border-blue-100 bg-blue-50/30' :
-                        isBusinessEngine ? 'border-purple-100 bg-purple-50/30' :
+                        isBusinessEngine ? 'border-blue-100 bg-blue-50/30' :
                         'border-text-body/10 bg-text-body/2'
                       }`}>
                         {/* Pricing */}
