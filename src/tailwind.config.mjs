@@ -36,7 +36,7 @@ export default {
                 'text-body': '#333333',
                 'text-header': '#000000',
                 'border-light': '#E5E5E5',
-                'container-bg': '#EFF6FF'
+                'container-bg': '#EEF5FE'
             },
             spacing: {
                 'section-sm': '80px',
