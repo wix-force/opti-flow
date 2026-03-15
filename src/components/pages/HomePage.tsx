@@ -611,7 +611,7 @@ export default function HomePage() {
 
                 {/* Footer Note */}
                 <p className="font-paragraph text-xs text-foreground/50 text-center">
-                  The Single Process Audit starts at <span className="font-semibold">$150</span> — often recovered in a single week.
+                  Single Process Audit starts at <span className="font-semibold">$198</span> — often recovered in a single week.
                 </p>
               </div>
             </motion.div>
