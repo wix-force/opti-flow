@@ -125,7 +125,7 @@ export default function SingleProcessAuditPage() {
                 transition={{ duration: 0.6, delay: 0.4 }}
                 className="flex flex-col gap-3 items-start flex-wrap"
               >
-                <Button 
+                <Button
                   className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 font-heading px-6 py-2 h-auto rounded-lg text-sm disabled:opacity-70 disabled:cursor-not-allowed"
                   onClick={handleSecureAudit}
                   disabled={isCheckingOut}
@@ -178,7 +178,7 @@ export default function SingleProcessAuditPage() {
               <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground leading-tight text-left mb-8">
                 What is a Single Process Audit?
               </h2>
-              
+
               <div className="space-y-4 text-foreground text-left">
                 <p className="font-paragraph text-sm md:text-base leading-[1.6]">
                   A Single Process Audit is a forensic examination of one specific workflow in your business. We're not looking at your entire operation—we're laser-focused on one process that's costing you time, money, or both.
@@ -230,7 +230,7 @@ export default function SingleProcessAuditPage() {
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-8 leading-tight text-left">
             How it Works: The 20-Minute Rule
           </h2>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
@@ -264,7 +264,7 @@ export default function SingleProcessAuditPage() {
                       {item.number}
                     </span>
                   </div>
-                  <h3 className="font-heading text-base md:text-lg font-bold text-foreground mb-3">
+                  <h3 className="font-heading text-base md:text-lg lg:text-xl font-bold text-foreground mb-3">
                     {item.title}
                   </h3>
                   <p className="font-paragraph text-sm md:text-base text-foreground leading-[1.6]">
@@ -282,7 +282,7 @@ export default function SingleProcessAuditPage() {
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-8 leading-tight text-left">
             What's Included in Your Audit
           </h2>
-          
+
           <div className="space-y-4">
             {[
               {
@@ -319,7 +319,7 @@ export default function SingleProcessAuditPage() {
           <h2 className="font-heading text-xs font-bold text-foreground mb-8 uppercase tracking-[0.15em] text-left">
             THE PERIMETER
           </h2>
-          
+
           <h3 className="font-heading text-lg md:text-xl font-bold text-foreground leading-tight text-left mb-6">
             Scope Definition
           </h3>
@@ -350,7 +350,7 @@ export default function SingleProcessAuditPage() {
           <h2 className="font-heading text-xs font-bold text-foreground mb-8 uppercase tracking-[0.15em] text-left">
             Technical FAQ
           </h2>
-          
+
           <div className="space-y-0">
             {faqItems.map((item, index) => (
               <div key={index}>
@@ -392,7 +392,7 @@ export default function SingleProcessAuditPage() {
       <section className="w-full py-8 px-6 md:px-12 lg:px-16 bg-background border-b border-[#E5E5E5]">
         <div className="w-full max-w-6xl">
           <div className="flex flex-col gap-2">
-            <Button 
+            <Button
               className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 font-heading px-6 py-2 h-auto rounded-lg text-sm w-fit disabled:opacity-70 disabled:cursor-not-allowed"
               onClick={handleSecureAudit}
               disabled={isCheckingOut}
@@ -422,7 +422,7 @@ export default function SingleProcessAuditPage() {
             Get your Single Process Audit today and discover exactly where your workflow is losing efficiency.
           </p>
           <div>
-            <Button 
+            <Button
               className="bg-white hover:bg-white/90 text-primary font-bold text-sm md:text-base px-6 py-2 h-auto rounded-lg disabled:opacity-70 disabled:cursor-not-allowed"
               onClick={handleSecureAudit}
               disabled={isCheckingOut}
