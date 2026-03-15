@@ -411,7 +411,7 @@ export default function HomePage() {
                           className={`w-full font-heading text-sm py-2 h-auto rounded-lg transition-all duration-300 font-semibold ${
                             isMainOffering ? 'bg-primary text-primary-foreground hover:bg-primary/90' :
                             isSOP ? 'bg-blue-600 text-white hover:bg-blue-700' :
-                            isBusinessEngine ? 'bg-purple-600 text-white hover:bg-purple-700' :
+                            isBusinessEngine ? 'bg-blue-600 text-white hover:bg-blue-700' :
                             'bg-primary text-primary-foreground hover:bg-primary/90'
                           }`}
                            onClick={() => navigate(isMainOffering ? '/single-process-audit' : `/service/${service._id}`)}
