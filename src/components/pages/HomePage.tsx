@@ -380,18 +380,18 @@ export default function HomePage() {
                         </p>
 
                         {/* Inclusions */}
-                        <div className="space-y-2 mb-6">
+                        <div className="space-y-3 mb-6">
                           <p className="font-heading text-xs uppercase tracking-widest text-text-body/60 font-semibold">What's Included:</p>
-                          <div className="space-y-1.5">
+                          <div className="space-y-2.5">
                             {service.serviceInclusions?.split('\n').map((item, idx) => (
-                              <div key={idx} className="flex items-start gap-2 group/item">
-                                <div className={`w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0 transition-all ${
+                              <div key={idx} className="flex items-start gap-3 group/item">
+                                <div className={`w-2 h-2 rounded-full mt-2 flex-shrink-0 transition-all ${
                                   isMainOffering ? 'bg-primary' :
                                   isSOP ? 'bg-blue-500' :
                                   isBusinessEngine ? 'bg-purple-500' :
                                   'bg-primary'
                                 }`}></div>
-                                <span className="font-paragraph text-xs text-text-body/70 leading-relaxed">{item}</span>
+                                <span className="font-paragraph text-sm text-text-body/75 leading-relaxed">{item}</span>
                               </div>
                             ))}
                           </div>
