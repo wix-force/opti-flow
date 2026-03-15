@@ -858,13 +858,11 @@ function GridProcessCard({
         {/* Common Pain Point */}
         {process.commonPainPoint && (
           <div className="w-full">
-            <p className="font-paragraph text-xs leading-normal">
-              <span className="font-heading text-xs font-bold text-primary uppercase tracking-wider block mb-1">
-                Friction Point:
+            <p className="font-paragraph text-sm leading-normal">
+              <span className="font-heading text-xs font-bold text-primary uppercase tracking-wider mb-1">
+                Friction:
               </span>
-              <span className="text-foreground text-sm leading-normal">
                 {process.commonPainPoint}
-              </span>
             </p>
           </div>
         )}
