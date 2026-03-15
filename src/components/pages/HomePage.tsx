@@ -451,7 +451,7 @@ export default function HomePage() {
               <div className="mb-8">
                 <p className="font-heading text-xs uppercase tracking-widest text-primary font-bold mb-4">THE COST OF INACTION</p>
                 <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl mb-6 text-black font-bold leading-tight">
-                  Every Week You Wait, You're Paying for It.
+                  Adjust your hourly $ rate and hours spent on messy workflows to see your potential savings.
                 </h2>
                 <p className="font-paragraph text-base md:text-lg text-black/70 leading-relaxed max-w-xl">
                   Adjust your hourly rate and hours lost to messy workflows to see the real cost of staying stuck.
