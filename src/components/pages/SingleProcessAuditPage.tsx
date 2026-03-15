@@ -172,31 +172,55 @@ export default function SingleProcessAuditPage() {
       {/* What is a Single Process Audit */}
       <section className="w-full py-12 md:py-16 px-6 md:px-12 lg:px-16 bg-background border-b border-[#E5E5E5]">
         <div className="w-full max-w-6xl">
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground leading-tight text-left mb-8">
-            What is a Single Process Audit?
-          </h2>
-          
-          <div className="space-y-4 text-foreground text-left">
-            <p className="font-paragraph text-sm md:text-base leading-[1.6]">
-              A Single Process Audit is a forensic examination of one specific workflow in your business. We're not looking at your entire operation—we're laser-focused on one process that's costing you time, money, or both.
-            </p>
-            <ul className="space-y-2 list-none">
-              <li className="flex gap-3">
-                <span className="text-primary font-bold flex-shrink-0">•</span>
-                <span className="font-paragraph text-sm md:text-base leading-[1.6]">
-                  <span className="font-bold">Seeing the out:</span> We identify where your process leaks efficiency. Every manual step, every approval bottleneck, every tool that doesn't talk to another tool—we find it.
-                </span>
-              </li>
-              <li className="flex gap-3">
-                <span className="text-primary font-bold flex-shrink-0">•</span>
-                <span className="font-paragraph text-sm md:text-base leading-[1.6]">
-                  <span className="font-bold">Time leaking:</span> Most businesses don't realize how many hours disappear into a single workflow. We quantify it. Then we fix it.
-                </span>
-              </li>
-            </ul>
-            <p className="font-paragraph text-sm md:text-base leading-[1.6]">
-              The result: A clear, actionable roadmap to reclaim those hours and redirect them toward revenue-generating work.
-            </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+            {/* Left Content */}
+            <div>
+              <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground leading-tight text-left mb-8">
+                What is a Single Process Audit?
+              </h2>
+              
+              <div className="space-y-4 text-foreground text-left">
+                <p className="font-paragraph text-sm md:text-base leading-[1.6]">
+                  A Single Process Audit is a forensic examination of one specific workflow in your business. We're not looking at your entire operation—we're laser-focused on one process that's costing you time, money, or both.
+                </p>
+                <ul className="space-y-2 list-none">
+                  <li className="flex gap-3">
+                    <span className="text-primary font-bold flex-shrink-0">•</span>
+                    <span className="font-paragraph text-sm md:text-base leading-[1.6]">
+                      <span className="font-bold">Seeing the out:</span> We identify where your process leaks efficiency. Every manual step, every approval bottleneck, every tool that doesn't talk to another tool—we find it.
+                    </span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-primary font-bold flex-shrink-0">•</span>
+                    <span className="font-paragraph text-sm md:text-base leading-[1.6]">
+                      <span className="font-bold">Time leaking:</span> Most businesses don't realize how many hours disappear into a single workflow. We quantify it. Then we fix it.
+                    </span>
+                  </li>
+                </ul>
+                <p className="font-paragraph text-sm md:text-base leading-[1.6]">
+                  The result: A clear, actionable roadmap to reclaim those hours and redirect them toward revenue-generating work.
+                </p>
+              </div>
+            </div>
+
+            {/* Right Image */}
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              viewport={{ once: true }}
+              className="hidden lg:flex justify-center items-center"
+            >
+              <div className="relative w-full max-w-sm">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl blur-2xl"></div>
+                <Image
+                  src="https://static.wixstatic.com/media/5602cb_f0ef43247cce45dc9f5c2234b98fe9dc~mv2.png?originWidth=384&originHeight=256"
+                  alt="Single Process Audit - Workflow analysis and process optimization illustration"
+                  width={400}
+                  className="relative z-10 w-full h-auto rounded-2xl"
+                />
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
