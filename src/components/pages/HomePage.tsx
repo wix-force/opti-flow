@@ -132,7 +132,8 @@ export default function HomePage() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ duration: 0.3 }}
-            className="bg-background border-2 border-primary rounded-2xl p-8 md:p-12 max-w-2xl w-full shadow-2xl"
+            className="border-2 border-primary rounded-2xl p-8 md:p-12 max-w-2xl w-full shadow-2xl"
+            style={{ backgroundColor: '#EEF5FE' }}
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex justify-between items-start mb-6">
