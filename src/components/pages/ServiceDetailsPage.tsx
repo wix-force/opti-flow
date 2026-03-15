@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { ArrowLeft, CheckCircle, Loader, ChevronDown, ChevronUp } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { BaseCrudService, buyNow } from '@/integrations';
-import { Services } from '@/entities';
-import { Image } from '@/components/ui/image';
-import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import Header from '@/components/Header';
 import IntroductoryRateModal from '@/components/IntroductoryRateModal';
+import { Button } from '@/components/ui/button';
+import { Image } from '@/components/ui/image';
+import { Services } from '@/entities';
+import { BaseCrudService, buyNow } from '@/integrations';
+import { motion } from 'framer-motion';
+import { ArrowLeft, CheckCircle, ChevronDown, ChevronUp, Loader } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 
 export default function ServiceDetailsPage() {
   const { id } = useParams<{ id: string }>();
@@ -66,13 +66,13 @@ export default function ServiceDetailsPage() {
     subtitle: 'Architect a Business That Runs Without You.',
     leadText: 'Stop playing "firefighter" with your operations. Let\'s rebuild your business engine from the ground up for total scalability and friction-free growth.',
     buttonText: 'SECURE YOUR ARCHITECTURE - $1,998+',
-    
+
     problemTitle: 'The Outdated Architecture',
     problemText: 'Your business isn\'t broken—it\'s blocked. The processes that worked at the start are now capping your next level. You\'ve outgrown your operational infrastructure, and every new hire, new revenue stream, and new market exposes the cracks.',
-    
+
     solutionTitle: 'The Forensic Reconstruction',
     solutionText: 'We don\'t just audit your processes. We examine how your workflows, tech stack, and team roles interact. Then we architect for where your business is going—not where it\'s been.',
-    
+
     methodology: [
       {
         title: 'The Deep Dive',
@@ -87,23 +87,23 @@ export default function ServiceDetailsPage() {
         description: 'An Implementation Protocol—the concrete manual for moving from "manual grind" to streamlined automation.'
       }
     ],
-    
+
     inclusions: [
       'Full Business Unit Architecture',
       'Legacy Friction Audit',
       'Tech Optimization Plan',
       'Operational ROI Report'
     ],
-    
+
     scopeTitle: 'Common Business Units',
     scopeItems: [
       { label: 'Revenue Operations', description: 'Sales funnels, deal flow, and revenue capture systems.' },
       { label: 'Delivery Operations', description: 'Project execution, fulfillment, and quality assurance.' },
       { label: 'Support Operations', description: 'Customer success, retention, and operational support.' }
     ],
-    
+
     perimeter: 'One business unit per engagement. If you need a full-company build or have multiple departments, contact me for a custom quote.',
-    
+
     faqs: [
       {
         question: 'How much time does this require from my team?',
@@ -130,13 +130,13 @@ export default function ServiceDetailsPage() {
     subtitle: 'Turn Tribal Knowledge into a Company Asset.',
     leadText: 'Stop the "How-To" friction and information lost between the lines. We capture your team\'s expertise, translate it into a searchable database, and eliminate repetitive questions for good.',
     buttonText: 'GET THE 10-SOP STARTER PACK',
-    
+
     problemTitle: 'The Cost of Friction',
     problemText: 'Every time a team member asks "How do I do this?" your organization pays a hidden cost. Errors multiply. Resources get wasted. Knowledge walks out the door.',
-    
+
     solutionTitle: 'The SOP Library',
     solutionText: 'A single-link knowledge system that plugs information leaks. Your team offloads tasks without thinking twice. No more "I didn\'t know how to do that."',
-    
+
     methodology: [
       {
         number: '1',
@@ -154,14 +154,14 @@ export default function ServiceDetailsPage() {
         description: 'Within 10 business days, receive your "Company Brain" in Notion, Google Drive, or your tool of choice.'
       }
     ],
-    
+
     inclusions: [
       '10 Professional Step-by-Step Guides',
       'The Searchable Database',
       '"Single-Link" Onboarding Logic',
       'Knowledge Protection'
     ],
-    
+
     faqs: [
       {
         question: 'Can I record all 10 at once?',
@@ -590,7 +590,7 @@ export default function ServiceDetailsPage() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.6, delay: 0.1 }}
-                    className="font-paragraph text-sm text-dark-grey/70 mt-2 text-right font-medium"
+                    className="font-paragraph text-sm text-dark-grey/70 mt-2  font-medium"
                   >
                     *Introductory rate.{' '}
                     <button
