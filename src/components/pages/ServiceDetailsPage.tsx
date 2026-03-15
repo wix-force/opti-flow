@@ -644,6 +644,45 @@ export default function ServiceDetailsPage() {
             </div>
           </section>
 
+          {/* TWO CARDS SECTION */}
+          <section className="w-full bg-background py-16 md:py-24 border-b border-dark-grey/10">
+            <div className="w-full max-w-[100rem] mx-auto px-6 md:px-12 lg:px-16">
+              <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center justify-center">
+                {/* CARD 1 */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  viewport={{ once: true }}
+                  className="w-full lg:w-1/2 border-2 border-primary p-8 md:p-12 min-h-[300px] flex flex-col justify-center"
+                >
+                  <h3 className="font-heading text-2xl md:text-3xl text-dark-grey font-bold mb-4">
+                    Card One
+                  </h3>
+                  <p className="font-paragraph text-lg text-dark-grey/70 leading-relaxed">
+                    This is the first card with a primary color border. Add your content here to describe key information or features.
+                  </p>
+                </motion.div>
+
+                {/* CARD 2 */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.1 }}
+                  viewport={{ once: true }}
+                  className="w-full lg:w-1/2 border-2 border-primary p-8 md:p-12 min-h-[300px] flex flex-col justify-center"
+                >
+                  <h3 className="font-heading text-2xl md:text-3xl text-dark-grey font-bold mb-4">
+                    Card Two
+                  </h3>
+                  <p className="font-paragraph text-lg text-dark-grey/70 leading-relaxed">
+                    This is the second card with a primary color border. Add your content here to describe key information or features.
+                  </p>
+                </motion.div>
+              </div>
+            </div>
+          </section>
+
           {/* METHODOLOGY SECTION */}
           <section className="w-full bg-background py-16 md:py-24 border-b border-dark-grey/10">
             <div className="w-full max-w-[100rem] mx-auto px-6 md:px-12 lg:px-16">
