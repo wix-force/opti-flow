@@ -307,86 +307,113 @@ export default function HomePage() {
             </div>
           ) : services.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-              {services.map((service, index) => (
-                <motion.div
-                  key={service._id}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.7, ease: "easeOut", delay: index * 0.15 }}
-                  className="relative group"
-                >
-                  {/* Card Container */}
-                  <div className="bg-background border border-text-body/10 hover:border-text-body/20 p-0 rounded-2xl transition-all duration-500 overflow-hidden flex flex-col h-full">
-                    {/* Header Section */}
-                    <div className="relative h-20 md:h-24 overflow-hidden bg-accent-grey">
-                      {/* Decorative shape */}
-                      <div className="absolute -top-12 -right-12 w-48 h-48 rounded-full opacity-10 bg-primary"></div>
+              {services.slice(0, 3).map((service, index) => {
+                // Define colors for each card - all using purple/violet scheme like Signature Service
+                const cardColors = [
+                  { bg: '#EEF2FF', badge: '#4F46E5', badgeText: '#FFFFFF', button: '#4F46E5', buttonHover: '#4338CA' }, // Indigo
+                  { bg: '#F3E8FF', badge: '#A855F7', badgeText: '#FFFFFF', button: '#A855F7', buttonHover: '#9333EA' }, // Purple
+                  { bg: '#EDE9FE', badge: '#7C3AED', badgeText: '#FFFFFF', button: '#7C3AED', buttonHover: '#6D28D9' }, // Violet
+                ];
+                const colors = cardColors[index];
 
-                      {/* Category Badge */}
-                      <div className="absolute top-4 left-4 z-10">
-                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg font-heading text-xs uppercase tracking-widest font-bold bg-primary text-primary-foreground">
-                          <div className="w-2 h-2 rounded-full bg-primary-foreground"></div>
-                          Service
+                return (
+                  <motion.div
+                    key={service._id}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.7, ease: "easeOut", delay: index * 0.15 }}
+                    className="relative group"
+                  >
+                    {/* Card Container */}
+                    <div 
+                      className="p-0 rounded-2xl transition-all duration-500 overflow-hidden flex flex-col h-full border border-text-body/5 hover:border-text-body/10"
+                      style={{ backgroundColor: colors.bg }}
+                    >
+                      {/* Header Section */}
+                      <div className="relative h-20 md:h-24 overflow-hidden" style={{ backgroundColor: colors.bg }}>
+                        {/* Decorative shape */}
+                        <div 
+                          className="absolute -top-12 -right-12 w-48 h-48 rounded-full opacity-15"
+                          style={{ backgroundColor: colors.badge }}
+                        ></div>
+
+                        {/* Category Badge */}
+                        <div className="absolute top-4 left-4 z-10">
+                          <div 
+                            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg font-heading text-xs uppercase tracking-widest font-bold"
+                            style={{ backgroundColor: colors.badge, color: colors.badgeText }}
+                          >
+                            <div className="w-2 h-2 rounded-full" style={{ backgroundColor: colors.badgeText }}></div>
+                            Service
+                          </div>
                         </div>
                       </div>
-                    </div>
 
-                    {/* Content Section */}
-                    <div className="flex-1 flex flex-col p-6 md:p-8">
-                      {/* Title */}
-                      <h4 className="font-heading text-2xl md:text-2xl font-bold mb-3 text-text-header">
-                        {service.itemName}
-                      </h4>
+                      {/* Content Section */}
+                      <div className="flex-1 flex flex-col p-6 md:p-8">
+                        {/* Title */}
+                        <h4 className="font-heading text-2xl md:text-2xl font-bold mb-3 text-text-header">
+                          {service.itemName}
+                        </h4>
 
-                      {/* Description */}
-                      <p className="font-paragraph text-base md:text-lg text-text-body mb-6 leading-relaxed flex-1">
-                        {service.itemDescription}
-                      </p>
+                        {/* Description */}
+                        <p className="font-paragraph text-base md:text-lg text-text-body mb-6 leading-relaxed flex-1">
+                          {service.itemDescription}
+                        </p>
 
-                      {/* Inclusions */}
-                      <div className="space-y-3 mb-6">
-                        <p className="font-heading text-xs uppercase tracking-widest text-text-body/60 font-semibold">What's Included:</p>
-                        <div className="space-y-2.5">
-                          {service.serviceInclusions?.split('\n').map((item, idx) => (
-                            <div key={idx} className="flex items-start gap-3">
-                              <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0 bg-primary"></div>
-                              <span className="font-paragraph text-sm text-text-body/75 leading-relaxed">{item}</span>
-                            </div>
-                          ))}
+                        {/* Inclusions */}
+                        <div className="space-y-3 mb-6">
+                          <p className="font-heading text-xs uppercase tracking-widest text-text-body/60 font-semibold">What's Included:</p>
+                          <div className="space-y-2.5">
+                            {service.serviceInclusions?.split('\n').map((item, idx) => (
+                              <div key={idx} className="flex items-start gap-3">
+                                <div 
+                                  className="w-2 h-2 rounded-full mt-2 flex-shrink-0"
+                                  style={{ backgroundColor: colors.badge }}
+                                ></div>
+                                <span className="font-paragraph text-sm text-text-body/75 leading-relaxed">{item}</span>
+                              </div>
+                            ))}
+                          </div>
                         </div>
                       </div>
-                    </div>
 
-                    {/* Footer Section - Pricing & CTA */}
-                    <div className="border-t border-text-body/10 p-6 md:p-8">
-                      {/* Pricing */}
-                      <div className="mb-4">
-                        <div className="flex items-baseline gap-2 mb-1">
-                          <span className="font-heading text-4xl md:text-4xl font-bold text-text-header">
-                            ${service.itemPrice || 199}
-                          </span>
+                      {/* Footer Section - Pricing & CTA */}
+                      <div className="border-t border-text-body/10 p-6 md:p-8">
+                        {/* Pricing */}
+                        <div className="mb-4">
+                          <div className="flex items-baseline gap-2 mb-1">
+                            <span className="font-heading text-4xl md:text-4xl font-bold text-text-header">
+                              ${service.itemPrice || 199}
+                            </span>
+                          </div>
+                          <button
+                            onClick={() => setShowIntroRateModal(true)}
+                            className="font-paragraph text-xs uppercase tracking-widest text-text-body/80 font-semibold italic transition-colors hover:text-text-body underline"
+                          >
+                            * Introductory Rate
+                          </button>
                         </div>
-                        <button
-                          onClick={() => setShowIntroRateModal(true)}
-                          className="font-paragraph text-xs uppercase tracking-widest text-text-body/80 font-semibold italic transition-colors hover:text-primary underline"
+
+                        {/* CTA Button */}
+                        <Button
+                          size="sm"
+                          className="w-full font-heading text-sm py-2 h-auto rounded-lg transition-all duration-300 font-semibold text-white"
+                          style={{ 
+                            backgroundColor: colors.button,
+                          }}
+                          onMouseEnter={(e) => e.currentTarget.style.backgroundColor = colors.buttonHover}
+                          onMouseLeave={(e) => e.currentTarget.style.backgroundColor = colors.button}
+                          onClick={() => navigate(`/service/${service._id}`)}
                         >
-                          * Introductory Rate
-                        </button>
+                          Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                        </Button>
                       </div>
-
-                      {/* CTA Button */}
-                      <Button
-                        size="sm"
-                        className="w-full font-heading text-sm py-2 h-auto rounded-lg transition-all duration-300 font-semibold bg-primary text-primary-foreground hover:bg-primary/90"
-                        onClick={() => navigate(`/service/${service._id}`)}
-                      >
-                        Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                      </Button>
                     </div>
-                  </div>
-                </motion.div>
-              ))}
+                  </motion.div>
+                );
+              })}
             </div>
           ) : (
             <div className="text-center py-12">
