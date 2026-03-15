@@ -323,7 +323,7 @@ export default function HomePage() {
                     className="relative group"
                   >
                     {/* Card Container */}
-                    <div className={`bg-background border p-0 rounded-2xl transition-all duration-500 overflow-hidden flex flex-col h-full ${
+                    <div className={`bg-container-bg border p-0 rounded-2xl transition-all duration-500 overflow-hidden flex flex-col h-full ${
                       isMainOffering
                         ? 'border-primary/30 hover:border-primary/50'
                         : 'border-text-body/10 hover:border-text-body/20'

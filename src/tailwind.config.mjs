@@ -35,7 +35,8 @@ export default {
                 primary: '#007AFF',
                 'text-body': '#333333',
                 'text-header': '#000000',
-                'border-light': '#E5E5E5'
+                'border-light': '#E5E5E5',
+                'container-bg': '#EFF6FF'
             },
             spacing: {
                 'section-sm': '80px',
