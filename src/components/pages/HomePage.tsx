@@ -880,6 +880,9 @@ function GridProcessCard({
                 {process.potentialImpact}
 
             </p>
+
+
+
           </div>
         )}
       </div>
