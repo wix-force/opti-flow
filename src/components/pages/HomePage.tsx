@@ -155,7 +155,7 @@ export default function HomePage() {
               To opt out, send us a message <button onClick={() => { setShowIntroRateModal(false); setTimeout(() => { const contactSection = document.getElementById('contact'); if (contactSection) { window.scrollTo({ top: contactSection.offsetTop, behavior: 'smooth' }); } }, 100); }} className="text-primary hover:text-primary/80 font-semibold underline transition-colors">here</button>.
             </p>
 
-            <div className=" gap-4">
+            <div className=" gap-4" style={{ backgroundColor: '#EEF5FE' }}>
               <Button
                 onClick={() => setShowIntroRateModal(false)}
                 className="bg-primary text-primary-foreground hover:bg-primary/90 font-heading px-6 py-3 h-auto rounded-lg transition-all"
