@@ -77,8 +77,8 @@ export default function SingleProcessAuditPage() {
       <Header />
       <IntroductoryRateModal isOpen={isIntroRateModalOpen} onClose={() => setIsIntroRateModalOpen(false)} />
       {/* BACK BUTTON */}
-      <section className="w-full bg-background border-b border-[#E5E5E5] pt-10 pb-2">
-        <div className="w-full px-6 md:px-12 lg:px-16">
+      <section className="w-full bg-background border-b border-[#E5E5E5] py-4">
+        <div className="w-full px-6 md:px-12 lg:px-16 max-w-7xl mx-auto">
           <button
             onClick={handleBackToServices}
             className="flex items-center gap-2 text-dark-grey hover:text-primary transition-colors font-heading text-xs uppercase tracking-widest font-semibold"
@@ -89,11 +89,11 @@ export default function SingleProcessAuditPage() {
         </div>
       </section>
       {/* HERO SECTION */}
-      <section className="relative w-full min-h-[60vh] flex flex-col justify-center pt-16 pb-12 md:pb-16 bg-background">
+      <section className="relative w-full py-12 md:py-16 bg-background">
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -mr-48 -mt-48 pointer-events-none"></div>
 
-        <div className="w-full px-6 md:px-12 lg:px-16 relative z-10">
-          <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="w-full px-6 md:px-12 lg:px-16 relative z-10 max-w-7xl mx-auto">
+          <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-center">
             {/* Left Content */}
             <div>
               <motion.div
@@ -101,29 +101,26 @@ export default function SingleProcessAuditPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
               >
-                <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl leading-[0.95] tracking-tight text-text-header mb-4 font-bold">
+                <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl leading-[1.1] tracking-tight text-text-header mb-3 font-bold">
                   The Single <br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/80">Process Audit</span>
                 </h1>
               </motion.div>
 
-              <motion.div
+              <motion.p
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                className="flex flex-col md:flex-row gap-6 items-start md:items-center max-w-3xl mb-8"
+                className="font-paragraph text-base md:text-lg text-text-body mb-4 leading-relaxed"
               >
-
-                <p className="font-paragraph text-base md:text-lg text-text-body leading-relaxed">
-                  One Workflow. One Audit. Immediate ROI.
-                </p>
-              </motion.div>
+                One Workflow. One Audit. Immediate ROI.
+              </motion.p>
 
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="font-paragraph text-sm md:text-base text-text-body mb-8 max-w-2xl leading-[1.6]"
+                className="font-paragraph text-sm md:text-base text-text-body mb-6 max-w-xl leading-[1.6]"
               >
                 Stop losing hours to manual tasks. Send me your process; I'll send you the exit strategy.
               </motion.p>
@@ -132,7 +129,7 @@ export default function SingleProcessAuditPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="flex flex-col gap-3 items-start flex-wrap"
+                className="flex flex-col gap-2 items-start"
               >
                 <Button
                   className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 font-heading px-6 py-2 h-auto rounded-lg text-sm disabled:opacity-70 disabled:cursor-not-allowed"
@@ -163,14 +160,14 @@ export default function SingleProcessAuditPage() {
               initial={{ opacity: 0, x: 40 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="hidden lg:flex justify-end items-center ml-auto"
+              className="hidden lg:flex justify-end items-center"
             >
-              <div className="relative w-full max-w-md mr-0">
+              <div className="relative w-full max-w-sm">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl blur-2xl"></div>
                 <Image
                   src="https://static.wixstatic.com/media/5602cb_32b56ffac7284995a82e233ab592aa1e~mv2.png?originWidth=448&originHeight=448"
                   alt="Process Audit Workflow Illustration - Workflow optimization and process analysis"
-                  width={500}
+                  width={400}
                   className="relative z-10 w-full h-auto rounded-2xl"
                 />
               </div>
@@ -179,28 +176,28 @@ export default function SingleProcessAuditPage() {
         </div>
       </section>
       {/* What is a Single Process Audit */}
-      <section className="w-full py-12 md:py-16 px-6 md:px-12 lg:px-16 bg-background border-b border-[#E5E5E5]">
-        <div className="w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+      <section className="w-full py-10 md:py-12 px-6 md:px-12 lg:px-16 bg-background border-b border-[#E5E5E5]">
+        <div className="w-full max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-start">
             {/* Left Content */}
-            <div className="max-w-2xl">
-              <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground leading-tight text-left mb-8">
+            <div>
+              <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground leading-tight text-left mb-5">
                 What is a Single Process Audit?
               </h2>
 
-              <div className="space-y-4 text-foreground text-left">
+              <div className="space-y-3 text-foreground text-left">
                 <p className="font-paragraph text-sm md:text-base leading-[1.6]">
                   A Single Process Audit is a forensic examination of one specific workflow in your business. We're not looking at your entire operation—we're laser-focused on one process that's costing you time, money, or both.
                 </p>
                 <ul className="space-y-2 list-none">
-                  <li className="flex gap-3">
-                    <span className="text-primary font-bold flex-shrink-0">•</span>
+                  <li className="flex gap-2">
+                    <span className="text-primary font-bold flex-shrink-0 text-sm">•</span>
                     <span className="font-paragraph text-sm md:text-base leading-[1.6]">
                       <span className="font-bold">Seeing the out:</span> We identify where your process leaks efficiency. Every manual step, every approval bottleneck, every tool that doesn't talk to another tool—we find it.
                     </span>
                   </li>
-                  <li className="flex gap-3">
-                    <span className="text-primary font-bold flex-shrink-0">•</span>
+                  <li className="flex gap-2">
+                    <span className="text-primary font-bold flex-shrink-0 text-sm">•</span>
                     <span className="font-paragraph text-sm md:text-base leading-[1.6]">
                       <span className="font-bold">Time leaking:</span> Most businesses don't realize how many hours disappear into a single workflow. We quantify it. Then we fix it.
                     </span>
@@ -220,12 +217,12 @@ export default function SingleProcessAuditPage() {
               viewport={{ once: true }}
               className="hidden lg:flex justify-end items-center"
             >
-              <div className="relative w-full max-w-lg">
+              <div className="relative w-full max-w-sm">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl blur-2xl"></div>
                 <Image
                   src="https://static.wixstatic.com/media/5602cb_f0ef43247cce45dc9f5c2234b98fe9dc~mv2.png?originWidth=384&originHeight=256"
                   alt="Single Process Audit - Workflow analysis and process optimization illustration"
-                  width={500}
+                  width={400}
                   className="relative z-10 w-full h-auto rounded-2xl"
                 />
               </div>
@@ -234,13 +231,13 @@ export default function SingleProcessAuditPage() {
         </div>
       </section>
       {/* How it Works - Three Column Layout with Numbers */}
-      <section className="w-full py-12 md:py-16 px-6 md:px-12 lg:px-16 bg-background border-b border-[#E5E5E5]">
-        <div className="w-full max-w-6xl mx-auto flex flex-col items-center">
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-8 leading-tight text-center">
+      <section className="w-full py-10 md:py-12 px-6 md:px-12 lg:px-16 bg-background border-b border-[#E5E5E5]">
+        <div className="w-full max-w-7xl mx-auto flex flex-col items-center">
+          <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-6 leading-tight text-center">
             How it Works: The 20-Minute Rule
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
             {[
               {
                 number: '01',
@@ -267,16 +264,16 @@ export default function SingleProcessAuditPage() {
                 whileHover={{ scale: 1.05 }}
                 className="h-full"
               >
-                <div className="h-full aspect-square border-2 border-primary hover:border-primary rounded-3xl p-6 md:p-8 flex flex-col items-center justify-center text-center bg-accent-grey transition-all duration-300 hover:shadow-lg">
-                  <div className="mb-4">
-                    <span className="font-heading text-4xl md:text-5xl font-bold text-primary">
+                <div className="h-full border-2 border-primary hover:border-primary rounded-2xl p-5 md:p-6 flex flex-col items-center justify-center text-center bg-accent-grey transition-all duration-300 hover:shadow-lg">
+                  <div className="mb-3">
+                    <span className="font-heading text-3xl md:text-4xl font-bold text-primary">
                       {item.number}
                     </span>
                   </div>
-                  <h3 className="font-heading text-base md:text-lg lg:text-xl font-bold text-foreground mb-3">
+                  <h3 className="font-heading text-base md:text-lg font-bold text-foreground mb-2">
                     {item.title}
                   </h3>
-                  <p className="font-paragraph text-sm md:text-base text-foreground leading-[1.6]">
+                  <p className="font-paragraph text-xs md:text-sm text-foreground leading-[1.5]">
                     {item.description}
                   </p>
                 </div>
@@ -286,13 +283,13 @@ export default function SingleProcessAuditPage() {
         </div>
       </section>
       {/* What's Included */}
-      <section className="w-full py-12 md:py-16 px-6 md:px-12 lg:px-16 bg-background border-b border-[#E5E5E5]">
-        <div className="w-full max-w-6xl mx-auto flex flex-col items-center">
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-8 leading-tight text-center">
+      <section className="w-full py-10 md:py-12 px-6 md:px-12 lg:px-16 bg-background border-b border-[#E5E5E5]">
+        <div className="w-full max-w-7xl mx-auto flex flex-col items-center">
+          <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-6 leading-tight text-center">
             What's Included in Your Audit
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
             {[
               {
                 title: 'Forensic Workflow Analysis',
@@ -315,14 +312,14 @@ export default function SingleProcessAuditPage() {
                 viewport={{ once: true }}
                 className="h-full"
               >
-                <div className="h-full border-2 border-primary rounded-lg p-6 md:p-8 flex flex-col items-center justify-start bg-background text-center">
-                  <div className="flex flex-col gap-3 mb-4 items-center">
+                <div className="h-full border-2 border-primary rounded-lg p-5 md:p-6 flex flex-col items-center justify-start bg-background text-center">
+                  <div className="flex flex-col gap-2 mb-3 items-center">
                     <Check className="w-5 h-5 text-primary flex-shrink-0" />
-                    <h3 className="font-heading text-base md:text-lg font-bold text-foreground">
+                    <h3 className="font-heading text-sm md:text-base font-bold text-foreground">
                       {item.title}
                     </h3>
                   </div>
-                  <p className="font-paragraph text-sm md:text-base text-foreground leading-[1.6]">
+                  <p className="font-paragraph text-xs md:text-sm text-foreground leading-[1.5]">
                     {item.description}
                   </p>
                 </div>
@@ -332,17 +329,17 @@ export default function SingleProcessAuditPage() {
         </div>
       </section>
       {/* Scope Definition */}
-      <section className="w-full py-12 md:py-16 px-6 md:px-12 lg:px-16 bg-background border-b border-[#E5E5E5]">
-        <div className="w-full max-w-6xl mx-auto">
-          <h2 className="font-heading text-xs font-bold text-foreground mb-8 uppercase tracking-[0.15em] text-left">
+      <section className="w-full py-10 md:py-12 px-6 md:px-12 lg:px-16 bg-background border-b border-[#E5E5E5]">
+        <div className="w-full max-w-7xl mx-auto">
+          <h2 className="font-heading text-xs font-bold text-foreground mb-4 uppercase tracking-[0.15em] text-left">
             THE PERIMETER
           </h2>
 
-          <h3 className="font-heading text-lg md:text-xl font-bold text-foreground leading-tight text-left mb-6">
+          <h3 className="font-heading text-lg md:text-xl font-bold text-foreground leading-tight text-left mb-5">
             Scope Definition
           </h3>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             <div className="text-left">
               <h4 className="font-heading text-sm md:text-base font-bold text-foreground mb-2 uppercase tracking-[0.15em]">
                 What Counts as a Workflow?
@@ -363,9 +360,9 @@ export default function SingleProcessAuditPage() {
         </div>
       </section>
       {/* Technical FAQ Section */}
-      <section className="w-full py-12 md:py-16 px-6 md:px-12 lg:px-16 bg-background border-b border-[#E5E5E5]">
-        <div className="w-full max-w-6xl mx-auto">
-          <h2 className="font-heading text-xs font-bold text-foreground mb-8 uppercase tracking-[0.15em] text-left">
+      <section className="w-full py-10 md:py-12 px-6 md:px-12 lg:px-16 bg-background border-b border-[#E5E5E5]">
+        <div className="w-full max-w-7xl mx-auto">
+          <h2 className="font-heading text-xs font-bold text-foreground mb-5 uppercase tracking-[0.15em] text-left">
             Technical FAQ
           </h2>
 
@@ -376,7 +373,7 @@ export default function SingleProcessAuditPage() {
                   onClick={() => setExpandedFaq(expandedFaq === index ? null : index)}
                   className="w-full py-3 flex items-center justify-between hover:opacity-80 transition-opacity text-left"
                 >
-                  <h3 className="font-heading text-sm md:text-base font-bold text-foreground uppercase tracking-[0.15em] flex-1">
+                  <h3 className="font-heading text-xs md:text-sm font-bold text-foreground uppercase tracking-[0.15em] flex-1">
                     {item.header}
                   </h3>
                   <ChevronDown
@@ -393,7 +390,7 @@ export default function SingleProcessAuditPage() {
                     transition={{ duration: 0.3 }}
                     className="pb-3 overflow-hidden"
                   >
-                    <p className="font-paragraph text-sm md:text-base text-[#666666] leading-[1.6] w-full">
+                    <p className="font-paragraph text-xs md:text-sm text-[#666666] leading-[1.6] w-full">
                       {item.body}
                     </p>
                   </motion.div>
@@ -407,8 +404,8 @@ export default function SingleProcessAuditPage() {
         </div>
       </section>
       {/* Top CTA Button - Left Aligned */}
-      <section className="w-full py-8 px-6 md:px-12 lg:px-16 bg-background border-b border-[#E5E5E5]">
-        <div className="w-full max-w-6xl mx-auto">
+      <section className="w-full py-6 px-6 md:px-12 lg:px-16 bg-background border-b border-[#E5E5E5]">
+        <div className="w-full max-w-7xl mx-auto">
           <div className="flex flex-col gap-2">
             <Button
               className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 font-heading px-6 py-2 h-auto rounded-lg text-sm w-fit disabled:opacity-70 disabled:cursor-not-allowed"
@@ -430,13 +427,13 @@ export default function SingleProcessAuditPage() {
         </div>
       </section>
       {/* Bottom CTA Section */}
-      <section className="w-full py-12 md:py-16 px-6 md:px-12 lg:px-16 bg-primary text-white">
-        <div className="w-full max-w-6xl mx-auto">
-          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight text-left">
+      <section className="w-full py-10 md:py-12 px-6 md:px-12 lg:px-16 bg-primary text-white">
+        <div className="w-full max-w-7xl mx-auto">
+          <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl font-bold mb-3 leading-tight text-left">
             Ready to Reclaim <br />
             Your Time?
           </h2>
-          <p className="font-paragraph text-base md:text-lg mb-6 leading-[1.6] opacity-90 max-w-2xl">
+          <p className="font-paragraph text-sm md:text-base mb-5 leading-[1.6] opacity-90 max-w-2xl">
             Get your Single Process Audit today and discover exactly where your workflow is losing efficiency.
           </p>
           <div>
