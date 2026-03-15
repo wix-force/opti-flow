@@ -355,23 +355,23 @@ export default function SingleProcessAuditPage() {
       </section>
       {/* Technical FAQ Section */}
       <section className="w-full py-12 md:py-16 px-6 md:px-12 lg:px-16 bg-background border-b border-[#E5E5E5]">
-        <div className="w-full max-w-6xl">
+        <div className="w-full max-w-6xl mx-auto">
           <h2 className="font-heading text-xs font-bold text-foreground mb-8 uppercase tracking-[0.15em] text-left">
             Technical FAQ
           </h2>
 
-          <div className="space-y-0">
+          <div className="space-y-0 w-full">
             {faqItems.map((item, index) => (
-              <div key={index}>
+              <div key={index} className="w-full">
                 <button
                   onClick={() => setExpandedFaq(expandedFaq === index ? null : index)}
                   className="w-full py-3 flex items-center justify-between hover:opacity-80 transition-opacity text-left"
                 >
-                  <h3 className="font-heading text-sm md:text-base font-bold text-foreground uppercase tracking-[0.15em]">
+                  <h3 className="font-heading text-sm md:text-base font-bold text-foreground uppercase tracking-[0.15em] flex-1">
                     {item.header}
                   </h3>
                   <ChevronDown
-                    className={`w-4 h-4 text-foreground flex-shrink-0 transition-transform duration-300 ${
+                    className={`w-4 h-4 text-foreground flex-shrink-0 transition-transform duration-300 ml-4 ${
                       expandedFaq === index ? 'rotate-180' : ''
                     }`}
                   />
@@ -384,7 +384,7 @@ export default function SingleProcessAuditPage() {
                     transition={{ duration: 0.3 }}
                     className="pb-3 overflow-hidden"
                   >
-                    <p className="font-paragraph text-sm md:text-base text-[#666666] leading-[1.6]">
+                    <p className="font-paragraph text-sm md:text-base text-[#666666] leading-[1.6] w-full">
                       {item.body}
                     </p>
                   </motion.div>
@@ -399,7 +399,7 @@ export default function SingleProcessAuditPage() {
       </section>
       {/* Top CTA Button - Left Aligned */}
       <section className="w-full py-8 px-6 md:px-12 lg:px-16 bg-background border-b border-[#E5E5E5]">
-        <div className="w-full max-w-6xl">
+        <div className="w-full max-w-6xl mx-auto">
           <div className="flex flex-col gap-2">
             <Button
               className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 font-heading px-6 py-2 h-auto rounded-lg text-sm w-fit disabled:opacity-70 disabled:cursor-not-allowed"
@@ -422,7 +422,7 @@ export default function SingleProcessAuditPage() {
       </section>
       {/* Bottom CTA Section */}
       <section className="w-full py-12 md:py-16 px-6 md:px-12 lg:px-16 bg-primary text-white">
-        <div className="w-full max-w-6xl">
+        <div className="w-full max-w-6xl mx-auto">
           <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight text-left">
             Ready to Reclaim <br />
             Your Time?
