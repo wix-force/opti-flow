@@ -332,7 +332,7 @@ export default function HomePage() {
                       <div className={`relative h-20 md:h-24 overflow-hidden ${
                         isMainOffering ? 'bg-primary/5' :
                         isSOP ? 'bg-blue-50' :
-                        isBusinessEngine ? '' :
+                        isBusinessEngine ? 'bg-purple-50' :
                         'bg-slate-50'
                       }`}>
                         {/* Decorative shape */}
