@@ -673,7 +673,7 @@ export default function HomePage() {
                 <div className="inline-block px-8 py-2 border border-[#1876f2] rounded-full mb-6">
                   <span className="text-[#1876f2] font-heading text-sm font-semibold">Get In Touch</span>
                 </div>
-                <h2 className="font-heading text-6xl md:text-7xl lg:text-8xl text-foreground mb-8 font-bold leading-tight">
+                <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground mb-8 font-bold leading-tight">
                   Let's Get <br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/80">Started.</span>
                 </h2>
